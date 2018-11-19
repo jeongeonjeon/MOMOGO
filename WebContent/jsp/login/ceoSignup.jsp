@@ -4,9 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/MOMOGO/css/common.css">
-<link rel="stylesheet" href="/MOMOGO/css/signup.css">
-<title>Insert title here</title>
+<jsp:include page="/jsp/include/head.jsp" />
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
 	//daum주소 API사용
@@ -53,103 +51,112 @@
 </script>
 </head>
 <body>
-	<form name="signUp" action="#" >
-		<div id="signupForm">
-			<h3 class="signupGuide">사업자 정보를 입력해주세요</h3>
-			<div class="formRow">
-				<p class="formName">아이디</p>
-				<div class ="inputArea">
-					<input class="inputValue" type="text" name="id" placeholder="공백없이 4-20자">
+	<header>
+		<%@include file="/jsp/include/header.jsp"%>
+	</header>
+	<div class="ceoSignup_page page_shadow">
+		<form name="signUp" action="#" >
+			<div id="signupForm">
+				<div class="left_wrap">
+					<h3 class="signupGuide">사업자 정보를 입력해주세요</h3>
+					<div class="formRow">
+						<p class="formName">아이디</p>
+						<div class ="inputArea">
+							<input class="inputValue" type="text" name="id" placeholder="공백없이 4-20자">
+						</div>
+					</div>
+					<div class="formRow">
+						<p class="formName">비밀번호</p>
+						<div class ="inputArea">
+							<input class="inputValue" type="password" name="pw" placeholder="영문+숫자 포함,8-20자">
+						</div>
+					</div>
+					<div class="formRow">
+						<p class="formName">비밀번호 재확인</p>
+						<div class ="inputArea">
+							<input class="inputValue" type="password" name="pwCheck">
+						</div>
+					</div>
+					<div class="formRow">
+						<p class="formName">이메일</p>
+						<div class ="inputArea">
+							<input class="inputValue" type="text" name="email" size="35">
+						</div>
+					</div>
+					<div class="formRow">
+						<p class="formName">이름</p>
+						<div class ="inputArea">
+							<input class="inputValue" type="text" name="name">
+						</div>
+					</div>
+					<div class="formRow">
+						<p class="formName">휴대폰번호</p>
+						<div class ="inputArea">
+							<input class="inputValue" type="text" name="phoneNum">
+						</div>
+					</div>
+				</div>
+				<div class="right_wrap">
+					<h3 class="signupGuide">음식점 정보를 입력해주세요</h3>
+					<div class="formRow">
+						<p class="formName">음식점 이름</p>
+						<div class ="inputArea">
+							<input class="inputValue" type="text" name="restaurName">
+						</div>
+					</div>
+					<div class="formRow">
+						<p class="formName">사업자 등록번호</p>
+						<div class ="inputArea">
+							<input class="inputValue" type="text" name="biZName">
+						</div>
+					</div>
+					<div class="formRow">
+						<p class="formName">음식점 전화번호</p>
+						<div class ="inputArea">
+							<input class="inputValue" type="text" name="restaurNum">
+						</div>
+					</div>
+					<div class="formRow">
+						<p class="formName">음식점 주소</p>
+						<div class ="inputArea">
+							<input class="inputAddr" type="text" name="address" id="address" placeholder="주소" readonly="readonly" size="35">
+							<input class="addr_btn" type="button" onclick="execDaumPostcode()" value="주소검색"><br>
+							<input class="inputAddr inputAddr1" type="text" name="address2" id="address2" placeholder="상세주소" size="35">
+						</div>
+					</div>
+					<div class="formRow">
+						<p  class="formName">업종 카테고리</p>
+						<div class ="inputArea">
+							<select  class="inputValue" name="category">
+								<option value="1">치킨</option>
+								<option value="2">중국집</option>
+								<option value="3">피자</option>
+								<option value="4">족발/보쌈</option>
+								<option value="5">야식</option>
+								<option value="6">찜/탕</option>
+								<option value="7">한식/분식/죽</option>
+								<option value="8">돈까스/회/일식</option>
+								<option value="9">도시락/패스트푸드</option>
+							</select>
+						</div>
+					</div>
+					<div class="formRow">
+						<p class="formName">배달가능지역</p>
+						<div class ="inputArea">
+							<input class="inputValue inputValue2" type="text" name="restaurAddr">
+							<input type="button" class="areaBtn" value="검색">
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="formRow">
-				<p class="formName">비밀번호</p>
-				<div class ="inputArea">
-					<input class="inputValue" type="password" name="pw" placeholder="영문+숫자 포함,8-20자">
-
-				</div>
+			<div class="joinBtn">
+				<button type="submit">가입 신청</button>
 			</div>
-			<div class="formRow">
-				<p class="formName">비밀번호 재확인</p>
-				<div class ="inputArea">
-					<input class="inputValue" type="password" name="pwCheck">
-				</div>
-			</div>
-			<div class="formRow">
-				<p class="formName">이메일</p>
-				<div class ="inputArea">
-					<input class="inputValue" type="text" name="email" size="35">
-				</div>
-			</div>
-			<div class="formRow">
-				<p class="formName">이름</p>
-				<div class ="inputArea">
-					<input class="inputValue" type="text" name="name">
-				</div>
-			</div>
-			<div class="formRow">
-				<p class="formName">휴대폰번호</p>
-				<div class ="inputArea">
-					<input class="inputValue" type="text" name="phoneNum">
-				</div>
-			</div>
-			<h3 class="signupGuide">음식점 정보를 입력해주세요</h3>
-			<div class="formRow">
-				<p class="formName">음식점 이름</p>
-				<div class ="inputArea">
-					<input class="inputValue" type="text" name="restaurName">
-				</div>
-			</div>
-			<div class="formRow">
-				<p class="formName">사업자 등록번호</p>
-				<div class ="inputArea">
-					<input class="inputValue" type="text" name="biZName">
-				</div>
-			</div>
-			<div class="formRow">
-				<p class="formName">음식점 전화번호</p>
-				<div class ="inputArea">
-					<input class="inputValue" type="text" name="restaurNum">
-				</div>
-			</div>
-			<div class="formRow">
-				<p class="formName">음식점 주소</p>
-				<div class ="inputArea">
-					<input class="inputAddr" type="text" name="address" id="address" placeholder="주소" readonly="readonly" size="35">
-					<input type="button" onclick="execDaumPostcode()" value="주소검색"><br>
-					<input class="inputAddr" type="text" name="address2" id="address2" placeholder="상세주소" size="35">
-				</div>
-			</div>
-			<div class="formRow">
-				<p  class="formName">업종 카테고리</p>
-				<div class ="inputArea">
-					<select  class="inputValue" name="category">
-						<option value="1">치킨</option>
-						<option value="2">중국집</option>
-						<option value="3">피자</option>
-						<option value="4">족발/보쌈</option>
-						<option value="5">야식</option>
-						<option value="6">찜/탕</option>
-						<option value="7">한식/분식/죽</option>
-						<option value="8">돈까스/회/일식</option>
-						<option value="9">도시락/패스트푸드</option>
-					</select>
-				</div>
-			</div>
-			<div class="formRow">
-				<p class="formName">배달가능지역</p>
-				<div class ="inputArea">
-					<input class="inputValue" type="text" name="restaurAddr">
-					<button class="areaBtn">검색</button>
-				</div>
-			</div>
-		</div>
-		<div class="joinBtn">
-			<input type="submit" value="가입 신청">
-			
-		</div>
-	</form>
-
+		</form>
+	</div>
+	<footer>
+		<%@include file="/jsp/include/footer.jsp"%>
+	</footer>
 </body>
 </html>
 
