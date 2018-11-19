@@ -4,7 +4,7 @@
 <div class="header_inner">
 	<div class="header_top">
 		<ul class="hmenu_wrap">
-			<li><a href="#">LOGIN</a></li>
+			<li><a href="/MOMOGO/jsp/login/loginForm.jsp">LOGIN</a></li>
 			<li><a href="#">JOIN</a></li>
 			<li><a href="#">ORDER</a></li>
 			<li><a href="#">MYPAGE</a></li>
