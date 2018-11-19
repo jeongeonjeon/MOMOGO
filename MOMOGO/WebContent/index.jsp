@@ -3,12 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="/include/head.jsp" />
+<jsp:include page="/jsp/include/head.jsp" />
 </head>
 <body>
 	<header>
 		<%-- <jsp:include page="/include/header.jsp"> --%>
-		<%@include file="/include/header.jsp"%>
+		<%@include file="/jsp/include/header.jsp"%>
 	</header>
 	<div id="wrapper">
 		<div id="main" class="page_shadow">
@@ -159,7 +159,7 @@
 		</div>
 	</div>
 	<footer>
-		<%@include file="/include/footer.jsp"%>
+		<%@include file="/jsp/include/footer.jsp"%>
 	</footer>
 </body>
 </html>
