@@ -11,7 +11,7 @@
 				</div>
 				<div class="input_wrap">
 					<p>이름</p>
-						<input type="text" name="name">
+					<input type="text" name="name">
 				</div>
 				<div class="input_wrap password_box">
 					<p>비밀번호</p>
