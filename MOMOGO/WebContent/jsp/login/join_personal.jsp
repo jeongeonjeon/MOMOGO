@@ -117,8 +117,7 @@
 </head>
 <body>
 	<form method ="post" action="#" name ="joinForm">
-		<div>로고로고</div>
-		
+
 		<p>필수 정보를 입력해주세요</p>
 		
 		<div class="form-row"> 
