@@ -10,10 +10,7 @@
 <body>
 	<div id="wrapper">
 		<header>
-<<<<<<< HEAD
-=======
 			<%-- <jsp:include page="/include/header.jsp"> --%>
->>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
 			<%@include file="/jsp/include/header.jsp"%>
 		</header>
 		<div id="main" class="page_shadow">
