@@ -4,10 +4,16 @@
 <html>
 <head>
 <jsp:include page="/jsp/include/head.jsp" />
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1fe41c09db40fafd2cb9304b55b471f7&libraries=services"></script>
+<script src="/MOMOGO/js/map.js"></script>
 </head>
 <body>
 	<div id="wrapper">
 		<header>
+<<<<<<< HEAD
+=======
+			<%-- <jsp:include page="/include/header.jsp"> --%>
+>>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
 			<%@include file="/jsp/include/header.jsp"%>
 		</header>
 		<div id="main" class="page_shadow">
@@ -29,7 +35,7 @@
 						<button class="current_btn" type="button"></button>
 						<div class="input_wrap">
 							<div class="input_box">
-								<input type="text" placeholder="예) 역삼동, 신림동">
+								<input type="text" class="search_addr"  placeholder="예) 역삼동, 신림동">
 								<button type="button" class="search_btn">검색</button>
 							</div>
 						</div>
