@@ -8,11 +8,11 @@
 <script src="/MOMOGO/js/map.js"></script>
 </head>
 <body>
-	<header>
-		<%-- <jsp:include page="/include/header.jsp"> --%>
-		<%@include file="/jsp/include/header.jsp"%>
-	</header>
 	<div id="wrapper">
+		<header>
+			<%-- <jsp:include page="/include/header.jsp"> --%>
+			<%@include file="/jsp/include/header.jsp"%>
+		</header>
 		<div id="main" class="page_shadow">
 			<div class="page_inner">
 				<div class="main_visual swiper-container">
@@ -159,9 +159,9 @@
 				</ul>
 			</div>
 		</div>
+		<footer>
+			<%@include file="/jsp/include/footer.jsp"%>
+		</footer>
 	</div>
-	<footer>
-		<%@include file="/jsp/include/footer.jsp"%>
-	</footer>
 </body>
 </html>
