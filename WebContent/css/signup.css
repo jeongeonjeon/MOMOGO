@@ -8,24 +8,24 @@
 }
 
  #signupForm {
-   width: 700px;
-   margin: 45px auto 45px;
+	width: 700px;
+	margin: 45px auto 20px;
 }
  #signupForm:after {
-   content: '';
-   clear: both;
-   display: block;
+	content: '';
+	clear: both;
+	display: block;
  }
 #signupForm h3{
-   line-height: 55px;
+	line-height: 70px;
 }
 #signupForm .left_wrap {
    width: 45%;
    float: left;
 }
  #signupForm .right_wrap {
-   float: right;
-   width: 45%;
+	float: right;
+	width: 45%;
 }
  #signupForm .formRow:after {
    content: "";
@@ -39,8 +39,8 @@
    
 }
 #signupForm span{
-   position: relative;
-   top:20px;
+	position: relative;
+	top:20px;
 }
 #signupForm .formName{
    margin: 15px 0px; 
@@ -75,7 +75,7 @@
     background-size: 555px;
 }
  #signupForm .inputValue2 {
-   width: 243px;
+	width: 243px;
 }
 #signupForm .areaBtn {
     width: 66px;
