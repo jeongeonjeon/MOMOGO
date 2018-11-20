@@ -17,7 +17,7 @@
 				<div class="block1">
 					<strong>개인</strong>
 					<div class="joinBtn">
-						<a href="/MOMOGO/jsp/login/personalSignup.jsp">개인 회원가입 </a>
+						<a href="/MOMOGO/jsp/login/personalSignup.do">개인 회원가입 </a>
 					</div>
 				</div>
 				<div class="block2">
