@@ -22,7 +22,7 @@ $(document).ready(function() {
 				}
 			};
 
-			geocoder.coord2RegionCode(longitude, latitude, callback);
+			geocoder.coord2RegionCode(longitude, latitude, callback);	//좌표넣으면
 
 		}
 		;
