@@ -1,6 +1,9 @@
 @charset "UTF-8";
 
+/* 사업자 회원가입   */
+
 .ceoSignup_page {
+<<<<<<< HEAD
 	height: calc( 100vh - 110px );
 	min-height: 700px;	
 <<<<<<< HEAD
@@ -61,22 +64,66 @@
 	
 =======
 >>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
+=======
+   height: calc( 100vh - 110px );
+   min-height: 700px;   
+>>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
 }
 
+ #signupForm {
+   width: 700px;
+   margin: 45px auto 45px;
+}
+ #signupForm:after {
+   content: '';
+   clear: both;
+   display: block;
+ }
+#signupForm h3{
+   line-height: 55px;
+}
+#signupForm .left_wrap {
+   width: 45%;
+   float: left;
+}
+ #signupForm .right_wrap {
+   float: right;
+   width: 45%;
+}
+ #signupForm .formRow:after {
+   content: "";
+   clear:both;
+   display: block;
+}
+
+#signupForm .form-row {
+   
+   margin: auto; 
+   
+}
 #signupForm span{
-	position: relative;
-	top:20px;
+   position: relative;
+   top:20px;
 }
 #signupForm .formName{
 <<<<<<< HEAD
+<<<<<<< HEAD
     font-size: 18px;
 =======
+=======
+   margin: 15px 0px; 
+>>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
    font-size: 18px;
+<<<<<<< HEAD
 >>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
     font-weight: 600;
+=======
+   font-weight: 600;
+>>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
 }
 
 #signupForm .inputValue{
+<<<<<<< HEAD
 <<<<<<< HEAD
 	width: 100%;
 =======
@@ -85,23 +132,36 @@
 	height:34px;
 	line-height: 34px;
 	margin:15px 0;
+=======
+   width: 100%;
+   height:34px;
+   line-height: 34px;
+>>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
 }
 #signupForm .inputAddr {
+<<<<<<< HEAD
 	width: 243px;
 	height:34px;
 	line-height: 34px;
 	margin: 15px 0 9px;
 <<<<<<< HEAD
 =======
+=======
+   width: 243px;
+   height:34px;
+   line-height: 34px;
+   margin-bottom: 9px;
+>>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
 }
  #signupForm .inputAddr1 {
-	width: 100%;
-	margin: 0 0 15px;
+   width: 100%;
+   margin: 0 0;
 }
  #signupForm .addr_btn {
-	height: 34px;
-	line-height: 34px;
-	margin-top: 5px;
+   height: 34px;
+   line-height: 34px;
+   position:relative;
+   top: -5px;
 }
  #signupForm select {
     background: url(/MOMOGO/img/sprite-icon.png) no-repeat;
@@ -109,7 +169,7 @@
     background-size: 555px;
 }
  #signupForm .inputValue2 {
-	width: 243px;
+   width: 243px;
 }
 #signupForm .areaBtn {
     width: 66px;
@@ -147,11 +207,18 @@
 .joinBtn {
 =======
 .joinBtn{
+<<<<<<< HEAD
 >>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
 	width: 200px;
 	margin: 0 auto;
 	text-align: center;
 	position: relative;
+=======
+   width: 200px;
+   margin: 0 auto;
+   text-align: center;
+   position: relative;
+>>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
 }
 <<<<<<< HEAD
 
@@ -166,17 +233,88 @@
 .joinBtn button:hover {
 =======
 .joinBtn button {
-	width: 100%;
+   width: 100%;
     padding: 12px 0;
     color: #fff;
-	background-color: #41d5aa;
+   background-color: #41d5aa;
     font-size: 18px;
 }
  .joinBtn button:hover {
 >>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
     color: #41d5aa;
-	background-color: #fff;
-	border: 1px solid #41d5aa;
+   background-color: #fff;
+   border: 1px solid #41d5aa;
 }
 
 
+/* 개인 회원가입 */
+
+.personalSignup_page {
+   height: calc( 100vh - 110px );
+   min-height: 700px;   
+}
+
+.personalSignup_page #signupForm {
+   width: 315px;
+   margin: 45px auto 45px;
+}
+
+.personalSignup_page .joinBtn{
+   width: 200px;
+   margin: 0 auto;
+   text-align: center;
+   position: relative;
+}
+
+#choice.page_shadow{
+	box-shadow: unset;
+} 
+
+#choice .container{
+	width:800px;
+	margin : 50px auto;
+	height: auto;
+	overflow: auto;
+}
+
+#choice h1{
+	margin: 70px 0 50px 0;
+}
+
+#choice .block1{
+	position:relative;
+	width: 350px;
+	height: 400px;
+	background: #ddd;	
+	float: left;
+}
+#choice .block2{
+	position:relative;
+	width: 350px;
+	height: 400px;
+	background: #ddd;	
+	float: right;
+}
+
+#choice strong{
+	width:100%;
+	text-align:center;
+	display: inline-block;
+	padding: 90px 0 30px 0;
+	font-size: 30px;
+}
+
+#choice .joinBtn{
+	width: 150px;
+	height:40px;
+	margin: 80px auto;
+	background: #555;
+	border: 3px solid #777;
+	border-radius:7px;
+}
+.joinBtn a{
+	color: #FFF;
+	font-size: 17px;
+	line-height:40px;
+	font-weight: bold;
+}
