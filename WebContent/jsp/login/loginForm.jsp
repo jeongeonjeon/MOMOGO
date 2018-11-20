@@ -34,6 +34,9 @@
 </script>
 </head>
 <body>
+	<header>
+		<%@include file="/jsp/include/header.jsp"%>
+	</header>
     <div class="content" align="center">
         <div class="cont-inner login-wrap">
             <div class="tit-area">
@@ -50,8 +53,7 @@
                     </div>
                     <div class="input-group">
                         <input type="password" class="input" id="pw" placeholder="비밀번호" name="password" value="" />                        
-                    </div>
-                    <input type="hidden" id="redirectUrl" name="redirectUrl" value="https://ceo.baemin.com/" />                 
+                    </div>                
                         <div class="login-link">
                             <a class="btn-find" href="">아이디</a>&nbsp;&#47;
                             <a class="btn-find" href="">비밀번호 찾기</a>
@@ -62,6 +64,9 @@
             </form>
         </div>
     </div>
+    <footer>
+		<%@include file="/jsp/include/footer.jsp"%>
+	</footer>
 </body>
 </html>
 
