@@ -1,4 +1,4 @@
-package kr.co.mlec.login;
+package kr.co.mlec.join.vo;
 
 public class PersonalVO {
 	private String id; 

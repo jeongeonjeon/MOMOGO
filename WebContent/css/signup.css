@@ -3,24 +3,10 @@
 /* 사업자 회원가입   */
 
 .ceoSignup_page {
-<<<<<<< HEAD
-	height: calc( 100vh - 110px );
-	min-height: 700px;	
-<<<<<<< HEAD
+   height: calc( 100vh - 110px );
+   min-height: 700px;   
 }
 
-#signupForm {
-	width: 700px;
-	margin: 45px auto 20px;
-}
-
-#signupForm:after {
-	content: '';
-	clear: both;
-	display: block;
-=======
->>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
-}
  #signupForm {
 	width: 700px;
 	margin: 45px auto 20px;
@@ -33,62 +19,13 @@
 #signupForm h3{
 	line-height: 70px;
 }
-<<<<<<< HEAD
-
-#signupForm .left_wrap {
-	width: 45%;
-	float: left;
-}
-
-#signupForm .right_wrap {
-	float: right;
-	width: 45%;
-}
-
-#signupForm .formRow:after {
-=======
-#signupForm .left_wrap {
-	width: 45%;
-	float: left;
-}
- #signupForm .right_wrap {
-	float: right;
-	width: 45%;
-}
- #signupForm .formRow:after {
->>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
-	content: "";
-	clear:both;
-	display: block;
-<<<<<<< HEAD
-	
-=======
->>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
-=======
-   height: calc( 100vh - 110px );
-   min-height: 700px;   
->>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
-}
-
- #signupForm {
-   width: 700px;
-   margin: 45px auto 45px;
-}
- #signupForm:after {
-   content: '';
-   clear: both;
-   display: block;
- }
-#signupForm h3{
-   line-height: 55px;
-}
 #signupForm .left_wrap {
    width: 45%;
    float: left;
 }
  #signupForm .right_wrap {
-   float: right;
-   width: 45%;
+	float: right;
+	width: 45%;
 }
  #signupForm .formRow:after {
    content: "";
@@ -102,56 +39,25 @@
    
 }
 #signupForm span{
-   position: relative;
-   top:20px;
+	position: relative;
+	top:20px;
 }
 #signupForm .formName{
-<<<<<<< HEAD
-<<<<<<< HEAD
-    font-size: 18px;
-=======
-=======
    margin: 15px 0px; 
->>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
    font-size: 18px;
-<<<<<<< HEAD
->>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
-    font-weight: 600;
-=======
    font-weight: 600;
->>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
 }
 
 #signupForm .inputValue{
-<<<<<<< HEAD
-<<<<<<< HEAD
-	width: 100%;
-=======
-		width: 100%;
->>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
-	height:34px;
-	line-height: 34px;
-	margin:15px 0;
-=======
    width: 100%;
    height:34px;
    line-height: 34px;
->>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
 }
 #signupForm .inputAddr {
-<<<<<<< HEAD
-	width: 243px;
-	height:34px;
-	line-height: 34px;
-	margin: 15px 0 9px;
-<<<<<<< HEAD
-=======
-=======
    width: 243px;
    height:34px;
    line-height: 34px;
    margin-bottom: 9px;
->>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
 }
  #signupForm .inputAddr1 {
    width: 100%;
@@ -169,69 +75,19 @@
     background-size: 555px;
 }
  #signupForm .inputValue2 {
-   width: 243px;
-}
-#signupForm .areaBtn {
-    width: 66px;
-    height: 34px;
->>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
-}
-
-<<<<<<< HEAD
-#signupForm .inputAddr1 {
-	width: 100%;
-	margin: 0 0 15px;
-}
-
-#signupForm .addr_btn {
-	height: 34px;
-	line-height: 34px;
-	margin-top: 5px;
-}
-
-#signupForm select {
-    background: url(/MOMOGO/img/sprite-icon.png) no-repeat;
-    background-position: 157px -65px;
-    background-size: 555px;
-}
-
-#signupForm .inputValue2 {
 	width: 243px;
 }
-
 #signupForm .areaBtn {
     width: 66px;
     height: 34px;
 }
 
-.joinBtn {
-=======
 .joinBtn{
-<<<<<<< HEAD
->>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
-	width: 200px;
-	margin: 0 auto;
-	text-align: center;
-	position: relative;
-=======
    width: 200px;
    margin: 0 auto;
    text-align: center;
    position: relative;
->>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
 }
-<<<<<<< HEAD
-
-.joinBtn button {
-	width: 100%;
-    padding: 12px 0;
-    color: #fff;
-	background-color: #41d5aa;
-    font-size: 18px;
-}
-
-.joinBtn button:hover {
-=======
 .joinBtn button {
    width: 100%;
     padding: 12px 0;
@@ -240,7 +96,6 @@
     font-size: 18px;
 }
  .joinBtn button:hover {
->>>>>>> branch 'master' of https://github.com/jeongeonjeon/MOMOGO.git
     color: #41d5aa;
    background-color: #fff;
    border: 1px solid #41d5aa;
