@@ -1,64 +1,73 @@
 @charset "UTF-8";
 
+/* 사업자 회원가입   */
+
 .ceoSignup_page {
-	height: calc( 100vh - 110px );
-	min-height: 700px;	
-}
- #signupForm {
-	width: 700px;
-	margin: 45px auto 20px;
-}
- #signupForm:after {
-	content: '';
-	clear: both;
-	display: block;
- }
-#signupForm h3{
-	line-height: 70px;
-}
-#signupForm .left_wrap {
-	width: 45%;
-	float: left;
-}
- #signupForm .right_wrap {
-	float: right;
-	width: 45%;
-}
- #signupForm .formRow:after {
-	content: "";
-	clear:both;
-	display: block;
+   height: calc( 100vh - 110px );
+   min-height: 700px;   
 }
 
+ #signupForm {
+   width: 700px;
+   margin: 45px auto 45px;
+}
+ #signupForm:after {
+   content: '';
+   clear: both;
+   display: block;
+ }
+#signupForm h3{
+   line-height: 55px;
+}
+#signupForm .left_wrap {
+   width: 45%;
+   float: left;
+}
+ #signupForm .right_wrap {
+   float: right;
+   width: 45%;
+}
+ #signupForm .formRow:after {
+   content: "";
+   clear:both;
+   display: block;
+}
+
+#signupForm .form-row {
+   
+   margin: auto; 
+   
+}
 #signupForm span{
-	position: relative;
-	top:20px;
+   position: relative;
+   top:20px;
 }
 #signupForm .formName{
+   margin: 15px 0px; 
    font-size: 18px;
-    font-weight: 600;
+   font-weight: 600;
 }
 
 #signupForm .inputValue{
-		width: 100%;
-	height:34px;
-	line-height: 34px;
-	margin:15px 0;
+   width: 100%;
+   height:34px;
+   line-height: 34px;
 }
 #signupForm .inputAddr {
-	width: 243px;
-	height:34px;
-	line-height: 34px;
-	margin: 15px 0 9px;
+   width: 243px;
+   height:34px;
+   line-height: 34px;
+   margin-bottom: 9px;
 }
  #signupForm .inputAddr1 {
-	width: 100%;
-	margin: 0 0 15px;
+   width: 100%;
+   margin: 0 0;
 }
  #signupForm .addr_btn {
-	height: 34px;
-	line-height: 34px;
-	margin-top: 5px;
+   height: 34px;
+   line-height: 34px;
+   position:relative;
+   top: -5px;
 }
  #signupForm select {
     background: url(/MOMOGO/img/sprite-icon.png) no-repeat;
@@ -66,7 +75,7 @@
     background-size: 555px;
 }
  #signupForm .inputValue2 {
-	width: 243px;
+   width: 243px;
 }
 #signupForm .areaBtn {
     width: 66px;
@@ -74,22 +83,54 @@
 }
 
 .joinBtn{
-	width: 200px;
-	margin: 0 auto;
-	text-align: center;
-	position: relative;
+   width: 200px;
+   margin: 0 auto;
+   text-align: center;
+   position: relative;
 }
 .joinBtn button {
-	width: 100%;
+   width: 100%;
     padding: 12px 0;
     color: #fff;
-	background-color: #41d5aa;
+   background-color: #41d5aa;
     font-size: 18px;
 }
  .joinBtn button:hover {
     color: #41d5aa;
-	background-color: #fff;
-	border: 1px solid #41d5aa;
+   background-color: #fff;
+   border: 1px solid #41d5aa;
 }
 
 
+/* 개인 회원가입 */
+
+.personalSignup_page {
+   height: calc( 100vh - 110px );
+   min-height: 700px;   
+}
+
+.personalSignup_page #signupForm {
+   width: 315px;
+   margin: 45px auto 45px;
+}
+
+.personalSignup_page .joinBtn{
+   width: 200px;
+   margin: 0 auto;
+   text-align: center;
+   position: relative;
+}
+
+.error {
+   margin-top:5px;
+   font-size: 13px;
+   color: red;
+   display: none;
+}
+
+.error-1 {
+   margin-top:5px;
+   font-size: 13px;
+   color: red;
+   display: none;
+}
