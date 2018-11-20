@@ -17,13 +17,13 @@
 				<div class="block1">
 					<strong>개인</strong>
 					<div class="joinBtn">
-						<a href="/MOMOGO/jsp/login/personalSignup.jsp">개인 회원가입 </a>
+						<a href="/MOMOGO/jsp/join/personalSignup.jsp">개인 회원가입 </a>
 					</div>
 				</div>
 				<div class="block2">
 					<strong>사업자</strong>
 					<div class="joinBtn">
-						<a href="/MOMOGO/jsp/login/ceoSignup.jsp">사업자 회원가입 </a>
+						<a href="/MOMOGO/jsp/join/ceoSignup.jsp">사업자 회원가입 </a>
 					</div>
 				</div>
 			</div>
