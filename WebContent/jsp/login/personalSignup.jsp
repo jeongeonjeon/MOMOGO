@@ -30,10 +30,8 @@
     //   dataType : "xml" //응답받을 데이터의 타입 선택
          success : function(data){
             
-         	 if(data)
-        	 
-        	 
-        	 
+    
+    	 
          }
             
             
@@ -43,8 +41,8 @@
    }
    
    function clickBtn(){
-      var form = document.joinForm;
-      var id =$('#id').val(); 
+	   
+ 	   var id =$('#id').val(); 
        var pass = $('#pass').val(); 
        var passCheck = $('#passCheck').val(); 
        var email = $('#email').val(); 
@@ -95,8 +93,9 @@
           return false
        }
  
-
+       return true
    }
+   
    
    function checkPass(){
       var pass = $('#pass').val(); 
@@ -115,8 +114,6 @@
               
           }
        }
-       
-
    }
    
 </script>
@@ -126,7 +123,7 @@
 		<%@include file="/jsp/include/header.jsp"%>
 	</header>
 	<div class="personalSignup_page page_shadow">
-		<form method="post" action="#" name="signUp" onsubmit="return clickBtn();">
+		<form method="post" action="#" name="signUp" onsubmit="return clickBtn()">
 			<div id="signupForm">
 				<h3 class="signupGuide">필수 정보를 입력해주세요</h3>
 	

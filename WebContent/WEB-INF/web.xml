@@ -9,7 +9,7 @@
 		<servlet-class>kr.co.mlec.controller.FrontController</servlet-class>
 		<init-param>
 			<param-name>propLocation</param-name>
-			<param-value>C:\\Lecture\\web-workspace\\Mission-Web-MVC01\\bean.properties</param-value>
+			<param-value>C:\\Lecture\\web-workspace\\MOMOGO\\bean.properties</param-value>
 		</init-param>
 	</servlet>
 	<servlet-mapping>

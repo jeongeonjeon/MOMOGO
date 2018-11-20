@@ -266,6 +266,22 @@
    position: relative;
 }
 
+
+.error {
+   margin-top:5px;
+   font-size: 13px;
+   color: red;
+   display: none;
+}
+
+.error-1 {
+   margin-top:5px;
+   font-size: 13px;
+   color: red;
+   display: none;
+}
+
+
 #choice.page_shadow{
 	box-shadow: unset;
 } 
