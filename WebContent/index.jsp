@@ -7,6 +7,8 @@
 <jsp:include page="/jsp/include/head.jsp" />
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1fe41c09db40fafd2cb9304b55b471f7&libraries=services"></script>
 <script src="/MOMOGO/js/map.js"></script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="/MOMOGO/js/mainMap.js"></script>
 </head>
 <body>
 	<div id="wrapper">
@@ -33,8 +35,8 @@
 						<button class="current_btn" type="button"></button>
 						<div class="input_wrap">
 							<div class="input_box">
-								<input type="text" class="search_addr"  placeholder="예) 역삼동, 신림동">
-								<button type="button" class="search_btn">검색</button>
+								<input type="text" class="search_addr"  placeholder="버튼을 눌러 주소를 검색해주세요" id="address">
+								<button type="button" class="search_btn" onclick="daumPostcode()">주소검색</button>
 							</div>
 						</div>
 					</form>

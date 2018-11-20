@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/MOMOGO/css/style.css">
+<jsp:include page="/jsp/include/head.jsp" />
+<link rel="stylesheet" href="/MOMOGO/css/login.css">
 <script>
 	
 	function checkForm() {
@@ -37,7 +38,7 @@
 	<header>
 		<%@include file="/jsp/include/header.jsp"%>
 	</header>
-    <div class="content" align="center">
+    <div class="content page_shadow" align="center">
         <div class="cont-inner login-wrap">
             <div class="tit-area">
                 <h3 class="tit">로그인</h3>
@@ -54,18 +55,18 @@
                     <div class="input-group">
                         <input type="password" class="input" id="pw" placeholder="비밀번호" name="password" value="" />                        
                     </div>                
-                        <div class="login-link">
-                            <a class="btn-find" href="">아이디</a>&nbsp;&#47;
-                            <a class="btn-find" href="">비밀번호 찾기</a>
-                            <a class="btn-join" href="">회원가입</a><br>
-                        </div>
+                    <div class="login-link">
+                        <a class="btn-find" href="">아이디</a>&nbsp;&#47;
+                        <a class="btn-find" href="">비밀번호 찾기</a>
+                        <a class="btn-join" href="">회원가입</a><br>
+                    </div>
                     <input type="submit" class="btn-login" value="로그인">
                 </div>
             </form>
         </div>
     </div>
-    <footer>
-		<%@include file="/jsp/include/footer.jsp"%>
+	<footer>
+			<%@include file="/jsp/include/footer.jsp"%>
 	</footer>
 </body>
 </html>
