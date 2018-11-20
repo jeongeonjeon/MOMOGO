@@ -263,7 +263,7 @@ footer .copy {
 	position: relative;
 	width: 382px;
 	height: 280px;
-	border: 1px solid gray;
+	border: 1px solid #41cea5;
 	float: left;
 	margin-bottom: 24px;
 	margin-left: 24px;
@@ -375,6 +375,6 @@ footer .copy {
 }
 
 #main .item_wrap li:hover .item_cover {
-	background-color: rgba(0,0,0,0.6);
+	background-color: rgba(7, 173, 125, 0.8);
 }
 >>>>>>> refs/remotes/origin/master

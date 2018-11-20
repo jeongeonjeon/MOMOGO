@@ -9,17 +9,24 @@ $(document).ready(function() {
 	});
 });
 
-/*헤더 고정*/
-/*
-$(document).ready(function(){
-	$(window).scroll(function(){
-		if($(this).scrollTop() >= 50){
-			$("header").css("position","fixed");
-			$("#main").css("padding-top","110px");
-		} else {
-			$("header").css("position","relative");
-			$("#main").css("padding-top","0");
-		}
-	});
-})
-*/
+/*회원가입 체크*/
+
+function checkForm(){
+	var f = document.wForm;
+	
+	if(f.id.value == ''){
+		alert("제목을 입력하세요.");
+		f.id.focus();
+		return false;
+	}
+	
+	if(f.pw.value ==""){
+		alert("비밀번호를 입력하세요.");
+		f.pw.focus();
+		return false;
+	}
+	
+	if(f.pw.value==""){
+		alert("비밀번호를 확인하세요")
+	}
+}
