@@ -167,6 +167,35 @@ header .logo {
 	margin-top: 20px;
 }
 
+header .header_board{
+	height: auto;
+    overflow: auto;
+    float: right;
+    top: -50px;
+    padding: 0 30px;
+}
+
+header .board_menu{
+	float: right;
+	font-size: 0;
+	
+}
+
+header .board_menu li{
+		display: inline-block;
+    padding: 9px 5px 9px 10px;
+}
+
+header .board_menu li a {
+	font-size: 18px;
+    font-weight: 600;
+    color: #c5c5c5;
+}
+
+header .board_menu li a:hover {
+	text-decoration: underline;
+}
+
 /**********************footer*********************/
 
 footer {

@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="/MOMOGO/css/common.css" >
 <link rel="stylesheet" href="/MOMOGO/css/swiper.min.css" >
 <link rel="stylesheet" href="/MOMOGO/css/signup.css">
+<link rel="stylesheet" href="/MOMOGO/css/board.css" >
 <link rel="stylesheet" href="/MOMOGO/css/style.css" >
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 <script src="/MOMOGO/js/jquery-3.3.1.min.js"></script>
