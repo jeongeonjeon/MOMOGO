@@ -123,7 +123,7 @@
 		<%@include file="/jsp/include/header.jsp"%>
 	</header>
 	<div class="personalSignup_page page_shadow">
-		<form method="post" action="#" name="signUp" onsubmit="return clickBtn()">
+		<form method="post" action="<%= request.getContextPath() %>/login/personalSignupProcess.do" name="signUp" onsubmit="return clickBtn()">
 			<div id="signupForm">
 				<h3 class="signupGuide">필수 정보를 입력해주세요</h3>
 	
