@@ -42,8 +42,8 @@
             <form action="" name="loginform" id="loginForm" method="post" onsubmit="checkForm()">
                 <div class="fieldset">
                 	<div class="user-select">
-						<input type="radio" name="userSelect" value="user">일반 이용자님
-						<input type="radio" name="userSelect" value="ceo">사장님 이용자님<br>	
+						<input type="radio" name="userSelect" value="user">개인
+						<input type="radio" name="userSelect" value="ceo">사업자<br>	
 					</div>	
                     <div class="input-group">
                         <input type="text" class="input" id="id" placeholder="아이디" value="" name="id" />                        

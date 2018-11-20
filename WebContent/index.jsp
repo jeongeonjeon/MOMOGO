@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,25 +40,28 @@
 					</form>
 				</div>
 				<ul class="item_wrap">
-					<li class="item01">
+					<c:forEach begin="1" end="9" var="i">
+						<li class="item0${ i }">
+							<div class="item_cover"></div>
+							<a href="#"></a>
+							<div class="line">
+								<div class="txt_box">
+									<!-- <p>중국집</p> -->
+									<a href="">더보기</a>
+								</div>
+								<div class="heading">
+									<h4>중국집</h4>
+								</div>
+							</div>
+						</li>
+					</c:forEach>
+					
+					<!-- <li class="item02">
 						<div class="item_cover"></div>
 						<a href="#"></a>
 						<div class="line">
 							<div class="txt_box">
-								<!-- <p>중국집</p> -->
-								<a href="">더보기</a>
-							</div>
-							<div class="heading">
-								<h4>중국집</h4>
-							</div>
-						</div>
-					</li>
-					<li class="item02">
-						<div class="item_cover"></div>
-						<a href="#"></a>
-						<div class="line">
-							<div class="txt_box">
-								<!-- <p>중국집</p> -->
+								<p>중국집</p>
 								<a href="">더보기</a>
 							</div>
 							<div class="heading">
@@ -70,7 +74,7 @@
 						<a href="#"></a>
 						<div class="line">
 							<div class="txt_box">
-								<!-- <p>중국집</p> -->
+								<p>중국집</p>
 								<a href="">더보기</a>
 							</div>
 							<div class="heading">
@@ -83,7 +87,7 @@
 						<a href="#"></a>
 						<div class="line">
 							<div class="txt_box">
-								<!-- <p>중국집</p> -->
+								<p>중국집</p>
 								<a href="">더보기</a>
 							</div>
 							<div class="heading">
@@ -96,7 +100,7 @@
 						<a href="#"></a>
 						<div class="line">
 							<div class="txt_box">
-								<!-- <p>중국집</p> -->
+								<p>중국집</p>
 								<a href="">더보기</a>
 							</div>
 							<div class="heading">
@@ -109,7 +113,7 @@
 						<a href="#"></a>
 						<div class="line">
 							<div class="txt_box">
-								<!-- <p>중국집</p> -->
+								<p>중국집</p>
 								<a href="">더보기</a>
 							</div>
 							<div class="heading">
@@ -122,7 +126,7 @@
 						<a href="#"></a>
 						<div class="line">
 							<div class="txt_box">
-								<!-- <p>중국집</p> -->
+								<p>중국집</p>
 								<a href="">더보기</a>
 							</div>
 							<div class="heading">
@@ -135,7 +139,7 @@
 						<a href="#"></a>
 						<div class="line">
 							<div class="txt_box">
-								<!-- <p>중국집</p> -->
+								<p>중국집</p>
 								<a href="">더보기</a>
 							</div>
 							<div class="heading">
@@ -148,14 +152,14 @@
 						<a href="#"></a>
 						<div class="line">
 							<div class="txt_box">
-								<!-- <p>중국집</p> -->
+								<p>중국집</p>
 								<a href="">더보기</a>
 							</div>
 							<div class="heading">
 								<h4>중국집</h4>
 							</div>
 						</div>
-					</li>
+					</li> -->
 				</ul>
 			</div>
 		</div>
