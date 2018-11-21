@@ -49,3 +49,13 @@ $(document).ready(function(){
    })
    
 });
+
+/* myPage 지난주문내역 클릭*/
+
+$(document).ready(function(){
+	
+	$(".myPage_page .item_wrap .order_item .content").click(function(){
+		$(".popup_cover").addClass("on");
+		$(".popup_wrap").addClass("on");
+	})
+})

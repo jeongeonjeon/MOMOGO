@@ -66,28 +66,49 @@
 	top: 0; left: 0; right: 0; bottom: 0;
 	background: rgba(0,0,0,0.6);
 	z-index: 2;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.4s;
+}
+
+.popup_cover.on {
+	opacity: 1;
+	visibility: visible;
 }
 
 .popup_wrap {
 	position:fixed;
 	top: 50%; left: 50%;
-	width: 400px;
-	height: 640px;
-	overflow-y : auto;
+	width: 430px;
+	height: 580px;
 	transform: translate3d(-50%, -50%, 0);
 	background: url(../img/popup_bg.png) no-repeat center center;
-	background-size: contain;
+	background-size: 430px 580px;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.4s;
 	z-index: 3;
 }
 
+.popup_wrap.on {
+	opacity: 1;
+	visibility: visible;
+}
+
 .popup_wrap .popup_inner {
-	width: 95%;
-	margin: 0 auto;
+    width: 92%;
+    height: 100%;
+    margin: 0 auto;
+    overflow-y: auto;
 }
 
 .popup_wrap section {
 	border-bottom: 2px solid #004000;
 	padding-bottom: 8px;
+}
+
+.popup_wrap section:last-child {
+	border: none;
 }
 
 .popup_wrap .store_name {
@@ -147,7 +168,7 @@
 
 .popup_wrap .sum {
 	border-top: 1px dotted #b9b9b9;
-    margin: 0 0 5px;
+    margin: 0 0 10px;
     padding-top: 10px;
 }
 
@@ -167,6 +188,11 @@
 	font-size: 15px;
 	font-weight: bold;
 	color: #ef4444;
+}
+
+.popup_wrap .addr .right_txt {
+	text-align: right;
+	line-height: 22px;
 }
 
 /**********************common*********************/
@@ -991,6 +1017,12 @@ footer .copy {
 	padding: 5px 10px;
 }
 
+.myPage_page .item_wrap .order_item .content:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
 .myPage_page .item_wrap .order_item .content .img {
 	width: 85px;
 	height: 85px;
@@ -1005,7 +1037,7 @@ footer .copy {
 }
 
 .myPage_page .item_wrap .order_item .content .order_info .store_name {
-	font-size: 18px;
+	font-size: 16px;
 	color: #333;
 	font-weight: bold;
 }
@@ -1014,7 +1046,6 @@ footer .copy {
     margin: 5px 0 0 10px;
     word-break: keep-all;
     line-height: 24px;
-    font-size: 16px;
 }
 
 .myPage_page .list_btn {

@@ -9,7 +9,7 @@
 <body>
 <div class="popup_cover"></div>
 <div class="popup_wrap">
-	<div class="popup_inner">
+	<div class="popup_inner mCustomScrollbar" data-mcs-theme="dark-thin">
 		<section class="store_name">
 			도미노피자
 		</section>
@@ -47,6 +47,18 @@
 				</p>
 				<p class="right_txt">500원</p>
 			</div>
+			<div class="content">
+				<p class="left_txt">
+					불고기피자x1
+				</p>
+				<p class="right_txt">500원</p>
+			</div>
+			<div class="content">
+				<p class="left_txt">
+					불고기피자x1
+				</p>
+				<p class="right_txt">500원</p>
+			</div>
 			<div class="content sum">
 				<p class="left_txt">상품합계</p>
 				<p class="right_txt">1500원</p>
@@ -54,6 +66,33 @@
 			<div class="content payment">
 				<p class="left_txt">결제금액</p>
 				<p class="right_txt">1500원</p>
+			</div>
+		</section>
+		<section class="content_wrap">
+			<div class="content_header">
+				<p>주문자 정보</p>
+			</div>
+			<div class="content">
+				<p class="left_txt">
+					연락처
+				</p>
+				<p class="right_txt">01011112222</p>
+			</div>
+			<div class="content addr">
+				<p class="left_txt">
+					주소
+				</p>
+				<p class="right_txt">
+					경기도 구리시 갈매동 갈매중앙로 111<br>111동 1111호
+				</p>
+			</div>
+			<div class="content addr">
+				<p class="left_txt">
+					요청사항
+				</p>
+				<p class="right_txt">
+					(없음)
+				</p>
 			</div>
 		</section>
 	</div>
