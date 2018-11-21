@@ -23,11 +23,11 @@
    width: 45%;
    float: left;
 }
- #signupForm .right_wrap {
+#signupForm .right_wrap {
 	float: right;
 	width: 45%;
 }
- #signupForm .formRow:after {
+#signupForm .formRow:after {
    content: "";
    clear:both;
    display: block;
@@ -90,7 +90,6 @@
 }
 .joinBtn button {
    width: 100%;
-    padding: 12px 0;
     color: #fff;
    background-color: #41d5aa;
     font-size: 18px;

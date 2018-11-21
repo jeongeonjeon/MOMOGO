@@ -59,4 +59,94 @@ public class NoticeDAO {
 		
 		return list;
 	}
+	
+	
+	/**
+	 * 게시물 삽입을 위한 sequence번호 추출(seq_notice_notice_no)
+	 */
+	public int selectNo() {
+		String sql = "select seq_notice_notice_no.nextval from dual ";
+
+		try (
+			Connection conn = new ConnectionFactory().getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);				
+		) {
+			ResultSet rs = pstmt.executeQuery();
+			rs.next();
+			return rs.getInt(1);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+
+	/**
+	 * 게시글 삽입하는 기능
+	 */
+	public void insertNotice(NoticeVO notice) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+
+		try {
+			conn = new ConnectionFactory().getConnection();
+			StringBuilder sql = new StringBuilder();
+			sql.append("insert into notice(no, title, writer, content) ");
+			sql.append(" values(?, ?, ?, ?) ");
+			pstmt = conn.prepareStatement(sql.toString());
+			
+			int loc = 1;
+			
+			pstmt.setInt(loc++, notice.getNoticeNo());
+			pstmt.setString(loc++, notice.getTitle());
+			pstmt.setString(loc++, notice.getWriter());
+			pstmt.setString(loc++, notice.getContent());
+
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCClose.close(pstmt, conn);
+		}
+	}
+	
+	
+	public NoticeVO selectByNo(int no) {
+		
+		NoticeVO notice = null; 
+		
+		StringBuilder sql = new StringBuilder();			
+		
+		sql.append("select notice_No, title, writer, content, view_cnt ");
+		sql.append(" , to_char(reg_date, 'yyyy-mm-dd') as reg_date ");
+		sql.append(" from notice ");
+		sql.append(" where notice_no =? ");
+		
+		
+		try(
+			Connection conn = new ConnectionFactory().getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());	
+		){
+			
+			pstmt.setInt(1,no);
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				int noticeNo = rs.getInt("notice_no"); 
+				String title = rs.getString("title");
+				String writer = rs.getString("writer");
+				String content = rs.getString("content");
+				int viewCnt = rs.getInt("view_cnt");
+				String regDate = rs.getString("reg_date");
+				
+				notice = new NoticeVO(noticeNo, title, writer, content, viewCnt, regDate);
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return notice;
+	}
 }

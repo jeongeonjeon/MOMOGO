@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
 <jsp:include page="/jsp/include/head.jsp" />
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1fe41c09db40fafd2cb9304b55b471f7&libraries=services"></script>
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1fe41c09db40fafd2cb9304b55b471f7&libraries=services"></script>
 <script src="/MOMOGO/js/map.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="/MOMOGO/js/mainMap.js"></script>
@@ -35,133 +37,33 @@
 						<button class="current_btn" type="button"></button>
 						<div class="input_wrap">
 							<div class="input_box">
-								<input type="text" class="search_addr"  placeholder="버튼을 눌러 주소를 검색해주세요" id="address">
-								<button type="button" class="search_btn" onclick="daumPostcode()">주소검색</button>
+								<input type="text" class="search_addr"
+									placeholder="버튼을 눌러 주소를 검색해주세요" id="address">
+								<button type="button" class="search_btn"
+									onclick="daumPostcode()">주소검색</button>
 							</div>
 						</div>
 					</form>
 				</div>
+				<c:set var="categories"	value="치킨,중국집,피자,족발/보쌈,야식,찜/탕,한식/분식/죽,돈까스/회/일식,패스트푸드" />
+				<c:set var="category" value="${fn:split(categories, ',')}" />
+				<c:set var="i" value="0" />
 				<ul class="item_wrap">
-					<c:forEach begin="1" end="9" var="i">
+					<c:forEach items="${ category }" var="c">
+						<c:set var="i" value="${i+1}" />
 						<li class="item0${ i }">
-							<div class="item_cover"></div>
-							<a href="#"></a>
+							<div class="item_cover"></div> <a href="#"></a>
 							<div class="line">
 								<div class="txt_box">
 									<!-- <p>중국집</p> -->
 									<a href="">더보기</a>
 								</div>
 								<div class="heading">
-									<h4>중국집</h4>
+									<h4>${ c }</h4>
 								</div>
 							</div>
 						</li>
 					</c:forEach>
-					
-					<!-- <li class="item02">
-						<div class="item_cover"></div>
-						<a href="#"></a>
-						<div class="line">
-							<div class="txt_box">
-								<p>중국집</p>
-								<a href="">더보기</a>
-							</div>
-							<div class="heading">
-								<h4>중국집</h4>
-							</div>
-						</div>
-					</li>
-					<li class="item03">
-						<div class="item_cover"></div>
-						<a href="#"></a>
-						<div class="line">
-							<div class="txt_box">
-								<p>중국집</p>
-								<a href="">더보기</a>
-							</div>
-							<div class="heading">
-								<h4>중국집</h4>
-							</div>
-						</div>
-					</li>
-					<li class="item04">
-						<div class="item_cover"></div>
-						<a href="#"></a>
-						<div class="line">
-							<div class="txt_box">
-								<p>중국집</p>
-								<a href="">더보기</a>
-							</div>
-							<div class="heading">
-								<h4>중국집</h4>
-							</div>
-						</div>
-					</li>
-					<li class="item05">
-						<div class="item_cover"></div>
-						<a href="#"></a>
-						<div class="line">
-							<div class="txt_box">
-								<p>중국집</p>
-								<a href="">더보기</a>
-							</div>
-							<div class="heading">
-								<h4>중국집</h4>
-							</div>
-						</div>
-					</li>
-					<li class="item06">
-						<div class="item_cover"></div>
-						<a href="#"></a>
-						<div class="line">
-							<div class="txt_box">
-								<p>중국집</p>
-								<a href="">더보기</a>
-							</div>
-							<div class="heading">
-								<h4>중국집</h4>
-							</div>
-						</div>
-					</li>
-					<li class="item07">
-						<div class="item_cover"></div>
-						<a href="#"></a>
-						<div class="line">
-							<div class="txt_box">
-								<p>중국집</p>
-								<a href="">더보기</a>
-							</div>
-							<div class="heading">
-								<h4>중국집</h4>
-							</div>
-						</div>
-					</li>
-					<li class="item08">
-						<div class="item_cover"></div>
-						<a href="#"></a>
-						<div class="line">
-							<div class="txt_box">
-								<p>중국집</p>
-								<a href="">더보기</a>
-							</div>
-							<div class="heading">
-								<h4>중국집</h4>
-							</div>
-						</div>
-					</li>
-					<li class="item09">
-						<div class="item_cover"></div>
-						<a href="#"></a>
-						<div class="line">
-							<div class="txt_box">
-								<p>중국집</p>
-								<a href="">더보기</a>
-							</div>
-							<div class="heading">
-								<h4>중국집</h4>
-							</div>
-						</div>
-					</li> -->
 				</ul>
 			</div>
 		</div>

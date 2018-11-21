@@ -8,13 +8,13 @@
 </head>
 <body>
 	<div id="wrapper">
-<%-- 	
+	
 		<header>
-			<jsp:include page="/include/header.jsp">
+<%-- 			<jsp:include page="/include/header.jsp"> --%>
 			<%@include file="/jsp/include/header.jsp"%>
 		</header>
- --%>		
-		<div class="noticeList_page">
+		
+		<div class="noticeList_page page_shadow">
 			<div class="page_inner">
 				<h3 class="bbs_page_tit">공지사항</h3>
 				<div class="bbs_wrap" id="noticeTable">
@@ -29,7 +29,7 @@
 						<c:forEach items="${ requestScope.list }" var="notice">
 							<div class="txt num">${ notice.noticeNo }</div>
 							<div class="txt title">
-								<a href=""><c:out value="${ notice.title }" /></a>
+								<a href="<%= request.getContextPath() %>/board/noticeView.do?noticeNo=${notice.noticeNo}"><c:out value="${ notice.title }" /></a>
 							</div>
 							<div class="txt name">${ notice.writer }</div>
 							<div class="txt date">${ notice.regDate }</div>
