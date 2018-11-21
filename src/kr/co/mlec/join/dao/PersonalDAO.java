@@ -25,7 +25,7 @@ public class PersonalDAO {
 			pstmt.setString(2, person.getPass());
 			pstmt.setString(3, person.getName());
 			pstmt.setString(4, person.getEmail());
-			pstmt.setInt(5, person.getPhone());
+			pstmt.setString(5, person.getPhone());
 			
 			pstmt.executeUpdate();
 			
