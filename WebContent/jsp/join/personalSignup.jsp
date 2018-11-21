@@ -129,36 +129,36 @@
 	
 				<div class="form-row">
 					<p class="formName">아이디</p>
-					<input id="id" class="inputValue" type="text" placeholder="아이디* (4~20자)" name="id">
+					<input id="id" class="inputValue insert_input" type="text" placeholder="아이디* (4~20자)" name="id">
 					<p class="error">* 아이디를 입력하세요(4글자이상)</p>
 				</div>
 				<div class="form-row">
 					<p class="formName">비밀번호</p>
-					<input id="pass" class="inputValue" type="password" placeholder="비밀번호(8자리 이상)" name="pass" oninput="checkPass()">
+					<input id="pass" class="inputValue insert_input" type="password" placeholder="비밀번호(8자리 이상)" name="pass" oninput="checkPass()">
 					<p class="error">* 비밀번호를 입력하세요(8자리 이상)</p>
 				</div>
 				<div class="form-row">
 					<p class="formName">비밀번호 재확인</p>
-					<input id="passCheck" class="inputValue" type="password" placeholder="비밀번호 체크" name="passCheck" oninput="checkPass()">
+					<input id="passCheck" class="inputValue insert_input" type="password" placeholder="비밀번호 체크" name="passCheck" oninput="checkPass()">
 					<p class="error">* 비밀번호가 일치하지않습니다</p>
 				</div>
 				<div class="form-row">
 					<p class="formName">이메일</p>
-					<input id="email" class="inputValue" type="email" placeholder="이메일"	name="email">
+					<input id="email" class="inputValue insert_input" type="email" placeholder="이메일"	name="email">
 					<p class="error">* 이메일을 입력하세요</p>
 				</div>
 				<div class="form-row">
 					<p class="formName">이름</p>
-					<input id="name" class="inputValue" type="text" placeholder="이름"	 name="name">
+					<input id="name" class="inputValue insert_input" type="text" placeholder="이름"	 name="name">
 					<p class="error">* 이름을 입력하세요</p>
 				</div>
 				<div class="form-row">
 					<p class="formName">전화번호</p>
-					<input id="phone" class="inputValue" type="text" placeholder="휴대폰" name="phone">
+					<input id="phone" class="inputValue insert_input" type="text" placeholder="휴대폰" name="phone">
 					<p class="error">* 전화번호를 입력하세요</p>
 				</div>
 			</div>
-			<div class="joinBtn">
+			<div class="joinBtn basic_btn">
 				<button type="submit">가입 신청</button>
 			</div>
 		</form>
