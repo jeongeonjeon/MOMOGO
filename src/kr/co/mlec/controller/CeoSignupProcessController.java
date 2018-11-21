@@ -8,7 +8,7 @@ import kr.co.mlec.join.dao.CeoSignUpDAO;
 import kr.co.mlec.join.vo.CeoSignStoreVO;
 import kr.co.mlec.join.vo.CeoSignUpVO;
 
-public class CeoJoinController implements Controller {
+public class CeoSignupProcessController implements Controller {
 	
 	
 	@Override
@@ -57,7 +57,7 @@ public class CeoJoinController implements Controller {
 		ceoDao.CeoSignUp(ceoSign);
 		storeDao.CeoSignStore(ceoStore);
 		
-		return "/jsp/login/ceoJoin.jsp";
+		return "/jsp/join/ceoSignupProcess.jsp";
 	}
 	
 }

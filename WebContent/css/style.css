@@ -126,16 +126,25 @@ select:focus {
 
 /****************bbs****************/
 
+.noticeList_page.page_shadow{
+	box-shadow: unset;
+}
+
 .bbs_page_tit {
+	
     font-size: 21px;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin: 110px 0 20px 0;
 }
 
 .bbs_wrap {
     width: 100%;
     border-top: 2px solid #999;
     border-bottom: 2px solid #999;
+    height: auto;
+    overflow: -webkit-paged-y;
+}
+    
 }
 
 .bbs_wrap .bbs {
@@ -162,7 +171,7 @@ select:focus {
 }
 
 .bbs_wrap .bbs .title {
-    width: calc(100% - 520px);
+    width: calc(100% - 545px);
 }
 
 .bbs_wrap .bbs .name {

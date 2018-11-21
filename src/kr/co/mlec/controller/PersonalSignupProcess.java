@@ -25,7 +25,7 @@ public class PersonalSignupProcess implements Controller{
 		
 		dao.Personal_Signup(person);
 		
-		return "/jsp/login/personalSignupProcess.jsp";
+		return "/jsp/join/personalSignupProcess.jsp";
 	}
 	
 	

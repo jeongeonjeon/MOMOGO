@@ -8,7 +8,7 @@ public class CeoSignupController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		return "/jsp/login/ceoSignup.jsp";
+		return "/jsp/join/ceoSignup.jsp";
 	}
 
 	
