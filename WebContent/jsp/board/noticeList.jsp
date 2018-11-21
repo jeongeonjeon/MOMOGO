@@ -29,7 +29,7 @@
 						<c:forEach items="${ requestScope.list }" var="notice">
 							<div class="txt num">${ notice.noticeNo }</div>
 							<div class="txt title">
-								<a href=""><c:out value="${ notice.title }" /></a>
+								<a href="<%= request.getContextPath() %>/board/noticeView.do?noticeNo=${notice.noticeNo}"><c:out value="${ notice.title }" /></a>
 							</div>
 							<div class="txt name">${ notice.writer }</div>
 							<div class="txt date">${ notice.regDate }</div>

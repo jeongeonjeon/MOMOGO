@@ -32,7 +32,7 @@
 			<div class="bbs_write">
 				<div class="content">
 					<div class="tit">제목</div>
-					<input type="text" placeholder="제목을 입력해주세요" name="title">
+					<input type="text" placeholder="제목을 입력해주세요" name="title" value="${ notice.title }">
 				</div>
 				<div class="content">
 					<div class="half">
@@ -44,7 +44,7 @@
 						<div class="txt">2017.10.26</div>
 					</div> -->
 				</div>
-				<textarea placeholder="내용을 입력해주세요." name="content"></textarea>
+				<textarea placeholder="내용을 입력해주세요." name="content">${ notice.content }</textarea>
 			</div>
 			<div class="bbs_btn_wrap">
 				<a href="noticeList.jsp">

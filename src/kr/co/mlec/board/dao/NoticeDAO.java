@@ -109,4 +109,44 @@ public class NoticeDAO {
 			JDBCClose.close(pstmt, conn);
 		}
 	}
+	
+	
+	public NoticeVO selectByNo(int no) {
+		
+		NoticeVO notice = null; 
+		
+		StringBuilder sql = new StringBuilder();			
+		
+		sql.append("select notice_No, title, writer, content, view_cnt ");
+		sql.append(" , to_char(reg_date, 'yyyy-mm-dd') as reg_date ");
+		sql.append(" from notice ");
+		sql.append(" where notice_no =? ");
+		
+		
+		try(
+			Connection conn = new ConnectionFactory().getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());	
+		){
+			
+			pstmt.setInt(1,no);
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				int noticeNo = rs.getInt("notice_no"); 
+				String title = rs.getString("title");
+				String writer = rs.getString("writer");
+				String content = rs.getString("content");
+				int viewCnt = rs.getInt("view_cnt");
+				String regDate = rs.getString("reg_date");
+				
+				notice = new NoticeVO(noticeNo, title, writer, content, viewCnt, regDate);
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return notice;
+	}
 }

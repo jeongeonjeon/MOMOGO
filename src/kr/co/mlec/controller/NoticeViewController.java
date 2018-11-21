@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import kr.co.mlec.board.dao.NoticeDAO;
 import kr.co.mlec.board.vo.NoticeVO;
 
-public class NoticeFormController implements Controller {
+public class NoticeViewController implements Controller {
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -19,10 +19,11 @@ public class NoticeFormController implements Controller {
 		
 		request.setAttribute("notice", notice);
 		
+		String returnAddr = "/jsp/board/noticeView.jsp?noticeNo="+no;
+		System.out.println(returnAddr);
 		
-		return "/jsp/board/noticeForm.jsp";
+		return returnAddr;
 	}
 
-	
 	
 }
