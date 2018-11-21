@@ -288,7 +288,7 @@
 								<option value="6">찜/탕</option>
 								<option value="7">한식/분식/죽</option>
 								<option value="8">돈까스/회/일식</option>
-								<option value="9">도시락/패스트푸드</option>
+								<option value="9">패스트푸드</option>
 							</select>
 						</div>
 					</div>

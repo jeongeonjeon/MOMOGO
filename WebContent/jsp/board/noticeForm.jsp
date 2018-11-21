@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +29,8 @@
 		<div class="page_inner">
 			<div class="bbs_page_tit">공지사항</div>
 			<form method="post" action="<%= request.getContextPath() %>/board/noticeFormProcess.do"
-				name="nform" onsubmit="checkForm();">
+				name="nform" onsubmit="return checkForm()">
+			<input type="hidden" name="writer" size="50" value="${ id }">
 			<div class="bbs_write">
 				<div class="content">
 					<div class="tit">제목</div>
@@ -37,7 +39,7 @@
 				<div class="content">
 					<div class="half">
 						<div class="tit">작성자</div>
-						<div class="txt">giun123</div>
+						<div class="txt">${ id }</div>
 					</div>
 <!-- 					<div class="half">
 						<div class="tit">작성일</div>

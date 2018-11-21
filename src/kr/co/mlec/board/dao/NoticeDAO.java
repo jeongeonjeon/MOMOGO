@@ -91,7 +91,7 @@ public class NoticeDAO {
 		try {
 			conn = new ConnectionFactory().getConnection();
 			StringBuilder sql = new StringBuilder();
-			sql.append("insert into notice(no, title, writer, content) ");
+			sql.append("insert into notice(notice_no, title, writer, content) ");
 			sql.append(" values(?, ?, ?, ?) ");
 			pstmt = conn.prepareStatement(sql.toString());
 			

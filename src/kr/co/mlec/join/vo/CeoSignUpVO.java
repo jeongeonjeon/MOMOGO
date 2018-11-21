@@ -25,6 +25,12 @@ public class CeoSignUpVO {
 		this.phone = phone;
 		this.regDate = regDate;
 	}
+	
+	public CeoSignUpVO(String id, String password) {
+		super();
+		this.id = id;
+		this.password = password;
+	}
 
 	public int getCeoNo() {
 		return ceoNo;

@@ -1,21 +1,59 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- 
-<%
-	String id = request.getParameter("id");
 
-	MemberDAO dao = new MemberDAO();
-	MemberVO member = dao.selectById(id);
-	
-	pageContext.setAttribute("member",member);
-%>
- --%>
 <!DOCTYPE html>
 <html>
 <head>
 <jsp:include page="/jsp/include/head.jsp" />
 </head>
 <body>
+<div class="popup_cover"></div>
+<div class="popup_wrap">
+	<div class="popup_inner">
+		<section class="store_name">
+			도미노피자
+		</section>
+		<section class="content_wrap">
+			<div class="content_header">
+				<p>주문상태</p>
+				<p class="status">주문완료</p>
+			</div>
+			<div class="content">
+				<p class="left_txt">
+					주문시간
+				</p>
+				<p class="right_txt">2018.11.21 11:22</p>
+			</div>
+		</section>
+		<section class="content_wrap">
+			<div class="content_header">
+				<p>주문내역</p>
+			</div>
+			<div class="content">
+				<p class="left_txt">
+					불고기피자x1
+				</p>
+				<p class="right_txt">500원</p>
+			</div>
+			<div class="content">
+				<p class="left_txt">
+					불고기피자x1
+				</p>
+				<p class="right_txt">500원</p>
+			</div>
+			<div class="content">
+				<p class="left_txt">
+					불고기피자x1
+				</p>
+				<p class="right_txt">500원</p>
+			</div>
+			<div class="content sum">
+				<p class="left_txt">상품합계</p>
+				<p class="right_txt">1500원</p>
+			</div>
+		</section>
+	</div>
+</div>
 <div class="myPage_page">
 	<div class="page_inner">
 		<section class="item_wrap">
@@ -94,6 +132,49 @@
 									<button type="submit" class="basic_btn complete_btn">완료</button>
 								</div>
 							</form>
+						</div>
+					</div>
+				</div>
+				<div class="item order_item">
+					<div class="item_header">
+						<h4 class="tit">주문내역</h4>
+						<button type="button"></button>
+					</div>
+					<p class="contxt">
+						<span>'최근주문'한  주문내역</span> 정보입니다.<br> 3개월이 지난 주문 내역은 삭제됩니다.
+					</p>
+					<div class="item_content">
+						<div class="content_header">
+							<p class="date">2018.11.21</p>
+							<p class="status">주문완료</p>
+						</div>
+						<div class="content">
+							<div class="img">
+								<img src="/MOMOGO/img/item01.jpg" alt="">
+							</div>
+							<div class="order_info">
+								<p class="store_name">도미노피자</p>
+								<p class="food_name">
+									불고기피자x1 불고기피자x1 불고기피자x1 불고기피자x1 불고기피자x1 
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="item_content">
+						<div class="content_header">
+							<p class="date">2018.11.21</p>
+							<p class="status">주문완료</p>
+						</div>
+						<div class="content">
+							<div class="img">
+								<img src="/MOMOGO/img/item01.jpg" alt="">
+							</div>
+							<div class="order_info">
+								<p class="store_name">도미노피자</p>
+								<p class="food_name">
+									불고기피자x1 불고기피자x1 불고기피자x1 불고기피자x1 불고기피자x1 
+								</p>
+							</div>
 						</div>
 					</div>
 				</div>
