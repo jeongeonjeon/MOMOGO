@@ -18,7 +18,7 @@
 				<p>주문상태</p>
 				<p class="status">주문완료</p>
 			</div>
-			<div class="content">
+			<div class="content mb5">
 				<p class="left_txt">
 					주문시간
 				</p>
@@ -49,6 +49,10 @@
 			</div>
 			<div class="content sum">
 				<p class="left_txt">상품합계</p>
+				<p class="right_txt">1500원</p>
+			</div>
+			<div class="content payment">
+				<p class="left_txt">결제금액</p>
 				<p class="right_txt">1500원</p>
 			</div>
 		</section>

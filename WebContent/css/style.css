@@ -119,7 +119,7 @@
 }
 
 .popup_wrap .content {
-	margin: 10px 0 5px;
+	margin: 10px 0;
 }
 
 .popup_wrap .content:after {
@@ -141,13 +141,32 @@
 	float: right;
 }
 
-.popup_wrap .content .right_txt {
-	float: right;
+.popup_wrap .mb5 {
+	margin: 10px 0 5px;
+}
+
+.popup_wrap .sum {
+	border-top: 1px dotted #b9b9b9;
+    margin: 0 0 5px;
+    padding-top: 10px;
 }
 
 .popup_wrap .sum p {
 	font-size: 15px;
+	font-weight: bold;
 	color: #222;
+}
+
+.popup_wrap .payment {
+	border-top: 1px dotted #b9b9b9;
+    margin: 0 0 5px;
+    padding-top: 10px;
+}
+
+.popup_wrap .payment p {
+	font-size: 15px;
+	font-weight: bold;
+	color: #ef4444;
 }
 
 /**********************common*********************/
