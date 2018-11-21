@@ -15,7 +15,16 @@ public class NoticeListController implements Controller{
 	public String handleRequest(HttpServletRequest request,HttpServletResponse response) throws Exception {
 		
 		NoticeDAO dao = new NoticeDAO();
-		List<NoticeVO> list = dao.selectAllNotice();
+		
+		int pageNo;
+		
+		if(request.getParameter("page")==null || request.getParameter("page").length() == 0){
+			pageNo = 1;
+		}else{
+			pageNo = Integer.parseInt(request.getParameter("page"));
+		}
+		
+		List<NoticeVO> list = dao.selectAllNotice(pageNo);
 		
 		request.setAttribute("list", list);
 		

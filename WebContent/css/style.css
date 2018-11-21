@@ -287,10 +287,9 @@ insert_select:focus {
 }
 
 .bbs_page_tit {
-	
     font-size: 21px;
     font-weight: 700;
-    margin: 110px 0 20px 0;
+    margin: 110px 0 30px 0;
 }
 
 .bbs_wrap {
@@ -300,13 +299,14 @@ insert_select:focus {
     height: auto;
     overflow: -webkit-paged-y;
 }
-    
-}
 
 .bbs_wrap .bbs {
     height: 30px;
     border-bottom: 1px solid #d0d0d0;
     font-size: 0;
+}
+.bbs.not_txt{
+	height:auto;
 }
 
 .bbs_wrap .bbs .tit {
