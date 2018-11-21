@@ -9,10 +9,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
-
-import org.apache.tomcat.util.http.ResponseUtil;
-
 import kr.co.mlec.board.vo.NoticeVO;
 import kr.co.mlec.util.ConnectionFactory;
 import kr.co.mlec.util.JDBCClose;
