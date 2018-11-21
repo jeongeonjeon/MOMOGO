@@ -5,7 +5,7 @@ public class PersonalVO {
 	private String pass; 
 	private String name; 
 	private String email; 
-	private int phone;
+	private String phone;
 	
 	public PersonalVO() {
 	
@@ -43,13 +43,16 @@ public class PersonalVO {
 		this.name = name;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	
+
+
 	
 	
 }

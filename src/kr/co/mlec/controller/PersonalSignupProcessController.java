@@ -3,8 +3,10 @@ package kr.co.mlec.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.mlec.login.PersonalDAO;
-import kr.co.mlec.login.PersonalVO;
+import kr.co.mlec.join.dao.PersonalDAO;
+import kr.co.mlec.join.vo.PersonalVO;
+
+
 
 public class PersonalSignupProcessController implements Controller{
 

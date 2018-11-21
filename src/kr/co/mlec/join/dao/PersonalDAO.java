@@ -13,7 +13,7 @@ public class PersonalDAO {
 		
 		StringBuilder sql = new StringBuilder(); 
 		
-		sql.append(" insert into table (id, pass, name, email, phone) ");
+		sql.append(" insert into personal (id, password, name, email, phone) ");
 		sql.append(" values ( ?, ?, ?, ?, ?) ");
 		
 		try (
@@ -25,7 +25,7 @@ public class PersonalDAO {
 			pstmt.setString(2, person.getPass());
 			pstmt.setString(3, person.getName());
 			pstmt.setString(4, person.getEmail());
-			pstmt.setInt(5, person.getPhone());
+			pstmt.setString(5, person.getPhone());
 			
 			pstmt.executeUpdate();
 			
