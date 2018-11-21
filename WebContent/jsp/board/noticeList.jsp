@@ -8,13 +8,13 @@
 </head>
 <body>
 	<div id="wrapper">
-<%-- 	
+	
 		<header>
-			<jsp:include page="/include/header.jsp">
+<%-- 			<jsp:include page="/include/header.jsp"> --%>
 			<%@include file="/jsp/include/header.jsp"%>
 		</header>
- --%>		
-		<div class="noticeList_page">
+		
+		<div class="noticeList_page page_shadow">
 			<div class="page_inner">
 				<h3 class="bbs_page_tit">공지사항</h3>
 				<div class="bbs_wrap" id="noticeTable">
