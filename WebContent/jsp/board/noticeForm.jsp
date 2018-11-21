@@ -12,19 +12,19 @@
 			<div class="bbs_write">
 				<div class="content">
 					<div class="tit">제목</div>
-					<input type="text" placeholder="제목을 입력해주세요">
+					<input type="text" placeholder="${board.title}">
 				</div>
 				<div class="content">
 					<div class="half">
 						<div class="tit">작성자</div>
-						<div class="txt">giun123</div>
+						<div class="txt">${board.writer}</div>
 					</div>
 					<div class="half">
 						<div class="tit">작성일</div>
-						<div class="txt">2017.10.26</div>
+						<div class="txt">${ board.regDate }</div>
 					</div>
 				</div>
-				<textarea placeholder="내용을 입력해주세요."></textarea>
+				<textarea value="${ board.content }"></textarea>
 			</div>
 			<div class="bbs_btn_wrap">
 				<a href="noticeList.jsp">

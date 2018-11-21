@@ -8,7 +8,7 @@ public class PersonalSignupController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		return "/jsp/login/personalSignup.jsp";
+		return "/jsp/join/personalSignup.jsp";
 	}
 
 	
