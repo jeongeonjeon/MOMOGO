@@ -13,8 +13,7 @@ public class CeoSignUpDAO {
 		StringBuilder sql = new StringBuilder(); 
 		
 		sql.append(" insert into ceo (ceo_no, id, password, email, name, phone) ");
-		sql.append("        , to_char(reg_date, 'yyyy-mm-dd') as reg_date ");
-		sql.append(" values ( ?, ?, ?, ?, ?, ?, ?) ");
+		sql.append(" values ( SEQ_CEO_CEO_NO.nextval, ?, ?, ?, ?, ?) ");
 		
 		try (
 			Connection conn = new ConnectionFactory().getConnection();
@@ -23,13 +22,11 @@ public class CeoSignUpDAO {
 			
 			int loc = 1;
 			
-			pstmt.setInt(loc++, person.getCeoNo());
 			pstmt.setString(loc++, person.getId());
 			pstmt.setString(loc++, person.getPassword());
 			pstmt.setString(loc++, person.getEmail());
 			pstmt.setString(loc++, person.getName());
 			pstmt.setString(loc++, person.getPhone());
-			pstmt.setString(loc++, person.getRegDate());
 			
 			pstmt.executeUpdate();
 			

@@ -14,15 +14,18 @@ public class CeoSignupProcessController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
+		request.setCharacterEncoding("utf-8");
+		
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
 		String name = request.getParameter("name");
 		String phone = request.getParameter("phone");
+		
 		String storeName = request.getParameter("storeName");
 		String licenseNo = request.getParameter("licenseNo");
 		String storeTel = request.getParameter("storeTel");
-		String baseAddr = request.getParameter("baseAddr");
+		String baseAddr = request.getParameter("basicAddr");
 		String detailAddr = request.getParameter("detailAddr");
 		String category = request.getParameter("category");
 		String deleveryArea1 = request.getParameter("deleveryArea1");
@@ -37,8 +40,11 @@ public class CeoSignupProcessController implements Controller {
 		ceoSign.setId(id);
 		ceoSign.setPassword(password);
 		ceoSign.setEmail(email);
-		ceoSign.setName(storeName);
+		ceoSign.setName(name);
 		ceoSign.setPhone(phone);
+		
+		
+		ceoStore.setCeoId(id);
 		ceoStore.setStoreName(storeName);
 		ceoStore.setLicenseNo(licenseNo);
 		ceoStore.setStoreTel(storeTel);

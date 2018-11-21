@@ -7,49 +7,84 @@
 <jsp:include page="/jsp/include/head.jsp" />
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
+
 	//daum주소 API사용
 	function execDaumPostcode() {
-		new daum.Postcode(
-				{
-					oncomplete : function(data) {
-						// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-
-						// 각 주소의 노출 규칙에 따라 주소를 조합한다.
-						// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-						var fullAddr = ''; // 최종 주소 변수
-						var extraAddr = ''; // 조합형 주소 변수
-
-						// 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
-						if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-							fullAddr = data.roadAddress;
-
-						} else { // 사용자가 지번 주소를 선택했을 경우(J)
-							fullAddr = data.jibunAddress;
-						}
-
-						// 사용자가 선택한 주소가 도로명 타입일때 조합한다.
-						if (data.userSelectedType === 'R') {
-							//법정동명이 있을 경우 추가한다.
-							if (data.bname !== '') {
-								extraAddr += data.bname;
-							}
-							// 건물명이 있을 경우 추가한다.
-							if (data.buildingName !== '') {
-								extraAddr += (extraAddr !== '' ? ', '
-										+ data.buildingName : data.buildingName);
-							}
-							// 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
-							fullAddr += (extraAddr !== '' ? ' (' + extraAddr
-									+ ')' : '');
-						}
-
-						// 우편번호와 주소 정보를 해당 필드에 넣는다.
-						document.getElementById('basicAddr').value = fullAddr;
-
-						// 커서를 상세주소 필드로 이동한다.
-						document.getElementById('detailAddr').focus();
+		new daum.Postcode({
+			oncomplete : function(data) {
+				// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+		
+				// 각 주소의 노출 규칙에 따라 주소를 조합한다.
+				// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+				var fullAddr = ''; // 최종 주소 변수
+				var extraAddr = ''; // 조합형 주소 변수
+		
+				// 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+				if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+					fullAddr = data.roadAddress;
+		
+				} else { // 사용자가 지번 주소를 선택했을 경우(J)
+					fullAddr = data.jibunAddress;
+				}
+		
+				// 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+				if (data.userSelectedType === 'R') {
+					//법정동명이 있을 경우 추가한다.
+					if (data.bname !== '') {
+						extraAddr += data.bname;
 					}
-				}).open();
+					// 건물명이 있을 경우 추가한다.
+					if (data.buildingName !== '') {
+						extraAddr += (extraAddr !== '' ? ', '
+								+ data.buildingName : data.buildingName);
+					}
+					// 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+					fullAddr += (extraAddr !== '' ? ' (' + extraAddr
+							+ ')' : '');
+				}
+				// 우편번호와 주소 정보를 해당 필드에 넣는다.
+				document.getElementById('basicAddr').value = fullAddr;
+		
+				// 커서를 상세주소 필드로 이동한다.
+				document.getElementById('detailAddr').focus();
+				
+			}
+		}).open();
+	}
+	function execDaumPostcode2() {
+		new daum.Postcode({
+			oncomplete : function(data) {
+				// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+		
+				// 각 주소의 노출 규칙에 따라 주소를 조합한다.
+				// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+				var fullAddr = ''; // 최종 주소 변수
+				var extraAddr = ''; // 조합형 주소 변수
+		
+				// 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+				if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+					fullAddr = data.roadAddress;
+		
+				} else { // 사용자가 지번 주소를 선택했을 경우(J)
+					fullAddr = data.jibunAddress;
+				}
+		
+				// 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+				if (data.userSelectedType === 'R') {
+					//법정동명이 있을 경우 추가한다.
+					if (data.bname !== '') {
+						extraAddr += data.bname;
+					}
+
+					// 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+					fullAddr += (extraAddr !== '' ? ' (' + extraAddr
+							+ ')' : '');
+				}
+				// 우편번호와 주소 정보를 해당 필드에 넣는다.
+				document.getElementById('deliveryAddr').value = fullAddr;
+
+			}
+		}).open();
 	}
 
 	// 아이디와 비밀번호가 맞지 않을 경우 가입버튼 비활서황를 위한 변수 설정
@@ -177,7 +212,6 @@
 		if (pass.length > 0 && pass.length < 8) {
 			$("#pass + .error").show();
 			alert("비밀번호가 8자리미만입니다")
-			
 
 		} else {
 			$("#pass + .error").hide();
@@ -196,7 +230,7 @@
 		<%@include file="/jsp/include/header.jsp"%>
 	</header>
 	<div class="ceoSignup_page page_shadow">
-		<form name="signUp" method="post" action="<%= request.getContextPath() %>/join/ceoJoin.do"
+		<form name="signUp" method="post" action="<%= request.getContextPath() %>/join/ceoSignupProcess.do"
 			onsubmit="return clickBtn()">
 			<div id="signupForm">
 				<div class="left_wrap">
@@ -254,8 +288,8 @@
 					<div class="formRow">
 						<p class="formName">사업자 등록번호</p>
 						<div class="inputArea">
-							<input id="licenseNum" class="inputValue insert_input" type="text"
-								name="licenseNum">
+							<input id="licenseNo" class="inputValue insert_input" type="text"
+								name="licenseNo">
 						</div>
 					</div>
 					<div class="formRow">
@@ -270,9 +304,8 @@
 						<div class="inputArea">
 							<input class="inputAddr insert_input" type="text" name="basicAddr"
 								id="basicAddr" placeholder="주소" readonly="readonly" size="35">
-							<input class="addr_btn" type="button"
-								onclick="execDaumPostcode()" value="주소검색"><br> <input
-								class="inputAddr inputAddr1 insert_input" type="text" name="detailAddr"
+							<input class="addr_btn" type="button" onclick="execDaumPostcode()" value="주소검색"><br>
+							<input class="inputAddr inputAddr1 insert_input" type="text" name="detailAddr"
 								id="detailAddr" placeholder="상세주소" size="35">
 						</div>
 					</div>
@@ -295,9 +328,8 @@
 					<div class="formRow">
 						<p class="formName">배달가능지역</p>
 						<div class="inputArea">
-							<input class="inputValue inputValue2 insert_input" type="text"
-								name="restaurAddr"> <input type="button" class="areaBtn"
-								value="검색">
+							<input class="inputValue inputValue2 insert_input" type="text" name="deleveryArea1" id="deliveryAddr">
+							<input type="button" class="areaBtn" onclick="execDaumPostcode2()" value="검색">
 						</div>
 					</div>
 				</div>

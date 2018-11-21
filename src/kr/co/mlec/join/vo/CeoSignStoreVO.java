@@ -4,7 +4,7 @@ import java.util.List;
 
 public class CeoSignStoreVO {
 	int storeNo;
-	int ceoNo;
+	String ceoId;
 	String storeName;
 	String licenseNo;
 	String storeTel;
@@ -23,12 +23,12 @@ public class CeoSignStoreVO {
 		super();
 	}
 
-	public CeoSignStoreVO(int storeNo, int ceoNo, String storeName, String licenseNo, String storeTel, String baseAddr,
+	public CeoSignStoreVO(int storeNo, String ceoId, String storeName, String licenseNo, String storeTel, String baseAddr,
 			String detailAddr, String category, String deleveryArea1, String deleveryArea2, String deleveryArea3,
 			String deleveryArea4, String deleveryArea5) {
 		super();
 		this.storeNo = storeNo;
-		this.ceoNo = ceoNo;
+		this.ceoId = ceoId;
 		this.storeName = storeName;
 		this.licenseNo = licenseNo;
 		this.storeTel = storeTel;
@@ -50,12 +50,14 @@ public class CeoSignStoreVO {
 		this.storeNo = storeNo;
 	}
 
-	public int getCeoNo() {
-		return ceoNo;
+
+
+	public String getCeoId() {
+		return ceoId;
 	}
 
-	public void setCeoNo(int ceoNo) {
-		this.ceoNo = ceoNo;
+	public void setCeoId(String id) {
+		this.ceoId = id;
 	}
 
 	public String getStoreName() {
@@ -148,7 +150,7 @@ public class CeoSignStoreVO {
 
 	@Override
 	public String toString() {
-		return "CeoSignStoreVO [storeNo=" + storeNo + ", ceoNo=" + ceoNo + ", storeName=" + storeName + ", licenseNo="
+		return "CeoSignStoreVO [storeNo=" + storeNo + ", ceoId=" + ceoId + ", storeName=" + storeName + ", licenseNo="
 				+ licenseNo + ", storeTel=" + storeTel + ", baseAddr=" + baseAddr + ", detailAddr=" + detailAddr
 				+ ", category=" + category + ", deleveryArea1=" + deleveryArea1 + ", deleveryArea2=" + deleveryArea2
 				+ ", deleveryArea3=" + deleveryArea3 + ", deleveryArea4=" + deleveryArea4 + ", deleveryArea5="

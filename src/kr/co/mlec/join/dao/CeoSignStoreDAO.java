@@ -9,11 +9,11 @@ import kr.co.mlec.util.ConnectionFactory;
 public class CeoSignStoreDAO {
 	public void CeoSignStore(CeoSignStoreVO store) {
 		
+		
 		StringBuilder sql = new StringBuilder(); 
 		
-		sql.append(" insert into store (store_no, ceo_no, store_name, license_no, store_tel, basic_addr, detail_addr,category,delivery_area1,delivery_area2,delivery_area3,delivery_area4,delivery_area5) ");
-		sql.append("        ,to_char(reg_date, 'yyyy-mm-dd') as reg_date");
-		sql.append(" values ( ?, ?, ?, ?, ?, ?, ?, ? ,? ,? ,?, ? ,?) ");
+		sql.append(" insert into store (store_no, ceo_id, store_name, license_no, store_tel, basic_addr, detail_addr,category,delivery_area1,delivery_area2,delivery_area3,delivery_area4,delivery_area5) ");
+		sql.append(" values ( SEQ_STORE_STORE_NO.nextval, ?, ?, ?, ?, ?, ?, ? ,? ,? ,?, ? ,?) ");
 		
 		try (
 			Connection conn = new ConnectionFactory().getConnection();
@@ -22,8 +22,7 @@ public class CeoSignStoreDAO {
 		
 			int loc = 1;
 			
-			pstmt.setInt(loc++, store.getStoreNo());
-			pstmt.setInt(loc++, store.getCeoNo());
+			pstmt.setString(loc++, store.getCeoId());
 			pstmt.setString(loc++, store.getStoreName());
 			pstmt.setString(loc++, store.getLicenseNo());
 			pstmt.setString(loc++, store.getStoreTel());
