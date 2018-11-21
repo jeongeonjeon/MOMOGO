@@ -59,4 +59,54 @@ public class NoticeDAO {
 		
 		return list;
 	}
+	
+	
+	/**
+	 * 게시물 삽입을 위한 sequence번호 추출(seq_notice_notice_no)
+	 */
+	public int selectNo() {
+		String sql = "select seq_notice_notice_no.nextval from dual ";
+
+		try (
+			Connection conn = new ConnectionFactory().getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);				
+		) {
+			ResultSet rs = pstmt.executeQuery();
+			rs.next();
+			return rs.getInt(1);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+
+	/**
+	 * 게시글 삽입하는 기능
+	 */
+	public void insertNotice(NoticeVO notice) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+
+		try {
+			conn = new ConnectionFactory().getConnection();
+			StringBuilder sql = new StringBuilder();
+			sql.append("insert into notice(no, title, writer, content) ");
+			sql.append(" values(?, ?, ?, ?) ");
+			pstmt = conn.prepareStatement(sql.toString());
+			
+			int loc = 1;
+			
+			pstmt.setInt(loc++, notice.getNoticeNo());
+			pstmt.setString(loc++, notice.getTitle());
+			pstmt.setString(loc++, notice.getWriter());
+			pstmt.setString(loc++, notice.getContent());
+
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCClose.close(pstmt, conn);
+		}
+	}
 }
