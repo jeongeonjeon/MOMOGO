@@ -7,15 +7,15 @@
 <script>
 
 	function checkForm() {
-		var nf = document.nform;
+		var title = $('#title').val();
+		var content = $('#content').val();		
 		
-		
-		if (nf.title.value == "") {
-			alert("제목을 입력해주세요");
+		if (title == ""){
+			alert("제목을 입력해주세요!");
 			return false
 		}
-		if (nf.content.value == ""){
-			alert("내용을 입력해주세요");
+		if (content == ""){
+			alert("내용을 입력해주세요!");
 			return false
 		}
 		return true
@@ -28,11 +28,11 @@
 		<div class="page_inner">
 			<div class="bbs_page_tit">공지사항</div>
 			<form method="post" action="<%= request.getContextPath() %>/board/noticeFormProcess.do"
-				name="nform" onsubmit="checkForm()">
+				name="nform" onsubmit="checkForm();">
 			<div class="bbs_write">
 				<div class="content">
 					<div class="tit">제목</div>
-					<input type="text" placeholder="제목을 입력해주세요" name="title">
+					<input type="text" placeholder="제목을 입력해주세요" name="title" id="title">
 				</div>
 				<div class="content">
 					<div class="half">
@@ -44,15 +44,15 @@
 						<div class="txt">2017.10.26</div>
 					</div> -->
 				</div>
-				<textarea placeholder="내용을 입력해주세요." name="content"></textarea>
+				<textarea placeholder="내용을 입력해주세요." name="content" id="content"></textarea>
 			</div>
 			<div class="bbs_btn_wrap">
 				<a href="noticeList.jsp">
 					<div class="bbs_btn cancel" id="cancel">취소</div>
 				</a>
-				<a href="noticeView.jsp">
-					<!-- <div class="bbs_btn registration" id="registration"> --><input type="submit" value="등록"><!-- </div> -->
-				</a>
+				<!-- <a href="noticeView.jsp"> -->
+					<!-- <div class="bbs_btn registration" id="registration"> --><button type="submit">등록</button><!-- </div> -->
+				<!-- </a> -->
 			</div>
 			</form>
 		</div>
