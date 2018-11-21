@@ -50,10 +50,10 @@
 						<input type="radio" name="userSelect" value="ceo">사업자<br>	
 					</div>	
                     <div class="input-group">
-                        <input type="text" class="input" id="id" placeholder="아이디" value="" name="id" />                        
+                        <input type="text" class="input insert_input" id="id" placeholder="아이디" value="" name="id" />                        
                     </div>
                     <div class="input-group">
-                        <input type="password" class="input" id="pw" placeholder="비밀번호" name="password" value="" />                        
+                        <input type="password" class="input insert_input" id="pw" placeholder="비밀번호" name="password" value="" />                        
                     </div>                
                     <div class="login-link">
                         <a class="btn-find" href="">아이디</a>&nbsp;&#47;
