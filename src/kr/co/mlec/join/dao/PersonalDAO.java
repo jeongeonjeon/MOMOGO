@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import kr.co.mlec.join.vo.CeoSignUpVO;
 import kr.co.mlec.join.vo.PersonalVO;
 import kr.co.mlec.util.ConnectionFactory;
 
@@ -13,7 +14,7 @@ public class PersonalDAO {
 		
 		StringBuilder sql = new StringBuilder(); 
 		
-		sql.append(" insert into table (id, pass, name, email, phone) ");
+		sql.append(" insert into personal (id, password, name, email, phone) ");
 		sql.append(" values ( ?, ?, ?, ?, ?) ");
 		
 		try (
@@ -46,7 +47,7 @@ public class PersonalDAO {
 		PersonalVO userVO = null;
 		
 		StringBuilder sql = new StringBuilder();
-		sql.append("select id, password, user_type ");
+		sql.append("select id, password, type ");
 		sql.append("  from personal ");
 		sql.append(" where id = ? and password = ? ");
 		
@@ -76,4 +77,6 @@ public class PersonalDAO {
 		return userVO;
 	}
 
+
+	
 }

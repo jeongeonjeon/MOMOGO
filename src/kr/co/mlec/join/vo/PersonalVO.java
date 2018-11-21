@@ -6,23 +6,23 @@ public class PersonalVO {
 	private String name; 
 	private String email; 
 	private String phone;
-	private String userType;
+	private String type;	
 	
 	public PersonalVO() {
-	
-	}
-	
+		super();
+	}	
+
 	public PersonalVO(String id, String pass) {
 		super();
 		this.id = id;
 		this.pass = pass;
 	}
 	
-	public PersonalVO(String id, String pass, String userType) {
+	public PersonalVO(String id, String pass, String type) {
 		super();
 		this.id = id;
 		this.pass = pass;
-		this.userType = userType;
+		this.type = type;
 	}
 
 	public String getId() {
@@ -63,15 +63,25 @@ public class PersonalVO {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}	
+
+	public String getType() {
+		return type;
 	}
 
-	public String getUserType() {
-		return userType;
+	public void setType(String type) {
+		this.type = type;
 	}
 
-	public void setUserType(String userType) {
-		this.userType = userType;
+	@Override
+	public String toString() {
+		return "PersonalVO [id=" + id + ", pass=" + pass + ", name=" + name + ", email=" + email + ", phone=" + phone
+				+ ", type=" + type + "]";
 	}
+
+
+	
+	
 	
 	
 	
