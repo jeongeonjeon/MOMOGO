@@ -110,7 +110,9 @@ public class NoticeDAO {
 		}
 	}
 	
-	
+	/**
+	 * 게시글 번호로 조회하는 기능
+	 */
 	public NoticeVO selectByNo(int no) {
 		
 		NoticeVO notice = null; 
@@ -148,5 +150,28 @@ public class NoticeDAO {
 		}
 		
 		return notice;
+	}
+	
+	/**
+	 * 게시글 삭제
+	 */
+	public void deleteNotice(int no) {
+		
+		StringBuilder sql = new StringBuilder(); 
+		
+		sql.append(" delete from notice where noticeno = ? ");
+		
+		try(
+			Connection conn = new ConnectionFactory().getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+		){
+			
+			pstmt.setInt(1, no);
+			pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 }
