@@ -6,10 +6,12 @@ import javax.servlet.http.HttpServletResponse;
 import kr.co.mlec.login.PersonalDAO;
 import kr.co.mlec.login.PersonalVO;
 
-public class PersonalSignupProcess implements Controller{
+public class PersonalSignupProcessController implements Controller{
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		System.out.println("personalSignupProcess");
 		
 		request.setCharacterEncoding("utf-8");
 		
