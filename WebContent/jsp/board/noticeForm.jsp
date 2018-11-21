@@ -24,6 +24,9 @@
 </script>
 </head>
 <body>
+	<header>
+		<%@include file="/jsp/include/header.jsp"%>
+	</header>
 	<div class="noticeForm_page">
 		<div class="page_inner">
 			<div class="bbs_page_tit">공지사항</div>
@@ -57,5 +60,8 @@
 			</form>
 		</div>
 	</div>
+	<footer>
+		<%@include file="/jsp/include/footer.jsp"%>
+	</footer>
 </body>
 </html>
