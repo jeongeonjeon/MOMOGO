@@ -7,7 +7,7 @@
 			<li><a href="/MOMOGO/jsp/login/loginForm.jsp">LOGIN</a></li>
 			<li><a href="/MOMOGO/jsp/join/choiceJoin.jsp">JOIN</a></li>
 			<li><a href="#">ORDER</a></li>
-			<li><a href="#">MYPAGE</a></li>
+			<li><a href="/MOMOGO/jsp/mypage/mypage.jsp">MYPAGE</a></li>
 		</ul>
 	</div>
 	<h2 class="logo">
