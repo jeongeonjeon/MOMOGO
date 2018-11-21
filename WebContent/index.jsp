@@ -48,14 +48,13 @@
 				<c:set var="categories"	value="치킨,중국집,피자,족발/보쌈,야식,찜/탕,한식/분식/죽,돈까스/회/일식,패스트푸드" />
 				<c:set var="category" value="${fn:split(categories, ',')}" />
 				<c:set var="i" value="0" />
-				<ul class="item_wrap">
+				<ul class="itemList_wrap">
 					<c:forEach items="${ category }" var="c">
 						<c:set var="i" value="${i+1}" />
-						<li class="item0${ i }">
+						<li class="itemList0${ i }">
 							<div class="item_cover"></div> <a href="#"></a>
 							<div class="line">
 								<div class="txt_box">
-									<!-- <p>중국집</p> -->
 									<a href="">더보기</a>
 								</div>
 								<div class="heading">
