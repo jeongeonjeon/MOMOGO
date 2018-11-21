@@ -1,6 +1,9 @@
 package kr.co.mlec.board.dao;
 
 import java.sql.Connection;
+
+import java.lang.Math;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -12,23 +15,42 @@ import kr.co.mlec.util.JDBCClose;
 
 public class NoticeDAO {
 
-	public List<NoticeVO> selectAllNotice() {
+	public List<NoticeVO> selectAllNotice(int page) {
 		
 		List<NoticeVO> list = new ArrayList<>();
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		PreparedStatement pstmt2 = null;
 		
 		try {
 			conn = new ConnectionFactory().getConnection();
 			StringBuilder sql = new StringBuilder();
-
+			StringBuilder sql2 = new StringBuilder();
+/*
+			sql2.append(" select count(*) cnt from notice ");
+			pstmt2 = conn.prepareStatement(sql2.toString());
+			
+			ResultSet rs2 = pstmt2.executeQuery();
+			rs2.next();
+			int cnt = rs2.getInt("cnt");//게시판 글 개수
+			cnt = (int)Math.ceil(cnt/(20.0));	//게시판 페이지 수
+*/			
+			
 			sql.append(" select notice_no, title, writer, to_char(reg_date, 'yyyy-mm-dd') as reg_date ,view_cnt");
-			sql.append("   from notice ");
-			sql.append("  order by notice_no desc ");
-	
+			sql.append(" from (                                   ");
+			sql.append("         select ROWNUM as rnum, e.*      ");
+			sql.append("         from (                          ");
+			sql.append("                 select *                ");
+			sql.append("                 from notice             ");
+			sql.append("                 order by notice_no desc ");
+			sql.append("                 ) e                     ");
+			sql.append("          ) e2                           ");
+			sql.append(" where rnum between (?*20)-19 and (?*20)");
 
 			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setInt(1, page);
+			pstmt.setInt(2, page);
 
 			ResultSet rs = pstmt.executeQuery();
 			
@@ -91,7 +113,7 @@ public class NoticeDAO {
 		try {
 			conn = new ConnectionFactory().getConnection();
 			StringBuilder sql = new StringBuilder();
-			sql.append("insert into notice(no, title, writer, content) ");
+			sql.append("insert into notice(notice_no, title, writer, content) ");
 			sql.append(" values(?, ?, ?, ?) ");
 			pstmt = conn.prepareStatement(sql.toString());
 			

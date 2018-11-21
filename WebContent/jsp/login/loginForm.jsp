@@ -43,10 +43,10 @@
             <div class="tit-area">
                 <h3 class="tit">로그인</h3>
             </div>
-            <form action="" name="loginform" id="loginForm" method="post" onsubmit="checkForm()">
+            <form action="<%= request.getContextPath() %>/login/loginProcess.do" name="loginform" id="loginForm" method="post" onsubmit="checkForm()">
                 <div class="fieldset">
                 	<div class="user-select">
-						<input type="radio" name="userSelect" value="user">개인
+						<input type="radio" name="userSelect" value="personal">개인
 						<input type="radio" name="userSelect" value="ceo">사업자<br>	
 					</div>	
                     <div class="input-group">

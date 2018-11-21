@@ -5,7 +5,7 @@
 	<div class="header_top">
 		<ul class="hmenu_wrap">
 			<li><a href="/MOMOGO/jsp/login/loginForm.jsp">LOGIN</a></li>
-			<li><a href="/MOMOGO/jsp/join/choiceJoin.jsp">JOIN</a></li>
+			<li><a href="<%= request.getContextPath()%>/join/choiceJoin.do">JOIN</a></li>
 			<li><a href="#">ORDER</a></li>
 			<li><a href="/MOMOGO/jsp/mypage/mypage.jsp">MYPAGE</a></li>
 		</ul>

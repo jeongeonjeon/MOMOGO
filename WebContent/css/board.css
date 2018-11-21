@@ -15,10 +15,6 @@
 .notice_wrap>h3{
 	margin: 90px 0 30px 10px;
 }
-#noticeTable, #noticeTable .thead, #noticeTable .tbody{
-	height: auto;
-	overflow: auto;
-}
 
 #noticeTable .thead{
 	border-top: 2px solid #ddd;
