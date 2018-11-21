@@ -58,4 +58,9 @@ $(document).ready(function(){
 		$(".popup_cover").addClass("on");
 		$(".popup_wrap").addClass("on");
 	})
+	
+	$(".popup_wrap .close_btn").click(function(){
+		$(".popup_cover").removeClass("on");
+		$(".popup_wrap").removeClass("on");
+	})
 })

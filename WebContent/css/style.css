@@ -95,10 +95,14 @@
 	visibility: visible;
 }
 
+.popup_wrap .popup {
+	height: 100%;
+}
+
 .popup_wrap .popup_inner {
     width: 92%;
     height: 100%;
-    margin: 0 auto;
+    margin: 5px auto 0;
     overflow-y: auto;
 }
 
@@ -193,6 +197,24 @@
 .popup_wrap .addr .right_txt {
 	text-align: right;
 	line-height: 22px;
+}
+
+.popup_wrap .popup_close_btn {
+	text-align: center;
+}
+
+.popup_wrap .close_btn {
+	width: 40px;
+	height: 40px;
+	margin-top: 15px;
+	background: url(../img/close_btn.png) no-repeat center center;
+	background-size: cover;
+	outline: none;
+	transition: all 0.4s;
+}
+
+.popup_wrap .close_btn:hover {
+	transform: rotate(90deg);
 }
 
 /**********************common*********************/
@@ -539,6 +561,146 @@ footer .copy {
 	line-height: 60px;
 }
 
+
+/**********************가게리스트*********************/
+
+.itemList_wrap:after {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+.itemList_wrap li {
+	position: relative;
+	width: 382px;
+	height: 280px;
+	border: 1px solid #41cea5;
+	float: left;
+	margin-bottom: 24px;
+	margin-left: 24px;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+}
+
+.itemList_wrap .itemList01 {
+	background: url(../img/item01.jpg) no-repeat center center;
+	background-size: cover;
+	
+}
+
+.itemList_wrap .itemList02 {
+	background: url(../img/item02.jpg) no-repeat center center;
+	background-size: cover;
+	
+}
+
+.itemList_wrap .itemList03 {
+	background: url(../img/item03.jpg) no-repeat center center;
+	background-size: cover;
+	
+}
+
+.itemList_wrap li .item_cover {
+	position: absolute;
+	top:0; left: 0; right: 0; bottom: 0;
+    transition: all 0.4s;
+	background-color: rgba(0,0,0,0.3);
+}
+
+.itemList_wrap li:nth-child(3n-2) {
+	margin-left: 0;
+}
+
+.itemList_wrap li .line {
+    position: absolute;
+    top: 45%;
+    left: 7%;
+    right: 7%;
+    bottom: 45%;
+    border: 1px solid #fff;
+    border-width: 1px 1px 0;
+    transition: all 0.45s ease-in-out;
+    
+}
+
+.itemList_wrap li .line .txt_box {
+	position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    margin: 0;
+    opacity: 0;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.itemList_wrap li .line .txt_box a {
+	border: 1px solid #fff;
+	padding: 5px 15px;
+	color: #fff;
+}
+
+.itemList_wrap li .line .txt_box p {
+	font-size: 24px;
+	color: #fff;
+	margin-bottom: 15px;
+}
+
+.itemList_wrap li .line .heading {
+    overflow: hidden;
+    transform: translateY(50%);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.itemList_wrap li .line .heading h4 {
+	display: table;
+    margin: 0 auto;
+    padding: 0 10px;
+    position: relative;
+    text-align: center;
+    width: auto;
+    font-size: 22px;
+}
+
+.itemList_wrap li .line .heading h4:before {
+    position: absolute;
+    display: block;
+    width: 500%;
+    height: 1px;
+    content: '';
+    background: #fff;
+    top: 50%;
+    left: -500%;
+}
+
+.itemList_wrap li .line .heading h4:after {
+    position: absolute;
+    display: block;
+    width: 500%;
+    height: 1px;
+    content: '';
+    background: #fff;
+    top: 50%;
+    right: -500%;
+}
+
+.itemList_wrap li:hover .line {
+	top: 10%;
+	bottom: 10%;
+}
+
+.itemList_wrap li:hover .line .txt_box {
+	opacity: 1;
+    transition-delay: 0.35s;
+}
+
+.itemList_wrap li:hover .item_cover {
+	background-color: rgba(7, 173, 125, 0.8);
+}
+
 /**********************검색창*********************/
 
 .search_wrap {
@@ -613,143 +775,6 @@ footer .copy {
 #main .main_visual .slide02 {
 	background: url(../img/slide02.jpg) no-repeat center center;
 	background-size: cover;
-}
-
-#main .item_wrap:after {
-	content: "";
-	clear: both;
-	display: block;
-}
-
-#main .item_wrap li {
-	position: relative;
-	width: 382px;
-	height: 280px;
-	border: 1px solid #41cea5;
-	float: left;
-	margin-bottom: 24px;
-	margin-left: 24px;
-    overflow: hidden;
-    color: #fff;
-    text-align: center;
-}
-
-#main .item_wrap .item01 {
-	background: url(../img/item01.jpg) no-repeat center center;
-	background-size: cover;
-	
-}
-
-#main .item_wrap .item02 {
-	background: url(../img/item02.jpg) no-repeat center center;
-	background-size: cover;
-	
-}
-
-#main .item_wrap .item03 {
-	background: url(../img/item03.jpg) no-repeat center center;
-	background-size: cover;
-	
-}
-
-#main .item_wrap li .item_cover {
-	position: absolute;
-	top:0; left: 0; right: 0; bottom: 0;
-    transition: all 0.4s;
-	background-color: rgba(0,0,0,0.3);
-}
-
-#main .item_wrap li:nth-child(3n-2) {
-	margin-left: 0;
-}
-
-#main .item_wrap li .line {
-    position: absolute;
-    top: 45%;
-    left: 7%;
-    right: 7%;
-    bottom: 45%;
-    border: 1px solid #fff;
-    border-width: 1px 1px 0;
-    transition: all 0.45s ease-in-out;
-    
-}
-
-#main .item_wrap li .line .txt_box {
-	position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-    margin: 0;
-    opacity: 0;
-    font-size: 14px;
-    line-height: 1.8;
-}
-
-#main .item_wrap li .line .txt_box a {
-	border: 1px solid #fff;
-	padding: 5px 15px;
-	color: #fff;
-}
-
-#main .item_wrap li .line .txt_box p {
-	font-size: 24px;
-	color: #fff;
-	margin-bottom: 15px;
-}
-
-#main .item_wrap li .line .heading {
-    overflow: hidden;
-    transform: translateY(50%);
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
-#main .item_wrap li .line .heading h4 {
-	display: table;
-    margin: 0 auto;
-    padding: 0 10px;
-    position: relative;
-    text-align: center;
-    width: auto;
-    font-size: 22px;
-}
-
-#main .item_wrap li .line .heading h4:before {
-    position: absolute;
-    display: block;
-    width: 500%;
-    height: 1px;
-    content: '';
-    background: #fff;
-    top: 50%;
-    left: -500%;
-}
-
-#main .item_wrap li .line .heading h4:after {
-    position: absolute;
-    display: block;
-    width: 500%;
-    height: 1px;
-    content: '';
-    background: #fff;
-    top: 50%;
-    right: -500%;
-}
-
-#main .item_wrap li:hover .line {
-	top: 10%;
-	bottom: 10%;
-}
-
-#main .item_wrap li:hover .line .txt_box {
-	opacity: 1;
-    transition-delay: 0.35s;
-}
-
-#main .item_wrap li:hover .item_cover {
-	background-color: rgba(7, 173, 125, 0.8);
 }
 
 /**********************myPage_page*********************/
@@ -1068,9 +1093,17 @@ footer .copy {
 	margin: 0 auto;
 }
 
+
 /**********************noticeView_page*********************/
 
 .noticeList_page .page_inner {
 	width: 1050px;
+	margin: 0 auto;
+}
+
+/**********************storeList_page*********************/
+
+#storeList_page .page_inner {
+	width: 1200px;
 	margin: 0 auto;
 }
