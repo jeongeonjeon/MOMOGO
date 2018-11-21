@@ -6,9 +6,23 @@ public class PersonalVO {
 	private String name; 
 	private String email; 
 	private int phone;
+	private String userType;
 	
 	public PersonalVO() {
 	
+	}
+	
+	public PersonalVO(String id, String pass) {
+		super();
+		this.id = id;
+		this.pass = pass;
+	}
+	
+	public PersonalVO(String id, String pass, String userType) {
+		super();
+		this.id = id;
+		this.pass = pass;
+		this.userType = userType;
 	}
 
 	public String getId() {
@@ -50,6 +64,19 @@ public class PersonalVO {
 	public void setPhone(int phone) {
 		this.phone = phone;
 	}
+
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+
+
+	
+	
+	
 	
 	
 }

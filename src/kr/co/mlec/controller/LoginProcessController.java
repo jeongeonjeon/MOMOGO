@@ -3,6 +3,7 @@ package kr.co.mlec.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 public class LoginProcessController implements Controller {
 
 	@Override
@@ -14,9 +15,7 @@ public class LoginProcessController implements Controller {
 		String id		  = request.getParameter("id");
 		String password   = request.getParameter("password");
 		
-		if(userSelect == "personal") {
-			
-		}
+	
 		
 
 		return "/jsp/login/loginProcess.jsp";	
