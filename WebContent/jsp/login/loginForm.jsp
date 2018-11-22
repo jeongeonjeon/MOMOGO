@@ -12,11 +12,6 @@
 	function checkForm() {
 		var f = document.loginform;
 		
-		if(f.userSelect.value == "") {
-			alert("이용자를 선택해주세요");
-			return false;
-		}
-		
 		if(f.id.value == "") {
 			alert("아이디를 입력하세요");
 			return false;
@@ -56,9 +51,9 @@
                         <input type="password" class="input insert_input" id="pw" placeholder="비밀번호" name="password" value="" />                        
                     </div>                
                     <div class="login-link">
-                        <a class="btn-find" href="">아이디</a>&nbsp;&#47;
-                        <a class="btn-find" href="">비밀번호 찾기</a>
-                        <a class="btn-join" href="">회원가입</a><br>
+                        <a class="btn-find" href="<%= request.getContextPath() %>/login/searchId.do">아이디 찾기</a>&nbsp;&#47;
+                        <a class="btn-find" href="<%= request.getContextPath() %>/login/searchPassword.do">비밀번호 찾기</a>
+                        <a class="btn-join" href="<%= request.getContextPath() %>/join/choiceJoin.do">회원가입</a><br>
                     </div>
                     <input type="submit" class="btn-login" value="로그인">
                 </div>

@@ -6,6 +6,7 @@
 		<ul class="hmenu_wrap">
 			<li><a href="/MOMOGO/jsp/login/loginForm.jsp">LOGIN</a></li>
 			<li><a href="<%= request.getContextPath()%>/join/choiceJoin.do">JOIN</a></li>
+			<li><a href="<%= request.getContextPath()%>/login/logout.do">LOGOUT</a></li>
 			<li><a href="#">ORDER</a></li>
 			<li><a href="/MOMOGO/jsp/mypage/mypage.jsp">MYPAGE</a></li>
 		</ul>
