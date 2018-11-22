@@ -10,7 +10,7 @@ import kr.co.mlec.join.vo.CeoSignUpVO;
 import kr.co.mlec.join.vo.PersonalVO;
 
 
-public class LoginProcessController implements Controller {
+public class LoginFormProcessController implements Controller {
 
    @Override
    public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
