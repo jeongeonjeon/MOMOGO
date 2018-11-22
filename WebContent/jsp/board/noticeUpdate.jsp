@@ -31,13 +31,13 @@
 	<div class="noticeForm_page">
 		<div class="page_inner">
 			<div class="bbs_page_tit">공지사항</div>
-			<form method="post" action="<%= request.getContextPath() %>/board/noticeFormProcess.do"
+			<form method="post" action="<%= request.getContextPath() %>/board/noticeUpdateProcess.do?noticeNo=${ notice.noticeNo }"
 				name="nform" onsubmit="return checkForm()">
 			<input type="hidden" name="writer" size="50" value="${ id }">
 			<div class="bbs_write">
 				<div class="content">
 					<div class="tit">제목</div>
-					<input type="text" placeholder="제목을 입력해주세요" name="title" id="title">
+					<input type="text" placeholder="제목을 입력해주세요" name="title" id="title" value="${ notice.title }">
 				</div>
 				<div class="content">
 					<div class="half">

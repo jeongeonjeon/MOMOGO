@@ -34,9 +34,10 @@
 					<div class="text_area">${notice.content}</div>
 				</div>
 				<div class="bbs_btn_wrap">
-					<div class="bbs_btn cancel" id="delete">
-						삭제</div>
-					<a href="<%= request.getContextPath() %>/board/noticeForm.do?noticeNo=${notice.noticeNo}" id="modify">
+					<a href="<%= request.getContextPath() %>/board/noticeDeleteProcess.do?noticeNo=${notice.noticeNo}" id="modify">
+						<div class="bbs_btn cancel" id="delete">삭제</div>
+					</a>
+					<a href="<%= request.getContextPath() %>/board/noticeUpdate.do?noticeNo=${notice.noticeNo}" id="modify">
 						<div class="bbs_btn registration">수정</div>
 					</a>
 				</div>
