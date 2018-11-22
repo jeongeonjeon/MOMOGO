@@ -23,6 +23,14 @@ public class PersonalVO {
 		this.id = id;
 		this.pass = pass;
 		this.type = type;
+	}		
+
+	public PersonalVO(String id, String name, String email, String phone) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
 	}
 
 	public String getId() {

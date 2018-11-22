@@ -14,6 +14,8 @@ public class CeoSignupProcessController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
+		request.setCharacterEncoding("utf-8");
+		
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
