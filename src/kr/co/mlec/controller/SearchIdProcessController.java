@@ -3,6 +3,7 @@ package kr.co.mlec.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.co.mlec.join.dao.PersonalDAO;
 import kr.co.mlec.join.vo.PersonalVO;
 
 public class SearchIdProcessController implements Controller {
@@ -22,6 +23,13 @@ public class SearchIdProcessController implements Controller {
 	    	  PersonalVO personalVO = new PersonalVO();
 	    	  personalVO.setName(name);
 	    	  personalVO.setPhone(phone);
+	    	  personalVO.setEmail(email);
+	    	  
+	    	  PersonalDAO dao = new PersonalDAO();
+	    	  PersonalVO idVO = dao.searchId(personalVO);
+	    	  
+	    	  
+	    	  
 	    	  
 	      }
 	      
