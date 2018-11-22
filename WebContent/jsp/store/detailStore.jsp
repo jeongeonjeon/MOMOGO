@@ -150,7 +150,7 @@
 							</ul>
 						</div>
 					</div>
-					<div class="tab_content on" id="tab2">
+					<div class="tab_content" id ="tab2">
 						<div class="grade_wrap">
 							<p class="grade_tit">평점</p>
 							<p class="grade">4.6</p>
@@ -168,7 +168,7 @@
 							<div class="reply_container">
 								<div class="reply_textarea">
 									<textarea class="input" placeholder="댓글을 입력하세요."></textarea>
-									<input class="submit_btn" type="submit" value="등록">
+									<input class="submit_btn basic_btn" type="submit" value="등록">
 								</div>
 								<div class="reply_contents_wrap">
 									<div class="reply_content">
@@ -189,6 +189,7 @@
 										</p>
 										<p class="content">
 											피자 짱! 피자 짱! 피자 짱! 피자 짱! 피자 짱! 피자 짱! 피자 짱! 피자 짱! 피자 짱! 피자 짱! 
+											피자 짱! 피자 짱! 피자 짱! 피자 짱! 피자 짱! 피자 짱! 피자 짱! 피자 짱! 피자 짱! 피자 짱! 
 										</p>
 									</div>
 									<div class="reply_box">
@@ -200,6 +201,40 @@
 											맛이쪙
 										</p>
 									</div>
+									<div class="reply_textarea">
+										<textarea class="input" placeholder="댓글을 입력하세요."></textarea>
+										<input class="submit_btn basic_btn" type="submit" value="등록">
+									</div>
+									<div class="reply_btn_wrap">
+										<button type="button">댓글달기</button>
+										<button type="button">답글달기</button>
+									</div>
+								</div>
+								<div class="reply_contents_wrap">
+									<div class="reply_content">
+										<p class="id">
+											giun123
+											<span class="time">
+												17시간전
+											</span>
+										</p>
+										<p class="grade">
+											평점
+											<span>
+												2점
+											</span>
+										</p>
+										<p class="menu">
+											불고기피자 1 , 짜파게티 2
+										</p>
+										<p class="content">
+											우웩
+										</p>
+									</div>
+									<div class="reply_textarea">
+										<textarea class="input" placeholder="댓글을 입력하세요."></textarea>
+										<input class="submit_btn basic_btn" type="submit" value="등록">
+									</div>
 									<div class="reply_btn_wrap">
 										<button type="button">댓글달기</button>
 										<button type="button">답글달기</button>
@@ -208,10 +243,137 @@
 							</div>
 						</form>
 					</div>
+					<div class="tab_content" id ="tab3">
+						<div class="store_info_wrap">
+							<div class="store_info">
+								<div class="info_header store">
+									<p>업체정보</p>
+								</div>
+								<div class="info_content">
+									<div class="info">
+										<p class="tit">
+											영업시간
+										</p>
+										<p class="txt">
+											11:00 - 23:00
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="store_info">
+								<div class="info_header pay">
+									<p>결제정보</p>
+								</div>
+								<div class="info_content">
+									<div class="info">
+										<p class="tit">
+											결제수단
+										</p>
+										<p class="txt">
+											신용카드 , 현금
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="store_info">
+								<div class="info_header license">
+									<p>사업자정보</p>
+								</div>
+								<div class="info_content">
+									<div class="info">
+										<p class="tit">
+											상호명
+										</p>
+										<p class="txt">
+											도미노피자
+										</p>
+									</div>
+									<div class="info">
+										<p class="tit">
+											사업자등록번호
+										</p>
+										<p class="txt">
+											1111111111
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 		</div>
-		<aside class="order_wrap"></aside>
+		<form method="post" action="#">
+			<aside class="order_wrap">
+				<div class="order_header">
+					<p>주문표</p>
+					<button class="clear"></button>
+				</div>
+				<div class="order_contents cart_empty">
+					<p>주문표에 담긴 메뉴가 없습니다</p>
+				</div>
+				<div class="order_contents cart">
+					<div class="content">
+						<p class="food_name">
+							치킨
+						</p>
+						<div class="price_wrap">
+							<button class="delete"></button>
+							<p class="price">3000원</p>
+							<div class="amount_wrap">
+								<button class="box">
+									-
+								</button>
+								<p class="num">1</p>
+								<button class="box">
+									+
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="content">
+						<p class="food_name">
+							치킨
+						</p>
+						<div class="price_wrap">
+							<button class="delete"></button>
+							<p class="price">3000원</p>
+							<div class="amount_wrap">
+								<button class="box">
+									-
+								</button>
+								<p class="num">1</p>
+								<button class="box">
+									+
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="content">
+						<p class="food_name">
+							치킨
+						</p>
+						<div class="price_wrap">
+							<button class="delete"></button>
+							<p class="price">3000원</p>
+							<div class="amount_wrap">
+								<button class="box">
+									-
+								</button>
+								<p class="num">1</p>
+								<button class="box">
+									+
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="sum_box">
+						<p>합계 : 9,000원</p>
+					</div>
+				</div>
+				<input class="basic_btn order_btn" type="submit" value="주문하기">
+			</aside>
+		</form>
 	</div>
 </div>
 </body>
