@@ -1,7 +1,7 @@
 /*메인슬라이더*/
 
 $(document).ready(function() {
-	var swiper = new Swiper('.swiper-container', {
+	var swiper = new Swiper('#main .swiper-container', {
 		navigation : {
 			nextEl : '.swiper-button-next',
 			prevEl : '.swiper-button-prev',
@@ -64,3 +64,87 @@ $(document).ready(function(){
 		$(".popup_wrap").removeClass("on");
 	})
 })
+
+/*detailStore_page slider*/
+
+$(document).ready(function() {
+	var swiper = new Swiper('.tabMenu_wrap .swiper-container', {
+		effect: 'coverflow',
+	      grabCursor: true,
+	      centeredSlides: true,
+	      slidesPerView: 'auto',
+	      coverflowEffect: {
+	        rotate: 50,
+	        stretch: 0,
+	        depth: 100,
+	        modifier: 1,
+	        slideShadows : true,
+	      }
+	});
+});
+
+/*detailStore_page tab메뉴 클릭*/
+
+$(document).ready(function(){
+	
+	$(".tab_content").hide();
+	$(".tab_header li:first").addClass("active").show();
+	$(".tab_content:first").show();
+	
+	$(".tab_header li").click(function(){
+		if(!$(this).hasClass("active")){
+			$(".tab_header li").removeClass("active");
+			$(this).addClass("active");
+			$(".tab_content").hide();
+			var activeTab = $(this).find("a").attr("href");
+			$(activeTab).fadeIn();
+		}
+	});
+})
+
+/*detailStore_page category 클릭*/
+
+$(document).ready(function(){
+/*	
+	$(".tab_content").hide();
+	$(".tab_header li:first").addClass("active").show();
+	$(".tab_content:first").show();
+	
+*/	
+	$(".detailStore_page .tabMenu_wrap .category .menu_tit").click(function(){
+		if($(this).siblings(".depth_wrap").hasClass("on")){
+			console.log(this);
+			$(this).siblings(".depth_wrap").removeClass("on");
+		} else {			
+			$(this).siblings(".depth_wrap").addClass("on");
+		}
+		
+		if($(this).siblings(".arrow_bg").hasClass("on")){
+			$(this).siblings(".arrow_bg").removeClass("on");
+		} else {
+			$(this).siblings(".arrow_bg").addClass("on");
+		}
+	})
+})
+
+/*detailStore_page 댓글달기 클릭*/
+
+$(document).ready(function(){
+
+	$(".detailStore_page .reply_btn_wrap button").click(function(){
+		if(!$(this).parent().siblings(".reply_textarea").hasClass("on")){
+			console.log(this);
+			$(this).parent().siblings(".reply_textarea").addClass("on");
+		} else {			
+			$(this).parent().siblings(".reply_textarea").removeClass("on");
+		}
+	})
+})
+
+
+
+
+
+
+
+

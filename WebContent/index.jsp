@@ -55,7 +55,7 @@
 							<div class="item_cover"></div> <a href="#"></a>
 							<div class="line">
 								<div class="txt_box">
-									<a href="">더보기</a>
+									<a href="<%= request.getContextPath()%>/store/storeList.do">더보기</a>
 								</div>
 								<div class="heading">
 									<h4>${ c }</h4>
