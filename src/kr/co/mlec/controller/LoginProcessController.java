@@ -95,7 +95,7 @@ public class LoginProcessController implements Controller {
       
       System.out.println("성공");
       
-      return "/jsp/login/loginProcess.jsp";
+      return "/jsp/login/loginFormProcess.jsp";
       
    }
 }

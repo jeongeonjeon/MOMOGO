@@ -8,6 +8,6 @@ public class StoreListController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-		return "/jsp/store/StoreList.jsp";
+		return "/jsp/store/storeList.jsp";
 	}
 }
