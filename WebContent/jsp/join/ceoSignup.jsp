@@ -350,7 +350,7 @@
 					<div class="formRow">
 						<p class="formName">배달가능지역</p>
 						<div class="inputArea">
-							<input class="inputValue inputValue2 insert_input" type="text" name="deleveryArea1" id="deliveryArea">
+							<input class="inputValue inputValue2 insert_input" type="text" name="deleveryArea1" id="deliveryArea"  readonly>
 							<input type="button" class="areaBtn" onclick="execDaumPostcode2()" value="검색">
 						</div>
 					</div>
