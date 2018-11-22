@@ -6,7 +6,8 @@ public class PersonalVO {
 	private String name; 
 	private String email; 
 	private String phone;
-	private String type;	
+	private String type;
+	private String regDate;
 	
 	public PersonalVO() {
 		super();
@@ -23,6 +24,19 @@ public class PersonalVO {
 		this.id = id;
 		this.pass = pass;
 		this.type = type;
+	}
+	
+	
+
+	public PersonalVO(String id, String pass, String name, String email, String phone, String type, String regDate) {
+		super();
+		this.id = id;
+		this.pass = pass;
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.type = type;
+		this.regDate = regDate;
 	}
 
 	public String getId() {
@@ -73,9 +87,19 @@ public class PersonalVO {
 		this.type = type;
 	}
 
+	public String getRegDate() {
+		return regDate;
+	}
+
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
+	}
+
 	@Override
 	public String toString() {
 		return "PersonalVO [id=" + id + ", pass=" + pass + ", name=" + name + ", email=" + email + ", phone=" + phone
-				+ ", type=" + type + "]";
+				+ ", type=" + type + ", regDate=" + regDate + "]";
 	}
+	
+	
 }

@@ -118,11 +118,11 @@
 						<div class="info_wrap">
 							<div class="info">
 								<p class="tit">회원유형</p>
-								<p class="txt">${ member.type }</p>
+								<p class="txt">${personal.type}</p>
 							</div>
 							<div class="info">
 								<p class="tit">가입날짜</p>
-								<p class="txt">${ member.regDate }</p>
+								<p class="txt">${ personal.regDate }</p>
 							</div>
 						</div>
 					</div>
@@ -142,15 +142,15 @@
 						<div class="info_wrap">
 							<div class="info">
 								<p class="tit">아이디</p>
-								<p class="txt">${ member.id }</p>
+								<p class="txt">${ personal.id }</p>
 							</div>
 							<div class="info">
 								<p class="tit">이름</p>
-								<p class="txt">${ member.name }</p>
+								<p class="txt">${ personal.name }</p>
 							</div>
 							<div class="info">
 								<p class="tit">비밀번호</p>
-								<p class="txt">${ member.password }</p>
+								<p class="txt">${ personal.password }</p>
 							</div>
 						</div>
 						<button class="basic_btn modify_btn" type="button">수정</button>
@@ -164,16 +164,16 @@
 								<input type="hidden" name="id" value="${ member.id }">
 								<div class="info">
 									<p class="tit">아이디</p>
-									<p class="txt">${ member.id }</p>
+									<p class="txt">${ personal.id }</p>
 								</div>
 								<div class="info">
 									<p class="tit">이름</p>
-									<input type="text" name="name" value="${ member.name }">
+									<input type="text" name="name" value="${ personal.name }">
 								</div>
 								<div class="info">
 									<p class="tit">비밀번호</p>
 									<input type="password" name="password"
-										value="${ member.password }">
+										value="${ personal.password }">
 								</div>
 								<div class="btn_wrap">
 									<button type="reset" class="basic_btn cancel_btn">취소</button>
