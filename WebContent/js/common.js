@@ -84,7 +84,7 @@ $(document).ready(function() {
 });
 
 /*detailStore_page tab메뉴 클릭*/
-/*
+
 $(document).ready(function(){
 	
 	$(".tab_content").hide();
@@ -102,7 +102,6 @@ $(document).ready(function(){
 	});
 })
 
-*/
 /*detailStore_page category 클릭*/
 
 $(document).ready(function(){
@@ -112,23 +111,35 @@ $(document).ready(function(){
 	$(".tab_content:first").show();
 	
 */	
-	$(".detailStore_page .tabMenu_wrap .category").click(function(){
-		if($(this).children(".depth_wrap").hasClass("on")){
+	$(".detailStore_page .tabMenu_wrap .category .menu_tit").click(function(){
+		if($(this).siblings(".depth_wrap").hasClass("on")){
 			console.log(this);
-			$(this).children(".depth_wrap").removeClass("on");
+			$(this).siblings(".depth_wrap").removeClass("on");
 		} else {			
-			$(this).children(".depth_wrap").addClass("on");
+			$(this).siblings(".depth_wrap").addClass("on");
 		}
 		
-		if($(this).children(".arrow_bg").hasClass("on")){
-			$(this).children(".arrow_bg").removeClass("on");
+		if($(this).siblings(".arrow_bg").hasClass("on")){
+			$(this).siblings(".arrow_bg").removeClass("on");
 		} else {
-			$(this).children(".arrow_bg").addClass("on");
+			$(this).siblings(".arrow_bg").addClass("on");
 		}
 	})
 })
 
+/*detailStore_page 댓글달기 클릭*/
 
+$(document).ready(function(){
+
+	$(".detailStore_page .reply_btn_wrap button").click(function(){
+		if(!$(this).parent().siblings(".reply_textarea").hasClass("on")){
+			console.log(this);
+			$(this).parent().siblings(".reply_textarea").addClass("on");
+		} else {			
+			$(this).parent().siblings(".reply_textarea").removeClass("on");
+		}
+	})
+})
 
 
 
