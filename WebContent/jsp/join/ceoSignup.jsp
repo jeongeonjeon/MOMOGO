@@ -78,96 +78,129 @@
 	}
 
 	function clickBtn() {
+		
+		var re = /^[a-zA-Z0-9]{4,12}$/;
+		var re2 =/^.*(?=.{8,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
+		var re3 = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+		var re4 = /^\d{3}\d{3,4}\d{4}$/;
+		var re5 = /^\d{2,3}\d{3,4}\d{4}$/;
+		
+		var id = $('#id');
+		var pass = $('#pass');
+		var passCheck = $('#passCheck');
+		var email = $('#email');
+		var name = $('#name');
+		var phone = $('#phone');
+		var storeName = $("#storeName");
+		var licenseNum = $("#licenseNum");
+		var storeTel = $("#storeTel");
+		var basicAddr = $("#basicAddr");
+		var detailAddr = $("#detailAddr");
+		var deliveryArea = $("#deliveryArea");
 
-		var id = $('#id').val();
-		var pass = $('#pass').val();
-		var passCheck = $('#passCheck').val();
-		var email = $('#email').val();
-		var name = $('#name').val();
-		var phone = $('#phone').val();
-		var storeName = $("#storeName").val();
-		var licenseNum = $("#licenseNum").val();
-		var storeTel = $("#storeTel").val();
-		var basicAddr = $("#basicAddr").val();
-		var detailAddr = $("#detailAddr").val();
-		var deliveryArea = $("#deliveryArea").val();
-
-		if (id == "") {
+		if (id.val() == "") {
 			alert("아이디를 입력하세요!")
-			$("#id + .error").show();
+			id.focus(); 
 			return false
-		} else if (id.length < 4) {
-			alert("아이디 글자 수를 확인하세요")
-			$("#id + .error").show();
+		}else if(!check(re,id.val(),"공백없이 4-20자")) {
+			id.focus(); 
 			return false
-		} else {
-			$("#id + .error").hide();
-		}
+		} 
 
-		if (pass == "") {
+		if (pass.val() == "") {
 			alert("비밀번호 입력하세요!");
+			pass.focus(); 
 			return false
-		} else if (pass.length < 8) {
-			checkPass();
-			return false;
-		}
-
-		if (passCheck == "") {
+		}else if(!check(re2,pass.val(),"영문+숫자 포함, 8-20자")) {
+			pass.focus(); 
+			return false
+		} 
+		
+		if (passCheck.val() == "") {
 			alert("비밀번호 확인란을 입력하세요!");
+			passCheck.focus();
 			return false
-		}
-
-		if (pass != passCheck) {
+		}else if (pass.val() != passCheck.val()) {
 			alert("비밀번호가 일치하지 않습니다.");
+			passCheck.focus();
 			return false
 		}
 
-		if (email == "") {
+		if (email.val() == "") {
 			alert("이메일을 입력하세요!");
+			email.focus(); 
+			return false
+		}else if(!(check(re3,email.val(),"올바른 이메일이 아닙니다"))){
+			email.focus(); 
 			return false
 		}
 
-		if (name == "") {
+		if (name.val() == "") {
 			alert("이름을 입력하세요!");
+			name.focus();
 			return false
 		}
 
-		if (phone == "") {
+		if (phone.val() == "") {
 			alert("휴대폰번호를 입력하세요!");
+			phone.focus(); 
 			return false
+		}else if(!(check(re4,phone.val(),"올바른 휴대폰번호가 아닙니다"))){
+			phone.focus();
+			return false; 
 		}
 
-		if (storeName == "") {
+		if (storeName.val() == "") {
 			alert("음식점 이름을 입력하세요!");
+			storeName.focus();
 			return false
 		}
 
-		if (licenseNum == "") {
+		if (licenseNum.val() == "") {
 			alert("사업자 등록번호를 입력하세요!");
+			licenseNum.focus();
 			return false
+		}else if(!(check(re4,licenseNum.val(),"사업자번호: 10자리의 숫자를 입력하세요"))){
+			licenseNum.focus();
+			return false; 
 		}
 
-		if (storeTel == "") {
+		if (storeTel.val() == "") {
 			alert("음식점 전화번호를 입력하세요!");
+			storeTel.focus(); 
 			return false
+		}else if(!(check(re5,storeTel.val(),"올바른 전화번호가 아닙니다"))){
+			storeTel.focus(); 
+			return false; 
 		}
 
-		if (basicAddr == "") {
+		if (basicAddr.val() == "") {
 			alert("음식점 기본주소를 입력하세요!");
+			basicAddr.focus();
 			return false
 		}
 
-		if (detailAddr == "") {
+		if (detailAddr.val() == "") {
 			alert("음식점 상세주소를 입력하세요!");
+			detailAddr.focus(); 
 			return false
 		}
 
-		if (deliveryArea == "") {
+		if (deliveryArea.val() == "") {
 			alert("배달 가능지역을 입력하세요!");
+			deliveryArea.focus();
 			return false
 		}
 
 		return true
+	}
+	
+	function check(re, what, msg){
+		if(re.test(what)){
+			return true; 
+		}
+		alert(msg);
+		what ="";
 	}
 
 	function checkPass() {
@@ -189,6 +222,8 @@
 			}
 		}
 	}
+	
+	
 </script>
 </head>
 <body>
@@ -225,7 +260,7 @@
 					<div class="formRow">
 						<p class="formName">이메일</p>
 						<div class="inputArea">
-							<input id="email" class="inputValue insert_input" type="text" name="email"
+							<input id="email" placeholder="ex)momogo@momogo.com" class="inputValue insert_input" type="text" name="email"
 								size="35">
 						</div>
 					</div>
@@ -238,7 +273,7 @@
 					<div class="formRow">
 						<p class="formName">휴대폰번호</p>
 						<div class="inputArea">
-							<input id="phone" class="inputValue insert_input" type="text" name="phone">
+							<input id="phone" placeholder="ex) 01011112222" class="inputValue insert_input" type="text" name="phone">
 						</div>
 					</div>
 				</div>
@@ -261,7 +296,7 @@
 					<div class="formRow">
 						<p class="formName">음식점 전화번호</p>
 						<div class="inputArea">
-							<input id="storeTel" class="inputValue insert_input" type="text"
+							<input id="storeTel" placeholder="ex) 02-111-2222" class="inputValue insert_input" type="text"
 								name="storeTel">
 						</div>
 					</div>
@@ -296,7 +331,7 @@
 						<p class="formName">배달가능지역</p>
 						<div class="inputArea">
 							<input class="inputValue inputValue2 insert_input" type="text"
-								name="restaurAddr"> <input type="button" class="areaBtn"
+								name="deliveryArea"> <input type="button" class="areaBtn"
 								value="검색">
 						</div>
 					</div>

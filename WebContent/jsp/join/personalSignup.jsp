@@ -29,7 +29,16 @@
          },   // 서버에 요청시 보낼 파라미터 기입 
     //   dataType : "xml" //응답받을 데이터의 타입 선택
          success : function(data){
-            
+            if(inputed == "" && data =='0'){
+            	idCheck = 0; 
+            }else if(data = '0'){
+            	idCheck=1;
+            	if(idCheck==1 && pwdCheck ==1){
+            		
+            	}
+            }else if (data == '1'){
+            	idCheck = 0; 
+            }
     
     	 
          }
@@ -39,6 +48,15 @@
    }
    
    function clickBtn(){
+	   
+	    //영문이나 숫자 4-20자리
+		var re = /^[a-zA-Z0-9]{4,20}$/;
+		//영문+숫자 조합으로 8-20자리
+		var re2 =/^.*(?=.{8,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
+		//이메일양식
+		var re3 = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+		//휴대폰번호 양식		
+		var re4 = /^\d{3}\d{3,4}\d{4}$/;
 	   
  	   var id =$('#id').val(); 
        var pass = $('#pass').val(); 
@@ -52,25 +70,24 @@
           alert("아이디를 입력하세요!")
           $("#id + .error").show();
           return false
-       }else if(id.length <4){
-          alert("아이디 글자 수를 확인하세요")
-          $("#id + .error").show();
-          return false
-       }else{
-          $("#id + .error").hide();
-       }
+        }else if(!check(re,id,"공백없이 4-20자")) {
+        	$("#id + .error").show();
+			return false
+		}else {
+			 $("#id + .error").hide();
+		} 
        
        if(pass ==""){
-          console.log("비밀번호 입력하세요!")
+    	  alert("비밀번호를 입력하세요")
           return false
        }
-       
+		   
        if(passCheck ==""){
           alert("비밀번호 확인란을 입력하세요!")
           return false
        }
-       
-       if(pass != passCheck){
+	       
+		if(pass != passCheck){
           alert("비밀번호가 일치하지 않습니다.")
           return false
        }
@@ -78,8 +95,9 @@
        if(email ==""){
           alert("이메일을 입력하세요!")
           return false
-       }
-       
+       }else if(!(check(re3,email,"정확한 이메일 양식이 아닙니다"))){
+			return false
+		}
        
        if(name ==""){
           alert("이름을 입력하세요!")
@@ -87,13 +105,22 @@
        }
        
        if(phone ==""){
-          alert("전화번호를 입력하세요!")
+          alert("휴대폰번호를 입력하세요!")
           return false
-       }
+       }else if(!(check(re4,phone,"정확한 휴대폰번호가 아닙니다"))){
+			return false; 
+		}
  
        return true
    }
    
+   function check(re, what, msg){
+		if(re.test(what)){
+			return true; 
+		}
+		alert(msg);
+		what ="";
+	}
    
    function checkPass(){
       var pass = $('#pass').val(); 
@@ -142,7 +169,7 @@
 				</div>
 				<div class="form-row">
 					<p class="formName">이메일</p>
-					<input id="email" class="inputValue insert_input" type="email" placeholder="이메일"	name="email">
+					<input id="email" class="inputValue insert_input" type="email" placeholder="ex) momogo@momogo.com"	name="email">
 					<p class="error">* 이메일을 입력하세요</p>
 				</div>
 				<div class="form-row">
@@ -152,7 +179,7 @@
 				</div>
 				<div class="form-row">
 					<p class="formName">전화번호</p>
-					<input id="phone" class="inputValue insert_input" type="text" placeholder="휴대폰" name="phone">
+					<input id="phone" class="inputValue insert_input" type="text" placeholder="ex) 01011112222" name="phone">
 					<p class="error">* 전화번호를 입력하세요</p>
 				</div>
 			</div>

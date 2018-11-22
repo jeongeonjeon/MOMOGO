@@ -39,7 +39,7 @@ public class NoticeDAO {
 			
 			sql.append(" select notice_no, title, writer, to_char(reg_date, 'yyyy-mm-dd') as reg_date ,view_cnt");
 			sql.append(" from (                                   ");
-			sql.append("         select ROWNUM as rnum, e.*      ");
+			sql.append("         select 	ROWNUM as rnum, e.*      ");
 			sql.append("         from (                          ");
 			sql.append("                 select *                ");
 			sql.append("                 from notice             ");
@@ -114,7 +114,7 @@ public class NoticeDAO {
 			conn = new ConnectionFactory().getConnection();
 			StringBuilder sql = new StringBuilder();
 			sql.append("insert into notice(notice_no, title, writer, content) ");
-			sql.append(" values(?, ?, ?, ?) ");
+			sql.append(" values(seq_notice_notice_no.nextval, ?, ?, ?) ");
 			pstmt = conn.prepareStatement(sql.toString());
 			
 			int loc = 1;
@@ -175,13 +175,47 @@ public class NoticeDAO {
 	}
 	
 	/**
+	 * 게시글 수정
+	 */
+	public void updateNotice(NoticeVO notice) {
+		
+		System.out.println("1");
+		
+		StringBuilder sql = new StringBuilder(); 
+		
+		sql.append(" update notice ");
+		sql.append(" set title =?, content =? ");
+		sql.append(" where notice_no = ? ");
+		
+		try(
+			Connection conn = new ConnectionFactory().getConnection(); 
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+		) {
+			pstmt.setString(1, notice.getTitle());
+			pstmt.setString(2, notice.getContent());
+			pstmt.setInt(3, notice.getNoticeNo());
+			
+			System.out.println("2");
+			
+			pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("3");
+			
+	}
+	
+	
+	/**
 	 * 게시글 삭제
 	 */
 	public void deleteNotice(int no) {
 		
 		StringBuilder sql = new StringBuilder(); 
 		
-		sql.append(" delete from notice where noticeno = ? ");
+		sql.append(" delete from notice where notice_no = ? ");
 		
 		try(
 			Connection conn = new ConnectionFactory().getConnection();
@@ -194,6 +228,5 @@ public class NoticeDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
 }
