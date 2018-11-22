@@ -11,13 +11,13 @@ public class PersonalVO {
 	
 	public PersonalVO() {
 		super();
-	}	
+	}
 
 	public PersonalVO(String id, String pass) {
 		super();
 		this.id = id;
 		this.pass = pass;
-	}
+	}		
 	
 	public PersonalVO(String id, String pass, String type) {
 		super();
@@ -25,9 +25,15 @@ public class PersonalVO {
 		this.pass = pass;
 		this.type = type;
 	}
-	
-	
 
+	public PersonalVO(String id, String name, String email, String phone) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+	}
+	
 	public PersonalVO(String id, String pass, String name, String email, String phone, String type, String regDate) {
 		super();
 		this.id = id;

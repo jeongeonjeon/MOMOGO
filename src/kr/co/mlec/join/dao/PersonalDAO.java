@@ -114,7 +114,48 @@ public class PersonalDAO {
 			e.printStackTrace();
 		}
 		
+		System.out.println(personal);
+		
 		return personal;
 	}
 	
+	/**
+	 * 이름, 휴대전화 , 이메일로 아이디 찾기
+	 */
+	
+	public PersonalVO searchId(PersonalVO idVO) {
+		
+		PersonalVO searchIdVO = null;
+		
+		StringBuilder sql = new StringBuilder();
+		sql.append("select id ");
+		sql.append("  from personl ");
+		sql.append(" where name = ? and phone = ? and email = ? ");
+		
+		try(
+			Connection conn = new ConnectionFactory().getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+		) {
+			pstmt.setString(1, idVO.getName());
+			pstmt.setString(2, idVO.getPhone());
+			pstmt.setString(3, idVO.getEmail());
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				String id = rs.getString("id");
+				String name = rs.getString("name");
+				String phone = rs.getString("phone");
+				String email = rs.getString("email");
+				
+				searchIdVO = new PersonalVO(id, name, phone, email);							
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return searchIdVO;
+	}
 }

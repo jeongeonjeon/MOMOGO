@@ -25,7 +25,7 @@ public class NoticeFormProcessController implements Controller {
 	 	notice.setNoticeNo(noticeNo);
 	 			
 	 	dao.insertNotice(notice);			
-		
+
 		return "/jsp/board/noticeFormProcess.jsp";
 	}
 
