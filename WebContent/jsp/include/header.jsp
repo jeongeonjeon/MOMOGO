@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="header_inner">
 	<div class="header_top">
 		<ul class="hmenu_wrap">
-			<li><a href="/MOMOGO/jsp/login/loginForm.jsp">LOGIN</a></li>
-			<li><a href="<%= request.getContextPath()%>/join/choiceJoin.do">JOIN</a></li>
+			<li><c:if test="${ not empty userVO }">${ userVO.id }님</c:if></li>
+			<li><c:if test="${ empty userVO }"><a href="/MOMOGO/jsp/login/loginForm.jsp">LOGIN</a></c:if></li>
+			<li><c:if test="${ empty userVO }"><a href="<%= request.getContextPath()%>/join/choiceJoin.do">JOIN</a></c:if></li>
+			<li><c:if test="${ not empty userVO }"><a href="<%= request.getContextPath()%>/login/logout.do">LOGOUT</a></c:if></li>
 			<li><a href="#">ORDER</a></li>
 			<li><a href="/MOMOGO/jsp/mypage/mypage.jsp">MYPAGE</a></li>
 		</ul>

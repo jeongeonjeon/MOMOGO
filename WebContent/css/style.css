@@ -493,16 +493,18 @@ header .header_top:after {
 header .header_top .hmenu_wrap {
 	float: right;
 	font-size: 0;
+	padding: 9px 0;
 }
 
 header .header_top .hmenu_wrap li {
 	display: inline-block;
-    padding: 9px 5px 9px 10px;
+	font-size: 15px;
+    font-weight: 400;
+    color: #c5c5c5;
+    margin-left: 5px;
 }
 
 header .header_top .hmenu_wrap li a {
-	font-size: 12px;
-    font-weight: 400;
     color: #c5c5c5;
 }
 

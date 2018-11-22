@@ -17,7 +17,7 @@
 		<div class="noticeList_page page_shadow">
 			<div class="page_inner">
 				<h3 class="bbs_page_tit">공지사항</h3>
-				<button class="basic_btn notice_btn"><a href="<%= request.getContextPath()%>/board/noticeForm.do">공지등록</a></button>
+				<c:if test="${ userVO.type.equals('S') }"><a href="<%= request.getContextPath()%>/board/noticeForm.do"><button class="basic_btn notice_btn">공지등록</button></a></c:if>
 				<div class="bbs_wrap" id="noticeTable">
 					<div class="bbs">
 						<div class="tit num">번호</div>			
