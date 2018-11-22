@@ -635,6 +635,13 @@ footer .copy {
     line-height: 1.8;
 }
 
+.itemList_wrap li .line .txt_box .moreBtn{
+	background-color: transparent;
+	border: 1px solid #fff;
+    padding: 5px 15px;
+    color: #fff;
+}
+
 .itemList_wrap li .line .txt_box a {
 	border: 1px solid #fff;
 	padding: 5px 15px;

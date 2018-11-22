@@ -21,7 +21,7 @@
 						<div class="item_cover"></div> <a href="#"></a>
 						<div class="line">
 							<div class="txt_box">
-								<a href="">더보기</a>
+								<button type="submit" class="moreBtn">더보기</button>
 							</div>
 							<div class="heading">
 								<h4>${ c }</h4>
