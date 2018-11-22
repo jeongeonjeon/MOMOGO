@@ -8,10 +8,14 @@
 <jsp:include page="/jsp/include/head.jsp" />
 </head>
 <body>
-	<div id="storeList_page">
+	<header>
+		<%-- <jsp:include page="/include/header.jsp"> --%>
+		<%@include file="/jsp/include/header.jsp"%>
+	</header>
+	<div id="storeList_page" class="page_shadow">
 		<div class="page_inner">
 			<c:set var="categories"
-				value="치킨,중국집,피자,족발/보쌈,야식,찜/탕,한식/분식/죽,돈까스/회/일식,패스트푸드" />
+				value="치킨,중국집,피자,족발/보쌈,야식" />
 			<c:set var="category" value="${fn:split(categories, ',')}" />
 			<c:set var="i" value="0" />
 			<ul class="itemList_wrap">
@@ -32,5 +36,8 @@
 			</ul>
 		</div>
 	</div>
+	<footer>
+		<%@include file="/jsp/include/footer.jsp"%>
+	</footer>
 </body>
 </html>
