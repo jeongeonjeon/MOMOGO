@@ -44,7 +44,6 @@
 							</div>
 						</div>
 					</form>
-					<button></button>
 				</div>
 				<c:set var="categories"	value="치킨,중국집,피자,족발/보쌈,야식,찜/탕,한식/분식/죽,돈까스/회/일식,패스트푸드" />
 				<c:set var="category" value="${fn:split(categories, ',')}" />
@@ -56,7 +55,7 @@
 							<div class="item_cover"></div> <a href="#"></a>
 							<div class="line">
 								<div class="txt_box">
-									<a href="">더보기</a>
+									<a href="<%= request.getContextPath()%>/store/storeList.do">더보기</a>
 								</div>
 								<div class="heading">
 									<h4>${ c }</h4>

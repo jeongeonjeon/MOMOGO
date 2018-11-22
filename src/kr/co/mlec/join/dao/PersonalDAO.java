@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import kr.co.mlec.join.vo.CeoSignUpVO;
 import kr.co.mlec.join.vo.PersonalVO;
 import kr.co.mlec.util.ConnectionFactory;
 
@@ -37,5 +38,45 @@ public class PersonalDAO {
 		
 		
 	}
+	
+	/**
+	 * 로그인 서비스
+	 */
+	public PersonalVO login(PersonalVO loginVO) {
 
+		PersonalVO userVO = null;
+		
+		StringBuilder sql = new StringBuilder();
+		sql.append("select id, password, type ");
+		sql.append("  from personal ");
+		sql.append(" where id = ? and password = ? ");
+		
+		try(
+			Connection conn = new ConnectionFactory().getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+		) {
+			
+			pstmt.setString(1, loginVO.getId());
+			pstmt.setString(2, loginVO.getPass());
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				String id 		= rs.getString("id");
+				String password = rs.getString("password");
+				String type 	= rs.getString("type");
+				
+				userVO = new PersonalVO(id, password, type);
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return userVO;
+	}
+
+
+	
 }

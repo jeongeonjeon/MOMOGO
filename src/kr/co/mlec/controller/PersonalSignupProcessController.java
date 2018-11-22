@@ -7,7 +7,6 @@ import kr.co.mlec.join.dao.PersonalDAO;
 import kr.co.mlec.join.vo.PersonalVO;
 
 
-
 public class PersonalSignupProcessController implements Controller{
 
 	@Override

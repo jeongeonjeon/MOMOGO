@@ -8,14 +8,15 @@ public class CeoSignUpVO {
 	private String name;
 	private String phone;
 	private String regDate;
-	
+	private String type;
 	
 	
 	public CeoSignUpVO() {
 		super();
 	}
-
-	public CeoSignUpVO(int ceoNo, String id, String password, String email, String name, String phone, String regDate) {
+	
+	public CeoSignUpVO(int ceoNo, String id, String password, String email, String name, String phone, String regDate,
+			String type) {
 		super();
 		this.ceoNo = ceoNo;
 		this.id = id;
@@ -24,12 +25,28 @@ public class CeoSignUpVO {
 		this.name = name;
 		this.phone = phone;
 		this.regDate = regDate;
+		this.type = type;
 	}
-	
+
 	public CeoSignUpVO(String id, String password) {
 		super();
 		this.id = id;
 		this.password = password;
+	}	
+	
+	public CeoSignUpVO(String id, String password, String type) {
+		super();
+		this.id = id;
+		this.password = password;
+		this.type = type;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public int getCeoNo() {
@@ -91,7 +108,7 @@ public class CeoSignUpVO {
 	@Override
 	public String toString() {
 		return "CeoSignUpVO [ceoNo=" + ceoNo + ", id=" + id + ", password=" + password + ", email=" + email + ", name="
-				+ name + ", phone=" + phone + ", regDate=" + regDate + "]";
+				+ name + ", phone=" + phone + ", regDate=" + regDate + ", type=" + type + "]";
 	}
 	
 	

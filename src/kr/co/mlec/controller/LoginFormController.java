@@ -7,8 +7,8 @@ public class LoginFormController implements Controller {
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
-		return "/jsp/login/loginForm.jsp";
+
+		return "/jsp/store/storeList.jsp";
 	}
 
 	
