@@ -38,7 +38,7 @@
             <div class="tit-area">
                 <h3 class="tit">로그인</h3>
             </div>
-            <form action="<%= request.getContextPath() %>/login/loginProcess.do" name="loginform" id="loginForm" method="post" onsubmit="return checkForm()">
+            <form action="<%= request.getContextPath() %>/login/loginFormProcess.do" name="loginform" id="loginForm" method="post" onsubmit="return checkForm()">
                 <div class="fieldset">
                 	<div class="user-select">
 						<input type="radio" name="userSelect" value="personal" checked="checked">개인
