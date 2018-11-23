@@ -2,20 +2,30 @@ package kr.co.mlec.store.vo;
 
 public class StoreVO {
 	
+	int storeNo;
 	String category;
-	String address;
 	String storeName;
 	String imageUrl;
+	
 	public StoreVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public StoreVO(String category, String address, String storeName, String imageUrl) {
+	
+	public StoreVO(int storeNo, String category, String address, String storeName, String imageUrl) {
 		super();
+		this.storeNo = storeNo;
 		this.category = category;
-		this.address = address;
 		this.storeName = storeName;
 		this.imageUrl = imageUrl;
+	}
+
+	public int getStoreNo() {
+		return storeNo;
+	}
+	
+	public void setStoreNo(int storeNo) {
+		this.storeNo = storeNo;
 	}
 	public String getCategory() {
 		return category;
@@ -23,12 +33,7 @@ public class StoreVO {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
+
 	public String getStoreName() {
 		return storeName;
 	}
@@ -43,8 +48,8 @@ public class StoreVO {
 	}
 	@Override
 	public String toString() {
-		return "StoreVO [category=" + category + ", address=" + address + ", storeName=" + storeName + ", imageUrl="
-				+ imageUrl + "]";
+		return "StoreVO [storeNo=" + storeNo + ", category=" + category + ", storeName="
+				+ storeName + ", imageUrl=" + imageUrl + "]";
 	}
 	
 
