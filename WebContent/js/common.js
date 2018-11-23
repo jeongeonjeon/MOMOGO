@@ -8,7 +8,10 @@ $(document).ready(function() {
 		},
 	});
 });
-
+/*
+var mySecondDiv=$("<div id='mySecondDiv'></div>");
+$('#myDiv').append(mySecondDiv);
+*/
 /* myPage 화살표클릭*/
 $(document).ready(function(){
    
@@ -80,6 +83,32 @@ $(document).ready(function(){
 		$(this).siblings(".upload-name").val(filename);
 	})
 })
+
+/*mypage 음식 파일 이름*/
+$(document).ready(function(){
+	var fileTarget = $(".filebox .upload-hidden1");
+	
+	fileTarget.on("change", function(){
+		if(window.FileReader){
+			var filename = $(this)[0].files[0].name;
+		} else {
+			var filename = $(this).val().split("/").pop().split("\\").pop();
+		}
+		
+		$(this).siblings(".upload-name1").val(filename);
+	})
+})
+
+
+
+/*mypage select클릭*/
+	
+$(document).ready(function(){
+   
+   $(".myPage_page .item_wrap .store_item select").click(function(){   
+	   $(".myPage_page .item_wrap .store_item .sel_arrow").toggleClass("on");
+   })
+});
 
 /*detailStore_page slider*/
 
