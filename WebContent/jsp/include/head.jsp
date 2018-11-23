@@ -13,3 +13,4 @@
 <script src="/MOMOGO/js/swiper.min.js"></script>
 <script src="/MOMOGO/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="/MOMOGO/js/common.js"></script>
+<script src="/MOMOGO/js/httpRequest.js"></script>

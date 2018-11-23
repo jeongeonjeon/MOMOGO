@@ -71,31 +71,15 @@
 			}
 		}).open();
 	}
+	
+	
+	var checkFirst = false; 
+	var lastKeyword = '';
+	var loopSendKeyword =false; 
+	  
+	var id = $('#id');
+	var checkBool = false;
 
-	// 아이디와 비밀번호가 맞지 않을 경우 가입버튼 비활서황를 위한 변수 설정
-	var idCheck = 0;
-	var nickCheck = 0;
-	var pwdCheck = 0;
-	var form = document.joinForm;
-
-	function checkId() {
-		var inputed = $('#id').val();
-
-		$.ajax({
-			type : "post", //통신타입 post/ get
-			url : "checkId.do", // 요청할 url
-			data : {
-				id : inputed
-			}, // 서버에 요청시 보낼 파라미터 기입 
-			//   dataType : "xml" //응답받을 데이터의 타입 선택
-			success : function(data) {
-
-			}
-
-		//요청 및 응답에 성공하였을 때의 행위   
-		})
-
-	}
 
 	function clickBtn() {
 		
@@ -125,6 +109,10 @@
 		}else if(!check(re,id.val(),"공백없이 4-20자")) {
 			id.focus(); 
 			return false
+		}else if(checkBool) {
+			alert('아이디가 중복되었습니다');
+			id.focus();
+			return false;
 		} 
 
 		if (pass.val() == "") {
@@ -222,27 +210,81 @@
 		alert(msg);
 		what ="";
 	}
+	
+	
+	
+	function checkId() {
 
+		if (checkFirst == false) {
+			setTimeout("sendId();", 10);
+			loopSendKeyword = true;
+		}
+		checkFirst = true;
+
+	}
+   
+   
+	function sendId() {
+		if (loopSendKeyword == false)
+			return;
+
+		var keyword = document.signUp.id.value;
+		if (keyword == '') {
+			lastKeyword = '';
+			document.getElementById('checkMsg').style.color = "red";
+			document.getElementById('checkMsg').innerHTML = "아이디를 입력하세요.";
+		} else if (keyword != lastKeyword) {
+			lastKeyword = keyword;
+
+			if (keyword != '') {
+				var params = "id=" + encodeURIComponent(keyword);
+				sendRequest("<%= request.getContextPath() %>/join/ceo_id_check.do", params, displayResult, 'POST');
+			} else {
+			}
+		}
+		setTimeout("sendId();", 10);
+	}
+	
+	function displayResult() {
+		if (httpRequest.readyState == 4) {
+			if (httpRequest.status == 200) {
+				var resultText = httpRequest.responseText;
+				var listView = document.getElementById('checkMsg');
+				console.log(listView + " : " + resultText.trim());
+				if (resultText == 0) {
+					listView.innerHTML = "사용 할 수 있는 ID 입니다";
+					listView.style.color = "blue";
+					checkBool = false;
+				} else {
+					listView.innerHTML = "이미 등록된 ID 입니다";
+					listView.style.color = "red";
+					checkBool = true;
+				}
+			} else {
+				alert("에러 발생: " + httpRequest.status);
+			}
+		}
+	}
+	
+		
 	function checkPass() {
 		var pass = $('#pass').val();
 		var passCheck = $('#passCheck').val();
 
 		if (pass.length > 0 && pass.length < 8) {
-			$("#pass + .error").show();
-			alert("비밀번호가 8자리미만입니다")
-			
+			$("#pass + .error").text("비밀번호는 영문+숫자 조합, 8자 이상이어야합니다.");
+		
 
 		} else {
-			$("#pass + .error").hide();
+			$("#pass + .error").text("");
 			if (passCheck == "" || passCheck == pass) {
-				$("#passCheck + .error").hide();
+				$("#passCheck + .error").text("");
 			} else {
-				$("#passCheck + .error").show();
+				$("#passCheck + .error").text("비밀번호가 일치하지 않습니다");
 
 			}
 		}
 	}
-	
 	
 </script>
 </head>
@@ -260,21 +302,24 @@
 						<p class="formName">아이디</p>
 						<div class="inputArea">
 							<input id="id" class="inputValue insert_input" type="text" name="id"
-								placeholder="공백없이 4-20자">
+								placeholder="공백없이 4-20자" onkeyup="checkId()">
+							<p id="checkMsg" class="error"></p>
 						</div>
 					</div>
 					<div class="formRow">
 						<p class="formName">비밀번호</p>
 						<div class="inputArea">
 							<input id="pass" class="inputValue insert_input" type="password"
-								name="password" placeholder="영문+숫자 포함,8-20자">
+								name="password" placeholder="영문+숫자 포함,8-20자" oninput ="checkPass()">
+							<p class="error"></p>
 						</div>
 					</div>
 					<div class="formRow">
 						<p class="formName">비밀번호 재확인</p>
 						<div class="inputArea">
 							<input id="passCheck" class="inputValue insert_input" type="password"
-								name="passwordCheck">
+								name="passwordCheck" oninput ="checkPass()">
+							<p class="error"></p>
 						</div>
 					</div>
 					<div class="formRow">

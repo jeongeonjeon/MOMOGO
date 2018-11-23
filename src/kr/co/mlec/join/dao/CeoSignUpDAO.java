@@ -10,6 +10,40 @@ import kr.co.mlec.util.ConnectionFactory;
 import kr.co.mlec.util.JDBCClose;
 
 public class CeoSignUpDAO {
+	
+	
+	/**
+	 * 아이디 중복체크
+	 * @param id
+	 * @return
+	 */
+	public int checkId(String id) {
+		
+		int re = 0; 
+		
+		StringBuilder sql = new StringBuilder(); 
+		sql.append("select * from ceo where id =? ");
+		
+		try(
+			Connection conn = new ConnectionFactory().getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+		){
+			pstmt.setString(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				re=1;
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return re;  
+	}
+	
+	
+	
 	public void CeoSignUp(CeoSignUpVO person) {
 		
 		StringBuilder sql = new StringBuilder(); 
