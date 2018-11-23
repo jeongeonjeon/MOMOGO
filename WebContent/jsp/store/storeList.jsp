@@ -6,6 +6,7 @@
 <html>
 <head>
 <jsp:include page="/jsp/include/head.jsp" />
+<script src="/MOMOGO/js/storeClick.js"></script>
 </head>
 <body>
 	<header>
@@ -22,7 +23,7 @@
 						<div class="item_cover"></div> <a href="#"></a>
 						<div class="line">
 							<div class="txt_box">
-								<button type="button" class="moreBtn">더보기</button>
+								<button type="button" class="moreBtn" onclick="detailStoreBtn(${ store.storeNo })">더보기</button>
 							</div>
 							<div class="heading">
 								<h4>${ store.storeName }</h4>

@@ -11,6 +11,7 @@
 <script src="/MOMOGO/js/map.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="/MOMOGO/js/mainMap.js"></script>
+<script src="/MOMOGO/js/storeClick.js"></script>
 </head>
 <body>
 	<div id="wrapper">
