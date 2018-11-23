@@ -157,8 +157,8 @@ public class PersonalDAO {
 		PersonalVO searchIdVO = null;
 		
 		StringBuilder sql = new StringBuilder();
-		sql.append("select id ");
-		sql.append("  from personl ");
+		sql.append("select id, name, phone, email ");
+		sql.append("  from personal ");
 		sql.append(" where name = ? and phone = ? and email = ? ");
 		
 		try(
@@ -167,7 +167,7 @@ public class PersonalDAO {
 		) {
 			pstmt.setString(1, idVO.getName());
 			pstmt.setString(2, idVO.getPhone());
-			pstmt.setString(3, idVO.getEmail());
+			pstmt.setString(3, idVO.getEmail());			
 			
 			ResultSet rs = pstmt.executeQuery();
 			
@@ -178,7 +178,8 @@ public class PersonalDAO {
 				String phone = rs.getString("phone");
 				String email = rs.getString("email");
 				
-				searchIdVO = new PersonalVO(id, name, phone, email);							
+				searchIdVO = new PersonalVO(id, name, email, phone);							
+				
 			}
 			
 		}catch(Exception e) {
@@ -187,4 +188,82 @@ public class PersonalDAO {
 		
 		return searchIdVO;
 	}
+	
+	/**
+	 * 이름, 휴대전화 , 이메일로 비밀번호 찾기
+	 */	
+	public PersonalVO searchPw(PersonalVO pwVO) {
+		
+		PersonalVO searchPwVO = null;
+		
+		StringBuilder sql = new StringBuilder();
+		sql.append("select id, name, phone, password ");
+		sql.append("  from personal ");
+		sql.append(" where name = ? and id = ? and phone = ? ");
+		
+		try(
+			Connection conn = new ConnectionFactory().getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+		) {
+			pstmt.setString(1, pwVO.getName());
+			pstmt.setString(2, pwVO.getId());
+			pstmt.setString(3, pwVO.getPhone());			
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				String id = rs.getString("id");
+				String name = rs.getString("name");
+				String phone = rs.getString("phone");
+				String password = rs.getString("password");
+				
+				searchPwVO = new PersonalVO();					
+				
+				searchPwVO.setId(id);
+				searchPwVO.setName(name);
+				searchPwVO.setPhone(phone);
+				searchPwVO.setPass(password);
+				
+			}
+			System.out.println(searchPwVO);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return searchPwVO;
+	}
+	
+	/**
+	 * 비밀번호 변경
+	 */	
+	public void changePw(PersonalVO changePw) {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+
+		try {
+
+			conn = new ConnectionFactory().getConnection();
+			StringBuilder sql = new StringBuilder();
+			sql.append("update personal ");
+			sql.append("   set password = ? ");
+			sql.append(" where id = ? ");
+
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setString(1, changePw.getPass());
+			pstmt.setString(2, changePw.getId());
+
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCClose.close(pstmt, conn);
+		}
+		
+	}
+
+	
 }
