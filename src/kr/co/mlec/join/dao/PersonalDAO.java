@@ -158,7 +158,7 @@ public class PersonalDAO {
 		
 		StringBuilder sql = new StringBuilder();
 		sql.append("select id ");
-		sql.append("  from personl ");
+		sql.append("  from personal ");
 		sql.append(" where name = ? and phone = ? and email = ? ");
 		
 		try(
@@ -180,6 +180,8 @@ public class PersonalDAO {
 				
 				searchIdVO = new PersonalVO(id, name, phone, email);							
 			}
+			
+			System.out.println(searchIdVO);
 			
 		}catch(Exception e) {
 			e.printStackTrace();
