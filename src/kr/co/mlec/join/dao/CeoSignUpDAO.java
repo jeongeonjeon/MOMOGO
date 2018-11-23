@@ -110,4 +110,47 @@ public class CeoSignUpDAO {
 		
 		return userVO;
 	}
+	
+	/**
+	 * 이름, 휴대전화 , 이메일로 아이디 찾기
+	 */	
+	public CeoSignUpVO searchId(CeoSignUpVO idVO) {
+		
+		CeoSignUpVO searchIdVO =  null;
+		
+		StringBuilder sql = new StringBuilder();
+		sql.append("select id ");
+		sql.append("  from personl ");
+		sql.append(" where name = ? and phone = ? and email = ? ");
+		
+		try(
+				Connection conn = new ConnectionFactory().getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+			) {
+				pstmt.setString(1, idVO.getName());
+				pstmt.setString(2, idVO.getPhone());
+				pstmt.setString(3, idVO.getEmail());
+				
+				ResultSet rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					
+					String id = rs.getString("id");
+					String name = rs.getString("name");
+					String phone = rs.getString("phone");
+					String email = rs.getString("email");
+					
+					searchIdVO = new CeoSignUpVO(id, name, phone, email);							
+				}
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+		
+		return searchIdVO;
+	}
+	
+	
+	
 }
