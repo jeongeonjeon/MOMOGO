@@ -39,6 +39,14 @@ public class CeoSignUpVO {
 		this.id = id;
 		this.password = password;
 		this.type = type;
+	}	
+
+	public CeoSignUpVO(String id, String email, String name, String phone) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.name = name;
+		this.phone = phone;
 	}
 
 	public String getType() {
