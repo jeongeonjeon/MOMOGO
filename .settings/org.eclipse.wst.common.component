@@ -3,7 +3,12 @@
     <wb-module deploy-name="MOMOGO">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+<<<<<<< HEAD
                 
+=======
+                        
+        
+>>>>>>> branch 'hacho_2011' of https://github.com/jeongeonjeon/MOMOGO.git
         <property name="context-root" value="MOMOGO"/>
         <property name="java-output-path" value="/MOMOGO/bin"/>
             
