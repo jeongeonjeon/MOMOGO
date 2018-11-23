@@ -109,7 +109,7 @@ public class PersonalDAO {
 	}
 
 	/**
-	 * 마이페이지 정보조회
+	 * 마이페이지 일반회원 정보조회
 	 */
 	
 	public PersonalVO selectById(String id) {

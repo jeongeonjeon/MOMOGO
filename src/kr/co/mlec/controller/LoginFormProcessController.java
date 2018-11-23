@@ -30,6 +30,7 @@ public class LoginFormProcessController implements Controller {
          personalVO.setId(id);
          personalVO.setPass(password);
          
+         
          PersonalDAO dao = new PersonalDAO();
          PersonalVO userVO = dao.login(personalVO);
          
