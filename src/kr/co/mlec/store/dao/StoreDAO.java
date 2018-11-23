@@ -19,10 +19,15 @@ public class StoreDAO {
 		
 		StringBuilder sql = new StringBuilder(); 
 		
-		sql.append("select *           ");
-	 	sql.append("  from store      ");
-		sql.append(" where category = ?");
-		sql.append("   and replace(delivery_area1, ' ', '') = ?");
+		sql.append("select DISTINCT s.*							"); 
+		sql.append(" from store s, (                            ");
+		sql.append("        select a1.address                   ");
+		sql.append("        from address a1, address a2         ");
+		sql.append("        where replace(a1.address,' ','') = ?");
+		sql.append("        and a1.code = a2.code               ");
+		sql.append("  ) a                                       ");
+		sql.append(" where category = ?                         ");
+		
 		try (
 			Connection conn = new ConnectionFactory().getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
@@ -30,8 +35,8 @@ public class StoreDAO {
 		
 			int loc = 1;
 			
-			pstmt.setString(loc++, category);
 			pstmt.setString(loc++, address);
+			pstmt.setString(loc++, category);
 			
 			ResultSet rs = pstmt.executeQuery();
 			
