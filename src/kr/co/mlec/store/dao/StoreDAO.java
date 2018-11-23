@@ -6,9 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
-
-import kr.co.mlec.join.vo.CeoSignUpVO;
 import kr.co.mlec.store.vo.StoreVO;
 import kr.co.mlec.util.ConnectionFactory;
 
