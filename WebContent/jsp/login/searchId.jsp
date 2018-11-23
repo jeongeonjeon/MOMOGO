@@ -43,7 +43,7 @@
             <div class="tit-area">
                 <h3 class="tit">아이디 찾기</h3>
             </div>
-            <form action="<%= request.getContextPath() %>/login/loginProcess.do" name="loginform" id="loginForm" method="post" onsubmit="return checkForm()">
+            <form action="<%= request.getContextPath() %>/login/searchIdProcess.do" name="loginform" id="loginForm" method="post" onsubmit="return checkForm()">
                 <div class="fieldset">
                 	<div class="user-select">
 						<input type="radio" name="userSelect" value="personal" checked="checked">개인
@@ -53,10 +53,10 @@
                         <input type="text" class="input insert_input" id="name" placeholder="이름" name="name" value="" />                        
                     </div>
                     <div class="input-group">
-                        <input type="password" class="input insert_input" id="phone" placeholder="휴대전화" name="phone" value="" />                        
+                        <input type="text" class="input insert_input" id="phone" placeholder="휴대전화" name="phone" value="" />                        
                     </div>
                     <div class="input-group">
-                        <input type="password" class="input insert_input" id="email" placeholder="이메일주소" name="email" value="" />                        
+                        <input type="text" class="input insert_input" id="email" placeholder="이메일주소" name="email" value="" />                        
                     </div>                 
                     <input type="submit" class="btn-login" value="확인">
                 </div>

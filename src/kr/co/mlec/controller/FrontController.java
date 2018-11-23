@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class FrontController extends HttpServlet{
 	
+	
 	HandlerMapping mappings;
 
 	@Override

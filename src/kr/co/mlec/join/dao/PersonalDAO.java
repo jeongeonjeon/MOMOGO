@@ -151,8 +151,7 @@ public class PersonalDAO {
 	
 	/**
 	 * 이름, 휴대전화 , 이메일로 아이디 찾기
-	 */
-	
+	 */	
 	public PersonalVO searchId(PersonalVO idVO) {
 		
 		PersonalVO searchIdVO = null;
