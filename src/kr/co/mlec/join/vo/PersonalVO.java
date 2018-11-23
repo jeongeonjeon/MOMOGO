@@ -3,8 +3,8 @@ package kr.co.mlec.join.vo;
 public class PersonalVO {
 	private String id; 
 	private String pass; 
-	private String name; 
 	private String email; 
+	private String name; 
 	private String phone;
 	private String type;
 	private String regDate;
@@ -34,12 +34,12 @@ public class PersonalVO {
 		this.phone = phone;
 	}
 	
-	public PersonalVO(String id, String pass, String name, String email, String phone, String type, String regDate) {
+	public PersonalVO(String id, String pass, String email, String name, String phone, String type, String regDate) {
 		super();
 		this.id = id;
 		this.pass = pass;
-		this.name = name;
 		this.email = email;
+		this.name = name;
 		this.phone = phone;
 		this.type = type;
 		this.regDate = regDate;
@@ -103,7 +103,7 @@ public class PersonalVO {
 
 	@Override
 	public String toString() {
-		return "PersonalVO [id=" + id + ", pass=" + pass + ", name=" + name + ", email=" + email + ", phone=" + phone
+		return "PersonalVO [id=" + id + ", pass=" + pass + ", email=" + email + ", name=" + name + ", phone=" + phone
 				+ ", type=" + type + ", regDate=" + regDate + "]";
 	}
 	
