@@ -4,6 +4,7 @@
     vertical-align: middle;
     height: 100%;    
     width: 500px;
+    padding:50px 0;
 } 
 
  .content .user-select {
@@ -40,11 +41,16 @@
     display: block;
     text-align: center;
     border: 0;
-    margin: 0;
+    margin: 15px 0;
     padding: 15px 0;
     width: 100%;
     font-size: 17px;
     font-weight: 600;
     color: #fff;
     background-color: #004000;
+}
+
+iframe#easyXDM_Kakao_52hynr1h43i_provider{
+	margin: 30px 0 0 0;
+	
 }

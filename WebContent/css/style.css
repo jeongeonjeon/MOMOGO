@@ -1343,7 +1343,7 @@ footer .copy {
 
 .detailStore_page .page_inner {
 	width: 1000px;
-	margin: 0 auto;
+	margin: 70px auto;
 }
 
 .detailStore_page .page_inner:after {
@@ -1355,6 +1355,7 @@ footer .copy {
 .detailStore_page .detail_container {
 	width: 660px;
 	float: left;
+	margin : 0 0 200px 0;
 }
 
 .detailStore_page .detail_container .storeInfo_box {
