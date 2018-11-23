@@ -506,6 +506,7 @@ header .header_top .hmenu_wrap li {
 
 header .header_top .hmenu_wrap li a {
     color: #c5c5c5;
+    margin-left: 15px;
 }
 
 header .header_top .hmenu_wrap li a:hover {
@@ -954,7 +955,7 @@ footer .copy {
    outline: none;
 }
 
-.myPage_page .item_wrap .area_item .info_wrap {
+.myPage_page .item_wrap .m2_item .info_wrap {
    margin-left: 0;
 }
 
@@ -972,7 +973,7 @@ footer .copy {
    display: block;
 }
 
-.myPage_page .item_wrap .area_item .modify_content select {
+.myPage_page .item_wrap .m2_item .modify_content select {
    padding: 2px 14px 2px 7px;
    width: 54px;
    background: url(../img/sel_arr_2x.gif) center right no-repeat;
@@ -980,16 +981,16 @@ footer .copy {
    outline: none;
 }
 
-.myPage_page .item_wrap .area_item .modify_content .tel input {
+.myPage_page .item_wrap .m2_item .modify_content .tel input {
    width: 73px;
 }
 
-.myPage_page .item_wrap .area_item .modify_content .tel span {
+.myPage_page .item_wrap .m2_item .modify_content .tel span {
    display: inline-block;
    margin: 0 4px;
 }
 
-.myPage_page .item_wrap .area_item .modify_content .mail input {
+.myPage_page .item_wrap .m2_item .modify_content .mail input {
    width: 150px;
 }
 
@@ -1009,7 +1010,7 @@ footer .copy {
 }
 
 .myPage_page .item_wrap .order_item {
-	height: 380px;
+	height: 790px;
 	overflow-y : auto;
 }
 
@@ -1080,6 +1081,32 @@ footer .copy {
     margin: 5px 0 0 10px;
     word-break: keep-all;
     line-height: 24px;
+}
+
+
+.myPage_page .item_wrap .store_item {
+	height: 780px;
+}
+
+.myPage_page .item_wrap .store_item .input_content:after {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+.myPage_page .item_wrap .store_item .input_content .logo {
+	width: 110px;
+	height: 110px;
+	border: 1px solid #ddd;
+	float: left;
+}
+
+.myPage_page .item_wrap .store_item .input_content .input_wrap {
+	float: left;
+}
+
+.myPage_page .item_wrap .store_item .input_content .input_wrap input {
+	outline: none;
 }
 
 .myPage_page .list_btn {

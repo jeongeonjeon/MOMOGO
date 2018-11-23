@@ -9,7 +9,8 @@
 			<li><c:if test="${ empty userVO }"><a href="<%= request.getContextPath()%>/join/choiceJoin.do">JOIN</a></c:if></li>
 			<li><c:if test="${ not empty userVO }"><a href="<%= request.getContextPath()%>/login/logout.do">LOGOUT</a></c:if></li>
 			<li><a href="#">ORDER</a></li>
-			<li><a href="/MOMOGO/mypage/mypage.do">MYPAGE</a></li>
+			<li><a href="/MOMOGO/mypage/personalMypage.do">MYPAGE</a></li>
+			<li><a href="/MOMOGO/mypage/ceoMypage.do">MYPAGE</a></li>
 		</ul>
 	</div>
 	<h2 class="logo">

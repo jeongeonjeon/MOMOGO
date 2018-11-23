@@ -7,12 +7,10 @@ import javax.servlet.http.HttpSession;
 import kr.co.mlec.join.dao.PersonalDAO;
 import kr.co.mlec.join.vo.PersonalVO;
 
-public class MypageController implements Controller {
+public class PersonalMypageController implements Controller {
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
-		System.out.println("MyPageController");
 		
 		request.setCharacterEncoding("utf-8");		
 		
@@ -24,7 +22,7 @@ public class MypageController implements Controller {
 		
 		request.setAttribute("personal", personal);
 		
-		return "/jsp/mypage/mypage.jsp";
+		return "/jsp/mypage/personalMypage.jsp";
 	}
 	
 }

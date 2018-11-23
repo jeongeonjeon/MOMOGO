@@ -106,83 +106,6 @@
 	<div class="page_inner">
 		<section class="item_wrap">
 			<div class="left">
-				<div class="item area_item">
-					<div class="item_header">
-						<h4 class="tit">회원정보</h4>
-						<button type="button"></button>
-					</div>
-					<p class="contxt">
-						<span>'나'의 회원</span> 정보입니다.<br>회원유형과 가입일은 수정이 불가능합니다.
-					</p>
-					<div class="item_content basic_content on">
-						<div class="info_wrap">
-							<div class="info">
-								<p class="tit">회원유형</p>
-								<p class="txt">${personal.type}</p>
-							</div>
-							<div class="info">
-								<p class="tit">가입날짜</p>
-								<p class="txt">${personal.regDate}</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="item_header">
-						<h4 class="tit">프로필</h4>
-						<button type="button"></button>
-					</div>
-					<p class="contxt">
-						<span>'나'를 표현하는 프로필</span> 정보입니다.<br> 수정 화면에서 비밀번호를 변경하세요.
-					</p>
-					<div class="item_content basic_content on">
-						<div class="pic">
-							<img src="/MOMOGO/img/default.png" alt="">
-						</div>
-						<div class="info_wrap">
-							<div class="info">
-								<p class="tit">아이디</p>
-								<p class="txt">${ personal.id }</p>
-							</div>
-							<div class="info">
-								<p class="tit">이름</p>
-								<p class="txt">${ personal.name }</p>
-							</div>
-							<div class="info">
-								<p class="tit">비밀번호</p>
-								<p class="txt">${ personal.pass }</p>
-							</div>
-						</div>
-						<button class="basic_btn modify_btn" type="button">수정</button>
-					</div>
-					<div class="item_content modify_content">
-						<div class="pic">
-							<img src="/MOMOGO/img/default.png" alt="">
-						</div>
-						<div class="info_wrap">
-							<form method="post" action="updateProfile.jsp">
-								<input type="hidden" name="id" value="${ personal.id }">
-								<div class="info">
-									<p class="tit">아이디</p>
-									<p class="txt">${ personal.id }</p>
-								</div>
-								<div class="info">
-									<p class="tit">이름</p>
-									<input type="text" name="name" value="${ personal.name }">
-								</div>
-								<div class="info">
-									<p class="tit">비밀번호</p>
-									<input type="password" name="password"
-										value="${ personal.pass }">
-								</div>
-								<div class="btn_wrap">
-									<button type="reset" class="basic_btn cancel_btn">취소</button>
-									<button type="submit" class="basic_btn complete_btn">완료</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
 				<div class="item order_item">
 					<div class="item_header">
 						<h4 class="tit">주문내역</h4>
@@ -226,9 +149,106 @@
 						</div>
 					</div>
 				</div>
+				<div class="item m2_item">
+					<div class="item_header">
+						<h4 class="tit">회원정보</h4>
+						<button type="button"></button>
+					</div>
+					<p class="contxt">
+						<span>'나'의 회원</span> 정보입니다.<br>회원유형과 가입일은 수정이 불가능합니다.
+					</p>
+					<div class="item_content basic_content on">
+						<div class="info_wrap">
+							<div class="info">
+								<p class="tit">회원유형</p>
+								<p class="txt">${ member.type }</p>
+							</div>
+							<div class="info">
+								<p class="tit">가입날짜</p>
+								<p class="txt">${ member.regDate }</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="item_header">
+						<h4 class="tit">프로필</h4>
+						<button type="button"></button>
+					</div>
+					<p class="contxt">
+						<span>'나'를 표현하는 프로필</span> 정보입니다.<br> 수정 화면에서 비밀번호를 변경하세요.
+					</p>
+					<div class="item_content basic_content on">
+						<div class="pic">
+							<img src="/MOMOGO/img/default.png" alt="">
+						</div>
+						<div class="info_wrap">
+							<div class="info">
+								<p class="tit">아이디</p>
+								<p class="txt">${ member.id }</p>
+							</div>
+							<div class="info">
+								<p class="tit">이름</p>
+								<p class="txt">${ member.name }</p>
+							</div>
+							<div class="info">
+								<p class="tit">비밀번호</p>
+								<p class="txt">${ member.password }</p>
+							</div>
+						</div>
+						<button class="basic_btn modify_btn" type="button">수정</button>
+					</div>
+					<div class="item_content modify_content">
+						<div class="pic">
+							<img src="/MOMOGO/img/default.png" alt="">
+						</div>
+						<div class="info_wrap">
+							<form method="post" action="updateProfile.jsp">
+								<input type="hidden" name="id" value="${ member.id }">
+								<div class="info">
+									<p class="tit">아이디</p>
+									<p class="txt">${ member.id }</p>
+								</div>
+								<div class="info">
+									<p class="tit">이름</p>
+									<input type="text" name="name" value="${ member.name }">
+								</div>
+								<div class="info">
+									<p class="tit">비밀번호</p>
+									<input type="password" name="password"
+										value="${ member.password }">
+								</div>
+								<div class="btn_wrap">
+									<button type="reset" class="basic_btn cancel_btn">취소</button>
+									<button type="submit" class="basic_btn complete_btn">완료</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="right">
-				<div class="item area_item">
+				<div class="item store_item">
+					<div class="item_header">
+						<h4 class="tit">업체설정</h4>
+						<button type="button"></button>
+					</div>
+					<p class="contxt">
+						<span>'가입한 업체'의 상세</span> 정보입니다.<br> 정보를 이력해주시기 바랍니다
+					</p>
+					<form>
+						<div class="input_container">
+							<div class="input_content">
+								<div class="logo"></div>
+								<div class="input_wrap">
+									<input type="file" name="file_add">
+									<label for="file_add"></label>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="item m2_item">
 					<div class="item_header">
 						<h4 class="tit">연락처 설정</h4>
 						<button type="button"></button>
@@ -240,7 +260,7 @@
 						<div class="info_wrap">
 							<div class="info">
 								<p class="tit">전화번호</p>
-								<p class="txt">${ personal.phone }</p>
+								<p class="txt">${ member.tel1 }-${ member.tel2 }-${ member.tel3 }</p>
 							</div>
 							<div class="info">
 								<p class="tit">이메일주소</p>
@@ -278,7 +298,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="item area_item">
+				<div class="item m2_item">
 					<div class="item_header">
 						<h4 class="tit">지역설정</h4>
 						<button type="button"></button>
