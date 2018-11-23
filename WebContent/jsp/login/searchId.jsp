@@ -43,7 +43,7 @@
             <div class="tit-area">
                 <h3 class="tit">아이디 찾기</h3>
             </div>
-            <form action="<%= request.getContextPath() %>/login/searchIdProcess.do" name="loginform" id="loginForm" method="post" onsubmit="return checkForm()">
+            <form action="<%= request.getContextPath() %>/login/searchIdProcess.do" name="searchId" id="searchId" method="post" onsubmit="return checkForm()">
                 <div class="fieldset">
                 	<div class="user-select">
 						<input type="radio" name="userSelect" value="personal" checked="checked">개인

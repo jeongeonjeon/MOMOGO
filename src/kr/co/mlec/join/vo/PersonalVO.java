@@ -34,6 +34,7 @@ public class PersonalVO {
 		this.phone = phone;
 	}
 	
+
 	public PersonalVO(String id, String pass, String email, String name, String phone, String type, String regDate) {
 		super();
 		this.id = id;
