@@ -241,8 +241,14 @@
 							<div class="input_content">
 								<div class="logo"></div>
 								<div class="input_wrap">
-									<input type="file" name="file_add">
-									<label for="file_add"></label>
+									<div class="filebox">
+										<input class="upload-name" value="로고를 선택해주세요" disabled="disabled">
+										<label for="ex_filename">업로드</label>
+										<input type="file" id="ex_filename" class="upload-hidden">
+									</div>
+									<div class="input_wrap">
+										도미노피자
+									</div>
 								</div>
 							</div>
 						</div>
