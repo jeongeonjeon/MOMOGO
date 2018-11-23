@@ -15,7 +15,7 @@
 <body>
 	<div id="wrapper">
 		<header>
-			<%-- <jsp:include page="/include/header.jsp"> --%>
+			<%-- <jsp:include page="/include/header.jsp" > --%>
 			<%@include file="/jsp/include/header.jsp"%>
 		</header>
 		<div id="main" class="page_shadow">
