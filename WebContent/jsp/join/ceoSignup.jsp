@@ -380,15 +380,15 @@
 						<p class="formName">업종 카테고리</p>
 						<div class="inputArea">
 							<select class="inputValue" name="category">
-								<option value="1">치킨</option>
-								<option value="2">중국집</option>
-								<option value="3">피자</option>
-								<option value="4">족발/보쌈</option>
-								<option value="5">야식</option>
-								<option value="6">찜/탕</option>
-								<option value="7">한식/분식/죽</option>
-								<option value="8">돈까스/회/일식</option>
-								<option value="9">패스트푸드</option>
+								<option value="치킨">치킨</option>
+								<option value="중국집">중국집</option>
+								<option value="피자">피자</option>
+								<option value="족발/보쌈">족발/보쌈</option>
+								<option value="야식">야식</option>
+								<option value="찜/탕">찜/탕</option>
+								<option value="한식/분식/죽">한식/분식/죽</option>
+								<option value="돈까스/회/일식">돈까스/회/일식</option>
+								<option value="패스트푸드">패스트푸드</option>
 							</select>
 						</div>
 					</div>

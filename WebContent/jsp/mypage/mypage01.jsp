@@ -118,11 +118,11 @@
 						<div class="info_wrap">
 							<div class="info">
 								<p class="tit">회원유형</p>
-								<p class="txt">${personal.type}</p>
+								<p class="txt">${ member.type }</p>
 							</div>
 							<div class="info">
 								<p class="tit">가입날짜</p>
-								<p class="txt">${personal.regDate}</p>
+								<p class="txt">${ member.regDate }</p>
 							</div>
 						</div>
 					</div>
@@ -142,15 +142,15 @@
 						<div class="info_wrap">
 							<div class="info">
 								<p class="tit">아이디</p>
-								<p class="txt">${ personal.id }</p>
+								<p class="txt">${ member.id }</p>
 							</div>
 							<div class="info">
 								<p class="tit">이름</p>
-								<p class="txt">${ personal.name }</p>
+								<p class="txt">${ member.name }</p>
 							</div>
 							<div class="info">
 								<p class="tit">비밀번호</p>
-								<p class="txt">${ personal.pass }</p>
+								<p class="txt">${ member.password }</p>
 							</div>
 						</div>
 						<button class="basic_btn modify_btn" type="button">수정</button>
@@ -161,19 +161,19 @@
 						</div>
 						<div class="info_wrap">
 							<form method="post" action="updateProfile.jsp">
-								<input type="hidden" name="id" value="${ personal.id }">
+								<input type="hidden" name="id" value="${ member.id }">
 								<div class="info">
 									<p class="tit">아이디</p>
-									<p class="txt">${ personal.id }</p>
+									<p class="txt">${ member.id }</p>
 								</div>
 								<div class="info">
 									<p class="tit">이름</p>
-									<input type="text" name="name" value="${ personal.name }">
+									<input type="text" name="name" value="${ member.name }">
 								</div>
 								<div class="info">
 									<p class="tit">비밀번호</p>
 									<input type="password" name="password"
-										value="${ personal.pass }">
+										value="${ member.password }">
 								</div>
 								<div class="btn_wrap">
 									<button type="reset" class="basic_btn cancel_btn">취소</button>
@@ -240,7 +240,7 @@
 						<div class="info_wrap">
 							<div class="info">
 								<p class="tit">전화번호</p>
-								<p class="txt">${ personal.phone }</p>
+								<p class="txt">${ member.tel1 }-${ member.tel2 }-${ member.tel3 }</p>
 							</div>
 							<div class="info">
 								<p class="tit">이메일주소</p>

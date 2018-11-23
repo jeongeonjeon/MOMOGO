@@ -11,18 +11,6 @@
 <script src="/MOMOGO/js/map.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="/MOMOGO/js/mainMap.js"></script>
-<script>
-	function moreBtn(category){
-		
-		if($('#address').val() == ""){
-			alert("주소를 입력해주세요");
-		}else{
-			var address = $('#address').val();
-			location.href = "${url}/store/storeList.do?category=" + category + "&address=" + address;
-		}
-	}
-
-</script>
 </head>
 <body>
 	<div id="wrapper">

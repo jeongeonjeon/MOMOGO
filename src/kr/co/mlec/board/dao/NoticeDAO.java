@@ -119,7 +119,7 @@ public class NoticeDAO {
 			
 			int loc = 1;
 			
-			pstmt.setInt(loc++, notice.getNoticeNo());
+//			pstmt.setInt(loc++, notice.getNoticeNo());
 			pstmt.setString(loc++, notice.getTitle());
 			pstmt.setString(loc++, notice.getWriter());
 			pstmt.setString(loc++, notice.getContent());

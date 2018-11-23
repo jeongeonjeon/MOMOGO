@@ -12,13 +12,18 @@
 	function checkForm() {
 		var f = document.loginform;
 		
-		if(f.id.value == "") {
-			alert("아이디를 입력하세요");
+		if(f.name.value == "") {
+			alert("이름을 입력하세요");
 			return false;
 		}
 		
-		if(f.password.value == "") {
-			alert("패스워드를 입력하세요");
+		if(f.phone.value == "") {
+			alert("휴대전화번호를 입력하세요");
+			return false;
+		}
+		
+		if(f.email.value == "") {
+			alert("이메일주소를 입력하세요");
 			return false;
 		}
 		
@@ -36,26 +41,24 @@
     <div class="content page_shadow" align="center">
         <div class="cont-inner login-wrap">
             <div class="tit-area">
-                <h3 class="tit">로그인</h3>
+                <h3 class="tit">아이디 찾기</h3>
             </div>
-            <form action="<%= request.getContextPath() %>/login/loginFormProcess.do" name="loginform" id="loginForm" method="post" onsubmit="return checkForm()">
+            <form action="<%= request.getContextPath() %>/login/loginProcess.do" name="loginform" id="loginForm" method="post" onsubmit="return checkForm()">
                 <div class="fieldset">
                 	<div class="user-select">
 						<input type="radio" name="userSelect" value="personal" checked="checked">개인
 						<input type="radio" name="userSelect" value="ceo">사업자<br>	
 					</div>	
                     <div class="input-group">
-                        <input type="text" class="input insert_input" id="id" placeholder="아이디" value="" name="id" />                        
+                        <input type="text" class="input insert_input" id="name" placeholder="이름" name="name" value="" />                        
                     </div>
                     <div class="input-group">
-                        <input type="password" class="input insert_input" id="pw" placeholder="비밀번호" name="password" value="" />                        
-                    </div>                
-                    <div class="login-link">
-                        <a class="btn-find" href="<%= request.getContextPath() %>/login/searchId.do">아이디 찾기</a>&nbsp;&#47;
-                        <a class="btn-find" href="<%= request.getContextPath() %>/login/searchPassword.do">비밀번호 찾기</a>
-                        <a class="btn-join" href="<%= request.getContextPath() %>/join/choiceJoin.do">회원가입</a><br>
+                        <input type="password" class="input insert_input" id="phone" placeholder="휴대전화" name="phone" value="" />                        
                     </div>
-                    <input type="submit" class="btn-login" value="로그인">
+                    <div class="input-group">
+                        <input type="password" class="input insert_input" id="email" placeholder="이메일주소" name="email" value="" />                        
+                    </div>                 
+                    <input type="submit" class="btn-login" value="확인">
                 </div>
             </form>
         </div>
