@@ -54,7 +54,7 @@
                         <a class="btn-find" href="<%= request.getContextPath() %>/login/searchId.do">아이디 찾기</a>&nbsp;&#47;
                         <a class="btn-find" href="<%= request.getContextPath() %>/login/searchPassword.do">비밀번호 찾기</a>
                         <a class="btn-join" href="<%= request.getContextPath() %>/join/choiceJoin.do">회원가입</a><br>
-                        <a class="btn-join" href="<%= request.getContextPath() %>/join/choiceJoin.do">회원탈퇴</a><br>
+                        <a class="btn-join" href="<%= request.getContextPath() %>/login/leaveMember.do">회원탈퇴</a><br>
                     </div>
                     <input type="submit" class="btn-login" value="로그인">
                 </div>

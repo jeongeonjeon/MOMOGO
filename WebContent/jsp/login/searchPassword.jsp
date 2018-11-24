@@ -10,7 +10,7 @@
 <script>
 	
 	function checkForm() {
-		var f = document.loginform;
+		var f = document.searchPw;
 		
 		if(f.name.value == "") {
 			alert("이름을 입력하세요");
