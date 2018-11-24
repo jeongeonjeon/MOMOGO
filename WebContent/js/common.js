@@ -6,6 +6,13 @@ $(document).ready(function() {
 			nextEl : '.swiper-button-next',
 			prevEl : '.swiper-button-prev',
 		},
+		pagination: {
+	        el: '.swiper-pagination'
+        },
+        loop : true,
+        autoplay : {
+        	delay: 5000
+        }
 	});
 });
 /*
