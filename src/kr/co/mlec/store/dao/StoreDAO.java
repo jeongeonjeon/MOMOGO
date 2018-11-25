@@ -151,7 +151,7 @@ public class StoreDAO {
 		StringBuilder sql = new StringBuilder(); 
 
 		//menu 조회
-		sql.append(" select menu, price, m.image, type  ");
+		sql.append(" select menu, price, m.image, type ,detail ");
 		sql.append("  from store s, menu m  ");
 		sql.append(" where s.store_no = m.store_no  ");
 		sql.append("   and s.store_no = ?  ");
@@ -171,6 +171,7 @@ public class StoreDAO {
 				int price        = rs.getInt("price");
 				String menuImage  = rs.getString("image");
 				String type       = rs.getString("type");
+				String detail       = rs.getString("detail");
 				
 				MenuVO menu = new MenuVO();
 				
@@ -178,6 +179,7 @@ public class StoreDAO {
 				menu.setPrice(price);
 				menu.setMenuImage(menuImage);
 				menu.setType(type);
+				menu.setDetail(detail);
 				
 				list.add(menu);
 			}

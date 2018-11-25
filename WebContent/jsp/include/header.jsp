@@ -10,7 +10,7 @@
 			<li><c:if test="${ not empty userVO }"><a href="<%= request.getContextPath()%>/login/logout.do">LOGOUT</a></c:if></li>
 			<li><a href="#">ORDER</a></li>
 			<li><c:choose>
-				<c:when test="${ not empty userVO }"><a href="<%= request.getContextPath()%>/mypage/mypage.do">MYPAGE</a></c:when>
+				<c:when test="${ not empty userVO }"><a href="<%= request.getContextPath()%>/mypage/personalMypage.do">MYPAGE</a></c:when>
 				<c:otherwise><a href="<%= request.getContextPath()%>/login/loginForm.do">MYPAGE</a></c:otherwise>
 				</c:choose>		
 			</li>

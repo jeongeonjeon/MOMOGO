@@ -6,16 +6,24 @@ public class MenuVO {
 	int price       ;
 	String menuImage;
 	String type     ;
+	String detail   ;
+	public String getDetail() {
+		return detail;
+	}
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
 	public MenuVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public MenuVO(String menuName, int price, String menuImage, String type) {
+	public MenuVO(String menuName, int price, String menuImage, String type,String detail) {
 		super();
 		this.menuName = menuName;
 		this.price = price;
 		this.menuImage = menuImage;
 		this.type = type;
+		this.detail = detail;
 	}
 	public String getMenuName() {
 		return menuName;
