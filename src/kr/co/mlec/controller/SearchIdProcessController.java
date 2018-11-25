@@ -35,13 +35,15 @@ public class SearchIdProcessController implements Controller {
 	    	  PersonalDAO dao = new PersonalDAO();
 	    	  PersonalVO idVO = dao.searchId(personalVO);
 	    	  
+	    	  System.out.println("Controller확인"+idVO);
+	    	  
 	    	  if(idVO != null) {
-	    		msg =  "회원님의 아이디는" + idVO.getId() + "입니다.";
+	    		msg =  "회원님의 아이디는 [ " + idVO.getId() + " ] 입니다.";
+	    		url = request.getContextPath()+"/login/loginForm.do";
 	    	  } else {
 		    	msg = "정보를 잘 못 입력하셨습니다.";
 		    	url = request.getContextPath()+"/login/searchId.do";
-		      }	    	   	    
-	    	  url = request.getContextPath()+"/login/loginForm.do";	 	 	    	  
+		      }	    	   	     	 	    	  
 	      } 
 	      
 	      // 사업자회원
@@ -56,12 +58,12 @@ public class SearchIdProcessController implements Controller {
 	    	  CeoSignUpVO idVO = dao.searchId(ceoSignUpVO);
 	    	  
 	    	  if(idVO != null) {
-	    		msg =  "회원님의 아이디는" + idVO.getId() + "입니다.";
-	    	  } else {
+	    		msg =  "회원님의 아이디는 [ " + idVO.getId() + " ] 입니다.";
+	    		url = request.getContextPath()+"/login/loginForm.do";
+	     	  } else {
 		    	msg = "정보를 잘 못 입력하셨습니다.";
 		    	url = request.getContextPath()+"/login/searchId.do";
-		      }	    	   	    
-	    	  url = request.getContextPath()+"/login/loginForm.do";	 	    	  
+		      }	    	   	    	    	  
 	      }	      
 	      
 	      request.setAttribute("msg", msg);

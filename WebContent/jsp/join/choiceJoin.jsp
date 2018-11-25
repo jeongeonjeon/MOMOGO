@@ -14,16 +14,16 @@
 		<div id="choice" class="page_shadow">
 			<div class="container">
 				<h1>회원가입</h1>
-				<div class="block1">
-					<strong>개인</strong>
-					<div class="joinBtn">
-						<a href="<%= request.getContextPath()%>/join/personalSignup.do">개인 회원가입 </a>
+				<div class="block block1">
+					<div class="type_wrap">
+						<strong>개인</strong>
+						<a class="basic_btn" href="<%= request.getContextPath()%>/join/personalSignup.do">개인 회원가입 </a>
 					</div>
 				</div>
-				<div class="block2">
-					<strong>사업자</strong>
-					<div class="joinBtn">
-						<a href="<%= request.getContextPath()%>/join/ceoSignup.do">사업자 회원가입 </a>
+				<div class="block block2">
+					<div class="type_wrap">
+						<strong>사업자</strong>
+						<a class="basic_btn" href="<%= request.getContextPath()%>/join/ceoSignup.do">사업자 회원가입 </a>
 					</div>
 				</div>
 			</div>
