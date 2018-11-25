@@ -69,7 +69,7 @@ public class EventFormProcessController implements Controller {
 			fileVO.setFileOriName(fileOriName);  
 			fileVO.setFileSaveName(fileSaveName);
 			fileVO.setFileSize(fileSize);
-			fileVO.setBoardNo(boardNo);
+//			fileVO.setBoardNo(boardNo);
 			
 			dao.insertFile(fileVO);
 		
