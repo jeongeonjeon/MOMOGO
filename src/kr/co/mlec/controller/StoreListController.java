@@ -20,6 +20,7 @@ public class StoreListController implements Controller {
 		List<StoreVO> list = dao.selectCategoryStore(address, category); 
 		
 		request.setAttribute("list", list);
+		
 
 		return "/jsp/store/storeList.jsp";
 	}

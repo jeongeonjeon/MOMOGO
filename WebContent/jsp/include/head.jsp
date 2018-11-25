@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <meta charset="UTF-8">
 <title>MOMOGO</title>
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 <link rel="stylesheet" href="/MOMOGO/css/common.css" >
 <link rel="stylesheet" href="/MOMOGO/css/swiper.min.css" >
 <link rel="stylesheet" href="/MOMOGO/css/jquery.mCustomScrollbar.min.css" >
@@ -14,3 +15,4 @@
 <script src="/MOMOGO/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="/MOMOGO/js/common.js"></script>
 <script src="/MOMOGO/js/httpRequest.js"></script>
+<script src="/MOMOGO/js/checkForm.js"></script>

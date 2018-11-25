@@ -228,25 +228,98 @@
 				</div>
 			</div>
 			<div class="right">
-				<div class="item store_item">
-					<div class="item_header">
-						<h4 class="tit">업체설정</h4>
-						<button type="button"></button>
-					</div>
-					<p class="contxt">
-						<span>'가입한 업체'의 상세</span> 정보입니다.<br> 정보를 이력해주시기 바랍니다
-					</p>
-					<form>
-						<div class="input_container">
-							<div class="input_content">
-								<div class="logo"></div>
-								<div class="input_wrap">
-									<input type="file" name="file_add">
-									<label for="file_add"></label>
-								</div>
-							</div>
+				<div class="item store_item mCustomScrollbar" data-mcs-theme="dark-thin"">
+					<div class="item_inner">
+						<div class="item_header">
+							<h4 class="tit">업체설정</h4>
+							<button type="button"></button>
 						</div>
-					</form>
+						<p class="contxt">
+							<span>'가입한 업체'의 상세</span> 정보입니다.<br> 정보를 이력해주시기 바랍니다
+						</p>
+						<form>
+							<div class="input_container">
+								<div class="input_content">
+									<div class="logo"></div>
+									<div class="logoInput_wrap">
+										<div class="filebox">
+											<input class="upload-name" value="로고를 선택해주세요" disabled="disabled">
+											<label for="ex_filename">업로드</label>
+											<input type="file" id="ex_filename" class="upload-hidden">
+										</div>
+										<div class="input_box input_txt">
+											도미노피자
+										</div>
+										<div class="input_box input_txt">
+											사업자번호 <span>1111111111</span>
+										</div>
+									</div>
+								</div>
+								<div class="input_content">
+									<div class="input_box input_txt">
+										배달업종 <span>치킨</span>
+									</div>
+									<div class="input_box input_txt">
+										배달 가능 지역 <span>인창동</span>
+									</div>
+									<div class="input_box input_txt">
+										배달 가능 지역 <span>갈매동</span>
+									</div>
+									<div class="input_box input_txt">
+										배달 가능 지역 <span>동구동</span>
+									</div>
+								</div>
+								<div class="input_content food_info">
+									<select name="menu_sel">
+										<option checked>메뉴 카테고리를 선택하세요</option>
+										<option value="popular">인기메뉴</option>
+										<option value="general">일반메뉴</option>
+									</select>
+									<div class="sel_arrow"></div>
+									<div class="food_input_container">
+										<div class="food"></div>
+										<div class="foodInput_wrap">
+											<div class="filebox filebox1">
+												<input class="upload-name upload-name1" value="음식사진을 선택해주세요" disabled="disabled">
+												<label for="ex_filename1">업로드</label>
+												<input type="file" id="ex_filename1" class="upload-hidden upload-hidden1">
+											</div>
+											<div class="input_box">
+												<input type="text" placeholder="음식명을 입력하세요">
+											</div>
+											<div class="input_box">
+												<input type="text" placeholder="음식가격을 입력하세요">
+											</div>
+											<div class="input_box">
+												<input type="text" placeholder="음식설명을 입력하세요">
+											</div>
+										</div>
+									</div>
+									<div class="food_input_container">
+										<div class="food"></div>
+										<div class="foodInput_wrap">
+											<div class="filebox filebox1">
+												<input class="upload-name upload-name1" value="음식사진을 선택해주세요" disabled="disabled">
+												<label for="ex_filename1">업로드</label>
+												<input type="file" id="ex_filename1" class="upload-hidden upload-hidden1">
+											</div>
+											<div class="input_box">
+												<input type="text" placeholder="음식명을 입력하세요">
+											</div>
+											<div class="input_box">
+												<input type="text" placeholder="음식가격을 입력하세요">
+											</div>
+											<div class="input_box">
+												<input type="text" placeholder="음식설명을 입력하세요">
+											</div>
+										</div>
+									</div>
+									<button class="food_add_btn"></button>
+								</div>
+								<input class="food_btn basic_btn" type="submit" value="완료">
+							</div>
+						</form>
+					</div>
 				</div>
 				<div class="item m2_item">
 					<div class="item_header">
