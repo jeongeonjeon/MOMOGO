@@ -11,7 +11,7 @@
 			<li><a href="#">ORDER</a></li>
 			<li><c:choose>
 				<c:when test="${ not empty userVO }"><a href="<%= request.getContextPath()%>/mypage/personalMypage.do">MYPAGE</a></c:when>
-				<c:otherwise><a href="<%= request.getContextPath()%>/mypage.coeMypage.do">MYPAGE</a></c:otherwise>
+				<c:when test="${ not empty userVO }"><a href="<%= request.getContextPath()%>/mypage.ceoMypage.do">MYPAGE</a></c:when>
 				</c:choose>		
 			</li>
 		</ul>
