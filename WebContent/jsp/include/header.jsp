@@ -23,7 +23,7 @@
 	</h2>
 	<div class="header_board">
 		<ul class="board_menu">
-			<li><a href="<%= request.getContextPath()%>/event/eventList.do">EVENT</a></li>
+			<li><a href="<%= request.getContextPath()%>/board/eventList.do">EVENT</a></li>
 			<li><a href="<%= request.getContextPath()%>/board/noticeList.do">공지사항</a></li>
 		</ul>
 	</div>

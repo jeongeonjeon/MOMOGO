@@ -3,6 +3,7 @@ package kr.co.mlec.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.co.mlec.board.dao.EventDAO;
 import kr.co.mlec.board.dao.NoticeDAO;
 
 public class EventDeleteProcessController implements Controller {
@@ -14,11 +15,11 @@ public class EventDeleteProcessController implements Controller {
 		System.out.println("delete");
 		int no = Integer.parseInt(request.getParameter("noticeNo"));
 		
-		NoticeDAO dao = new NoticeDAO(); 
-		dao.deleteNotice(no);
+		EventDAO dao = new EventDAO(); 
+		dao.deleteEvent(no);
 		
 		
-		return "/jsp/event/eventDeleteProcess.jsp";
+		return "/jsp/board/eventDeleteProcess.jsp";
 	}
 
 	

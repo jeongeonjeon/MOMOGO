@@ -3,7 +3,9 @@ package kr.co.mlec.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.co.mlec.board.dao.EventDAO;
 import kr.co.mlec.board.dao.NoticeDAO;
+import kr.co.mlec.board.vo.EventVO;
 import kr.co.mlec.board.vo.NoticeVO;
 
 public class EventUpdateProcessController implements Controller {
@@ -17,18 +19,18 @@ public class EventUpdateProcessController implements Controller {
 		
 		int no = Integer.parseInt(request.getParameter("noticeNo"));
 		
-		NoticeDAO dao = new NoticeDAO();
-		NoticeVO notice = dao.selectByNo(no);
+		EventDAO dao = new EventDAO();
+		EventVO event = dao.selectByNo(no);
 		
-		notice.setTitle(request.getParameter("title"));
-		notice.setContent(request.getParameter("content"));
+		event.setTitle(request.getParameter("title"));
+		event.setContent(request.getParameter("content"));
 		
 	 	
-	 	System.out.println(notice.toString());
+	 	System.out.println(event.toString());
 	 			
-	 	dao.updateNotice(notice);;
+	 	dao.updateEvent(event);;
 	 	
-	 	return "/jsp/event/eventUpdateProcess.jsp";
+	 	return "/jsp/board/eventUpdateProcess.jsp";
 		
 	}
 
