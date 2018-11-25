@@ -44,6 +44,7 @@
 					</c:forEach>
 				</div>
 				<c:if test="${ userVO.type.equals('S') }"><a href="<%= request.getContextPath()%>/board/noticeForm.do"><button class="basic_btn notice_btn">공지등록</button></a></c:if>
+
 			</div>
 		</div>
 		<footer>

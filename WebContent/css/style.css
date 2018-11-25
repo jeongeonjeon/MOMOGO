@@ -197,20 +197,20 @@
    box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.8), 0px 0px 8px rgba(0, 0, 0, 0.2);
 }
 
-insert_select {
+.insert_select {
 	padding-left: 7px;
     border: none;
     outline: none;
     border-radius: 4px;
-    box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.8);
+    box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.8);
     transition: .18s ease-out;
 }
 
-insert_select:hover {
+.insert_select:hover {
    box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-insert_select:focus {
+.insert_select:focus {
    box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.8), 0px 0px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -225,6 +225,7 @@ insert_select:focus {
    color: #fff;
    background-color: #004000;
    box-sizing: border-box;
+   cursor: pointer;
 }
 
 .basic_btn:hover {
@@ -233,6 +234,15 @@ insert_select:focus {
    color: #004000;
 }
 
+.paging_wrap {
+	text-align: center;
+	margin: 15px 0;
+}
+
+.paging_wrap span {
+	margin: 0 3px;
+	font-size: 17px;
+}
 /****************bbs****************/
 
 .noticeList_page.page_shadow{
@@ -407,6 +417,13 @@ insert_select:focus {
     box-sizing: border-box;
 }
 
+.bbs_btn_wrap .registration button {
+    background-color: #2b3735;
+    color: #fff;
+    line-height: 26px;
+    font-size: 15px;
+}
+
 .bbs_btn_wrap .registration {
     background-color: #2b3735;
     color: #fff;
@@ -420,6 +437,7 @@ insert_select:focus {
 .bbs_btn_wrap .delete {
     border: 1px solid #2b3735;
 }
+
 
 .bbs_btn_wrap .basic_btn {
 	height: 30px;
@@ -1496,7 +1514,7 @@ footer .copy {
     padding: 10px 0;
     font-size: 17px;
     letter-spacing: 2px;
-    margin: 15px 0 0;
+    margin: 15px 0;
     cursor: pointer;
 }
 
@@ -1517,6 +1535,10 @@ footer .copy {
 
 
 /**********************noticeView_page*********************/
+
+.noticeList_page {
+	min-height: 518px;
+}
 
 .noticeList_page .page_inner {
 	width: 1050px;
@@ -2186,7 +2208,7 @@ footer .copy {
 
 .login_page .login-wrap .tit-area .tit {
 	display: inline-block;
-	padding-bottom: 22px;
+	padding-bottom: 15px;
 	border-bottom: 1px solid #333;
     font-size: 25px;
     font-weight: bold;
@@ -2218,6 +2240,16 @@ footer .copy {
 
 .login_page .login-wrap .login-link .btn-find {
 	margin-bottom: 8px;
+}
+
+.login_page .kakao_txt {
+	margin: 15px 0;
+	color: #004000;
+}
+
+.login_page #kakao-login-btn {
+	display: block;
+	margin: 8px 0;
 }
 
 .login_page .login-wrap .basic_btn {
@@ -2299,12 +2331,14 @@ footer .copy {
    position:relative;
    top: -5px;
 }
- #signupForm select {
-    background: url(/MOMOGO/img/sprite-icon.png) no-repeat;
-    background-position: 157px -65px;
-    background-size: 555px;
+
+#signupForm select {
+    background: url(/MOMOGO/img/down_arrow.png) no-repeat;
+    background-position: 280px center;
+    background-size: 22px;
 }
- #signupForm .inputValue2 {
+
+#signupForm .inputValue2 {
 	width: 243px;
 }
 #signupForm .areaBtn {
@@ -2312,7 +2346,11 @@ footer .copy {
     height: 34px;
 }
 
-.joinBtn{
+#signupForm .basic_btn {
+	margin-top: 30px;
+}
+
+.joinBtn {
    width: 200px;
    margin: 0 auto;
    text-align: center;
@@ -2339,10 +2377,10 @@ footer .copy {
 
 .personalSignup_page.page_shadow {
 	padding: 115px 0 53px;
+	background: #f5f6f7;
 }
 
 .personalSignup_page #signupForm {
-   width: 315px;
    margin: 40px auto 0;
 }
 
@@ -2370,7 +2408,7 @@ footer .copy {
 }
 
 #choice h1{
-	margin: 70px 0 50px 0;
+	margin: 0 0 50px 0;
 }
 
 #choice .block {
