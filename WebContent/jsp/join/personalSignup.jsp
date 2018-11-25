@@ -226,9 +226,7 @@
 						placeholder="ex) 01011112222" name="phone">
 					<p class="error"></p>
 				</div>
-			</div>
-			<div class="joinBtn basic_btn">
-				<button type="submit">가입 신청</button>
+				<button class="basic_btn" type="submit">가입 신청</button>
 			</div>
 		</form>
 	</div>
