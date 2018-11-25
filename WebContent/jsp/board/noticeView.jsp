@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,12 +35,14 @@
 					<div class="text_area">${notice.content}</div>
 				</div>
 				<div class="bbs_btn_wrap">
+					<c:if test="${ userVO.type.equals('S') }">
 					<a href="<%= request.getContextPath() %>/board/noticeDeleteProcess.do?noticeNo=${notice.noticeNo}" id="modify">
 						<div class="bbs_btn cancel" id="delete">삭제</div>
 					</a>
 					<a href="<%= request.getContextPath() %>/board/noticeUpdate.do?noticeNo=${notice.noticeNo}" id="modify">
 						<div class="bbs_btn registration">수정</div>
 					</a>
+					</c:if>
 				</div>
 			</div>	
 		</div>
