@@ -44,7 +44,10 @@
 										<c:set var="total" value="${ total + star }" />
 										<c:set var="cnt" value="${cnt + 1}" />
 									</c:forEach>
-									<c:set var="avg" value="${ (total * 10 - (total * 10) % cnt) / cnt / 10  }" />
+									<c:set var="avg" value="0" />
+									<c:if test="${ cnt != 0 }">
+										<c:set var="avg" value="${ (total * 10 - (total * 10) % cnt) / cnt / 10  }" />
+									</c:if>
 									${ avg }
 									</span>
 								</p>
@@ -76,39 +79,18 @@
 							<div class="tab_content on" id="tab1">
 								<div class="swiper-container">
 									<ul class="swiper-wrapper">
-									
-										<li class="swiper-slide slide01">
-											<div class="txt_box">
-												<p class="food_name">치킨주라 줘</p>
-												<p class="price">18,000원</p>
-											</div>
-										</li>
-										<li class="swiper-slide slide02">
-											<div class="txt_box">
-												<p class="food_name">치킨주라</p>
-												<p class="price">18,000원</p>
-											</div>
-										</li>
-										<li class="swiper-slide slide03">
-											<div class="txt_box">
-												<p class="food_name">치킨주라줘</p>
-												<p class="price">18,000원</p>
-											</div>
-										</li>
-										<li class="swiper-slide slide04">
-											<div class="txt_box">
-												<p class="food_name">치킨내놔</p>
-												<p class="price">18,000원</p>
-											</div>
-										</li>
-										<li class="swiper-slide slide05">
-											<div class="txt_box">
-												<p class="food_name">졸려</p>
-												<p class="price">18,000원</p>
-											</div>
-										</li>
-										
-										
+									<c:set var="i" value="0" />
+										<c:forEach items="${ requestScope.menuList }" var="pmenu" >
+											<c:if test="${ 'P' eq pmenu.type }">
+												<c:set var="i" value="${ i+1 }" />
+												<li class="swiper-slide slide0${ i }">
+													<div class="txt_box">
+														<p class="food_name">${ pmenu.menuName }</p>
+														<p class="price">${pmenu.price }</p>
+													</div>
+												</li>
+											</c:if>
+										</c:forEach>
 									</ul>
 								</div>
 								<div class="menu_category_wrap">
@@ -117,49 +99,36 @@
 											<p class="menu_tit popular">인기메뉴</p>
 											<div class="arrow_bg"></div>
 											<ul class="depth_wrap on">
-											
-												<li>
-													<div class="txt_wrap">
-														<p class="food_name">후라이드반양념반</p>
-														<p class="detail">오곡후라이드+양념치킨</p>
-														<p class="price">16,000원</p>
-													</div>
-													<div class="img"></div>
-												</li>
-												<li>
-													<div class="txt_wrap">
-														<p class="food_name">후라이드반양념반</p>
-														<p class="detail">오곡후라이드+양념치킨 오곡후라이드+양념치킨 오곡후라이드+양념치킨
-															오곡후라이드+양념치킨 오곡후라이드+양념치킨 오곡후라이드+양념치킨</p>
-														<p class="price">16,000원</p>
-													</div>
-													<div class="img"></div>
-												</li>
-												
+												<c:forEach items="${ requestScope.menuList }" var="pmenu" >
+													<c:if test="${ 'P' eq pmenu.type }">
+														<li>
+															<div class="txt_wrap">
+																<p class="food_name">${ pmenu.menuName }</p>
+																<p class="detail">${ pmenu.detail }</p>
+																<p class="price">${ pmenu.price }</p>
+															</div>
+															<div class="img"></div>
+														</li>
+													</c:if>
+												</c:forEach>
 											</ul>
 										</li>
 										<li class="category">
-											<p class="menu_tit">반반메뉴</p>
+											<p class="menu_tit">메뉴</p>
 											<div class="arrow_bg"></div>
 											<ul class="depth_wrap">
-											
-												<li>
-													<div class="txt_wrap">
-														<p class="food_name">후라이드반양념반</p>
-														<p class="detail">오곡후라이드+양념치킨</p>
-														<p class="price">16,000원</p>
-													</div>
-													<div class="img"></div>
-												</li>
-												<li>
-													<div class="txt_wrap">
-														<p class="food_name">후라이드반양념반</p>
-														<p class="detail">오곡후라이드+양념치킨 오곡후라이드+양념치킨 오곡후라이드+양념치킨
-															오곡후라이드+양념치킨 오곡후라이드+양념치킨 오곡후라이드+양념치킨</p>
-														<p class="price">16,000원</p>
-													</div>
-													<div class="img"></div>
-												</li>
+												<c:forEach items="${ requestScope.menuList }" var="rmenu" >
+													<c:if test="${ 'R' eq rmenu.type }">
+														<li>
+															<div class="txt_wrap">
+																<p class="food_name">${ rmenu.menuName }</p>
+																<p class="detail">${ rmenu.detail }</p>
+																<p class="price">${ rmenu.price }</p>
+															</div>
+															<div class="img"></div>
+														</li>
+													</c:if>
+												</c:forEach>
 											</ul>
 										</li>
 									</ul>

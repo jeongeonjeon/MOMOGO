@@ -10,7 +10,7 @@
 			<li><c:if test="${ not empty userVO }"><a href="<%= request.getContextPath()%>/login/logout.do">LOGOUT</a></c:if></li>
 			<li><a href="#">ORDER</a></li>
 			<li><c:choose>
-				<c:when test="${ not empty userVO }"><a href="<%= request.getContextPath()%>/mypage/mypage.do">MYPAGE</a></c:when>
+				<c:when test="${ not empty userVO }"><a href="<%= request.getContextPath()%>/mypage/personalMypage.do">MYPAGE</a></c:when>
 				<c:otherwise><a href="<%= request.getContextPath()%>/login/loginForm.do">MYPAGE</a></c:otherwise>
 				</c:choose>		
 			</li>
@@ -24,7 +24,7 @@
 		</h2>
 		<ul class="board_menu">
 			<li><a href="<%= request.getContextPath()%>/index.jsp#section03">주문하기</a></li>
-			<li><a href="<%= request.getContextPath()%>/event/eventList.do">EVENT</a></li>
+			<li><a href="<%= request.getContextPath()%>/board/eventList.do">EVENT</a></li>
 			<li><a href="<%= request.getContextPath()%>/board/noticeList.do">공지사항</a></li>
 		</ul>
 	</div>
