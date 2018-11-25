@@ -6,7 +6,52 @@
 <head>
 <jsp:include page="/jsp/include/head.jsp" />
 <script>
-	
+$(document).ready(function() {
+	   var result = $('.copr').val();
+	   $.ajax({
+	      url : "<%= request.getContextPath() %>/menu/com_Free/comment.do",
+	      type : "get",
+	      data : {
+	         no :"${param.no}"
+	      },
+	      success : callback
+	   });
+	   $('#commentbtn').click(function() {
+	      
+	      var commentval = $('#comment').val();
+	      
+	      $.ajax({
+	         url : "<%= request.getContextPath() %>/menu/com_Free/comment.do",
+	         type : "get",
+	         data : {
+	            no :"${param.no}",
+	            id : "${userVO.id}",
+	            comment : commentval,
+	         }, 
+	         success : callback
+	      });
+	   });
+	});
+	function callback(data) {
+	/*    $('#searchResult').empty(); */
+	   $('.copr').empty();
+	   $('.copr').append(data);
+	   /* var list = data.boxOfficeResult.dailyBoxOfficeList;
+	   var range = data.boxOfficeResult.showRange;
+	   for(var i = 0; i < list.length; i++) {
+	      var rank = list[i].rank;
+	      var name = list[i].movieNm;
+	      var audiCnt = list[i].audiCnt;
+	      var audiAcc = list[i].audiAcc;
+	      
+	      $('#searchResult').append('<hr>');
+	      $('#searchResult').append('<h4>조회날짜 : ' + range.split('~')[0] + '</h4>');
+	      $('#searchResult').append('<hr>');
+	      $('#searchResult').append('<h4>' + rank + '위</h4>');
+	      $('#searchResult').append('<strong>' + name + '</strong>(일 ' 
+	                           + audiCnt + '명/누적 ' + audiAcc + '명)<br>');
+	   } */
+	}
 </script>
 </head>
 <body>
