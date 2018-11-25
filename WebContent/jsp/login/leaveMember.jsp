@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
 <title>Insert title here</title>
 <jsp:include page="/jsp/include/head.jsp" />
 <link rel="stylesheet" href="/MOMOGO/css/login.css">
@@ -33,7 +35,7 @@
 	<header>
 		<%@include file="/jsp/include/header.jsp"%>
 	</header>
-    <div class="content page_shadow" align="center">
+    <div class="login_page page_shadow" align="center">
         <div class="cont-inner login-wrap">
             <div class="tit-area">
                 <h3 class="tit">회원탈퇴</h3>
