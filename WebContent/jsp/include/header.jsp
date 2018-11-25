@@ -24,7 +24,7 @@
 		</h2>
 		<ul class="board_menu">
 			<li><a href="<%= request.getContextPath()%>/index.jsp#section03">주문하기</a></li>
-			<li><a href="<%= request.getContextPath()%>/event/eventList.do">EVENT</a></li>
+			<li><a href="<%= request.getContextPath()%>/board/eventList.do">EVENT</a></li>
 			<li><a href="<%= request.getContextPath()%>/board/noticeList.do">공지사항</a></li>
 		</ul>
 	</div>

@@ -28,7 +28,7 @@
 	<header>
 		<%@include file="/jsp/include/header.jsp"%>
 	</header>
-	<div class="noticeForm_page">
+	<div class="noticeForm_page page_shadow">
 		<div class="page_inner">
 			<div class="bbs_page_tit">공지사항</div>
 			<form method="post" action="<%= request.getContextPath() %>/board/noticeFormProcess.do"

@@ -28,7 +28,7 @@
 	<header>
 		<%@include file="/jsp/include/header.jsp"%>
 	</header>
-	<div class="noticeForm_page">
+	<div class="noticeForm_page page_shadow">
 		<div class="page_inner">
 			<div class="bbs_page_tit">공지사항</div>
 			<form method="post" action="<%= request.getContextPath() %>/board/eventUpdateProcess.do?noticeNo=${ notice.noticeNo }"
@@ -55,9 +55,7 @@
 				<a href="noticeList.jsp">
 					<div class="bbs_btn cancel" id="cancel">취소</div>
 				</a>
-				<!-- <a href="noticeView.jsp"> -->
-					<!-- <div class="bbs_btn registration" id="registration"> --><button type="submit">등록</button><!-- </div> -->
-				<!-- </a> -->
+				<button type="submit">등록</button>
 			</div>
 			</form>
 		</div>

@@ -22,7 +22,7 @@ public class EventFormProcessController implements Controller {
 		
 		request.setCharacterEncoding("utf-8");
 		
-		String saveFolder = "C:\\Lecture\\MOMOGO\\WebContent\\upload";
+		String saveFolder = "C:\\Lecture\\web-workspace\\MOMOGO\\WebContent\\upload";
 		
 		MultipartRequest multi = new MultipartRequest( //파일이 날라오기때문에 그것
 				request, 
@@ -35,7 +35,7 @@ public class EventFormProcessController implements Controller {
 		System.out.print(multi);
 		
 		
-		// 게시물 저장(event)
+	//	 게시물 저장(event)
 		
 		EventVO event = new EventVO();
 		
@@ -54,7 +54,8 @@ public class EventFormProcessController implements Controller {
 	 	//첨부파일 저장 
 	 	
 	 	Enumeration<String> files = multi.getFileNames();
-		while(files.hasMoreElements()){
+		
+	 	while(files.hasMoreElements()){
 			String fileName  = files.nextElement() ; 
 			System.out.println("fileName : " + fileName); 
 			File f = multi.getFile(fileName);
@@ -69,7 +70,7 @@ public class EventFormProcessController implements Controller {
 			fileVO.setFileOriName(fileOriName);  
 			fileVO.setFileSaveName(fileSaveName);
 			fileVO.setFileSize(fileSize);
-//			fileVO.setBoardNo(boardNo);
+			fileVO.setBoardNo(noticeNo);
 			
 			dao.insertFile(fileVO);
 		

@@ -224,6 +224,46 @@ public class EventDAO {
 	
 	
 	/**
+	 * 게시물번호에 해당 첨부파일 조회하는 기능 
+	 */
+	public List<EventFileVO> selectFileByNo(int boardNo){
+		
+		List<EventFileVO> fileList = new ArrayList<>(); 
+		
+		StringBuilder sql = new StringBuilder(); 
+		sql.append("select no, file_ori_name, file_save_name, file_size ");
+		sql.append(" from event_file_VO "); 
+		sql.append(" where board_no = ? ");
+		
+		
+		try(
+			Connection conn = new ConnectionFactory().getConnection(); 
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+				
+		){
+			
+			pstmt.setInt(1, boardNo);
+			ResultSet rs = pstmt.executeQuery(); 
+			while(rs.next()) {
+				EventFileVO fileVO = new EventFileVO(); 
+				fileVO.setNo(rs.getInt("no"));
+				fileVO.setFileOriName(rs.getString("file_ori_name"));
+				fileVO.setFileSaveName(rs.getString("file_save_name"));
+				fileVO.setFileSize(rs.getInt("file_size"));
+				
+				fileList.add(fileVO);
+			}
+			
+		}catch(Exception e) {
+			
+		}
+		
+		return fileList;
+	}
+
+	
+	
+	/**
 	 * 첨부파일 삽입기능
 	 * @param fileVO
 	 */
