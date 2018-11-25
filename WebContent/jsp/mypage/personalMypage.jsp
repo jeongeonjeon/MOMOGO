@@ -5,6 +5,9 @@
 <html>
 <head>
 <jsp:include page="/jsp/include/head.jsp" />
+<script>
+	
+</script>
 </head>
 <body>
 <div class="popup_cover"></div>
@@ -102,7 +105,11 @@
 		<button type="button" class="close_btn"></button>
 	</div>
 </div>
-<div class="myPage_page">
+<header>
+	<%-- <jsp:include page="/include/header.jsp" > --%>
+	<%@include file="/jsp/include/header.jsp"%>
+</header>
+<div class="myPage_page page_shadow">
 	<div class="page_inner">
 		<section class="item_wrap">
 			<div class="left">
@@ -279,5 +286,8 @@
 		</section>
 	</div>
 </div>
+<footer>
+	<%@include file="/jsp/include/footer.jsp"%>
+</footer>
 </body>
 </html>

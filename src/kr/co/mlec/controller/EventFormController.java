@@ -10,7 +10,7 @@ public class EventFormController implements Controller {
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	
 		
-		return "/jsp/board/noticeForm.jsp";
+		return "/jsp/board/eventForm.jsp";
 	}
 
 	

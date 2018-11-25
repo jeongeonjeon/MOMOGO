@@ -2,19 +2,23 @@ package kr.co.mlec.board.vo;
 
 public class EventVO {
 
-	private int eventNo;
+	private int noticeNo;
 	private String title;
 	private String writer;
 	private String content;
 	private int viewCnt;
 	private String regDate;
 	
-	public int getEventNo() {
-		return eventNo;
+
+
+
+
+	public int getNoticeNo() {
+		return noticeNo;
 	}
 
-	public void setEventNo(int eventNo) {
-		this.eventNo = eventNo;
+	public void setNoticeNo(int noticeNo) {
+		this.noticeNo = noticeNo;
 	}
 
 	public String getContent() {
@@ -68,10 +72,10 @@ public class EventVO {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-	
-	public EventVO(int eventNo, String title, String writer, String content, int viewCnt, String regDate) {
+
+	public EventVO(int noticeNo, String title, String writer, String content, int viewCnt, String regDate) {
 		super();
-		this.eventNo = eventNo;
+		this.noticeNo = noticeNo;
 		this.title = title;
 		this.writer = writer;
 		this.content = content;
@@ -81,9 +85,12 @@ public class EventVO {
 
 	@Override
 	public String toString() {
-		return "NoticeVO [eventNo=" + eventNo + ", title=" + title + ", writer=" + writer + ", content=" + content
+		return "EventVO [noticeNo=" + noticeNo + ", title=" + title + ", writer=" + writer + ", content=" + content
 				+ ", viewCnt=" + viewCnt + ", regDate=" + regDate + "]";
 	}
+
+
+
 
 	
 	

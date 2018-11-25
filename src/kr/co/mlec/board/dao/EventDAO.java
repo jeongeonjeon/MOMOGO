@@ -9,15 +9,17 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.co.mlec.board.vo.EventFileVO;
+import kr.co.mlec.board.vo.EventVO;
 import kr.co.mlec.board.vo.NoticeVO;
 import kr.co.mlec.util.ConnectionFactory;
 import kr.co.mlec.util.JDBCClose;
 
 public class EventDAO {
 
-	public List<NoticeVO> selectAllNotice(int page) {
+	public List<EventVO> selectAllEvent(int page) {
 		
-		List<NoticeVO> list = new ArrayList<>();
+		List<EventVO> list = new ArrayList<>();
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -26,23 +28,13 @@ public class EventDAO {
 		try {
 			conn = new ConnectionFactory().getConnection();
 			StringBuilder sql = new StringBuilder();
-			StringBuilder sql2 = new StringBuilder();
-/*
-			sql2.append(" select count(*) cnt from notice ");
-			pstmt2 = conn.prepareStatement(sql2.toString());
-			
-			ResultSet rs2 = pstmt2.executeQuery();
-			rs2.next();
-			int cnt = rs2.getInt("cnt");//게시판 글 개수
-			cnt = (int)Math.ceil(cnt/(20.0));	//게시판 페이지 수
-*/			
-			
+			StringBuilder sql2 = new StringBuilder();	
 			sql.append(" select notice_no, title, writer, to_char(reg_date, 'yyyy-mm-dd') as reg_date ,view_cnt");
 			sql.append(" from (                                   ");
 			sql.append("         select 	ROWNUM as rnum, e.*      ");
 			sql.append("         from (                          ");
 			sql.append("                 select *                ");
-			sql.append("                 from notice             ");
+			sql.append("                 from event             ");
 			sql.append("                 order by notice_no desc ");
 			sql.append("                 ) e                     ");
 			sql.append("          ) e2                           ");
@@ -62,14 +54,14 @@ public class EventDAO {
 				int viewCnt = rs.getInt("view_cnt");
 				String regDate = rs.getString("reg_date");
 				
-				NoticeVO notice = new NoticeVO();
-				notice.setNoticeNo(noticeNo);
-				notice.setTitle(title);
-				notice.setWriter(writer);
-				notice.setRegDate(regDate);
-				notice.setViewCnt(viewCnt);
+				EventVO event = new EventVO();
+				event.setNoticeNo(noticeNo);
+				event.setTitle(title);
+				event.setWriter(writer);
+				event.setRegDate(regDate);
+				event.setViewCnt(viewCnt);
 				
-				list.add(notice);
+				list.add(event);
 			}
 			
 			
@@ -87,7 +79,7 @@ public class EventDAO {
 	 * 게시물 삽입을 위한 sequence번호 추출(seq_notice_notice_no)
 	 */
 	public int selectNo() {
-		String sql = "select seq_notice_notice_no.nextval from dual ";
+		String sql = "select seq_event_notice_no.nextval from dual ";
 
 		try (
 			Connection conn = new ConnectionFactory().getConnection();
@@ -106,23 +98,23 @@ public class EventDAO {
 	/**
 	 * 게시글 삽입하는 기능
 	 */
-	public void insertNotice(NoticeVO notice) {
+	public void insertEvent(EventVO event) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
 		try {
 			conn = new ConnectionFactory().getConnection();
 			StringBuilder sql = new StringBuilder();
-			sql.append("insert into notice(notice_no, title, writer, content) ");
-			sql.append(" values(seq_notice_notice_no.nextval, ?, ?, ?) ");
+			sql.append("insert into event (notice_no, title, writer, content) ");
+			sql.append(" values(seq_event_notice_no.nextval, ?, ?, ?) ");
 			pstmt = conn.prepareStatement(sql.toString());
 			
 			int loc = 1;
 			
 //			pstmt.setInt(loc++, notice.getNoticeNo());
-			pstmt.setString(loc++, notice.getTitle());
-			pstmt.setString(loc++, notice.getWriter());
-			pstmt.setString(loc++, notice.getContent());
+			pstmt.setString(loc++, event.getTitle());
+			pstmt.setString(loc++, event.getWriter());
+			pstmt.setString(loc++, event.getContent());
 
 			pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -135,15 +127,15 @@ public class EventDAO {
 	/**
 	 * 게시글 번호로 조회하는 기능
 	 */
-	public NoticeVO selectByNo(int no) {
+	public EventVO selectByNo(int no) {
 		
-		NoticeVO notice = null; 
+		EventVO event = null; 
 		
 		StringBuilder sql = new StringBuilder();			
 		
 		sql.append("select notice_No, title, writer, content, view_cnt ");
 		sql.append(" , to_char(reg_date, 'yyyy-mm-dd') as reg_date ");
-		sql.append(" from notice ");
+		sql.append(" from event ");
 		sql.append(" where notice_no =? ");
 		
 		
@@ -163,7 +155,7 @@ public class EventDAO {
 				int viewCnt = rs.getInt("view_cnt");
 				String regDate = rs.getString("reg_date");
 				
-				notice = new NoticeVO(noticeNo, title, writer, content, viewCnt, regDate);
+				event = new EventVO(noticeNo, title, writer, content, viewCnt, regDate);
 			}
 			
 			
@@ -171,19 +163,19 @@ public class EventDAO {
 			e.printStackTrace();
 		}
 		
-		return notice;
+		return event;
 	}
 	
 	/**
 	 * 게시글 수정
 	 */
-	public void updateNotice(NoticeVO notice) {
+	public void updateEvent(EventVO event) {
 		
 		System.out.println("1");
 		
 		StringBuilder sql = new StringBuilder(); 
 		
-		sql.append(" update notice ");
+		sql.append(" update event ");
 		sql.append(" set title =?, content =? ");
 		sql.append(" where notice_no = ? ");
 		
@@ -191,9 +183,9 @@ public class EventDAO {
 			Connection conn = new ConnectionFactory().getConnection(); 
 			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
 		) {
-			pstmt.setString(1, notice.getTitle());
-			pstmt.setString(2, notice.getContent());
-			pstmt.setInt(3, notice.getNoticeNo());
+			pstmt.setString(1, event.getTitle());
+			pstmt.setString(2, event.getContent());
+			pstmt.setInt(3, event.getNoticeNo());
 			
 			System.out.println("2");
 			
@@ -211,11 +203,11 @@ public class EventDAO {
 	/**
 	 * 게시글 삭제
 	 */
-	public void deleteNotice(int no) {
+	public void deleteEvent(int no) {
 		
 		StringBuilder sql = new StringBuilder(); 
 		
-		sql.append(" delete from notice where notice_no = ? ");
+		sql.append(" delete from event where notice_no = ? ");
 		
 		try(
 			Connection conn = new ConnectionFactory().getConnection();
@@ -228,5 +220,72 @@ public class EventDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	
+	/**
+	 * 게시물번호에 해당 첨부파일 조회하는 기능 
+	 */
+	public List<EventFileVO> selectFileByNo(int boardNo){
+		
+		List<EventFileVO> fileList = new ArrayList<>(); 
+		
+		StringBuilder sql = new StringBuilder(); 
+		sql.append("select no, file_ori_name, file_save_name, file_size ");
+		sql.append(" from event_file_VO "); 
+		sql.append(" where board_no = ? ");
+		
+		
+		try(
+			Connection conn = new ConnectionFactory().getConnection(); 
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+				
+		){
+			
+			pstmt.setInt(1, boardNo);
+			ResultSet rs = pstmt.executeQuery(); 
+			while(rs.next()) {
+				EventFileVO fileVO = new EventFileVO(); 
+				fileVO.setNo(rs.getInt("no"));
+				fileVO.setFileOriName(rs.getString("file_ori_name"));
+				fileVO.setFileSaveName(rs.getString("file_save_name"));
+				fileVO.setFileSize(rs.getInt("file_size"));
+				
+				fileList.add(fileVO);
+			}
+			
+		}catch(Exception e) {
+			
+		}
+		
+		return fileList;
+	}
+
+	
+	
+	/**
+	 * 첨부파일 삽입기능
+	 * @param fileVO
+	 */
+	public void insertFile(EventFileVO fileVO) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("insert into event_file (no, board_no, file_ori_name, file_save_name, file_size) "); 
+		sql.append(" values ( seq_t_board_file_no.nextval,?,?,?,?)");
+		
+		try(
+			Connection conn = new ConnectionFactory().getConnection(); 
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+		){
+			pstmt.setInt(1, fileVO.getBoardNo());
+			pstmt.setString(2, fileVO.getFileOriName());
+			pstmt.setString(3, fileVO.getFileSaveName());
+			pstmt.setInt(4, fileVO.getFileSize());
+			
+			pstmt.executeUpdate(); 
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 }

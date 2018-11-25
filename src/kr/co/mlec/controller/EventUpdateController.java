@@ -3,7 +3,9 @@ package kr.co.mlec.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.co.mlec.board.dao.EventDAO;
 import kr.co.mlec.board.dao.NoticeDAO;
+import kr.co.mlec.board.vo.EventVO;
 import kr.co.mlec.board.vo.NoticeVO;
 
 public class EventUpdateController  implements Controller {
@@ -15,15 +17,15 @@ public class EventUpdateController  implements Controller {
 		
 		int no = Integer.parseInt(request.getParameter("noticeNo"));
 		
-		NoticeDAO dao = new NoticeDAO(); 
+		EventDAO dao = new EventDAO(); 
 		
-		NoticeVO notice = dao.selectByNo(no);
+		EventVO event = dao.selectByNo(no);
 		
-		request.setAttribute("notice", notice);
+		request.setAttribute("event", event);
 		
-		System.out.println(notice.toString());
+		System.out.println(event.toString());
 		
-		return "/jsp/event/eventUpdate.jsp";
+		return "/jsp/board/eventUpdate.jsp";
 		
 	}
 

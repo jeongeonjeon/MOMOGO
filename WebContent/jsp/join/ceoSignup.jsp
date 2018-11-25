@@ -296,113 +296,107 @@
 		<form name="signUp" method="post" action="<%= request.getContextPath() %>/join/ceoSignupProcess.do"
 			onsubmit="return clickBtn()">
 			<div id="signupForm">
-				<div class="left_wrap">
-					<h3 class="signupGuide">사업자 정보를 입력해주세요</h3>
-					<div class="formRow">
-						<p class="formName">아이디</p>
-						<div class="inputArea">
-							<input id="id" class="inputValue insert_input" type="text" name="id"
-								placeholder="공백없이 4-20자" onkeyup="checkId()">
-							<p id="checkMsg" class="error"></p>
-						</div>
-					</div>
-					<div class="formRow">
-						<p class="formName">비밀번호</p>
-						<div class="inputArea">
-							<input id="pass" class="inputValue insert_input" type="password"
-								name="password" placeholder="영문+숫자 포함,8-20자" oninput ="checkPass()">
-							<p class="error"></p>
-						</div>
-					</div>
-					<div class="formRow">
-						<p class="formName">비밀번호 재확인</p>
-						<div class="inputArea">
-							<input id="passCheck" class="inputValue insert_input" type="password"
-								name="passwordCheck" oninput ="checkPass()">
-							<p class="error"></p>
-						</div>
-					</div>
-					<div class="formRow">
-						<p class="formName">이메일</p>
-						<div class="inputArea">
-							<input id="email" placeholder="ex)momogo@momogo.com" class="inputValue insert_input" type="text" name="email"
-								size="35">
-						</div>
-					</div>
-					<div class="formRow">
-						<p class="formName">이름</p>
-						<div class="inputArea">
-							<input id="name" class="inputValue insert_input" type="text" name="name">
-						</div>
-					</div>
-					<div class="formRow">
-						<p class="formName">휴대폰번호</p>
-						<div class="inputArea">
-							<input id="phone" placeholder="ex) 01011112222" class="inputValue insert_input" type="text" name="phone">
-						</div>
+				<h3 class="signupGuide">사업자 정보를 입력해주세요</h3>
+				<div class="formRow">
+					<p class="formName">아이디</p>
+					<div class="inputArea">
+						<input id="id" class="inputValue insert_input" type="text" name="id"
+							placeholder="공백없이 4-20자" onkeyup="checkId()">
+						<p id="checkMsg" class="error"></p>
 					</div>
 				</div>
-				<div class="right_wrap">
-					<h3 class="signupGuide">음식점 정보를 입력해주세요</h3>
-					<div class="formRow">
-						<p class="formName">음식점 이름</p>
-						<div class="inputArea">
-							<input id="storeName" class="inputValue insert_input" type="text"
-								name="storeName">
-						</div>
-					</div>
-					<div class="formRow">
-						<p class="formName">사업자 등록번호</p>
-						<div class="inputArea">
-							<input id="licenseNum" class="inputValue insert_input" type="text"
-								name="licenseNum">
-						</div>
-					</div>
-					<div class="formRow">
-						<p class="formName">음식점 전화번호</p>
-						<div class="inputArea">
-							<input id="storeTel" placeholder="ex) 02-111-2222" class="inputValue insert_input" type="text"
-								name="storeTel">
-						</div>
-					</div>
-					<div class="formRow">
-						<p class="formName">음식점 주소</p>
-						<div class="inputArea">
-							<input class="inputAddr insert_input" type="text" name="basicAddr"
-								id="basicAddr" placeholder="주소" readonly="readonly" size="35">
-							<input class="addr_btn" type="button"
-								onclick="execDaumPostcode()" value="주소검색"><br> <input
-								class="inputAddr inputAddr1 insert_input" type="text" name="detailAddr"
-								id="detailAddr" placeholder="상세주소" size="35">
-						</div>
-					</div>
-					<div class="formRow">
-						<p class="formName">업종 카테고리</p>
-						<div class="inputArea">
-							<select class="inputValue" name="category">
-								<option value="치킨">치킨</option>
-								<option value="중국집">중국집</option>
-								<option value="피자">피자</option>
-								<option value="족발/보쌈">족발/보쌈</option>
-								<option value="야식">야식</option>
-								<option value="찜/탕">찜/탕</option>
-								<option value="한식/분식/죽">한식/분식/죽</option>
-								<option value="돈까스/회/일식">돈까스/회/일식</option>
-								<option value="패스트푸드">패스트푸드</option>
-							</select>
-						</div>
-					</div>
-					<div class="formRow">
-						<p class="formName">배달가능지역</p>
-						<div class="inputArea">
-							<input class="inputValue inputValue2 insert_input" type="text" name="deleveryArea1" id="deliveryArea"  readonly>
-							<input type="button" class="areaBtn" onclick="execDaumPostcode2()" value="검색">
-						</div>
+				<div class="formRow">
+					<p class="formName">비밀번호</p>
+					<div class="inputArea">
+						<input id="pass" class="inputValue insert_input" type="password"
+							name="password" placeholder="영문+숫자 포함,8-20자" oninput ="checkPass()">
+						<p class="error"></p>
 					</div>
 				</div>
-			</div>
-			<div class="joinBtn">
-				<button type="submit">가입 신청</button>
+				<div class="formRow">
+					<p class="formName">비밀번호 재확인</p>
+					<div class="inputArea">
+						<input id="passCheck" class="inputValue insert_input" type="password"
+							name="passwordCheck" oninput ="checkPass()">
+						<p class="error"></p>
+					</div>
+				</div>
+				<div class="formRow">
+					<p class="formName">이메일</p>
+					<div class="inputArea">
+						<input id="email" placeholder="ex)momogo@momogo.com" class="inputValue insert_input" type="text" name="email"
+							size="35">
+					</div>
+				</div>
+				<div class="formRow">
+					<p class="formName">이름</p>
+					<div class="inputArea">
+						<input id="name" class="inputValue insert_input" type="text" name="name">
+					</div>
+				</div>
+				<div class="formRow">
+					<p class="formName">휴대폰번호</p>
+					<div class="inputArea">
+						<input id="phone" placeholder="ex) 01011112222" class="inputValue insert_input" type="text" name="phone">
+					</div>
+				</div>
+				<h3 class="signupGuide">음식점 정보를 입력해주세요</h3>
+				<div class="formRow">
+					<p class="formName">음식점 이름</p>
+					<div class="inputArea">
+						<input id="storeName" class="inputValue insert_input" type="text"
+							name="storeName">
+					</div>
+				</div>
+				<div class="formRow">
+					<p class="formName">사업자 등록번호</p>
+					<div class="inputArea">
+						<input id="licenseNum" class="inputValue insert_input" type="text"
+							name="licenseNum">
+					</div>
+				</div>
+				<div class="formRow">
+					<p class="formName">음식점 전화번호</p>
+					<div class="inputArea">
+						<input id="storeTel" placeholder="ex) 02-111-2222" class="inputValue insert_input" type="text"
+							name="storeTel">
+					</div>
+				</div>
+				<div class="formRow">
+					<p class="formName">음식점 주소</p>
+					<div class="inputArea">
+						<input class="inputAddr insert_input" type="text" name="basicAddr"
+							id="basicAddr" placeholder="주소" readonly="readonly" size="35">
+						<input class="addr_btn" type="button"
+							onclick="execDaumPostcode()" value="주소검색"><br> <input
+							class="inputAddr inputAddr1 insert_input" type="text" name="detailAddr"
+							id="detailAddr" placeholder="상세주소" size="35">
+					</div>
+				</div>
+				<div class="formRow">
+					<p class="formName">업종 카테고리</p>
+					<div class="inputArea">
+						<select class="inputValue" name="category">
+							<option value="치킨">치킨</option>
+							<option value="중국집">중국집</option>
+							<option value="피자">피자</option>
+							<option value="족발/보쌈">족발/보쌈</option>
+							<option value="야식">야식</option>
+							<option value="찜/탕">찜/탕</option>
+							<option value="한식/분식/죽">한식/분식/죽</option>
+							<option value="돈까스/회/일식">돈까스/회/일식</option>
+							<option value="패스트푸드">패스트푸드</option>
+						</select>
+					</div>
+				</div>
+				<div class="formRow">
+					<p class="formName">배달가능지역</p>
+					<div class="inputArea">
+						<input class="inputValue inputValue2 insert_input" type="text" name="deleveryArea1" id="deliveryArea"  readonly>
+						<input type="button" class="areaBtn" onclick="execDaumPostcode2()" value="검색">
+					</div>
+				</div>
+				<button class="basic_btn" type="submit">가입 신청</button>
 			</div>
 		</form>
 	</div>

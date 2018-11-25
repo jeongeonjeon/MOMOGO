@@ -42,7 +42,11 @@ public class PersonalDAO {
 		return re;  
 	}
 	
-	
+	/**
+	 * 회원가입
+	 * @param person
+	 * @return
+	 */
 	public void Personal_Signup(PersonalVO person) {
 		
 		StringBuilder sql = new StringBuilder(); 
@@ -264,6 +268,34 @@ public class PersonalDAO {
 		}
 		
 	}
+	
+	/**
+	 * 회원정보수정
+	 */
+	
+	public void changeInfo(PersonalVO ) {
+		
+	}
+	
+	/**
+	 * 회원탈퇴
+	 */
+	public void leaveMember(String id) {
+		
+		StringBuilder sql = new StringBuilder();
+		sql.append("delete from personal ");
+		sql.append(" where id = ? ");
+		
+		try (
+			Connection conn = new ConnectionFactory().getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+		){
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+}
 
 	
 }

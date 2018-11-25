@@ -10,7 +10,7 @@
 <script>
 	
 	function checkForm() {
-		var f = document.loginform;
+		var f = document.searchId;
 		
 		if(f.name.value == "") {
 			alert("이름을 입력하세요");
@@ -38,7 +38,7 @@
 	<header>
 		<%@include file="/jsp/include/header.jsp"%>
 	</header>
-    <div class="content page_shadow" align="center">
+    <div class="login_page page_shadow" align="center">
         <div class="cont-inner login-wrap">
             <div class="tit-area">
                 <h3 class="tit">아이디 찾기</h3>
@@ -46,19 +46,21 @@
             <form action="<%= request.getContextPath() %>/login/searchIdProcess.do" name="searchId" id="searchId" method="post" onsubmit="return checkForm()">
                 <div class="fieldset">
                 	<div class="user-select">
-						<input type="radio" name="userSelect" value="personal" checked="checked">개인
-						<input type="radio" name="userSelect" value="ceo">사업자<br>	
+						<input type="radio" id="per" name="userSelect" value="personal" checked="checked">
+						<label for="per">개인</label>
+						<input id="ceo" type="radio" name="userSelect" value="ceo">	
+						<label for="ceo">사업자</label>
 					</div>	
                     <div class="input-group">
                         <input type="text" class="input insert_input" id="name" placeholder="이름" name="name" value="" />                        
                     </div>
                     <div class="input-group">
-                        <input type="text" class="input insert_input" id="phone" placeholder="휴대전화" name="phone" value="" />                        
-                    </div>
+                        <input type="text" class="input insert_input" id="phone" placeholder="휴대전화" name="phone" value="" />                         
+                    </div>    
                     <div class="input-group">
                         <input type="text" class="input insert_input" id="email" placeholder="이메일주소" name="email" value="" />                        
-                    </div>                 
-                    <input type="submit" class="btn-login" value="확인">
+                    </div>
+                    <input type="submit" class="btn-login basic_btn" value="확인">
                 </div>
             </form>
         </div>
