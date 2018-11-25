@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
 <script>
 	alert("공지사항이 수정되었습니다");
-	location.href = "<%= request.getContextPath()%>/board/noticeList.do"
+	location.href = "<%= request.getContextPath()%>/board/eventList.do"
 </script>

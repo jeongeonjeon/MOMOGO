@@ -5,7 +5,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.co.mlec.board.dao.EventDAO;
 import kr.co.mlec.board.dao.NoticeDAO;
+import kr.co.mlec.board.vo.EventVO;
 import kr.co.mlec.board.vo.NoticeVO;
 
 public class EventListController implements Controller{
@@ -14,7 +16,7 @@ public class EventListController implements Controller{
 	@Override
 	public String handleRequest(HttpServletRequest request,HttpServletResponse response) throws Exception {
 		
-		NoticeDAO dao = new NoticeDAO();
+		EventDAO dao = new EventDAO();
 		
 		int pageNo;
 		
@@ -24,11 +26,11 @@ public class EventListController implements Controller{
 			pageNo = Integer.parseInt(request.getParameter("page"));
 		}
 		
-		List<NoticeVO> list = dao.selectAllNotice(pageNo);
+		List<EventVO> list = dao.selectAllEvent(pageNo);
 		
 		request.setAttribute("list", list);
 		
-		return "/jsp/event/eventList.jsp";
+		return "/jsp/board/eventList.jsp";
 		
 	}
 

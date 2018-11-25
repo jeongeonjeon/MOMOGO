@@ -19,6 +19,13 @@
 			alert("내용을 입력해주세요!");
 			return false
 		}
+		
+		//확장자 체크
+		if(checkExt(f.attachfile1))
+			return false;
+		if(checkExt(f.attachfile2))
+			return false;
+
 		return true
 	}
 	
@@ -31,7 +38,7 @@
 	<div class="noticeForm_page">
 		<div class="page_inner">
 			<div class="bbs_page_tit">공지사항</div>
-			<form method="post" action="<%= request.getContextPath() %>/board/noticeFormProcess.do"
+			<form method="post" action="<%= request.getContextPath() %>/board/eventFormProcess.do"
 				name="nform" onsubmit="return checkForm()">
 			<input type="hidden" name="writer" size="50" value="${ userVO.id }">
 			<div class="bbs_write">
@@ -44,19 +51,19 @@
 						<div class="tit">작성자</div>
 						<div class="txt">${ userVO.id }</div>
 					</div>
-<!-- 					<div class="half">
-						<div class="tit">작성일</div>
-						<div class="txt">2017.10.26</div>
-					</div> -->
 				</div>
+				<div class="content" >
+					<div class="tit">파일첨부</div>
+					<input type="file" name="attachfile">		
+				</div> 
 				<textarea placeholder="내용을 입력해주세요." name="content" id="content"></textarea>
 			</div>
 			<div class="bbs_btn_wrap">				
 					<div class="bbs_btn cancel" id="cancel">
-						<a href="noticeList.jsp">취소</a>
+						<a href="eventList.jsp">취소</a>
 					</div>				 					
 					<div class="bbs_btn registration" id="registration">
-						<a href="noticeView.jsp"><button type="submit">등록</button></a> 
+						<a href="eventView.jsp"><button type="submit">등록</button></a> 
 					</div> 				 
 			</div>
 			</form>
