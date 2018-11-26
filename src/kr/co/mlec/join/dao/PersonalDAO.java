@@ -273,10 +273,10 @@ public class PersonalDAO {
 	 * 회원정보수정
 	 */
 	
-	public void changeInfo(PersonalVO ) {
+/*	public void changeInfo(PersonalVO ) {
 		
 	}
-	
+	*/
 	/**
 	 * 회원탈퇴
 	 */

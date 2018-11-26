@@ -15,7 +15,34 @@ public class DetailStoreController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
+		request.setCharacterEncoding("utf-8");
+		
 		StoreDAO dao = new StoreDAO();
+		
+		String type ="";
+		type += request.getParameter("type");
+		
+		System.out.println(type);
+		if(type.equals("review")) {
+			String replyText = request.getParameter("replyText");
+			String star = request.getParameter("star");
+			String id = request.getParameter("id");
+			String storeNum = request.getParameter("storeNum");
+			
+			dao.insertReview(Integer.parseInt(storeNum),id,replyText,Integer.parseInt(star));
+			
+			return "/jsp/store/ajax.json";
+		}
+		
+		if(type.equals("order")) {
+			String storeNum = request.getParameter("storeNum");
+			String foodName = request.getParameter("foodName");
+			String price = request.getParameter("price");
+			
+			return "/jsp/store/ajax.json";
+		}
+		
+		
 		
 		String storeNo = request.getParameter("storeNo");
 		

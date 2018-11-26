@@ -11,12 +11,21 @@ public class StoreVO {
 	String address ;
 	String start   ;
 	String end     ;
+	
+	String licenseNo;
+	public String getLicenseNo() {
+		return licenseNo;
+	}
+	public void setLicenseNo(String licenseNo) {
+		this.licenseNo = licenseNo;
+	}
 	public StoreVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	public StoreVO(int storeNo, String category, String storeName, String storeImage, String storeTel, String address,
-			String start, String end) {
+			String start, String end, String licenseNo) {
 		super();
 		this.storeNo = storeNo;
 		this.category = category;
@@ -26,6 +35,7 @@ public class StoreVO {
 		this.address = address;
 		this.start = start;
 		this.end = end;
+		this.licenseNo = licenseNo;
 	}
 	public int getStoreNo() {
 		return storeNo;
@@ -79,7 +89,7 @@ public class StoreVO {
 	public String toString() {
 		return "StoreVO [storeNo=" + storeNo + ", category=" + category + ", storeName=" + storeName + ", storeImage="
 				+ storeImage + ", storeTel=" + storeTel + ", address=" + address + ", start=" + start + ", end=" + end
-				+ "]";
+				+ ", licenseNo=" + licenseNo + "]";
 	}
 	
 	

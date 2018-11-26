@@ -6,12 +6,39 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import jdk.jfr.internal.cmd.Execute;
 import kr.co.mlec.menu.vo.MenuVO;
 import kr.co.mlec.review.vo.ReviewVO;
 import kr.co.mlec.store.vo.StoreVO;
 import kr.co.mlec.util.ConnectionFactory;
 
 public class StoreDAO {
+	
+	public void insertReview(int storeNo, String id, String replyText, int star) {
+		
+		StringBuilder sql = new StringBuilder();
+		
+		sql.append("insert into review ");
+		sql.append("values ( ?,?,?,sysdate,?)");
+		
+		try (
+				Connection conn = new ConnectionFactory().getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+			){
+			
+				int loc = 1;
+				pstmt.setInt(loc++, storeNo);
+				pstmt.setString(loc++, id);
+				pstmt.setString(loc++, replyText);
+				pstmt.setInt(loc++, star);
+				
+				pstmt.executeUpdate();
+				
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 	
 	public List<StoreVO> selectCategoryStore(String address, String category){
 		
@@ -127,6 +154,7 @@ public class StoreDAO {
 				String start     = rs.getString("start_time");
 				String end       = rs.getString("end_time");
 				String storeImage = rs.getString("image");
+				String licenseNo = rs.getString("license_no");
 				
 				store.setStoreName(storeName);
 				store.setStoreTel(storeTel);
@@ -134,6 +162,7 @@ public class StoreDAO {
 				store.setStart(start);
 				store.setEnd(end);
 				store.setStoreImage(storeImage);
+				store.setLicenseNo(licenseNo);
 				
 				list.add(store);
 			}
