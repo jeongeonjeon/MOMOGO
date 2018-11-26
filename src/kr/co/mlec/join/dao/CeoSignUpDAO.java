@@ -112,6 +112,113 @@ public class CeoSignUpDAO {
 	}
 	
 	/**
+	 * 마이페이지 일반회원 정보조회
+	 */
+	/*
+	public CeoSignUpVO selectById(String id) {
+		
+		CeoSignUpVO ceo = null;
+		StringBuilder sql = new StringBuilder();
+		sql.append("select id, password, email, name, phone, type" );
+		sql.append("       ,to_char(reg_date, 'yyyy-mm-dd') as reg_date ");
+		sql.append("  from ceo ");
+		sql.append(" where id = ? ");
+		
+		try(
+			Connection conn = new ConnectionFactory().getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+		){	
+			pstmt.setString(1, id);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				String ceoId = rs.getString("id");
+				String password = rs.getString("password");
+				String email = rs.getString("email");
+				String name = rs.getString("name");
+				String phone = rs.getString("phone");
+				String type = rs.getString("type");
+				String regDate = rs.getString("reg_date");
+				
+				ceo = new CeoSignUpVO();
+				
+				ceo.setId(ceoId);
+				ceo.setPassword(password);
+				ceo.setEmail(email);
+				ceo.setName(name);
+				ceo.setPhone(phone);
+				ceo.setType(type);
+				ceo.setRegDate(regDate);	
+
+				
+				System.out.println(ceo);
+				
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return ceo;
+	}
+	*/
+	
+	
+	public CeoSignUpVO selectById(String id) {
+		
+		CeoSignUpVO ceo = null;
+		StringBuilder sql = new StringBuilder();
+		sql.append("select c.id, c.password, c.email, c.name, c.phone, c.type" );
+		sql.append("       ,to_char(c.reg_date, 'yyyy-mm-dd') as reg_date, s.basic_addr, s.detail_addr ");
+		sql.append("  from ceo c, store s ");
+		sql.append(" where c.id = s.ceo_id ");
+		sql.append("   and c.id = ?");
+		
+		try(
+			Connection conn = new ConnectionFactory().getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+		){	
+			pstmt.setString(1, id);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				String ceoId = rs.getString("id");
+				String password = rs.getString("password");
+				String email = rs.getString("email");
+				String name = rs.getString("name");
+				String phone = rs.getString("phone");
+				String type = rs.getString("type");
+				String regDate = rs.getString("reg_date");
+				String basicAddr = rs.getString("basic_addr");
+				String detailAddr = rs.getString("detail_addr");
+				
+				ceo = new CeoSignUpVO();
+				
+				ceo.setId(ceoId);
+				ceo.setPassword(password);
+				ceo.setEmail(email);
+				ceo.setName(name);
+				ceo.setPhone(phone);
+				ceo.setType(type);
+				ceo.setRegDate(regDate);	
+				ceo.setBasicAddr(basicAddr);
+				ceo.setDetailAddr(detailAddr);
+				
+				System.out.println(ceo);
+				
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return ceo;
+	}
+	
+	
+	
+	
+	/**
 	 * 이름, 휴대전화 , 이메일로 아이디 찾기
 	 */	
 	public CeoSignUpVO searchId(CeoSignUpVO idVO) {

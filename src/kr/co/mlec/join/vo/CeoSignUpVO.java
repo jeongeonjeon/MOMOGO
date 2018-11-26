@@ -9,6 +9,8 @@ public class CeoSignUpVO {
 	private String phone;
 	private String regDate;
 	private String type;
+	private String basicAddr;
+	private String detailAddr;
 	
 	
 	public CeoSignUpVO() {
@@ -111,13 +113,33 @@ public class CeoSignUpVO {
 
 	public void setRegDate(String regDate) {
 		this.regDate = regDate;
+	}	
+	
+
+	public String getBasicAddr() {
+		return basicAddr;
+	}
+
+	public void setBasicAddr(String basicAddr) {
+		this.basicAddr = basicAddr;
+	}
+
+	public String getDetailAddr() {
+		return detailAddr;
+	}
+
+	public void setDetailAddr(String detailAddr) {
+		this.detailAddr = detailAddr;
 	}
 
 	@Override
 	public String toString() {
 		return "CeoSignUpVO [ceoNo=" + ceoNo + ", id=" + id + ", password=" + password + ", email=" + email + ", name="
-				+ name + ", phone=" + phone + ", regDate=" + regDate + ", type=" + type + "]";
+				+ name + ", phone=" + phone + ", regDate=" + regDate + ", type=" + type + ", basicAddr=" + basicAddr
+				+ ", detailAddr=" + detailAddr + "]";
 	}
+
+
 	
 	
 	

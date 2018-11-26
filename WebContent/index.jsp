@@ -47,7 +47,7 @@
 			</div>
 			<section class="section01">
 				<div class="txt_box">
-					<p class="en">Goood for natural<br>Good for you</p>
+					<p class="en">Good for natural<br>Good for you</p>
 					<p class="ko">
 						빠르게 변해가고 있는 현대의 사회에서<br>
 						가장 신선한 재료만을 엄선하여 요리한 음식으로<br>
