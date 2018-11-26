@@ -1,11 +1,15 @@
 package kr.co.mlec.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kr.co.mlec.join.dao.PersonalDAO;
 import kr.co.mlec.join.vo.PersonalVO;
+import kr.co.mlec.order.vo.OrderVO;
+import kr.co.mlec.store.vo.StoreVO;
 
 public class PersonalMypageController implements Controller {
 
@@ -22,6 +26,9 @@ public class PersonalMypageController implements Controller {
 		personal = dao.selectById(userVO.getId());
 		request.setAttribute("personal", personal);
 		
+		String id = userVO.getId();
+		
+		System.out.println( id );
 		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
 		String phone = request.getParameter("phone");
@@ -31,6 +38,9 @@ public class PersonalMypageController implements Controller {
 		personal.setPass(pass);
 		personal.setPhone(phone);
 		personal.setEmail(email);
+		
+		List<OrderVO> orderList = dao.mypageSelectOrder(id);
+		request.setAttribute("orderList", orderList);
 		
 		
 		return "/jsp/mypage/personalMypage.jsp";

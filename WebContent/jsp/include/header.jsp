@@ -8,7 +8,6 @@
 			<li><c:if test="${ empty userVO }"><a href="<%= request.getContextPath()%>/login/loginForm.do">LOGIN</a></c:if></li>
 			<li><c:if test="${ empty userVO }"><a href="<%= request.getContextPath()%>/join/choiceJoin.do">JOIN</a></c:if></li>
 			<li><c:if test="${ not empty userVO }"><a href="<%= request.getContextPath()%>/login/logout.do">LOGOUT</a></c:if></li>
-			<li><a href="#">ORDER</a></li>
 			<li><c:choose>
 				<c:when test="${ not empty personalVO }"><a href="<%= request.getContextPath()%>/mypage/personalMypage.do">MYPAGE</a></c:when>
 				<c:when test="${ not empty ceoVO }"><a href="<%= request.getContextPath()%>/mypage/ceoMypage.do">MYPAGE</a></c:when>

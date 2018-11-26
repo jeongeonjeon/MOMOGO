@@ -11,11 +11,19 @@ public class DetailStoreProcessController implements Controller{
 		
 		request.setCharacterEncoding("utf-8");
 		
+		String id = request.getParameter("id");
 		String storeNo = request.getParameter("storeNo");
-		
+		String[] foodName = request.getParameterValues("food_name");
 		
 		StoreDAO dao = new StoreDAO();
-		/*dao.insertOrder();*/
+		
+		int seqNo = dao.selectNo();
+		
+		dao.insertMyOrder(id, seqNo, storeNo);
+		
+		for(int i=0;i<foodName.length;i++) {
+			dao.insertOrder(seqNo,foodName[i]);
+		}
 		
 		
 		return "/jsp/store/detailStoreProcess.jsp";

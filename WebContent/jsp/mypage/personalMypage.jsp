@@ -1,57 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <jsp:include page="/jsp/include/head.jsp" />
 <script>
-$(document).ready(function() {
-	   var result = $('.copr').val();
-	   $.ajax({
-	      url : "<%= request.getContextPath() %>/menu/com_Free/comment.do",
-	      type : "get",
-	      data : {
-	         no :"${param.no}"
-	      },
-	      success : callback
-	   });
-	   $('#commentbtn').click(function() {
-	      
-	      var commentval = $('#comment').val();
-	      
-	      $.ajax({
-	         url : "<%= request.getContextPath() %>/menu/com_Free/comment.do",
-	         type : "get",
-	         data : {
-	            no :"${param.no}",
-	            id : "${userVO.id}",
-	            comment : commentval,
-	         }, 
-	         success : callback
-	      });
-	   });
-	});
-	function callback(data) {
-	/*    $('#searchResult').empty(); */
-	   $('.copr').empty();
-	   $('.copr').append(data);
-	   /* var list = data.boxOfficeResult.dailyBoxOfficeList;
-	   var range = data.boxOfficeResult.showRange;
-	   for(var i = 0; i < list.length; i++) {
-	      var rank = list[i].rank;
-	      var name = list[i].movieNm;
-	      var audiCnt = list[i].audiCnt;
-	      var audiAcc = list[i].audiAcc;
-	      
-	      $('#searchResult').append('<hr>');
-	      $('#searchResult').append('<h4>조회날짜 : ' + range.split('~')[0] + '</h4>');
-	      $('#searchResult').append('<hr>');
-	      $('#searchResult').append('<h4>' + rank + '위</h4>');
-	      $('#searchResult').append('<strong>' + name + '</strong>(일 ' 
-	                           + audiCnt + '명/누적 ' + audiAcc + '명)<br>');
-	   } */
-	}
+
 </script>
 </head>
 <body>
@@ -292,40 +247,26 @@ $(document).ready(function() {
 					<p class="contxt">
 						<span>'최근주문'한  주문내역</span> 정보입니다.<br> 3개월이 지난 주문 내역은 삭제됩니다.
 					</p>
-					<div class="item_content">
-						<div class="content_header">
-							<p class="date">2018.11.21</p>
-							<p class="status">주문완료</p>
-						</div>
-						<div class="content">
-							<div class="img">
-								<img src="/MOMOGO/img/item01.jpg" alt="">
+					<c:forEach items="${ requestScope.orderList }" var="order">
+						<div class="item_content">
+							<div class="content_header">
+								<p class="date">${ order.regDate }</p>
+								<p class="status">${ (order.status eq 'onCall')? '접수대기중' : '배달완료' }</p>
 							</div>
-							<div class="order_info">
-								<p class="store_name">도미노피자</p>
-								<p class="food_name">
-									불고기피자x1 불고기피자x1 불고기피자x1 불고기피자x1 불고기피자x1 
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="item_content">
-						<div class="content_header">
-							<p class="date">2018.11.21</p>
-							<p class="status">주문완료</p>
-						</div>
-						<div class="content">
-							<div class="img">
-								<img src="/MOMOGO/img/item01.jpg" alt="">
-							</div>
-							<div class="order_info">
-								<p class="store_name">도미노피자</p>
-								<p class="food_name">
-									불고기피자x1 불고기피자x1 불고기피자x1 불고기피자x1 불고기피자x1 
-								</p>
+							<div class="content">
+								<div class="img">
+									<img src="/MOMOGO/img/item01.jpg" alt="">
+								</div>
+								<div class="order_info">
+									<p class="store_name">${ order.storeName }</p>
+									<p class="food_name">
+										${ order.menu } 
+									</p>
+								</div>
 							</div>
 						</div>
-					</div>
+					</c:forEach>
+					
 				</div>
 			</div>
 		</section>

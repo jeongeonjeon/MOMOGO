@@ -263,6 +263,72 @@ public class StoreDAO {
 		
 		return list;
 	}
+	
+	
+	public int selectNo() {
+		String sql = "select seq_myorder_orderno.nextval from dual ";
+
+		try (
+			Connection conn = new ConnectionFactory().getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);				
+		) {
+			ResultSet rs = pstmt.executeQuery();
+			rs.next();
+			return rs.getInt(1);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public void insertMyOrder(String id, int no, String storeNo) {
+		
+		StringBuilder sql = new StringBuilder();
+		
+		sql.append("insert into myorder(id, orderno, storeno) ");
+		sql.append(" values(?,?,?) ");
+		
+		try (
+				Connection conn = new ConnectionFactory().getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+			){	
+				
+				int loc = 1;
+				
+				pstmt.setString(loc++, id);
+				pstmt.setInt(loc++, no);
+				pstmt.setInt(loc++, Integer.parseInt(storeNo));
+				
+				pstmt.executeUpdate();
+				
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void insertOrder(int no,String name){
+		
+		StringBuilder sql = new StringBuilder();
+		
+		sql.append("insert into ordermenu ");
+		sql.append("values ( ?,?)");
+		
+		try (
+				Connection conn = new ConnectionFactory().getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+			){	
+				
+				pstmt.setInt(1, no);
+				pstmt.setString(2, name);
+				
+				pstmt.executeUpdate();
+				
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
 
 
 }

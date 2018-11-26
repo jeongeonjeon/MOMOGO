@@ -3,8 +3,12 @@ package kr.co.mlec.join.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import kr.co.mlec.join.vo.PersonalVO;
+import kr.co.mlec.order.vo.OrderVO;
+import kr.co.mlec.store.vo.StoreVO;
 import kr.co.mlec.util.ConnectionFactory;
 import kr.co.mlec.util.JDBCClose;
 
@@ -305,7 +309,62 @@ public class PersonalDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-}
-
+	}
 	
+	
+	/**
+	 * 마이페이지 주문내역조회
+	 */
+	public List<OrderVO> mypageSelectOrder(String id){
+		List<OrderVO> list  = new ArrayList<>();
+		
+		StringBuilder sql = new StringBuilder(); 
+		
+		
+		sql.append("select o.orderno,menu,id,storeno,reg_date,status,s.store_name ");
+		sql.append("  from orderMenu o, myorder m ");                   
+		sql.append(" where m.storeno = s.store_no ");                   
+		sql.append("   and o.orderno = m.orderno ");                   
+		sql.append("   and id = ? ");                                
+		
+		try (
+			Connection conn = new ConnectionFactory().getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+			){
+
+			pstmt.setString(1, id);
+
+			ResultSet rs = pstmt.executeQuery();
+
+			while(rs.next()) {
+			
+				OrderVO order = new OrderVO();
+				
+				int orderNo = rs.getInt("orderno");
+				String menu = rs.getString("menu");
+				String userid = rs.getString("id");
+				int storeNo = rs.getInt("storeno");
+				String regDate = rs.getString("reg_date");
+				String status = rs.getString("status");
+				String storeName = rs.getString("store_name");
+				
+				order.setOrderNo(orderNo);
+				order.setMenu(menu);
+				order.setId(userid);
+				order.setStoreNo(storeNo);
+				order.setRegDate(regDate);
+				order.setStatus(status);
+				order.setStoreName(storeName);
+				
+				list.add(order);
+			}
+
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+		
+	}
+
 }

@@ -355,6 +355,7 @@
 						</section>
 					</div>
 					<form method="get" action="<%= request.getContextPath() %>/store/detailStoreProcess.do" onsubmit="return checkOrder()">
+						<input type="hidden" name="id" value="${ userVO.id  }" >
 						<input type="hidden" name="storeNo" value="${ param.storeNo }">
 						<aside class="order_wrap">
 							<div class="order_header">
