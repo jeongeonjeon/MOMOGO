@@ -23,7 +23,7 @@ public class KakaoLoginController implements Controller {
 		String url = request.getContextPath();
 		
 		HttpSession session = request.getSession();
-        session.setAttribute("userVO", userVO);
+		session.setAttribute("userVO", userVO);   
         
         request.setAttribute("msg", msg);
         request.setAttribute("url", url);

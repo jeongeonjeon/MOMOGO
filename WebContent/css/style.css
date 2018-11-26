@@ -2094,11 +2094,23 @@ footer .copy {
     border: none;
     float: left;
 }
+.order_contents cart p.food_name{
+	    font-size: 25px;
+    position: relative;
+    top: 20px;
+    font-weight: bolder;
+    left: 15px;
+}
 
 .detailStore_page .order_wrap .cart .price_wrap .price {
-    float: left;
-    font-size: 15px;
+    float: right;
+    position: relative;
+    font-size: 20px;
     margin-left: 8px;
+    font-weight: bold;
+    display: block;
+    bottom: 20px;
+    right: 10px;
 }
 
 .detailStore_page .order_wrap .cart .price_wrap .amount_wrap {

@@ -42,9 +42,9 @@
 		
 		$('#reply_btn').click(function(){
 			
-			if('${ empty userVO }'){
+<%-- 			if(${ empty userVO }){
 				location.href="<%=request.getContextPath()%>/login/loginForm.do";
-			}
+			} --%>
 
 				
 		    var reply ={ "replyText": $('.input').val(),
@@ -87,8 +87,10 @@
 		replyAppend += '		<button type="button">답글달기</button>';
 		replyAppend += '	</div>';
 		replyAppend += '</div>';
-
+		
+		$('textarea.input').val('');
 		$('.reply_container').append(replyAppend);
+		
 	}
 	 
 	function callback2(data){
