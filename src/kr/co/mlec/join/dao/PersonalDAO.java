@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import kr.co.mlec.join.vo.CeoSignUpVO;
 import kr.co.mlec.join.vo.PersonalVO;
 import kr.co.mlec.util.ConnectionFactory;
 import kr.co.mlec.util.JDBCClose;
@@ -273,7 +272,20 @@ public class PersonalDAO {
 	 * 회원정보수정
 	 */
 	
-
+	public void updateInfo(PersonalVO updateInfo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try{
+			conn = new ConnectionFactory().getConnection();
+			StringBuilder sql = new StringBuilder();
+			sql.append("update personal ");
+			sql.append("");
+			
+		}catch(Exception e) {
+			
+		}
+	}
 	
 	/**
 	 * 회원탈퇴

@@ -193,6 +193,21 @@ $(document).ready(function(){
 	})
 })
 
+/*mHeader 제어*/
+
+$(document).ready(function(){
+
+	$(".mHeader .menu_bar").click(function(){
+		if(!$(".mHeader").hasClass("on")){
+			$(".mHeader").addClass("on");
+			$(".mHeader .menu_bar").addClass("on");
+		} else {
+			$(".mHeader").removeClass("on");
+			$(".mHeader .menu_bar").removeClass("on");
+		}
+	})
+})
+
 
 
 
