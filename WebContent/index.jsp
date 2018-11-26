@@ -15,9 +15,12 @@
 </head>
 <body>
 	<div id="wrapper">
-		<header>
+		<header class="main_header">
 			<%-- <jsp:include page="/include/header.jsp" > --%>
 			<%@include file="/jsp/include/header.jsp"%>
+		</header>
+		<header class="mHeader">
+			<%@include file="/jsp/include/mHeader.jsp"%>
 		</header>
 		<div id="main" class="page_shadow">
 			<div class="main_visual swiper-container">
@@ -87,7 +90,7 @@
 					<ul class="itemList_wrap">
 						<c:forEach items="${ category }" var="c">
 							<c:set var="i" value="${i+1}" />
-							<li class="itemList0${ i }">
+							<li class="itemList itemList0${ i }">
 								<div class="item_cover"></div> <a href="#"></a>
 								<div class="line">
 									<div class="txt_box">

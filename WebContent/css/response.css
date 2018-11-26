@@ -1,0 +1,145 @@
+@media (max-width: 1220px) {
+	.itemList_wrap {
+		width: 98%;
+	}
+	
+	.itemList_wrap li {
+		width: 33.33%;
+		height: auto;
+		margin: 0;
+		padding: 11.79%;
+	}
+}
+
+@media (max-width: 1200px) {
+	header .header_inner {
+		width: 98%;
+		margin: 0 auto;
+	}
+	
+	#main .main_visual .slider_next {
+		right: 30px;
+	}
+	
+	#main .main_visual .slider_prev {
+		left: 30px;
+	}
+	
+}
+
+@media (max-width: 960px) {
+	#main .main_visual .swiper-slide .text_box {
+		width: 45%;
+		padding: 10.61%;
+	}
+}
+
+@media (max-width: 760px) {
+	.main_header {
+		display: none;
+	}
+	
+	.mHeader {
+		display: block;
+	    height: 78px;
+	}
+	
+	.mHeader.on {
+		height: 100vh;
+		background: rgba(0,0,0,0.9);
+	}
+	
+	.mHeader .header_top .mLogo {
+		text-align: center;
+	}
+	
+	.mHeader .header_top .mLogo a {
+    	line-height: 78px;
+	}
+	
+	.mHeader .header_top .mLogo img {
+		margin-top: 24px;
+		vertical-align: middle;
+	}
+	
+	#main .main_visual .swiper-slide .text_box {
+		width: 40%;
+	}
+	
+	#main .section02 {
+		height: 280px;
+		padding: 15px 0px;
+	}
+	
+	#main .section02 .text_wrap .tit {
+		font-size : 32px;
+	}
+	
+	#main .section02 .text_wrap .sort {
+		font-size: 35px;
+	}
+	
+	#main .section02 .text_wrap .info {
+		font-size : 20px;
+	}
+	
+	#main .section02 .text_wrap .basic_btn {
+		height: 54px;
+		font-size: 16px;
+		line-height: 20px;
+	}
+	
+	.itemList_wrap li .line .heading h4 {
+		font-size: 18px;
+	}
+	
+	footer .footer_inner {
+		width : 100%;
+	}
+	
+	footer .footer_top .text_wrap {
+		width: 50%;
+		padding-left : 30px;
+		box-sizing: border-box;
+	}
+	
+	footer .footer_top .text_wrap:last-child {
+		float: left;
+	}
+	
+	footer .footer_top .text_wrap .cs_tell {
+		font-size: 26px;
+	}
+	
+}
+@media (max-width: 720px) {
+	.page_shadow {
+		margin-bottom: 580px;
+	}
+	
+	footer {
+		padding: 0;
+		text-align: center;
+	}
+	
+	footer .footer_top {
+		padding: 18px 0;
+	}
+	
+	footer .footer_top .text_wrap {
+		width: 100%;
+		margin-top: 25px;
+		float: none;
+	}
+}
+
+@media (max-width: 600px) {
+	#main .main_visual .swiper-slide .text_box {
+		width: 75%;
+		text-align: center;
+	}
+	
+	#main .main_visual .swiper-slide .text_box img {
+		width: 230px;
+	}
+}

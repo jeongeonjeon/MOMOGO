@@ -485,6 +485,52 @@ header .board_menu li a {
     letter-spacing: 1px;
 }
 
+.mHeader {
+	display:none;
+	overflow: hidden;
+}
+
+.mHeader .header_top {
+	position: relative;
+}
+
+.mHeader .menu_bar {
+	position: absolute;
+    top: 14px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    background: url(../img/header_ham.png) no-repeat center center;
+    background-size: 25px;
+    outline: none;
+    transition: all 0.4s;
+}
+
+.mHeader .menu_bar.on {
+	background: url(../img/header_close.png) no-repeat center center;
+}
+
+.mHeader .header_bottom {
+	text-align: center;
+}
+
+.mHeader .header_bottom ul {
+	position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate3d(-50%,50%,0);
+
+}
+
+.mHeader .header_bottom li {
+	margin: 10px 0;	
+}
+
+.mHeader .header_bottom li a {
+	color: #fff;
+	font-size: 20px;
+}
+
 /**********************footer*********************/
 
 footer {
@@ -566,10 +612,11 @@ footer .copy {
 	border: 1px solid #41cea5;
 	float: left;
 	margin-bottom: 24px;
-	margin-left: 24px;
+	margin-left: 27px;
     overflow: hidden;
     color: #fff;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .itemList_wrap .itemList01 {
