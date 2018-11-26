@@ -27,8 +27,6 @@ public class PersonalMypageController implements Controller {
 		request.setAttribute("personal", personal);
 		
 		String id = userVO.getId();
-		
-		System.out.println( id );
 		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
 		String phone = request.getParameter("phone");

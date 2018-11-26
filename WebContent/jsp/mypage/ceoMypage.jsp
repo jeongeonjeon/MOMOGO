@@ -161,11 +161,11 @@
 						<div class="info_wrap">
 							<div class="info">
 								<p class="tit">회원유형</p>
-								<p class="txt">${ member.type }</p>
+								<p class="txt">${ ceo.type }</p>
 							</div>
 							<div class="info">
 								<p class="tit">가입날짜</p>
-								<p class="txt">${ member.regDate }</p>
+								<p class="txt">${ ceo.regDate }</p>
 							</div>
 						</div>
 					</div>
@@ -185,15 +185,15 @@
 						<div class="info_wrap">
 							<div class="info">
 								<p class="tit">아이디</p>
-								<p class="txt">${ member.id }</p>
+								<p class="txt">${ ceo.id }</p>
 							</div>
 							<div class="info">
 								<p class="tit">이름</p>
-								<p class="txt">${ member.name }</p>
+								<p class="txt">${ ceo.name }</p>
 							</div>
 							<div class="info">
 								<p class="tit">비밀번호</p>
-								<p class="txt">${ member.password }</p>
+								<p class="txt">${ ceo.password }</p>
 							</div>
 						</div>
 						<button class="basic_btn modify_btn" type="button">수정</button>
@@ -204,19 +204,19 @@
 						</div>
 						<div class="info_wrap">
 							<form method="post" action="updateProfile.jsp">
-								<input type="hidden" name="id" value="${ member.id }">
+								<input type="hidden" name="id" value="${ ceo.id }">
 								<div class="info">
 									<p class="tit">아이디</p>
-									<p class="txt">${ member.id }</p>
+									<p class="txt">${ ceo.id }</p>
 								</div>
 								<div class="info">
 									<p class="tit">이름</p>
-									<input type="text" name="name" value="${ member.name }">
+									<input type="text" name="name" value="${ ceo.name }">
 								</div>
 								<div class="info">
 									<p class="tit">비밀번호</p>
 									<input type="password" name="password"
-										value="${ member.password }">
+										value="${ ceo.password }">
 								</div>
 								<div class="btn_wrap">
 									<button type="reset" class="basic_btn cancel_btn">취소</button>
@@ -333,11 +333,11 @@
 						<div class="info_wrap">
 							<div class="info">
 								<p class="tit">전화번호</p>
-								<p class="txt">${ member.tel1 }-${ member.tel2 }-${ member.tel3 }</p>
+								<p class="txt">${ ceo.phone }</p>
 							</div>
 							<div class="info">
 								<p class="tit">이메일주소</p>
-								<p class="txt">${ member.emailId }@${ member.emailDomain}</p>
+								<p class="txt">${ ceo.email }</p>
 							</div>
 						</div>
 						<button class="basic_btn modify_btn" type="button">수정</button>
@@ -345,7 +345,7 @@
 					<div class="item_content modify_content">
 						<div class="info_wrap">
 							<form action="updateContact.jsp" method="post">
-								<input type="hidden" name="id" value="${ member.id }">
+								<input type="hidden" name="id" value="${ ceo.id }">
 								<div class="info tel">
 									<p class="tit">전화번호</p>
 									<select name="tel1">
@@ -359,9 +359,9 @@
 								</div>
 								<div class="info mail">
 									<p class="tit">이메일주소</p>
-									<input type="text" name="emailId" value="${ member.emailId }">
+									<input type="text" name="emailId" value="${ ceo.email }">
 									<span>@</span> <input type="text" name="emailDomain"
-										value="${ member.emailDomain }">
+										value="${ ceo.email }">
 								</div>
 								<div class="btn_wrap">
 									<button type="reset" class="basic_btn cancel_btn">취소</button>
@@ -383,15 +383,15 @@
 						<div class="info_wrap">
 							<div class="info">
 								<p class="tit">우편번호</p>
-								<p class="txt">${ member.post }</p>
+								<p class="txt">${ ceo.email }</p>
 							</div>
 							<div class="info">
 								<p class="tit">기본주소</p>
-								<p class="txt">${ member.basicAddr }</p>
+								<p class="txt">${ ceo.basicAddr }</p>
 							</div>
 							<div class="info">
 								<p class="tit">상세주소</p>
-								<p class="txt">${ member.detailAddr }</p>
+								<p class="txt">${ ceo.detailAddr }</p>
 							</div>
 						</div>
 						<button class="basic_btn modify_btn" type="button">수정</button>
@@ -399,20 +399,16 @@
 					<div class="item_content modify_content">
 						<div class="info_wrap">
 							<form method="post" action="updateArea.jsp">
-								<input type="hidden" name="id" value="${ member.id }">
-								<div class="info">
-									<p class="tit">우편번호</p>
-									<input type="text" name="post" value="${ member.post }">
-								</div>
+								<input type="hidden" name="id" value="${ ceo.id }">
 								<div class="info">
 									<p class="tit">기본주소</p>
 									<input type="text" name="basicAddr"
-										value="${ member.basicAddr }">
+										value="${ ceo.basicAddr }">
 								</div>
 								<div class="info">
 									<p class="tit">상세주소</p>
 									<input type="text" name="detailAddr"
-										value="${ member.detailAddr }">
+										value="${ ceo.detailAddr }">
 								</div>
 								<div class="btn_wrap">
 									<button type="reset" class="basic_btn cancel_btn">취소</button>
