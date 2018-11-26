@@ -321,8 +321,8 @@ public class PersonalDAO {
 		StringBuilder sql = new StringBuilder(); 
 		
 		
-		sql.append("select o.orderno,menu,id,storeno,reg_date,status,s.store_name ");
-		sql.append("  from orderMenu o, myorder m ");                   
+		sql.append("select o.orderno, menu, id, storeno, reg_date, status, store_name ");
+		sql.append("  from orderMenu o, myorder m, store s ");                   
 		sql.append(" where m.storeno = s.store_no ");                   
 		sql.append("   and o.orderno = m.orderno ");                   
 		sql.append("   and id = ? ");                                
