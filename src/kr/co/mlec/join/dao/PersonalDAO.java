@@ -284,10 +284,26 @@ public class PersonalDAO {
 			conn = new ConnectionFactory().getConnection();
 			StringBuilder sql = new StringBuilder();
 			sql.append("update personal ");
-			sql.append("");
+			sql.append("    set name = ?, password= ? , phone = ? , email = ? ");
+			sql.append("  where id = ?");
 			
-		}catch(Exception e) {
+			pstmt = conn.prepareStatement(sql.toString());
 			
+			int loc = 1;
+			
+			pstmt.setString(loc++, updateInfo.getName());
+			pstmt.setString(loc++, updateInfo.getPass());
+			pstmt.setString(loc++, updateInfo.getPhone());
+			pstmt.setString(loc++, updateInfo.getEmail());
+			pstmt.setString(loc++, updateInfo.getId());
+			
+			
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCClose.close(pstmt, conn);
 		}
 	}
 	

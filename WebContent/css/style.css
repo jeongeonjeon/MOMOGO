@@ -4,7 +4,7 @@
 	position: fixed;
 	top: 0; left: 0; right: 0; bottom: 0;
 	background: rgba(0,0,0,0.6);
-	z-index: 2;
+	z-index: 3;
 	opacity: 0;
 	visibility: hidden;
 	transition: all 0.4s;
@@ -156,6 +156,19 @@
 	transform: rotate(90deg);
 }
 
+.paging_wrap {
+	text-align: center;
+	margin: 15px 0;
+}
+
+.paging_wrap span {
+	margin: 0 3px;
+}
+
+.paging_wrap span a {
+	font-size: 16px;
+}
+
 /**********************common*********************/
 
 .page_shadow {
@@ -229,7 +242,7 @@ insert_select:focus {
 .bbs_page_tit {
     font-size: 21px;
     font-weight: 700;
-    margin: 110px 0 30px 0;
+    margin: 60px 0 30px 0;
 }
 
 .bbs_wrap {
@@ -358,10 +371,11 @@ insert_select:focus {
 
 .bbs_write textarea {
     width: calc( 100% - 14px );
-    height: 586px;
+    height: 500px;
     padding: 7px;
     border: none;
     font-size: 14px;
+    overflow-y: auto;
     line-height: 20px;
 }
 
@@ -384,11 +398,11 @@ insert_select:focus {
     display: inline-block;
     width: 80px;
     height: 30px;
-    line-height: 30px;
+    line-height: 27px;
     cursor: pointer;
     text-align: center;
-    margin: 0 25px;
     vertical-align: top;
+    margin: 0 25px;
     letter-spacing: 1px;
     box-sizing: border-box;
 }
@@ -405,6 +419,13 @@ insert_select:focus {
 
 .bbs_btn_wrap .delete {
     border: 1px solid #2b3735;
+}
+
+.bbs_btn_wrap .basic_btn {
+	height: 30px;
+	padding: 0;
+	font-size: 15px;
+	font-weight: 500;
 }
 
 /**********************header*********************/
@@ -1166,27 +1187,6 @@ footer .copy {
 
 .myPage_page .item_wrap .modify_content.on {
    display: block;
-}
-
-.myPage_page .item_wrap .m2_item .modify_content select {
-   padding: 2px 14px 2px 7px;
-   width: 54px;
-   background: url(../img/sel_arr_2x.gif) center right no-repeat;
-   background-size: 18px;
-   outline: none;
-}
-
-.myPage_page .item_wrap .m2_item .modify_content .tel input {
-   width: 73px;
-}
-
-.myPage_page .item_wrap .m2_item .modify_content .tel span {
-   display: inline-block;
-   margin: 0 4px;
-}
-
-.myPage_page .item_wrap .m2_item .modify_content .mail input {
-   width: 150px;
 }
 
 .myPage_page .item_wrap .modify_content .btn_wrap {
@@ -2152,7 +2152,7 @@ footer .copy {
 }
 
 .login_page {
-	padding: 115px 0 0;
+	height: calc( 100vh - 238px);
 	background-color: #f5f6f7;
 }
 

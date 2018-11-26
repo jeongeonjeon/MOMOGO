@@ -24,7 +24,9 @@ public class PersonalMypageController implements Controller {
 		PersonalDAO dao = new PersonalDAO();
 		PersonalVO personal = new PersonalVO();
 		personal = dao.selectById(userVO.getId());
+		
 		request.setAttribute("personal", personal);
+
 		
 		String id = userVO.getId();
 		String name = request.getParameter("name");
@@ -39,7 +41,6 @@ public class PersonalMypageController implements Controller {
 		
 		List<OrderVO> orderList = dao.mypageSelectOrder(id);
 		request.setAttribute("orderList", orderList);
-		
 		
 		return "/jsp/mypage/personalMypage.jsp";
 	}

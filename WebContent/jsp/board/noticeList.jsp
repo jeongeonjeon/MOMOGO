@@ -16,7 +16,6 @@
 		<div class="noticeList_page page_shadow">
 			<div class="page_inner">
 				<h3 class="bbs_page_tit">공지사항</h3>
-				<c:if test="${ userVO.type.equals('S') }"><a href="<%= request.getContextPath()%>/board/noticeForm.do"><button class="basic_btn notice_btn">공지등록</button></a></c:if>
 				<div class="bbs_wrap" id="noticeTable">
 					<div class="bbs">
 						<div class="tit num">번호</div>			
@@ -37,13 +36,14 @@
 						</c:forEach>
 					</div>
 				</div>
-				<div>
+				<div class="paging_wrap">
 					<c:forEach begin="1" end="5" var= "page">
 						<span class="inner">
 							<a href="noticeList.do?page=${ page }"> ${ page } </a>
 						</span>
 					</c:forEach>
 				</div>
+				<c:if test="${ userVO.type.equals('S') }"><a href="<%= request.getContextPath()%>/board/noticeForm.do"><button class="basic_btn notice_btn">공지등록</button></a></c:if>
 			</div>
 		</div>
 		<footer>

@@ -6,7 +6,50 @@
 <head>
 <jsp:include page="/jsp/include/head.jsp" />
 <script>
-
+$(document).ready(function() {
+	   
+	   $('#comleteBtn_profile').click(function() {
+		  var id = $('#id').val();
+	      var name = $('#name').val();
+	      var password = $("#password").val();
+	      var phone = $("#phone").val();
+	      var email = $("#email").val();
+	      
+	      $.ajax({
+	         url : "<%= request.getContextPath() %>/mypage/personalMypageUpdate.do",
+	         type : "post",
+	         dataType:"json",
+	         data : {
+        	 	"id": id,
+        	 	"name" : name,
+	            "password" : password,
+	            "phone" : phone,
+	            "email" : email
+	         }, 
+	         success : callback
+	      });
+	   });
+	});
+	function callback(data) {
+		$('#name').text('${name}');
+		$('#password').text('${password}');
+		$('#phone').text('${phone}');
+		$('#email').text('${email}');
+		
+		$("#completeBtn_profile").click(function(){   
+			$(this).parents().siblings(".basic_content").addClass("on");
+		    $(this).parents().siblings(".basic_content").children("button").show();
+		    $(this).parents(".modify_content").removeClass("on");
+		    $(this).parent().hide();
+	   })
+	   
+	   $("#completeBtn_contact").click(function(){   
+			$(this).parents().siblings(".basic_content").addClass("on");
+		    $(this).parents().siblings(".basic_content").children("button").show();
+		    $(this).parents(".modify_content").removeClass("on");
+		    $(this).parent().hide();
+	   })
+	}
 </script>
 </head>
 <body>
@@ -167,7 +210,7 @@
 							<img src="/MOMOGO/img/default.png" alt="">
 						</div>
 						<div class="info_wrap">
-							<form method="post" action="updateProfile.jsp">
+							<form>
 								<input type="hidden" name="id" value="${ personal.id }">
 								<div class="info">
 									<p class="tit">아이디</p>
@@ -175,16 +218,16 @@
 								</div>
 								<div class="info">
 									<p class="tit">이름</p>
-									<input type="text" name="name" value="${ personal.name }">
+									<input type="text" id="name" name="name" value="${ personal.name }">
 								</div>
 								<div class="info">
 									<p class="tit">비밀번호</p>
-									<input type="password" name="password"
+									<input id="password" type="password" name="password"
 										value="${ personal.pass }">
 								</div>
 								<div class="btn_wrap">
 									<button type="reset" class="basic_btn cancel_btn">취소</button>
-									<button type="submit" class="basic_btn complete_btn">완료</button>
+									<button id="completeBtn_profile" type="button" class="basic_btn complete_btn">완료</button>
 								</div>
 							</form>
 						</div>
@@ -213,25 +256,19 @@
 					</div>
 					<div class="item_content modify_content">
 						<div class="info_wrap">
-							<form action="updateContact.jsp" method="post">
+							<form>
 								<input type="hidden" name="id" value="${ personal.id }">
-								<div class="info tel">
+								<div class="info">
 									<p class="tit">전화번호</p>
-									<select name="tel1">
-										<option selected value="010">010</option>
-										<option value="011">011</option>
-										<option value="016">016</option>
-										<option value="018">018</option>
-									</select> <span>-</span> <input type="text" name="phone"
-										value="${ personal.phone }">
+									<input type="text" id="phone" name="phone" value="${ personal.phone }">
 								</div>
 								<div class="info mail">
 									<p class="tit">이메일주소</p>
-									<input type="text" name="emailId" value="${ personal.email }">
+									<input type="text" id="email" name="emailId" value="${ personal.email }">
 								</div>
 								<div class="btn_wrap">
 									<button type="reset" class="basic_btn cancel_btn">취소</button>
-									<button type="submit" class="basic_btn complete_btn">완료</button>
+									<button id="completeBtn_contact" type="submit" class="basic_btn complete_btn">완료</button>
 								</div>
 							</form>
 						</div>
