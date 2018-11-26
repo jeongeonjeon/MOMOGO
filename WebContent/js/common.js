@@ -15,10 +15,7 @@ $(document).ready(function() {
         }
 	});
 });
-/*
-var mySecondDiv=$("<div id='mySecondDiv'></div>");
-$('#myDiv').append(mySecondDiv);
-*/
+
 /* myPage 화살표클릭*/
 $(document).ready(function(){
    

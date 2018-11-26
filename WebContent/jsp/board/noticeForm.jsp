@@ -55,8 +55,8 @@
 					<div class="bbs_btn cancel" id="cancel">
 						<a href="noticeList.jsp">취소</a>
 					</div>				 					
-					<div class="bbs_btn registration" id="registration">
-						<a href="noticeView.jsp"><button type="submit">등록</button></a> 
+					<div class="bbs_btn" id="registration">
+						<a href="noticeView.jsp"><button class="basic_btn" type="submit">등록</button></a> 
 					</div> 				 
 			</div>
 			</form>

@@ -20,18 +20,8 @@ public class PersonalMypageController implements Controller {
 		PersonalDAO dao = new PersonalDAO();
 		PersonalVO personal = new PersonalVO();
 		personal = dao.selectById(userVO.getId());
+		
 		request.setAttribute("personal", personal);
-		
-		String name = request.getParameter("name");
-		String pass = request.getParameter("pass");
-		String phone = request.getParameter("phone");
-		String email = request.getParameter("email");
-		
-		personal.setName(name);
-		personal.setPass(pass);
-		personal.setPhone(phone);
-		personal.setEmail(email);
-		
 		
 		return "/jsp/mypage/personalMypage.jsp";
 	}

@@ -7,50 +7,48 @@
 <jsp:include page="/jsp/include/head.jsp" />
 <script>
 $(document).ready(function() {
-	   var result = $('.copr').val();
-	   $.ajax({
-	      url : "<%= request.getContextPath() %>/menu/com_Free/comment.do",
-	      type : "get",
-	      data : {
-	         no :"${param.no}"
-	      },
-	      success : callback
-	   });
-	   $('#commentbtn').click(function() {
-	      
-	      var commentval = $('#comment').val();
+	   
+	   $('#comleteBtn_profile').click(function() {
+		  var id = $('#id').val();
+	      var name = $('#name').val();
+	      var password = $("#password").val();
+	      var phone = $("#phone").val();
+	      var email = $("#email").val();
 	      
 	      $.ajax({
-	         url : "<%= request.getContextPath() %>/menu/com_Free/comment.do",
-	         type : "get",
+	         url : "<%= request.getContextPath() %>/mypage/personalMypageUpdate.do",
+	         type : "post",
+	         dataType:"json",
 	         data : {
-	            no :"${param.no}",
-	            id : "${userVO.id}",
-	            comment : commentval,
+        	 	"id": id,
+        	 	"name" : name,
+	            "password" : password,
+	            "phone" : phone,
+	            "email" : email
 	         }, 
 	         success : callback
 	      });
 	   });
 	});
 	function callback(data) {
-	/*    $('#searchResult').empty(); */
-	   $('.copr').empty();
-	   $('.copr').append(data);
-	   /* var list = data.boxOfficeResult.dailyBoxOfficeList;
-	   var range = data.boxOfficeResult.showRange;
-	   for(var i = 0; i < list.length; i++) {
-	      var rank = list[i].rank;
-	      var name = list[i].movieNm;
-	      var audiCnt = list[i].audiCnt;
-	      var audiAcc = list[i].audiAcc;
-	      
-	      $('#searchResult').append('<hr>');
-	      $('#searchResult').append('<h4>조회날짜 : ' + range.split('~')[0] + '</h4>');
-	      $('#searchResult').append('<hr>');
-	      $('#searchResult').append('<h4>' + rank + '위</h4>');
-	      $('#searchResult').append('<strong>' + name + '</strong>(일 ' 
-	                           + audiCnt + '명/누적 ' + audiAcc + '명)<br>');
-	   } */
+		$('#name').text('${name}');
+		$('#password').text('${password}');
+		$('#phone').text('${phone}');
+		$('#email').text('${email}');
+		
+		$("#completeBtn_profile").click(function(){   
+			$(this).parents().siblings(".basic_content").addClass("on");
+		    $(this).parents().siblings(".basic_content").children("button").show();
+		    $(this).parents(".modify_content").removeClass("on");
+		    $(this).parent().hide();
+	   })
+	   
+	   $("#completeBtn_contact").click(function(){   
+			$(this).parents().siblings(".basic_content").addClass("on");
+		    $(this).parents().siblings(".basic_content").children("button").show();
+		    $(this).parents(".modify_content").removeClass("on");
+		    $(this).parent().hide();
+	   })
 	}
 </script>
 </head>
@@ -212,7 +210,7 @@ $(document).ready(function() {
 							<img src="/MOMOGO/img/default.png" alt="">
 						</div>
 						<div class="info_wrap">
-							<form method="post" action="updateProfile.jsp">
+							<form>
 								<input type="hidden" name="id" value="${ personal.id }">
 								<div class="info">
 									<p class="tit">아이디</p>
@@ -220,16 +218,16 @@ $(document).ready(function() {
 								</div>
 								<div class="info">
 									<p class="tit">이름</p>
-									<input type="text" name="name" value="${ personal.name }">
+									<input type="text" id="name" name="name" value="${ personal.name }">
 								</div>
 								<div class="info">
 									<p class="tit">비밀번호</p>
-									<input type="password" name="password"
+									<input id="password" type="password" name="password"
 										value="${ personal.pass }">
 								</div>
 								<div class="btn_wrap">
 									<button type="reset" class="basic_btn cancel_btn">취소</button>
-									<button type="submit" class="basic_btn complete_btn">완료</button>
+									<button id="completeBtn_profile" type="button" class="basic_btn complete_btn">완료</button>
 								</div>
 							</form>
 						</div>
@@ -258,25 +256,19 @@ $(document).ready(function() {
 					</div>
 					<div class="item_content modify_content">
 						<div class="info_wrap">
-							<form action="updateContact.jsp" method="post">
+							<form>
 								<input type="hidden" name="id" value="${ personal.id }">
-								<div class="info tel">
+								<div class="info">
 									<p class="tit">전화번호</p>
-									<select name="tel1">
-										<option selected value="010">010</option>
-										<option value="011">011</option>
-										<option value="016">016</option>
-										<option value="018">018</option>
-									</select> <span>-</span> <input type="text" name="phone"
-										value="${ personal.phone }">
+									<input type="text" id="phone" name="phone" value="${ personal.phone }">
 								</div>
-								<div class="info mail">
+								<div class="info">
 									<p class="tit">이메일주소</p>
-									<input type="text" name="emailId" value="${ personal.email }">
+									<input type="text" id="email" name="emailId" value="${ personal.email }">
 								</div>
 								<div class="btn_wrap">
 									<button type="reset" class="basic_btn cancel_btn">취소</button>
-									<button type="submit" class="basic_btn complete_btn">완료</button>
+									<button id="completeBtn_contact" type="submit" class="basic_btn complete_btn">완료</button>
 								</div>
 							</form>
 						</div>
