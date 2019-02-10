@@ -13,7 +13,7 @@ public class CeoDAO {
 		
 		StringBuilder sql = new StringBuilder(); 
 		
-		sql.append(" insert menu (store_no, menu, price, image, type) ");
+		sql.append(" insert m_menu (store_no, menu, price, image, type) ");
 		sql.append(" values (? ,?, ?, ?, ?) ");
 		
 		
@@ -43,7 +43,7 @@ public class CeoDAO {
 		
 		StringBuilder sql = new StringBuilder(); 
 		
-		sql.append("  delete from menu where notice_no = ? and menu = ?  ");
+		sql.append("  delete from m_menu where notice_no = ? and menu = ?  ");
 		
 		
 		try(

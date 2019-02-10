@@ -11,7 +11,7 @@ public class CeoSignStoreDAO {
 		
 		StringBuilder sql = new StringBuilder(); 
 		
-		sql.append(" insert into store (store_no, ceo_id, store_name, license_no, store_tel, basic_addr, detail_addr, category, delivery_area1, delivery_area2, delivery_area3, delivery_area4, delivery_area5) ");
+		sql.append(" insert into m_store (store_no, ceo_id, store_name, license_no, store_tel, basic_addr, detail_addr, category, delivery_area1, delivery_area2, delivery_area3, delivery_area4, delivery_area5) ");
 		sql.append(" values ( seq_store_store_no.nextval, ?, ?, ?, ?, ?, ?, ? ,? ,? ,?, ? ,?) ");
 		
 		try (

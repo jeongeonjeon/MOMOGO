@@ -22,7 +22,7 @@ public class CeoSignUpDAO {
 		int re = 0; 
 		
 		StringBuilder sql = new StringBuilder(); 
-		sql.append("select * from ceo where id =? ");
+		sql.append("select * from m_ceo where id =? ");
 		
 		try(
 			Connection conn = new ConnectionFactory().getConnection();
@@ -48,7 +48,7 @@ public class CeoSignUpDAO {
 		
 		StringBuilder sql = new StringBuilder(); 
 		
-		sql.append(" insert into ceo (ceo_no, id, password, email, name, phone) ");
+		sql.append(" insert into m_ceo (ceo_no, id, password, email, name, phone) ");
 		sql.append(" values ( SEQ_CEO_CEO_NO.nextval, ?, ?, ?, ?, ?) ");
 		
 		try (
@@ -82,7 +82,7 @@ public class CeoSignUpDAO {
 		
 		StringBuilder sql = new StringBuilder();
 		sql.append("select id, password, type ");
-		sql.append("  from ceo ");
+		sql.append("  from m_ceo ");
 		sql.append(" where id = ? and password = ? ");
 		
 		try(
@@ -170,7 +170,7 @@ public class CeoSignUpDAO {
 		StringBuilder sql = new StringBuilder();
 		sql.append("select c.id, c.password, c.email, c.name, c.phone, c.type" );
 		sql.append("       ,to_char(c.reg_date, 'yyyy-mm-dd') as reg_date, s.basic_addr, s.detail_addr ");
-		sql.append("  from ceo c, store s ");
+		sql.append("  from m_ceo c, m_store s ");
 		sql.append(" where c.id = s.ceo_id ");
 		sql.append("   and c.id = ?");
 		
@@ -227,7 +227,7 @@ public class CeoSignUpDAO {
 		
 		StringBuilder sql = new StringBuilder();
 		sql.append("select id, name, phone, email ");
-		sql.append("  from ceo ");
+		sql.append("  from m_ceo ");
 		sql.append(" where name = ? and phone = ? and email = ? ");
 		
 		try(
@@ -267,7 +267,7 @@ public class CeoSignUpDAO {
 		
 		StringBuilder sql = new StringBuilder();
 		sql.append("select id, name, phone, password ");
-		sql.append("  from ceo ");
+		sql.append("  from m_ceo ");
 		sql.append(" where name = ? and id = ? and phone = ? ");
 		
 		try(
@@ -314,7 +314,7 @@ public class CeoSignUpDAO {
 
 			conn = new ConnectionFactory().getConnection();
 			StringBuilder sql = new StringBuilder();
-			sql.append("update ceo ");
+			sql.append("update m_ceo ");
 			sql.append("   set password = ? ");
 			sql.append(" where id = ? ");
 
@@ -338,7 +338,7 @@ public class CeoSignUpDAO {
 	public void leaveMember(String id) {
 		
 		StringBuilder sql = new StringBuilder();
-		sql.append("delete from ceo ");
+		sql.append("delete from m_ceo ");
 		sql.append(" where id = ? ");
 		
 		try (
