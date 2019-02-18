@@ -34,7 +34,7 @@ public class EventDAO {
 			sql.append("         select 	ROWNUM as rnum, e.*      ");
 			sql.append("         from (                          ");
 			sql.append("                 select *                ");
-			sql.append("                 from event             ");
+			sql.append("                 from m_event             ");
 			sql.append("                 order by notice_no desc ");
 			sql.append("                 ) e                     ");
 			sql.append("          ) e2                           ");
@@ -105,7 +105,7 @@ public class EventDAO {
 		try {
 			conn = new ConnectionFactory().getConnection();
 			StringBuilder sql = new StringBuilder();
-			sql.append("insert into event (notice_no, title, writer, content) ");
+			sql.append("insert into m_event (notice_no, title, writer, content) ");
 			sql.append(" values(seq_event_notice_no.nextval, ?, ?, ?) ");
 			pstmt = conn.prepareStatement(sql.toString());
 			
@@ -135,7 +135,7 @@ public class EventDAO {
 		
 		sql.append("select notice_No, title, writer, content, view_cnt ");
 		sql.append(" , to_char(reg_date, 'yyyy-mm-dd') as reg_date ");
-		sql.append(" from event ");
+		sql.append(" from m_event ");
 		sql.append(" where notice_no =? ");
 		
 		
@@ -175,7 +175,7 @@ public class EventDAO {
 		
 		StringBuilder sql = new StringBuilder(); 
 		
-		sql.append(" update event ");
+		sql.append(" update m_event ");
 		sql.append(" set title =?, content =? ");
 		sql.append(" where notice_no = ? ");
 		
@@ -207,7 +207,7 @@ public class EventDAO {
 		
 		StringBuilder sql = new StringBuilder(); 
 		
-		sql.append(" delete from event where notice_no = ? ");
+		sql.append(" delete from m_event where notice_no = ? ");
 		
 		try(
 			Connection conn = new ConnectionFactory().getConnection();
@@ -232,7 +232,7 @@ public class EventDAO {
 		
 		StringBuilder sql = new StringBuilder(); 
 		sql.append("select no, file_ori_name, file_save_name, file_size ");
-		sql.append(" from event_file_VO "); 
+		sql.append(" from m_event_file_VO "); 
 		sql.append(" where board_no = ? ");
 		
 		
@@ -269,7 +269,7 @@ public class EventDAO {
 	 */
 	public void insertFile(EventFileVO fileVO) {
 		StringBuilder sql = new StringBuilder();
-		sql.append("insert into event_file (no, board_no, file_ori_name, file_save_name, file_size) "); 
+		sql.append("insert into m_event_file (no, board_no, file_ori_name, file_save_name, file_size) "); 
 		sql.append(" values ( seq_t_board_file_no.nextval,?,?,?,?)");
 		
 		try(

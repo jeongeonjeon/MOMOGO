@@ -42,7 +42,7 @@ public class NoticeDAO {
 			sql.append("         select 	ROWNUM as rnum, e.*      ");
 			sql.append("         from (                          ");
 			sql.append("                 select *                ");
-			sql.append("                 from notice             ");
+			sql.append("                 from m_notice             ");
 			sql.append("                 order by notice_no desc ");
 			sql.append("                 ) e                     ");
 			sql.append("          ) e2                           ");
@@ -113,7 +113,7 @@ public class NoticeDAO {
 		try {
 			conn = new ConnectionFactory().getConnection();
 			StringBuilder sql = new StringBuilder();
-			sql.append("insert into notice(notice_no, title, writer, content) ");
+			sql.append("insert into m_notice(notice_no, title, writer, content) ");
 			sql.append(" values(seq_notice_notice_no.nextval, ?, ?, ?) ");
 			pstmt = conn.prepareStatement(sql.toString());
 			
@@ -143,7 +143,7 @@ public class NoticeDAO {
 		
 		sql.append("select notice_No, title, writer, content, view_cnt ");
 		sql.append(" , to_char(reg_date, 'yyyy-mm-dd') as reg_date ");
-		sql.append(" from notice ");
+		sql.append(" from m_notice ");
 		sql.append(" where notice_no =? ");
 		
 		
@@ -183,7 +183,7 @@ public class NoticeDAO {
 		
 		StringBuilder sql = new StringBuilder(); 
 		
-		sql.append(" update notice ");
+		sql.append(" update m_notice ");
 		sql.append(" set title =?, content =? ");
 		sql.append(" where notice_no = ? ");
 		
@@ -215,7 +215,7 @@ public class NoticeDAO {
 		
 		StringBuilder sql = new StringBuilder(); 
 		
-		sql.append(" delete from notice where notice_no = ? ");
+		sql.append(" delete from m_notice where notice_no = ? ");
 		
 		try(
 			Connection conn = new ConnectionFactory().getConnection();

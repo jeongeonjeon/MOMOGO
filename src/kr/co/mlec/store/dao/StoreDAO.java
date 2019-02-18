@@ -17,7 +17,7 @@ public class StoreDAO {
 		
 		StringBuilder sql = new StringBuilder();
 		
-		sql.append("insert into review ");
+		sql.append("insert into m_review ");
 		sql.append("values ( ?,?,?,sysdate,?)");
 		
 		try (
@@ -50,35 +50,35 @@ public class StoreDAO {
 		StringBuilder sql = new StringBuilder(); 
 		
 		sql.append("  select store_no, category, store_name,image  ");
-		sql.append("  from store s  ");
+		sql.append("  from m_store s  ");
 		sql.append("  where category = ?  ");
 		sql.append("   and  (replace(s.delivery_area1,' ','') IN (  ");
 		sql.append("         select replace(a2.address,' ','')       ");
-		sql.append("         from address a1, address a2           ");
+		sql.append("         from m_address a1, m_address a2           ");
 		sql.append("         where replace(a1.address,' ','') = ?  ");
 		sql.append("         and a1.code = a2.code  ");
 		sql.append("         )  ");
 		sql.append("   or replace(s.delivery_area2,' ','') IN (  ");
 		sql.append("         select replace(a2.address,' ','')                    ");
-		sql.append("         from address a1, address a2           ");
+		sql.append("         from m_address a1, m_address a2           ");
 		sql.append("         where replace(a1.address,' ','') = ?  ");
 		sql.append("         and a1.code = a2.code  ");
 		sql.append("         )  ");
 		sql.append("   or replace(s.delivery_area3,' ','') IN (  ");
 		sql.append("         select replace(a2.address,' ','')                    ");
-		sql.append("         from address a1, address a2           ");
+		sql.append("         from m_address a1, m_address a2           ");
 		sql.append("         where replace(a1.address,' ','') = ?  ");
 		sql.append("         and a1.code = a2.code  ");
 		sql.append("         )  ");
 		sql.append("   or replace(s.delivery_area4,' ','') IN (  ");
 		sql.append("         select replace(a2.address,' ','')                    ");
-		sql.append("         from address a1, address a2           ");
+		sql.append("         from m_address a1, m_address a2           ");
 		sql.append("         where replace(a1.address,' ','') = ?  ");
 		sql.append("         and a1.code = a2.code  ");
 		sql.append("         )  ");
 		sql.append("   or replace(s.delivery_area5,' ','') IN (  ");
 		sql.append("         select replace(a2.address,' ','')                    ");
-		sql.append("         from address a1, address a2           ");
+		sql.append("         from m_address a1, m_address a2           ");
 		sql.append("         where replace(a1.address,' ','') = ?  ");
 		sql.append("         and a1.code = a2.code  ");
 		sql.append("         ))   ");
@@ -131,7 +131,7 @@ public class StoreDAO {
 		
 		
 		sql.append("select * ");
-		sql.append("  from store ");
+		sql.append("  from m_store ");
 		sql.append(" where store_no = ? ");
 		
 		try (
@@ -180,7 +180,7 @@ public class StoreDAO {
 
 		//menu 조회
 		sql.append(" select menu, price, m.image, type ,detail ");
-		sql.append("  from store s, menu m  ");
+		sql.append("  from m_store s, m_menu m  ");
 		sql.append(" where s.store_no = m.store_no  ");
 		sql.append("   and s.store_no = ?  ");
 		
@@ -227,7 +227,7 @@ public class StoreDAO {
 		
 		//review 조회
 		sql.append(" select id, content, write_date, star ");
-		sql.append("  from store s, review r ");
+		sql.append("  from m_store s, m_review r ");
 		sql.append(" where s.store_no = r.store_no ");
 		sql.append("   and s.store_no = ? ");
 	
@@ -284,7 +284,7 @@ public class StoreDAO {
 		
 		StringBuilder sql = new StringBuilder();
 		
-		sql.append("insert into myorder(id, orderno, storeno) ");
+		sql.append("insert into m_myorder(id, orderno, storeno) ");
 		sql.append(" values(?,?,?) ");
 		
 		try (
@@ -309,7 +309,7 @@ public class StoreDAO {
 		
 		StringBuilder sql = new StringBuilder();
 		
-		sql.append("insert into ordermenu ");
+		sql.append("insert into m_ordermenu ");
 		sql.append("values ( ?,?)");
 		
 		try (

@@ -25,7 +25,7 @@ public class PersonalDAO {
 		int re = 0; 
 		
 		StringBuilder sql = new StringBuilder(); 
-		sql.append("select * from personal where id =? ");
+		sql.append("select * from m_personal where id =? ");
 		
 		try(
 			Connection conn = new ConnectionFactory().getConnection();
@@ -54,7 +54,7 @@ public class PersonalDAO {
 		
 		StringBuilder sql = new StringBuilder(); 
 		
-		sql.append(" insert into personal (id, password, name, email, phone) ");
+		sql.append(" insert into m_personal (id, password, name, email, phone) ");
 		sql.append(" values ( ?, ?, ?, ?, ?) ");
 		
 		try (
@@ -86,7 +86,7 @@ public class PersonalDAO {
 		
 		StringBuilder sql = new StringBuilder();
 		sql.append("select id, password, type ");
-		sql.append("  from personal ");
+		sql.append("  from m_personal ");
 		sql.append(" where id = ? and password = ? ");
 		
 		try(
@@ -125,7 +125,7 @@ public class PersonalDAO {
 		StringBuilder sql = new StringBuilder();
 		sql.append("select id,password,email,name,phone,type" );
 		sql.append("       ,to_char(reg_date, 'yyyy-mm-dd') as reg_date");
-		sql.append(" from personal ");
+		sql.append(" from m_personal ");
 		sql.append(" where id=?");
 		
 		try(
@@ -165,7 +165,7 @@ public class PersonalDAO {
 		
 		StringBuilder sql = new StringBuilder();
 		sql.append("select id, name, phone, email ");
-		sql.append("  from personal ");
+		sql.append("  from m_personal ");
 		sql.append(" where name = ? and phone = ? and email = ? ");
 		
 		try(
@@ -205,7 +205,7 @@ public class PersonalDAO {
 		
 		StringBuilder sql = new StringBuilder();
 		sql.append("select id, name, phone, password ");
-		sql.append("  from personal ");
+		sql.append("  from m_personal ");
 		sql.append(" where name = ? and id = ? and phone = ? ");
 		
 		try(
@@ -254,7 +254,7 @@ public class PersonalDAO {
 
 			conn = new ConnectionFactory().getConnection();
 			StringBuilder sql = new StringBuilder();
-			sql.append("update personal ");
+			sql.append("update m_personal ");
 			sql.append("   set password = ? ");
 			sql.append(" where id = ? ");
 
@@ -283,7 +283,7 @@ public class PersonalDAO {
 		try{
 			conn = new ConnectionFactory().getConnection();
 			StringBuilder sql = new StringBuilder();
-			sql.append("update personal ");
+			sql.append("update m_personal ");
 			sql.append("    set name = ?, password= ? , phone = ? , email = ? ");
 			sql.append("  where id = ?");
 			
@@ -313,7 +313,7 @@ public class PersonalDAO {
 	public void leaveMember(String id) {
 		
 		StringBuilder sql = new StringBuilder();
-		sql.append("delete from personal ");
+		sql.append("delete from m_personal ");
 		sql.append(" where id = ? ");
 		
 		try (
@@ -338,7 +338,7 @@ public class PersonalDAO {
 		
 		
 		sql.append("select o.orderno, menu, id, storeno, reg_date, status, store_name ");
-		sql.append("  from orderMenu o, myorder m, store s ");                   
+		sql.append("  from m_orderMenu o, m_myorder m, m_store s ");                   
 		sql.append(" where m.storeno = s.store_no ");                   
 		sql.append("   and o.orderno = m.orderno ");                   
 		sql.append("   and id = ? ");                                
