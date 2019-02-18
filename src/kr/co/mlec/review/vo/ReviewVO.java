@@ -45,7 +45,4 @@ public class ReviewVO {
 	public String toString() {
 		return "ReviewVO [id=" + id + ", content=" + content + ", writeDate=" + writeDate + ", star=" + star + "]";
 	}
-	
-	
-
 }
