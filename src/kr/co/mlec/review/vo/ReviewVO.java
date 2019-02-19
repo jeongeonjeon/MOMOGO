@@ -52,15 +52,10 @@ public class ReviewVO {
 		this.star = star;
 	}
 
-
 	@Override
 	public String toString() {
 		return "ReviewVO [reviewNo=" + reviewNo + ", id=" + id + ", content=" + content + ", writeDate=" + writeDate
 				+ ", star=" + star + "]";
 	}
-	
-	
-	
-	
 
 }
