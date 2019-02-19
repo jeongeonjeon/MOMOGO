@@ -8,19 +8,17 @@
 <script>
 $(document).ready(function() {
 	   
-	   $('#comleteBtn_profile').click(function() {
-		  var id = $('#id').val();
+	   $('.basic_btn').click(function() {
 	      var name = $('#name').val();
 	      var password = $("#password").val();
 	      var phone = $("#phone").val();
 	      var email = $("#email").val();
-	      
+	     
 	      $.ajax({
-	         url : "<%= request.getContextPath() %>/mypage/personalMypageUpdate.do",
+	         url : "<%= request.getContextPath() %>/mypage/personalMypage.do",
 	         type : "post",
 	         dataType:"json",
 	         data : {
-        	 	"id": id,
         	 	"name" : name,
 	            "password" : password,
 	            "phone" : phone,
@@ -210,7 +208,7 @@ $(document).ready(function() {
 							<img src="/MOMOGO/img/default.png" alt="">
 						</div>
 						<div class="info_wrap">
-							<form>
+							<form method="post" action="#">
 								<input type="hidden" name="id" value="${ personal.id }">
 								<div class="info">
 									<p class="tit">아이디</p>
@@ -227,7 +225,7 @@ $(document).ready(function() {
 								</div>
 								<div class="btn_wrap">
 									<button type="reset" class="basic_btn cancel_btn">취소</button>
-									<button id="completeBtn_profile" type="button" class="basic_btn complete_btn">완료</button>
+									<button id="completeBtn_profile" type="submit" class="basic_btn complete_btn">완료</button>
 								</div>
 							</form>
 						</div>
@@ -256,7 +254,7 @@ $(document).ready(function() {
 					</div>
 					<div class="item_content modify_content">
 						<div class="info_wrap">
-							<form>
+							<form method="post" action="#">
 								<input type="hidden" name="id" value="${ personal.id }">
 								<div class="info">
 									<p class="tit">전화번호</p>

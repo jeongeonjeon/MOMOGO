@@ -337,7 +337,7 @@ public class PersonalDAO {
 		StringBuilder sql = new StringBuilder(); 
 		
 		
-		sql.append("select o.orderno, menu, id, storeno, reg_date, status, store_name ");
+		sql.append("select o.orderno, menu, id, m.storeno, store_name ");
 		sql.append("  from m_orderMenu o, m_myorder m, m_store s ");                   
 		sql.append(" where m.storeno = s.store_no ");                   
 		sql.append("   and o.orderno = m.orderno ");                   
@@ -360,16 +360,20 @@ public class PersonalDAO {
 				String menu = rs.getString("menu");
 				String userid = rs.getString("id");
 				int storeNo = rs.getInt("storeno");
+				/*
 				String regDate = rs.getString("reg_date");
 				String status = rs.getString("status");
+				*/
 				String storeName = rs.getString("store_name");
 				
 				order.setOrderNo(orderNo);
 				order.setMenu(menu);
 				order.setId(userid);
 				order.setStoreNo(storeNo);
+				/*
 				order.setRegDate(regDate);
 				order.setStatus(status);
+				*/
 				order.setStoreName(storeName);
 				
 				list.add(order);
