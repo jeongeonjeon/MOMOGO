@@ -335,6 +335,7 @@
 													<p class="txt">신용카드 , 현금</p>
 												</div>
 											</div>
+
 										</div>
 										<div class="store_info">
 											<div class="info_header license">
@@ -404,6 +405,59 @@
 					</form>
 				</c:forEach>
 			</div>
+			<form method="post" action="#">
+				<aside class="order_wrap">
+					<div class="order_header">
+						<p>주문표</p>
+						<button class="clear"></button>
+					</div>
+					<div class="order_contents cart_empty">
+						<p>주문표에 담긴 메뉴가 없습니다</p>
+					</div>
+					<div class="order_contents cart">
+						<div class="content">
+							<p class="food_name">치킨</p>
+							<div class="price_wrap">
+								<button class="delete"></button>
+								<p class="price">3000원</p>
+								<div class="amount_wrap">
+									<button class="box">-</button>
+									<p class="num">1</p>
+									<button class="box">+</button>
+								</div>
+							</div>
+						</div>
+						<div class="content">
+							<p class="food_name">치킨</p>
+							<div class="price_wrap">
+								<button class="delete"></button>
+								<p class="price">3000원</p>
+								<div class="amount_wrap">
+									<button class="box">-</button>
+									<p class="num">1</p>
+									<button class="box">+</button>
+								</div>
+							</div>
+						</div>
+						<div class="content">
+							<p class="food_name">치킨</p>
+							<div class="price_wrap">
+								<button class="delete"></button>
+								<p class="price">3000원</p>
+								<div class="amount_wrap">
+									<button class="box">-</button>
+									<p class="num">1</p>
+									<button class="box">+</button>
+								</div>
+							</div>
+						</div>
+						<div class="sum_box">
+							<p>합계 : 9,000원</p>
+						</div>
+					</div>
+					<input class="basic_btn order_btn" type="submit" value="주문하기">
+				</aside>
+			</form>
 		</div>
 	</div>
 	<footer>

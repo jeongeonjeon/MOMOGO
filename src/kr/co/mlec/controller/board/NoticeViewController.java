@@ -17,6 +17,7 @@ public class NoticeViewController implements Controller {
 		NoticeDAO dao = new NoticeDAO(); 
 		
 		NoticeVO notice = dao.selectByNo(no);
+		dao.updateViewCnt(no);
 		
 		request.setAttribute("notice", notice);
 		

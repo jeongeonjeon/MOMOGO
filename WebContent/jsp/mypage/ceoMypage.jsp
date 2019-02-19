@@ -306,5 +306,8 @@
 			</section>
 		</div>
 	</div>
+<footer>
+	<%@include file="/jsp/include/footer.jsp"%>
+</footer>
 </body>
 </html>
