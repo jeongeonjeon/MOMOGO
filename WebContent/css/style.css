@@ -197,20 +197,20 @@
    box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.8), 0px 0px 8px rgba(0, 0, 0, 0.2);
 }
 
-insert_select {
+.insert_select {
 	padding-left: 7px;
     border: none;
     outline: none;
     border-radius: 4px;
-    box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.8);
+    box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.8);
     transition: .18s ease-out;
 }
 
-insert_select:hover {
+.insert_select:hover {
    box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-insert_select:focus {
+.insert_select:focus {
    box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.8), 0px 0px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -225,6 +225,7 @@ insert_select:focus {
    color: #fff;
    background-color: #004000;
    box-sizing: border-box;
+   cursor: pointer;
 }
 
 .basic_btn:hover {
@@ -233,6 +234,15 @@ insert_select:focus {
    color: #004000;
 }
 
+.paging_wrap {
+	text-align: center;
+	margin: 15px 0;
+}
+
+.paging_wrap span {
+	margin: 0 3px;
+	font-size: 17px;
+}
 /****************bbs****************/
 
 .noticeList_page.page_shadow{
@@ -407,6 +417,13 @@ insert_select:focus {
     box-sizing: border-box;
 }
 
+.bbs_btn_wrap .registration button {
+    background-color: #2b3735;
+    color: #fff;
+    line-height: 26px;
+    font-size: 15px;
+}
+
 .bbs_btn_wrap .registration {
     background-color: #2b3735;
     color: #fff;
@@ -420,6 +437,7 @@ insert_select:focus {
 .bbs_btn_wrap .delete {
     border: 1px solid #2b3735;
 }
+
 
 .bbs_btn_wrap .basic_btn {
 	height: 30px;
@@ -1034,9 +1052,9 @@ footer .copy {
 
 .myPage_page .item_wrap .item {
    width: 450px;
-   height: 230px;
+   height: 265.6px;
    margin: 16px 0 0;
-   padding: 32px 29px 0;
+   padding: 29px 29px 0;
    background-color: #fff;
    border: 1px solid #dadada;
    border-radius: 2px;
@@ -1079,7 +1097,7 @@ footer .copy {
 .myPage_page .item_wrap .item .contxt {
    visibility: hidden;
    opacity: 0;
-   margin-top: 12px;
+   margin-top: 5px;
    transition: all 0.4s;
    font-size: 12px;
    color: #9b9b9b;
@@ -1097,7 +1115,7 @@ footer .copy {
 
 .myPage_page .item_wrap .item .item_content {
    position: static;
-   margin-top: 15px;
+   margin-top: 10px;
    display: none;
 }
 
@@ -1170,6 +1188,33 @@ footer .copy {
    outline: none;
 }
 
+.myPage_page .item_wrap .item .menu_btn {
+	
+	left:unset;
+	right:29px;
+   position: absolute;
+   bottom: 15px;
+   width: 78px;
+   height: 33px;
+   padding: 0;
+   line-height: 33px;
+   font-size: 12px;
+   outline: none;
+}
+
+.myPage_page .item_wrap .item .food_input_container .modify_btn {
+   position: relative;
+   bottom: 0;
+   width:65px;
+   line-height:29px;
+   left: calc( 50% - 32px);
+   border-radius: .3em;
+   background-color: #fff;
+   border: 2px solid #004000;
+   color: #004000;
+   font-size: 13px;
+}
+
 .myPage_page .item_wrap .m2_item .info_wrap {
    margin-left: 0;
 }
@@ -1204,7 +1249,7 @@ footer .copy {
 }
 
 .myPage_page .item_wrap .order_item {
-	height: 790px;
+	height: 890px;
 	overflow-y : auto;
 }
 
@@ -1278,22 +1323,17 @@ footer .copy {
 }
 
 
-.myPage_page .item_wrap .store_item {
-	height: 790px;
-    width: 508px;
-    padding: 32px 0 0 0;
-    margin: 16px 0 0 0;
-}
-
 .myPage_page .item_wrap .store_item .item_inner {
 	width: 450px;
 	margin: 0 auto;
 }
 
+.myPage_page .item_wrap .store_item .input_container {
+	margin-top:10px;
+}
+
 .myPage_page .item_wrap .store_item .input_content {
 	position: relative;
-	padding: 30px 0;
-	border-bottom: 1px solid #ddd;
 }
 
 .myPage_page .item_wrap .store_item .input_content:after {
@@ -1303,8 +1343,10 @@ footer .copy {
 }
 
 .myPage_page .item_wrap .store_item .input_content .logo {
-    width: 110px;
-    height: 110px;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top: -5px;
     border: 1px solid #ddd;
     float: left;
     background: url(../img/empty_store_logo.png) no-repeat center center;
@@ -1479,6 +1521,47 @@ footer .copy {
 	border: none;
 }
 
+.myPage_page .item_wrap .store_item .content {
+	padding: 5px 10px;
+}
+
+.myPage_page .item_wrap .store_item .content:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.myPage_page .item_wrap .store_item .content .img {
+	width: 85px;
+	height: 85px;
+	float: left;
+	margin-top: 5px;
+}
+
+.myPage_page .item_wrap .store_item .content .menu_info {
+	width: calc( 100% - 93px );
+	float: left;
+	margin-left: 8px;
+}
+
+.myPage_page .item_wrap .store_item .content .menu_info .menu_name {
+	font-size: 16px;
+	color: #333;
+	font-weight: bold;
+}
+
+.myPage_page .item_wrap .store_item .content .menu_info .menu_name span {
+	display: inline-block;
+    float: right;
+}
+
+.myPage_page .item_wrap .store_item .content .menu_info .menu_detail {
+    margin: 5px 0 0 10px;
+    word-break: keep-all;
+    line-height: 24px;
+}
+
+
 .myPage_page .item_wrap .store_item .food_info .food_add_btn {
 	display: block;
 	width: 40px;
@@ -1495,7 +1578,7 @@ footer .copy {
     padding: 10px 0;
     font-size: 17px;
     letter-spacing: 2px;
-    margin: 15px 0 0;
+    margin: 15px 0;
     cursor: pointer;
 }
 
@@ -1516,6 +1599,10 @@ footer .copy {
 
 
 /**********************noticeView_page*********************/
+
+.noticeList_page {
+	min-height: 518px;
+}
 
 .noticeList_page .page_inner {
 	width: 1050px;
@@ -2185,7 +2272,7 @@ footer .copy {
 
 .login_page .login-wrap .tit-area .tit {
 	display: inline-block;
-	padding-bottom: 22px;
+	padding-bottom: 15px;
 	border-bottom: 1px solid #333;
     font-size: 25px;
     font-weight: bold;
@@ -2217,6 +2304,16 @@ footer .copy {
 
 .login_page .login-wrap .login-link .btn-find {
 	margin-bottom: 8px;
+}
+
+.login_page .kakao_txt {
+	margin: 15px 0;
+	color: #004000;
+}
+
+.login_page #kakao-login-btn {
+	display: block;
+	margin: 8px 0;
 }
 
 .login_page .login-wrap .basic_btn {
@@ -2298,12 +2395,14 @@ footer .copy {
    position:relative;
    top: -5px;
 }
- #signupForm select {
-    background: url(/MOMOGO/img/sprite-icon.png) no-repeat;
-    background-position: 157px -65px;
-    background-size: 555px;
+
+#signupForm select {
+    background: url(/MOMOGO/img/down_arrow.png) no-repeat;
+    background-position: 280px center;
+    background-size: 22px;
 }
- #signupForm .inputValue2 {
+
+#signupForm .inputValue2 {
 	width: 243px;
 }
 #signupForm .areaBtn {
@@ -2311,7 +2410,11 @@ footer .copy {
     height: 34px;
 }
 
-.joinBtn{
+#signupForm .basic_btn {
+	margin-top: 30px;
+}
+
+.joinBtn {
    width: 200px;
    margin: 0 auto;
    text-align: center;
@@ -2338,10 +2441,10 @@ footer .copy {
 
 .personalSignup_page.page_shadow {
 	padding: 115px 0 53px;
+	background: #f5f6f7;
 }
 
 .personalSignup_page #signupForm {
-   width: 315px;
    margin: 40px auto 0;
 }
 
@@ -2369,7 +2472,7 @@ footer .copy {
 }
 
 #choice h1{
-	margin: 70px 0 50px 0;
+	margin: 0 0 50px 0;
 }
 
 #choice .block {

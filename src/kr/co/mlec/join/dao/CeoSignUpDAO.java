@@ -81,7 +81,7 @@ public class CeoSignUpDAO {
 		CeoSignUpVO userVO = null;
 		
 		StringBuilder sql = new StringBuilder();
-		sql.append("select id, password, type ");
+		sql.append("select ceo_no, id, password, type, email, name, phone, reg_date ");
 		sql.append("  from m_ceo ");
 		sql.append(" where id = ? and password = ? ");
 		
@@ -97,11 +97,16 @@ public class CeoSignUpDAO {
 			
 			if(rs.next()) {
 				
+				int ceoNo 		= rs.getInt("ceo_no");
 				String id 		= rs.getString("id");
 				String password = rs.getString("password");
 				String type 	= rs.getString("type");
+				String regDate 	= rs.getString("reg_date");
+				String email 	= rs.getString("email");
+				String name 	= rs.getString("name");
+				String phone 	= rs.getString("phone");
 				
-				userVO = new CeoSignUpVO(id, password, type);
+				userVO = new CeoSignUpVO(ceoNo, id, password, email, name, phone, regDate, type);
 			}
 			
 		} catch(Exception e) {
