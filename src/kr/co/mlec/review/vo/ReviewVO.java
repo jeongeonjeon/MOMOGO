@@ -102,15 +102,4 @@ public class ReviewVO {
 				+ ", writeDate=" + writeDate + ", star=" + star + ", depth=" + depth + ", parentNo=" + parentNo + "]";
 	}
 
-
-
-
-
-
-
-
-	
-	
-
-
 }

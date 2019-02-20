@@ -1046,6 +1046,33 @@ footer .copy {
 	float: left;
 }
 
+.myPage_page .item_wrap .left:after {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+.myPage_page .item .category_select {
+    width: 100%;
+    height: 32px;
+    border: 1px solid #d5d5d5;
+    padding: 7px 5px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    background: url(/MOMOGO/img/down_arrow.png) no-repeat;
+    background-position: 415px center;
+    background-size: 22px;
+}
+
+.myPage_page .item_wrap .left .add_category_btn {
+	float:right;
+    background-color: #41d5aa;
+    padding: 5px 15px;
+    margin-top: 16px;
+    color: #fff;
+    border-radius: 3px;
+}
+
 .myPage_page .item_wrap .right {
 	float: right;
 }
@@ -1058,6 +1085,11 @@ footer .copy {
    background-color: #fff;
    border: 1px solid #dadada;
    border-radius: 2px;
+}
+
+.myPage_page .item_wrap .menu_add_item {
+	height: 224px;
+	margin: 58px 0 0;
 }
 
 .myPage_page .item_wrap .item .item_header {
@@ -1144,6 +1176,7 @@ footer .copy {
 
 .myPage_page .item_wrap .item .info_wrap .info {
    margin-bottom: 5px;
+   height: 23px;
 }
 
 .myPage_page .item_wrap .item .info_wrap .info:after {
@@ -1186,20 +1219,15 @@ footer .copy {
    line-height: 33px;
    font-size: 12px;
    outline: none;
+   background-color: #41d5aa;
+   color: #fff;
+   border: none;
 }
 
-.myPage_page .item_wrap .item .menu_btn {
-	
-	left:unset;
-	right:29px;
-   position: absolute;
-   bottom: 15px;
-   width: 78px;
-   height: 33px;
-   padding: 0;
-   line-height: 33px;
-   font-size: 12px;
-   outline: none;
+.myPage_page .item_wrap .item .modify_btn:hover {
+    background-color: #fff;
+    color: #41d5aa;
+    border: 2px solid #41d5aa;
 }
 
 .myPage_page .item_wrap .item .food_input_container .modify_btn {
@@ -1268,6 +1296,7 @@ footer .copy {
 	border-bottom: 1px solid #dadada;
 	font-size: 16px;
 	padding: 5px 10px;
+	height: 29px;
 }
 
 .myPage_page .item_wrap .order_item .content_header:after {
@@ -1281,10 +1310,67 @@ footer .copy {
 	font-weight: bold;
 }
 
+.myPage_page .item_wrap .order_item .content_header .status_view {
+	display: none;
+    float: right;	
+    height: 29px;
+}
+
+.myPage_page .item_wrap .order_item .content_header .status_view.on {
+	display: block;
+}
+
+.myPage_page .item_wrap .order_item .content_header .change_btn {
+    padding: 5px 14px;
+    margin-right: -10px;
+    background-color: #41d5aa;
+    color: #fff;
+    border-radius: 3px;
+}
+
 .myPage_page .item_wrap .order_item .content_header .status {
-	float: right;
 	font-weight: bold;
-	color: #333;
+    color: #333;
+    margin: 0px 10px 0 0;
+    float: right;
+}
+
+.myPage_page .item_wrap .order_item .content_header .status_view .status {
+    
+    margin: 3px 10px 0 0;
+    float: left;
+}
+
+.myPage_page .item_wrap .order_item .content_header .status_change {
+	float: right;
+	display: none;
+	height: 29px;
+}
+
+.myPage_page .item_wrap .order_item .content_header .status_change.on {
+	display: block;
+}
+
+.myPage_page .item_wrap .order_item .content_header .status_change select {
+    padding: 4px 30px 4px 7px;
+    border-radius: 3px;
+    background: url(../img/down_arrow.png) no-repeat 164px center;
+    background-size: 18px;
+    outline: none;
+}
+.myPage_page .item_wrap .order_item .content_header .new {
+	background: url(../img/new-banner-png.png) no-repeat center center;
+    width: 62px;
+    height: 63px;
+    background-size: 100%;
+    position: absolute;
+    left: 0;
+    z-index: 2;
+}
+
+.myPage_page .item_wrap .order_item .new .date {
+	margin-top: 5px;
+	text-indent: 65px;
 }
 
 .myPage_page .item_wrap .order_item .content {
@@ -1448,33 +1534,37 @@ footer .copy {
     transform: rotate(180deg);
 }
 
-.myPage_page .item_wrap .store_item .food_info .food {
-    width: 110px;
-    height: 110px;
+.myPage_page .menu_add_wrap .food_info .food {
+    width: 108px;
+    height: 108px;
     border: 1px solid #ddd;
     float: left;
-    background: url(../img/empty_store_logo.png) no-repeat center center;
-    background-size: 95px;
+    cursor: pointer;
+    overflow: hidden;
 }
 
-.myPage_page .item_wrap .store_item .food_info .foodInput_wrap {
-    width: calc( 100% - 120px);
+.myPage_page .menu_add_wrap .food_info .food .food_pic {
+	display: none;
+}
+
+.myPage_page .menu_add_wrap .food_info .foodInput_wrap {
+    width: calc( 100% - 118px);
     float: left;
     margin-left: 8px;
 }
 
-.myPage_page .item_wrap .store_item .food_input_wrap:after {
+.myPage_page .menu_add_wrap .food_input_wrap:after {
 	content: "";
 	display: block;
 	clear: both;
 }
 
-.myPage_page .item_wrap .store_item .foodInput_wrap .filebox {
+.myPage_page .menu_add_wrap .foodInput_wrap .filebox {
 	width: 100%;
 	margin-bottom: 7px;
 }
 
-.myPage_page .item_wrap .store_item .foodInput_wrap .filebox input[type="file"] {
+.myPage_page .menu_add_wrap .foodInput_wrap .filebox input[type="file"] {
 	position: absolute;
 	width: 1px;
 	height: 1px;
@@ -1485,7 +1575,7 @@ footer .copy {
 	border: 0;
 }
 
-.myPage_page .item_wrap .store_item .foodInput_wrap .filebox label {
+.myPage_page .menu_add_wrap .foodInput_wrap .filebox label {
 	display: inline-block;
 	padding: .5em .75em;
 	color: #fff;
@@ -1499,7 +1589,7 @@ footer .copy {
 	border-radius: .25em;
 }
 
-.myPage_page .item_wrap .store_item .foodInput_wrap .filebox .upload-name {
+.myPage_page .menu_add_wrap .foodInput_wrap .filebox .upload-name {
 	display: inline-block;
 	width: 260px;
 	padding: .5em .75em; /* label의 패딩값과 일치 */
@@ -1515,10 +1605,12 @@ footer .copy {
 	appearance: none;
 }
 
-.myPage_page .item_wrap .store_item .foodInput_wrap .input_box input {
+.myPage_page .menu_add_wrap .foodInput_wrap .input_box input {
 	width: 100%;
-	height: 100%;
-	border: none;
+    height: 100%;
+    border: 1px solid #d5d5d5;
+    padding: 7px 5px;
+    margin-bottom: 7px;
 }
 
 .myPage_page .item_wrap .store_item .content {
@@ -1561,27 +1653,170 @@ footer .copy {
     line-height: 24px;
 }
 
-
-.myPage_page .item_wrap .store_item .food_info .food_add_btn {
-	display: block;
-	width: 40px;
+.myPage_page .menu_add_wrap .food_btn {
     height: 40px;
-    margin: 15px auto 0;
-    background: url(../img/close_btn.png) no-repeat center center;
+    font-size: 16px;
+    padding: 0;
+    background-color: #41d5aa;
+    color: #fff;
+    border: none;
+}
+
+.myPage_page .menu_add_wrap .food_btn:hover {
+   background-color: #fff;
+   color: #41d5aa;
+   border: 2px solid #41d5aa;
+}
+
+.myPage_page .menu_category_wrap {
+	border: 1px solid #dadada;
+	margin-top: 16px;
+}
+
+.myPage_page .menu_category .category {
+	position: relative;
+	width: 100%;
+	cursor: pointer;
+	border-bottom: 1px solid #ddd;
+}
+
+.myPage_page .menu_category .category .category_default {
+	display: none;
+}
+
+.myPage_page .menu_category .category .category_default.on {
+	display: block;
+}
+
+.myPage_page .menu_category .category .category_modify {
+	height: 48px;
+    background-color: #e6e6e6;
+    display: none;
+}
+
+.myPage_page .menu_category .category .category_modify.on {
+	display: block;
+}
+
+.myPage_page .menu_category .category .category_modify input {
+    border: none;
+    width: calc( 100% - 175px);
+    padding: 10px;
+    margin: 5px 0 0 47px;
+}
+
+.myPage_page .menu_category .category .name_confirm {
+    float: right;
+    background-color: #41d5aa;
+    padding: 5px 15px;
+    margin-top: 11px;
+    color: #fff;
+    border-radius: 3px;
+    margin-right: 50px;
+}
+
+.myPage_page .menu_category .category .menu_tit {
+	width: 100%;
+	height: 48px;
+	line-height: 48px;
+	background-color: #e6e6e6;
+	font-size: 17px;
+	text-indent: 45px;
+}
+
+
+.myPage_page .menu_category .category .name_change {
+    position: absolute;
+    right: 42px;
+    z-index: 3;
+    background-color: #41d5aa;
+    padding: 5px 15px;
+    color: #fff;
+    top: 11px;
+    border-radius: 3px;
+}
+
+.myPage_page .menu_category .category .arrow_bg {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 18px;
+    right: 14px;
+    background: url(../img/sprite-icon.png) no-repeat;
+    background-position: -408px -123px;
+    background-size: 879px;
+    transition: all 0.4s;
+}
+
+.myPage_page .menu_category .category .arrow_bg.on {
+	transform:rotate(180deg);
+}
+
+.myPage_page .category .depth_wrap1 {
+	height: 0;
+	display: none;
+	transition: all 0.4s;
+}
+
+.myPage_page .category .depth_wrap {
+	background-color: #fff;
+}
+
+.myPage_page .category .depth_wrap.on {
+	height: auto;
+	display: block;
+}
+
+.myPage_page .category .depth_wrap li {
+    padding: 15px 10px 15px 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.myPage_page .category .popular {
+	background: url(../img/ico_favmenu.png) no-repeat 12px center #e6e6e6;
+    background-size: 22px;
+    text-indent: 40px;
+}
+
+.myPage_page .category .txt_wrap {
+	display: inline-block;
+	width: calc( 100% - 122px );
+	vertical-align: middle;
+	word-break: keep-all;
+}
+
+.myPage_page .category .food_name {
+	font-size: 15px;
+	font-weight: bold;
+	color: #333;
+	margin-bottom: 3px;
+}
+
+.myPage_page .category .txt_wrap .detail {
+	color: #888;
+}
+
+.myPage_page .category .txt_wrap .price {
+	margin-top: 5px;
+}
+
+.myPage_page .category .depth_wrap .img {
+    display: inline-block;
+    width: 112px;
+    height: 80px;
+    background: url(../img/item01.jpg) no-repeat center center;
     background-size: cover;
-    outline: none;
-    transform: rotate(45deg);
+    vertical-align: middle;
+    font-size: 23px;
+    line-height: 21px;
+    text-indent: 2px;
+    color: #fff;
+    text-shadow: 1px 1px 1px #7e7d7d;
 }
 
-.myPage_page .input_container .food_btn {
-    height: 50px;
-    padding: 10px 0;
-    font-size: 17px;
-    letter-spacing: 2px;
-    margin: 15px 0;
-    cursor: pointer;
+.myPage_page .category .popular1 .img {
+	color: #41d5aa;
 }
-
 
 /**********************noticeForm_page*********************/
 

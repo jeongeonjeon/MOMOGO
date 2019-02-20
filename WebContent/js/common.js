@@ -160,7 +160,7 @@ $(document).ready(function(){
 	$(".tab_content:first").show();
 	
 */	
-	$(".detailStore_page .tabMenu_wrap .category .menu_tit").click(function(){
+	$(".menu_category .category .menu_tit").click(function(){
 		if($(this).siblings(".depth_wrap").hasClass("on")){
 			console.log(this);
 			$(this).siblings(".depth_wrap").removeClass("on");
@@ -205,6 +205,54 @@ $(document).ready(function(){
 	})
 })
 
+/*주문상태 변경*/
+
+$(document).ready(function(){
+
+	$(".myPage_page .change_btn").click(function(){
+		if(!$(this).parent().siblings().hasClass("on")){
+			$(this).parent().removeClass("on");
+			$(this).parent().siblings().addClass("on");
+		}
+	})
+})
+
+/*음식 카테고리명 변경*/
+
+$(document).ready(function(){
+
+	$(".myPage_page .name_change").click(function(){
+		if($(this).parent().hasClass("on")){
+			$(this).parent().removeClass("on");
+			$(this).parent().siblings(".category_modify").addClass("on");
+		}
+	})
+	
+	$(".myPage_page .name_confirm").click(function(){
+		if($(this).parent().hasClass("on")){
+			$(this).parent().removeClass("on");
+			$(this).parent().siblings(".category_default").addClass("on");
+		}
+	})
+})
+
+/*음식사진 첨부*/
+$('.menu_add_wrap .food').bind("click" , function () {
+        $('.menu_add_wrap #foodPicAdd').click();
+ });
+ 
+  function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.menu_add_wrap #foodPic')
+            .attr('src', e.target.result);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
 
 
 
