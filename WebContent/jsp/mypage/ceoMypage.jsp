@@ -5,6 +5,60 @@
 <html>
 <head>
 <jsp:include page="/jsp/include/head.jsp" />
+<script>
+	$(document).ready(function(){
+		
+	})
+	
+	function updateCeoProfile(){
+		
+		var re = /^[a-zA-Z0-9]{4,12}$/;
+		var re2 =/^.*(?=.{8,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
+		var re3 = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+		var re5 = /^\d{2,3}\d{3,4}\d{4}$/;
+		
+		if($('input[name=name]').val()==""){
+			alert("이름을 입력해주세요");
+			$('input[name=name]').focus();
+			return false;
+		}
+		
+		if($('input[name=password]').val()==""){
+			alert('비밀번호를 확인해주세요');
+			$('input[name=password]').focus();
+			return false;
+		}else if(!check(re2,$('input[name=password]').val(),"비밀번호는 공백없이 4-20자")){
+			$('input[name=password]').focus();
+			return false;
+		}
+		
+		if($('input[name=phone]').val()==""){
+			alert("전화번호를 입력하세요!");
+			$('input[name=phone]').focus(); 
+			return false;
+		}else if(!check(re5,$('input[name=phone]').val(),"올바른 전화번호가 아닙니다")){
+			return false;
+		}
+		
+		if ($('input[name=email]').val() == "") {
+			alert("이메일을 입력하세요!");
+			$('input[name=email]').focus(); 
+			return false;
+		}else if(!check(re3,$('input[name=email]').val(),"올바른 이메일형식이 아닙니다")){
+			$('input[name=email]').focus(); 
+			return false;
+		}
+		return true;
+	}
+	
+	function check(re, what, msg){
+		if(re.test(what)){
+			return true; 
+		}
+		alert(msg);
+		what ="";
+	}
+</script>
 </head>
 <body>
 	<div class="popup_cover"></div>
@@ -172,7 +226,7 @@
 								<img src="/MOMOGO/img/default.png" alt="">
 							</div>
 							<div class="info_wrap">
-								<form method="post" action="updateProfile.jsp">
+								<form method="post" action="<%= request.getContextPath() %>/update/ceoProfileUpdate.do" onsubmit="return updateCeoProfile()">
 									<input type="hidden" name="id" value="${ ceoVO.id }">
 									<div class="info">
 										<p class="tit">아이디</p>
@@ -282,7 +336,7 @@
 						</div>
 						<div class="item_content modify_content">
 							<div class="info_wrap">
-								<form method="post" action="updateArea.jsp">
+								<form method="post" action="">
 									<input type="hidden" name="id" value="${ ceoVO.id }">
 									<div class="info">
 										<p class="tit">기본주소</p>
