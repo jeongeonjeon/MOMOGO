@@ -9,12 +9,34 @@
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1fe41c09db40fafd2cb9304b55b471f7&libraries=services"></script>
 <script src="/MOMOGO/js/map.js"></script>
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script src="/MOMOGO/js/mainMap.js"></script>
+<!-- <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script> -->
+<!-- <script src="/MOMOGO/js/mainMap.js"></script> -->
 <script src="/MOMOGO/js/storeClick.js"></script>
 </head>
 <body>
 	<div id="wrapper">
+	<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <div class="map_wrap">
+				    <div id="map" style="width:100%;min-height:500px;height:100%;position:relative;overflow:hidden;"></div>
+				</div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+		        <button type="button" class="btn btn-primary"  data-dismiss="modal">저장</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 		<header class="main_header">
 			<%-- <jsp:include page="/include/header.jsp" > --%>
 			<%@include file="/jsp/include/header.jsp"%>
@@ -78,9 +100,8 @@
 					<div class="input_wrap">
 						<div class="input_box">
 							<input type="text" class="insert_input search_addr" name="address"
-								placeholder="버튼을 눌러 주소를 검색해주세요" id="address" readonly >
-							<button type="button" class="search_btn"
-								onclick="daumPostcode()">주소검색</button>
+								placeholder="검색버튼을 눌러 위치를 조회해주세요" id="address" readonly >
+							<button type="button" class="search_btn btn-primary" data-toggle="modal" data-target="#exampleModal">검색</button>
 						</div>
 					</div>
 					</div>
