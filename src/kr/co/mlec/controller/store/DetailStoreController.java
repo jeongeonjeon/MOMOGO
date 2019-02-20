@@ -7,6 +7,7 @@ import java.util.List;
 
 import kr.co.mlec.controller.Controller;
 import kr.co.mlec.menu.vo.MenuVO;
+import kr.co.mlec.reply.vo.ReplyVO;
 import kr.co.mlec.review.vo.ReviewVO;
 import kr.co.mlec.store.dao.StoreDAO;
 import kr.co.mlec.store.vo.StoreVO;
@@ -24,13 +25,31 @@ public class DetailStoreController implements Controller {
 		type += request.getParameter("type");
 		
 		System.out.println(type);
+		
 		if(type.equals("review")) {
-			String replyText = request.getParameter("replyText");
+			String storeNo = request.getParameter("storeNo");
 			String star = request.getParameter("star");
 			String id = request.getParameter("id");
-			String storeNum = request.getParameter("storeNum");
+			String replyText = request.getParameter("replyText");
+			String depth = request.getParameter("depth"); 
+			String parentNo = request.getParameter("parentNo");
 			
-			dao.insertReview(Integer.parseInt(storeNum),id,replyText,Integer.parseInt(star));
+			
+			dao.insertReview(Integer.parseInt(storeNo),Integer.parseInt(star),id,replyText,Integer.parseInt(depth), Integer.parseInt(parentNo));
+			
+			
+			return "/jsp/store/ajax.json";
+		}
+		
+		if(type.equals("review2")) {
+			String storeNo = request.getParameter("storeNo");
+			String id = request.getParameter("id");
+			String replyText = request.getParameter("replyText");
+			String depth = request.getParameter("depth"); 
+			String parentNo = request.getParameter("parentNo");
+			
+			
+			dao.insertReview(Integer.parseInt(storeNo),id,replyText,Integer.parseInt(depth), Integer.parseInt(parentNo));
 			
 			return "/jsp/store/ajax.json";
 		}
@@ -54,7 +73,8 @@ public class DetailStoreController implements Controller {
 		request.setAttribute("storeList", storeList);
 		request.setAttribute("menuList", menuList);
 		request.setAttribute("reviewList", reviewList);
-		
+
 		return "/jsp/store/detailStore.jsp";
 	}
+	
 }
