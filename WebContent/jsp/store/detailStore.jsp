@@ -335,7 +335,6 @@
 													<p class="txt">신용카드 , 현금</p>
 												</div>
 											</div>
-
 										</div>
 										<div class="store_info">
 											<div class="info_header license">
