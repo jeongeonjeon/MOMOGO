@@ -5,6 +5,60 @@
 <html>
 <head>
 <jsp:include page="/jsp/include/head.jsp" />
+<script>
+	$(document).ready(function(){
+		
+	})
+	
+	function updateCeoProfile(){
+		
+		var re = /^[a-zA-Z0-9]{4,12}$/;
+		var re2 =/^.*(?=.{8,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
+		var re3 = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+		var re5 = /^\d{2,3}\d{3,4}\d{4}$/;
+		
+		if($('input[name=name]').val()==""){
+			alert("이름을 입력해주세요");
+			$('input[name=name]').focus();
+			return false;
+		}
+		
+		if($('input[name=password]').val()==""){
+			alert('비밀번호를 확인해주세요');
+			$('input[name=password]').focus();
+			return false;
+		}else if(!check(re2,$('input[name=password]').val(),"비밀번호는 공백없이 4-20자")){
+			$('input[name=password]').focus();
+			return false;
+		}
+		
+		if($('input[name=phone]').val()==""){
+			alert("전화번호를 입력하세요!");
+			$('input[name=phone]').focus(); 
+			return false;
+		}else if(!check(re5,$('input[name=phone]').val(),"올바른 전화번호가 아닙니다")){
+			return false;
+		}
+		
+		if ($('input[name=email]').val() == "") {
+			alert("이메일을 입력하세요!");
+			$('input[name=email]').focus(); 
+			return false;
+		}else if(!check(re3,$('input[name=email]').val(),"올바른 이메일형식이 아닙니다")){
+			$('input[name=email]').focus(); 
+			return false;
+		}
+		return true;
+	}
+	
+	function check(re, what, msg){
+		if(re.test(what)){
+			return true; 
+		}
+		alert(msg);
+		what ="";
+	}
+</script>
 </head>
 <body>
 	<div class="popup_cover"></div>
@@ -88,46 +142,116 @@
 		<div class="page_inner">
 			<section class="item_wrap">
 				<div class="left">
-					<div class="item order_item">
-						<div class="item_header">
-							<h4 class="tit">주문내역</h4>
-							<button type="button"></button>
+					<button type="button" class="add_category_btn">카테고리 추가</button>
+					<div class="item menu_add_item">
+						<select class="category_select">
+							<option selected>카테고리를 선택하세요</option>
+						</select>
+						<div class="menu_add_wrap">
+							<div class="input_content food_info">
+	                           <div class="sel_arrow"></div>
+	                           <div class="food_input_container">
+	                              <label class="food">
+	                              	<img id="foodPic" src="/MOMOGO/img/noImage.png" alt="">
+	                              	<input id="foodPicAdd" class="food_pic" onchange="readURL(this);" type="file">
+	                              </label>
+	                              <div class="foodInput_wrap">
+	                                 <div class="input_box">
+	                                    <input type="text" placeholder="음식명을 입력하세요">
+	                                 </div>
+	                                 <div class="input_box">
+	                                    <input type="text" placeholder="음식가격을 입력하세요">
+	                                 </div>
+	                                 <div class="input_box">
+	                                    <input type="text" placeholder="음식설명을 입력하세요">
+	                                 </div>
+	                              </div>
+	                           </div>
+	                        </div>
+	                        <input class="food_btn basic_btn" type="submit" value="완료">
 						</div>
-						<p class="contxt">
-							<span>'최근주문'한 주문내역</span> 정보입니다.<br> 3개월이 지난 주문 내역은 삭제됩니다.
-						</p>
-						<div class="item_content">
-							<div class="content_header">
-								<p class="date">2018.11.21</p>
-								<p class="status">주문완료</p>
-							</div>
-							<div class="content">
-								<div class="img">
-									<img src="/MOMOGO/img/item01.jpg" alt="">
+					</div>
+					<div class="menu_category_wrap">
+						<ul class="menu_category">
+							<li class="category">
+								<p class="menu_tit popular">인기메뉴</p>
+								<div class="arrow_bg"></div>
+								<ul class="depth_wrap depth_wrap1 on popular1">
+									<li>
+										<div class="txt_wrap">
+											<p class="food_name">피자</p>
+											<p class="detail">맛있는피자</p>
+											<p class="price">15,000원</p>
+										</div>
+										<div class="img">★</div>
+									</li>
+									<c:forEach items="${ requestScope.menuList }" var="pmenu">
+										<c:if test="${ 'P' eq pmenu.type }">
+											<li>
+												<div class="txt_wrap">
+													<p class="food_name">${ pmenu.menuName }</p>
+													<p class="detail">${ pmenu.detail }</p>
+													<p class="price">${ pmenu.price }</p>
+												</div>
+												<div class="img"></div>
+											</li>
+										</c:if>
+									</c:forEach>
+								</ul>
+							</li>
+							<li class="category">
+								<div class="category_default on">
+									<p class="menu_tit">메뉴1</p>
+									<button type="button" class="name_change">이름변경</button>
+									<div class="arrow_bg"></div>
 								</div>
-								<div class="order_info">
-									<p class="store_name">도미노피자</p>
-									<p class="food_name">불고기피자x1 불고기피자x1 불고기피자x1 불고기피자x1
-										불고기피자x1</p>
+								<div class="category_modify">
+									<input type="text" placeholder="변경한 이름을 입력하세요.">
+									<button type="button" class="name_confirm">확인</button>
+									<div class="arrow_bg"></div>
 								</div>
-							</div>
-						</div>
-						<div class="item_content">
-							<div class="content_header">
-								<p class="date">2018.11.21</p>
-								<p class="status">주문완료</p>
-							</div>
-							<div class="content">
-								<div class="img">
-									<img src="/MOMOGO/img/item01.jpg" alt="">
+								<ul class="depth_wrap depth_wrap1 on">
+									<c:forEach items="${ requestScope.menuList }" var="pmenu">
+										<c:if test="${ 'P' eq pmenu.type }">
+											<li>
+												<div class="txt_wrap">
+													<p class="food_name">${ pmenu.menuName }</p>
+													<p class="detail">${ pmenu.detail }</p>
+													<p class="price">${ pmenu.price }</p>
+												</div>
+												<div class="img"></div>
+											</li>
+										</c:if>
+									</c:forEach>
+								</ul>
+							</li>
+							<li class="category">
+								<div class="category_default on">
+									<p class="menu_tit">메뉴2</p>
+									<button type="button" class="name_change">이름변경</button>
+									<div class="arrow_bg"></div>
 								</div>
-								<div class="order_info">
-									<p class="store_name">도미노피자</p>
-									<p class="food_name">불고기피자x1 불고기피자x1 불고기피자x1 불고기피자x1
-										불고기피자x1</p>
+								<div class="category_modify">
+									<input type="text" placeholder="변경한 이름을 입력하세요.">
+									<button type="button" class="name_confirm">확인</button>
+									<div class="arrow_bg"></div>
 								</div>
-							</div>
-						</div>
+								<ul class="depth_wrap depth_wrap1 on">
+									<c:forEach items="${ requestScope.menuList }" var="pmenu">
+										<c:if test="${ 'P' eq pmenu.type }">
+											<li>
+												<div class="txt_wrap">
+													<p class="food_name">${ pmenu.menuName }</p>
+													<p class="detail">${ pmenu.detail }</p>
+													<p class="price">${ pmenu.price }</p>
+												</div>
+												<div class="img"></div>
+											</li>
+										</c:if>
+									</c:forEach>
+								</ul>
+							</li>
+						</ul>
 					</div>
 				</div>
 				<div class="right">
@@ -172,7 +296,7 @@
 								<img src="/MOMOGO/img/default.png" alt="">
 							</div>
 							<div class="info_wrap">
-								<form method="post" action="updateProfile.jsp">
+								<form method="post" action="<%= request.getContextPath() %>/update/ceoProfileUpdate.do" onsubmit="return updateCeoProfile()">
 									<input type="hidden" name="id" value="${ ceoVO.id }">
 									<div class="info">
 										<p class="tit">아이디</p>
@@ -230,7 +354,6 @@
 								</div>
 							</div>
 							<button class="basic_btn modify_btn" type="button">수정</button>
-							<button class="basic_btn menu_btn" type="button">메뉴등록</button>
 						</div>
 						<div class="item_content modify_content">
 							<div class="pic">
@@ -282,7 +405,7 @@
 						</div>
 						<div class="item_content modify_content">
 							<div class="info_wrap">
-								<form method="post" action="updateArea.jsp">
+								<form method="post" action="">
 									<input type="hidden" name="id" value="${ ceoVO.id }">
 									<div class="info">
 										<p class="tit">기본주소</p>

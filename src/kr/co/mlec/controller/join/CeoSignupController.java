@@ -12,7 +12,4 @@ public class CeoSignupController implements Controller {
 		
 		return "/jsp/join/ceoSignup.jsp";
 	}
-
-	
-	
 }

@@ -5,7 +5,15 @@ function moreBtn(category){
 		alert("주소를 입력해주세요");
 	}else{
 		var address = $('#address').val();
-		location.href = "/MOMOGO/store/storeList.do?category=" + category + "&address=" + address;
+		var length = address.indexOf('동 ');
+		if(length != -1)
+			address = address.substring(0, length+1);
+		
+		if(address){
+			location.href = "/MOMOGO/store/storeList.do?category=" + category + "&address=" + address;
+		}else{
+			alert('에러');
+		}
 	}
 }
 function detailStoreBtn(storeNo){

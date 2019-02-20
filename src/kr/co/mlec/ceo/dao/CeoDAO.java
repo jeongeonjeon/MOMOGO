@@ -45,7 +45,6 @@ public class CeoDAO {
 		
 		sql.append("  delete from m_menu where notice_no = ? and menu = ?  ");
 		
-		
 		try(
 			Connection conn = new ConnectionFactory().getConnection(); 
 			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
@@ -59,9 +58,36 @@ public class CeoDAO {
 			e.printStackTrace();
 		}
 		
-		
-		
 	}
 	
+	public int updateCeoProfile(CeoSignUpVO ceoVO) {
+		
+		StringBuilder sql = new StringBuilder(); 
+		int updateResult = 0;
+		
+		sql.append(" update m_ceo ");
+		sql.append(" set password=? ");
+		sql.append(" ,email=? ");
+		sql.append(" ,name=? ");
+		sql.append(" ,phone=? ");
+		sql.append(" where id=?  ");
+		
+		try(
+				Connection conn = new ConnectionFactory().getConnection(); 
+				PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+			){
+			
+				pstmt.setString(1, ceoVO.getPassword());
+				pstmt.setString(2, ceoVO.getEmail());
+				pstmt.setString(3,  ceoVO.getName());
+				pstmt.setString(4,  ceoVO.getPhone());
+				pstmt.setString(5, ceoVO.getId());
+				updateResult = pstmt.executeUpdate();
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		return updateResult;
+	}
 	
 }

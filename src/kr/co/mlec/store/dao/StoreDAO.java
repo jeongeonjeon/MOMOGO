@@ -7,18 +7,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.mlec.menu.vo.MenuVO;
+import kr.co.mlec.reply.vo.ReplyVO;
 import kr.co.mlec.review.vo.ReviewVO;
 import kr.co.mlec.store.vo.StoreVO;
 import kr.co.mlec.util.ConnectionFactory;
 
 public class StoreDAO {
 	
-	public void insertReview(int storeNo, String id, String replyText, int star) {
+	public void insertReview(int storeNo, int star, String id, String replyText, int depth, int parentNo) {
 		
 		StringBuilder sql = new StringBuilder();
 		
 		sql.append("insert into m_review ");
-		sql.append("values ( ?,?,?,sysdate,?)");
+		sql.append("values (SEQ_REVIEW_REIVEW_NO.nextval,?,?,?,sysdate,?,?,?)");
 		
 		try (
 				Connection conn = new ConnectionFactory().getConnection();
@@ -30,6 +31,8 @@ public class StoreDAO {
 				pstmt.setString(loc++, id);
 				pstmt.setString(loc++, replyText);
 				pstmt.setInt(loc++, star);
+				pstmt.setInt(loc++, parentNo);
+				pstmt.setInt(loc++, depth );
 				
 				pstmt.executeUpdate();
 				
@@ -39,6 +42,34 @@ public class StoreDAO {
 		
 	}
 	
+	
+	public void insertReview(int storeNo, String id, String replyText, int depth, int parentNo) {
+		
+		StringBuilder sql = new StringBuilder();
+		
+		sql.append("insert into m_review ");
+		sql.append("values (SEQ_REVIEW_REIVEW_NO.nextval,?,?,?,sysdate, null ,?,?)");
+		
+		try (
+				Connection conn = new ConnectionFactory().getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+			){
+			
+				int loc = 1;
+				pstmt.setInt(loc++, storeNo);
+				pstmt.setString(loc++, id);
+				pstmt.setString(loc++, replyText);
+				pstmt.setInt(loc++, parentNo);
+				pstmt.setInt(loc++, depth );
+				
+				pstmt.executeUpdate();
+				
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+		
 	public List<StoreVO> selectCategoryStore(String address, String category){
 		
 		address = address.replaceAll(" ", "");
@@ -226,7 +257,7 @@ public class StoreDAO {
 		StringBuilder sql = new StringBuilder(); 
 		
 		//review 조회
-		sql.append(" select id, content, write_date, star ");
+		sql.append(" select id, content, write_date, star, review_no, depth, parent_no ");
 		sql.append("  from m_store s, m_review r ");
 		sql.append(" where s.store_no = r.store_no ");
 		sql.append("   and s.store_no = ? ");
@@ -242,16 +273,22 @@ public class StoreDAO {
 			
 			while(rs.next()) {
 
+				int reviewNo = rs.getInt("review_no");
 				String id        = rs.getString("id");
 				String content   = rs.getString("content");
 				String writeDate = rs.getString("write_date");
 				int star         = rs.getInt("star");
+				int parentNo  = rs.getInt("parent_no");
+				int depth = rs.getInt("depth");
 				
 				ReviewVO review = new ReviewVO();
+				review.setReviewNo(reviewNo);
 				review.setId(id);
 				review.setContent(content);
 				review.setWriteDate(writeDate);
 				review.setStar(star);
+				review.setParentNo(parentNo);
+				review.setDepth(depth);
 				
 				list.add(review);
 			}
@@ -259,6 +296,56 @@ public class StoreDAO {
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		return list;
+	}
+	
+
+	
+	public List<ReplyVO> detailSelectReply(String storeNo){
+		
+		List<ReplyVO> list  = new ArrayList<>();
+		
+		StringBuilder sql = new StringBuilder(); 
+		
+		//review 조회
+		sql.append(" select reply_no, p.review_no, reply_id, reply_content, reply_date");
+		sql.append("   from m_review r, m_reply p");
+		sql.append("  where r.review_no = p.review_no ");
+		sql.append("    and r.review_no = ? ");
+	
+		try (
+				Connection conn = new ConnectionFactory().getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+			){
+			
+			pstmt.setInt(1, Integer.parseInt(storeNo));
+
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+
+				int replyNo	 = rs.getInt("reply_no");
+				int reviewNo = rs.getInt("review_no");
+				String id        = rs.getString("reply_id");
+				String content   = rs.getString("reply_content");
+				String writeDate = rs.getString("reply_date");
+				
+				ReplyVO reply = new ReplyVO();
+				reply.setId(id);
+				reply.setContent(content);
+				reply.setWriteDate(writeDate);
+				reply.setReplyNo(replyNo);
+				reply.setReviewNo(reviewNo);
+				
+				list.add(reply);
+			}
+				
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println(list);
 		
 		return list;
 	}
