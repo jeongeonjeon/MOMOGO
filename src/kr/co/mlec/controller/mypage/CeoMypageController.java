@@ -23,7 +23,6 @@ public class CeoMypageController implements Controller {
 		ceo = dao.selectById(userVO.getId());
 		request.setAttribute("ceo", ceo);
 			
-		
 		return "/jsp/mypage/ceoMypage.jsp";
 	}
 
