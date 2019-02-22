@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import kr.co.mlec.controller.Controller;
 import kr.co.mlec.join.dao.CeoSignUpDAO;
 import kr.co.mlec.join.dao.PersonalDAO;
+import kr.co.mlec.join.vo.CeoSignStoreVO;
 import kr.co.mlec.join.vo.CeoSignUpVO;
 import kr.co.mlec.join.vo.PersonalVO;
 
@@ -63,9 +64,11 @@ public class LoginFormProcessController implements Controller {
       
       // 사업자회원
       else if (userSelect.equals("ceo")) {
+    	  
          CeoSignUpVO ceoSignUpVO = new CeoSignUpVO();
          ceoSignUpVO.setId(id);
          ceoSignUpVO.setPassword(password);
+         
          
          CeoSignUpDAO dao = new CeoSignUpDAO();
          CeoSignUpVO userVO = dao.login(ceoSignUpVO);
@@ -77,6 +80,7 @@ public class LoginFormProcessController implements Controller {
                msg = "관리자님 환영합니다.";
                break;
             case "U" :
+               userVO = dao.loginStore(ceoSignUpVO);
                msg = userVO.getId()+"님 환영합니다.";
                break;
             }

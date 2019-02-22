@@ -85,8 +85,8 @@ public class PersonalDAO {
 		PersonalVO userVO = null;
 		
 		StringBuilder sql = new StringBuilder();
-		sql.append("select id, password, type ");
-		sql.append("  from m_personal ");
+		sql.append("select id, password, type");
+		sql.append("  from m_personal, ");
 		sql.append(" where id = ? and password = ? ");
 		
 		try(

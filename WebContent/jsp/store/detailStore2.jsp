@@ -5,18 +5,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <jsp:include page="/jsp/include/head.jsp" />
 <script>
 	var totalPrice = 0;
 	var foodName='';
 	var price='';
-	var parentNo='';
-	var reviewNo = ''; 
 
-	$(document).ready(function(){ 
-		
-		console.log(ceoVO)
+	$(document).ready(function(){
+		$('#comment_btn').click(function(){
+			alert("추후 업데이트 예정입니다.");
+		});
 		
 		$('.depth_wrap li, .swiper-wrapper li').click(function(){
 			foodName = $(this).find('.food_name').text();
@@ -41,28 +39,19 @@
 		});
 
 		
-		$('#comment_btn').click(function(){
-			
-// 		var reviewNo = $(this).parent().parent().attr();
-// 		alert(reviewNo);
+		
+		$('#reply_btn').click(function(){
 			
 <%-- 			if(${ empty userVO }){
 				location.href="<%=request.getContextPath()%>/login/loginForm.do";
 			} --%>
 
-			
-			
-			console.log($('.input').val());
-			
 				
-		    var reply ={  "storeNo" : '${param.storeNo}', 
+		    var reply ={ "replyText": $('.input').val(),
 		    			  "star" : $('#select_star').val() ,
 		    			  "id" :  '${ userVO.id }',
-		    			  "replyText": $('.input').val(),
-		    			  "depth" : '0', 
-		    			  "type" : "review", 
-		    			  "parentNo" : '0'
-		    			  
+		    			  "type" : "review",
+		    			  "storeNum" : '${param.storeNo}'
 		   				};
 		    				
 				$.ajax({
@@ -75,31 +64,6 @@
 				}); 
 				
 		});
-		
-		$('.reply_btn').click(function(){
-			
-				parentNo = $(this).attr('parentNo'); 
-					
-				var reply2 ={  "storeNo" : '${param.storeNo}', 
-	    			  "id" :  '${ userVO.id }',
-	    			  "replyText": $(this).siblings().val(),
-	    			  "depth" : '1', 
-	    			  "type" : "review2", 
-	    			  "parentNo" : $(this).attr('parentNo')
-	    			  
-	   				};
-	    					
-			$.ajax({
-				url : '<%=request.getContextPath()%>/store/detailStore.do',
-				dataType    :   "json",
-		        type        :   "post",
-		        async       :   false, //동기: false, 비동기: ture
-				data : reply2,
-				success : callback3
-			}); 
-
-		});
-		
 	});
 	
 		
@@ -116,42 +80,17 @@
 		replyAppend += '		<p class="content">'+  $('.input').val()  +'</p>';
 		replyAppend += '	</div>';
 		replyAppend += '	<div class="reply_textarea">';
-		replyAppend += '		<textarea class="input_reply" placeholder="답글을 입력하세요."></textarea>';
+		replyAppend += '		<textarea class="input" placeholder="답글을 입력하세요."></textarea>';
 		replyAppend += '		<input class="submit_btn basic_btn" type="button" id="comment_btn" value="등록">';
 		replyAppend += '	</div>';
-		replyAppend += ' 	<c:if test ="${userVO.type} == \'S\'">';
-		replyAppend += '		<div class="reply_btn_wrap">';
-		replyAppend += '			<button type="button">답글달기</button>';
-		replyAppend += '		</div>';
-		replyAppend += '	</c:if>;
-		replyAppend += '	<div class="reply_textarea">';
-		replyAppend += '		<textarea class="input_reply" placeholder="답글을 입력하세요."></textarea>';
-		replyAppend += '		<input class="submit_btn basic_btn reply_btn" type="button" parentNo="${ review.reviewNo }" id="reply_btn" value="등록">';
-		replyAppend += '	</div>';		
+		replyAppend += '	<div class="reply_btn_wrap">';
+		replyAppend += '		<button type="button">답글달기</button>';
+		replyAppend += '	</div>';
 		replyAppend += '</div>';
 		
 		$('textarea.input').val('');
 		$('.reply_container').append(replyAppend);
 		
-	}
-	
-	
-	function callback3(data){
-		var replyAppend = '';
-				
-		replyAppend += '<div class="re_reply_contents_wrap">';
-		replyAppend += '	<div class="reply_content">';
-		replyAppend += '		<p class="id">';
-		replyAppend += ' 			<img src="/MOMOGO/img/reply.png" alt="">';
-		replyAppend += '			${ userVO.id } <span class="time"> 방금 </span>';
-		replyAppend += '		</p>';
-		replyAppend += '		<p class="re_content">'+  $('[parentNo="'+parentNo+'"]').siblings().val()  +'</p>';
-		replyAppend += '	</div>';
-		replyAppend += '</div>';
-		
-		$('textarea.input_reply').val('');
-		$('[parentNo="'+parentNo+'"]').parent().parent().append(replyAppend);
-		$('.reply_textarea').removeClass("on");
 	}
 	 
 	function callback2(data){
@@ -196,7 +135,6 @@
 		return true;
 	}
 	
-	
 
 </script>
 </head>
@@ -228,16 +166,12 @@
 								</div>
 		 -->
 									<p>
-										평점 
-										<span> 
-											<c:set var="total" value="0" /> 
-											<c:set var="cnt" value="0" /> 
-											<c:forEach items="${ requestScope.reviewList }" var="review">
-												<c:if test="${review.depth == '0' }">
-													<c:set var="star" value="${ review.star}" />
-													<c:set var="total" value="${ total + star }" />
-													<c:set var="cnt" value="${cnt + 1}" />
-												</c:if>
+										평점 <span> <c:set var="total" value="0" /> <c:set
+												var="cnt" value="0" /> <c:forEach
+												items="${ requestScope.reviewList }" var="review">
+												<c:set var="star" value="${ review.star }" />
+												<c:set var="total" value="${ total + star }" />
+												<c:set var="cnt" value="${cnt + 1}" />
 											</c:forEach> <c:set var="avg" value="0" /> <c:if test="${ cnt != 0 }">
 												<c:set var="avg"
 													value="${ (total * 10 - (total * 10) % cnt) / cnt / 10  }" />
@@ -350,55 +284,32 @@
 											</p>
 											<div class="reply_textarea">
 												<textarea class="input" placeholder="댓글을 입력하세요."></textarea>
-												<input class="submit_btn basic_btn" type="button" id="comment_btn" value="등록">
+												<input class="submit_btn basic_btn" type="button"
+													id="reply_btn" value="등록">
 											</div>
 											
 											<c:forEach items="${ requestScope.reviewList }" var="review">
-												<c:if test="${review.depth=='0'}">
-													<div class="reply_contents_wrap">
-														<div class="reply_content">
-															<p class="id">
-																${ review.id } <span class="time"> ${ review.writeDate }
-																</span>
-															</p>
-															<p class="grade">
-																평점 <span> ${ review.star }점 </span>
-															</p>
-															<p class="content">${review.content }</p>
-														</div>
-
-														<c:if test ="${not empty ceoVO && param.storeNo == userVO.storeNo}">
-															<div class="reply_btn_wrap">
-																${ param.storeNo }
-																${ review.storeNo }
-																<button type="button">답글달기</button>
-															</div>
-														</c:if>
-														
-														<!--  답글입력창   -->
-														<div class="reply_textarea">
-															<textarea class="input_reply" placeholder="답글을 입력하세요."></textarea>
-															<input class="submit_btn basic_btn reply_btn"
-																type="button" parentNo="${ review.reviewNo }"
-																id="reply_btn" value="등록">
-														</div>
-														
-														<c:forEach items="${ requestScope.reviewList }" var="review2">
-															<c:if test="${review2.depth != '0' && review2.parentNo == review.reviewNo}">
-																<div class="re_reply_contents_wrap">
-																	<div class="reply_content">
-																		<p class="id">
-																			<img src="/MOMOGO/img/reply.png" alt="">
-																			${ review2.id } <span class="time"> ${review2.writeDate} </span>
-																		</p>
-																		<p class="re_content"> ${ review2.content}</p>
-																	</div>
-																</div>
-															</c:if>
-														</c:forEach>
+												<div class="reply_contents_wrap">
+													<div class="reply_content">
+														<p class="id">
+															${ review.id } <span class="time"> ${ review.writeDate }
+															</span>
+														</p>
+														<p class="grade">
+															평점 <span> ${ review.star }점 </span>
+														</p>
+														<p class="content">${review.content }</p>
 													</div>
-												</c:if>
-												
+													
+													<div class="reply_textarea">
+														<textarea class="input" placeholder="답글을 입력하세요."></textarea>
+														<input class="submit_btn basic_btn" type="button"
+															id="comment_btn" value="등록">
+													</div>
+													<div class="reply_btn_wrap">
+														<button type="button">답글달기</button>
+													</div>
+												</div>
 											</c:forEach>
 											
 										</div>
@@ -427,6 +338,7 @@
 													<p class="txt">신용카드 , 현금</p>
 												</div>
 											</div>
+
 										</div>
 										<div class="store_info">
 											<div class="info_header license">

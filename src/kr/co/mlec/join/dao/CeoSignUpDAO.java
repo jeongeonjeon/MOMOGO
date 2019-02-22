@@ -74,16 +74,61 @@ public class CeoSignUpDAO {
 	}
 	
 	/**
-	 * 로그인 서비스
+	 * CEO 로그인 서비스
+	 */
+	public CeoSignUpVO loginStore(CeoSignUpVO loginVO) {
+
+		CeoSignUpVO userVO = null;
+		
+		StringBuilder sql = new StringBuilder();
+		sql.append("select ceo_no, id, password, type, email, name, phone, reg_date , store_no");
+		sql.append("   from m_store s, m_ceo c ");
+		sql.append("  where s.ceo_id = c.id and c.id = ? and c.password = ? ");
+		
+		try(
+			Connection conn = new ConnectionFactory().getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+		) {
+			
+			pstmt.setString(1, loginVO.getId());
+			pstmt.setString(2, loginVO.getPassword());
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				int ceoNo 		= rs.getInt("ceo_no");
+				String id 		= rs.getString("id");
+				String password = rs.getString("password");
+				String type 	= rs.getString("type");
+				String regDate 	= rs.getString("reg_date");
+				String email 	= rs.getString("email");
+				String name 	= rs.getString("name");
+				String phone 	= rs.getString("phone");
+				int storeNo     = rs.getInt("store_no");
+				
+				userVO = new CeoSignUpVO(ceoNo, id, password, email, name, phone, regDate, type, storeNo);
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return userVO;
+	}
+	
+	
+	/**
+	 * CEO 로그인 서비스
 	 */
 	public CeoSignUpVO login(CeoSignUpVO loginVO) {
 
 		CeoSignUpVO userVO = null;
 		
 		StringBuilder sql = new StringBuilder();
-		sql.append("select ceo_no, id, password, type, email, name, phone, reg_date ");
-		sql.append("  from m_ceo ");
-		sql.append(" where id = ? and password = ? ");
+		sql.append("select ceo_no, id, password, type, email, name, phone, reg_date");
+		sql.append("   from m_ceo c ");
+		sql.append("  where id = ? and password = ? ");
 		
 		try(
 			Connection conn = new ConnectionFactory().getConnection();
