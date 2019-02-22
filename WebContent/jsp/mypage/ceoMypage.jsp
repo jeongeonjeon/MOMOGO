@@ -10,46 +10,44 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script>
 	$(document).ready(function(){
+		
+		$('#food_name').empty();
+		$('#food_price').empty();
+		$('#food_describe').empty();
+		
 		/* 카테고리 내용 서버로 보내기 */
 		$('#menuAddBtn').click(function(){
-			/* console.log($('.category_select').val());
-			console.log($('#foodPicAdd').val());
-			console.log($('#food_name').val());
-			console.log($('#food_price').val());
-			console.log($('#food_describe').val()); */
 			
 			var files = document.getElementById("foodPicAdd").files;
 			console.log(files);
-			var picData = new FormData();
-			picData.append(files[0].name,files[0]);
-			console.log(picData);
+			var menuData = new FormData();
+			menuData.append('foodPic',files[0]);
+			menuData.append('foodPicName',files[0].name);
+			menuData.append('cate',$('.category_select').val());
+			menuData.append('name',$('#food_name').val());
+			menuData.append('price',$('#food_price').val());
+			menuData.append('describe',$('#food_describe').val());
 			
 			$.ajax({
 				url : '${pageContext.request.contextPath}/update/cateMenu.do',
-				data : {
-					pic : picData,
-					cate : $('.category_select').val(),
-					name : $('#food_name').val(),
-					price : $('#food_price').val(),
-					describe : $('#food_describe').val()
-				},
-				type : 'post',
+				data : menuData,
+				type : 'POST',
 				enctype : 'multipart/form-data',
 				contentType: false,
 				processData: false,
 				success : addMenuSuccess,
 				error : addMenuFail
 			})
-			
 		});
 	})
 	
-	function addMenuSuccess(){
-		
+	function addMenuSuccess(data){
+		alert("등록이 완료되었습니다");
+		location.href="${pageContext.request.contextPath}/mypage/ceoMypage.do"
 	}
 	
 	function addMenuFail(){
-		
+		alert('무슨 일이야');
 	}
 	
 	function updateCeoProfile(){
@@ -216,6 +214,7 @@
 					</div>
 					<div class="menu_category_wrap">
 						<ul class="menu_category">
+						
 							<li class="category">
 								<p class="menu_tit popular">인기메뉴</p>
 								<div class="arrow_bg"></div>
@@ -228,20 +227,20 @@
 										</div>
 										<div class="img">★</div>
 									</li>
-									<c:forEach items="${ requestScope.menuList }" var="pmenu">
-										<c:if test="${ 'P' eq pmenu.type }">
+									<c:forEach items="${ menuList }" var="pmenu">
 											<li>
 												<div class="txt_wrap">
 													<p class="food_name">${ pmenu.menuName }</p>
 													<p class="detail">${ pmenu.detail }</p>
 													<p class="price">${ pmenu.price }</p>
 												</div>
-												<div class="img"></div>
+												<div class="img"><img src="${pageContext.request.contextPath }/img/menuImg/${pmenu.menuImage}"></div>
 											</li>
-										</c:if>
+										
 									</c:forEach>
 								</ul>
 							</li>
+							
 							<li class="category">
 								<div class="category_default on">
 									<p class="menu_tit">메뉴1</p>
@@ -254,7 +253,7 @@
 									<div class="arrow_bg"></div>
 								</div>
 								<ul class="depth_wrap depth_wrap1 on">
-									<c:forEach items="${ requestScope.menuList }" var="pmenu">
+									<c:forEach items="${ menuList }" var="menu">
 										<c:if test="${ 'P' eq pmenu.type }">
 											<li>
 												<div class="txt_wrap">
@@ -268,6 +267,7 @@
 									</c:forEach>
 								</ul>
 							</li>
+							
 							<li class="category">
 								<div class="category_default on">
 									<p class="menu_tit">메뉴2</p>
@@ -294,6 +294,7 @@
 									</c:forEach>
 								</ul>
 							</li>
+							
 						</ul>
 					</div>
 				</div>

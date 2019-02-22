@@ -2,28 +2,18 @@ package kr.co.mlec.menu.vo;
 
 public class MenuVO {
 	
-	String menuName ;
+	int ceoNo		;
 	int price       ;
+	String menuName ;
 	String menuImage;
 	String type     ;
 	String detail   ;
-	public String getDetail() {
-		return detail;
+	
+	public int getCeoNo() {
+		return ceoNo;
 	}
-	public void setDetail(String detail) {
-		this.detail = detail;
-	}
-	public MenuVO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public MenuVO(String menuName, int price, String menuImage, String type,String detail) {
-		super();
-		this.menuName = menuName;
-		this.price = price;
-		this.menuImage = menuImage;
-		this.type = type;
-		this.detail = detail;
+	public void setCeoNo(int ceoNo) {
+		this.ceoNo = ceoNo;
 	}
 	public String getMenuName() {
 		return menuName;
@@ -49,10 +39,16 @@ public class MenuVO {
 	public void setType(String type) {
 		this.type = type;
 	}
+	public String getDetail() {
+		return detail;
+	}
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
+	
 	@Override
 	public String toString() {
-		return "MenuVO [menuName=" + menuName + ", price=" + price + ", menuImage=" + menuImage + ", type=" + type
-				+ "]";
+		return "MenuVO [ceoNo=" + ceoNo + ", menuName=" + menuName + ", price=" + price + ", menuImage=" + menuImage
+				+ ", type=" + type + ", detail=" + detail + "]";
 	}
-
 }
