@@ -42,9 +42,9 @@ public class PersonalMypageController implements Controller {
 			personal = dao.selectById(userVO.getId());
 		}
 		
-		List<OrderVO> orderList = dao.mypageSelectOrder(personal.getId());
+//		List<OrderVO> orderList = dao.mypageSelectOrder(personal.getId());
 		
-		request.setAttribute("orderList", orderList);
+//		request.setAttribute("orderList", orderList);
 		request.setAttribute("personal", personal);
 		
 		return "/jsp/mypage/personalMypage.jsp";

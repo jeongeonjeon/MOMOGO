@@ -12,7 +12,7 @@
 	$(document).ready(function(){
 		/* 카테고리 내용 서버로 보내기 */
 		$('#menuAddBtn').click(function(){
-			/* console.log($('.category_select').val());
+/* 			console.log($('.category_select').val());
 			console.log($('#foodPicAdd').val());
 			console.log($('#food_name').val());
 			console.log($('#food_price').val());

@@ -85,7 +85,7 @@ public class LoginFormProcessController implements Controller {
             
             // 세션 등록
             HttpSession session = request.getSession();
-            session.setAttribute("userVO", userVO);      
+            session.setAttribute("userVO", userVO);
             session.setAttribute("ceoVO", userVO);
          } else {
              //로그인 실패
