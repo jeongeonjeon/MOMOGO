@@ -5,10 +5,52 @@
 <html>
 <head>
 <jsp:include page="/jsp/include/head.jsp" />
+
+<!-- ajax는 slimbuild js에는 포함되어 있지 않기 때문에 full js파일 가져옴 -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script>
 	$(document).ready(function(){
-		
+		/* 카테고리 내용 서버로 보내기 */
+		$('#menuAddBtn').click(function(){
+			/* console.log($('.category_select').val());
+			console.log($('#foodPicAdd').val());
+			console.log($('#food_name').val());
+			console.log($('#food_price').val());
+			console.log($('#food_describe').val()); */
+			
+			var files = document.getElementById("foodPicAdd").files;
+			console.log(files);
+			var picData = new FormData();
+			picData.append(files[0].name,files[0]);
+			console.log(picData);
+			
+			$.ajax({
+				url : '${pageContext.request.contextPath}/update/cateMenu.do',
+				data : {
+					pic : picData,
+					cate : $('.category_select').val(),
+					name : $('#food_name').val(),
+					price : $('#food_price').val(),
+					describe : $('#food_describe').val()
+				},
+				type : 'post',
+				enctype : 'multipart/form-data',
+				contentType: false,
+				processData: false,
+				success : addMenuSuccess,
+				error : addMenuFail
+			})
+			
+		});
 	})
+	
+	function addMenuSuccess(){
+		
+	}
+	
+	function addMenuFail(){
+		
+	}
 	
 	function updateCeoProfile(){
 		
@@ -145,7 +187,8 @@
 					<button type="button" class="add_category_btn">카테고리 추가</button>
 					<div class="item menu_add_item">
 						<select class="category_select">
-							<option selected>카테고리를 선택하세요</option>
+							<!-- <option selected>카테고리를 선택하세요</option> -->
+							<option selected>인기메뉴</option>
 						</select>
 						<div class="menu_add_wrap">
 							<div class="input_content food_info">
@@ -157,18 +200,18 @@
 	                              </label>
 	                              <div class="foodInput_wrap">
 	                                 <div class="input_box">
-	                                    <input type="text" placeholder="음식명을 입력하세요">
+	                                    <input type="text" id="food_name" placeholder="음식명을 입력하세요">
 	                                 </div>
 	                                 <div class="input_box">
-	                                    <input type="text" placeholder="음식가격을 입력하세요">
+	                                    <input type="text" id="food_price" placeholder="음식가격을 입력하세요">
 	                                 </div>
 	                                 <div class="input_box">
-	                                    <input type="text" placeholder="음식설명을 입력하세요">
+	                                    <input type="text" id="food_describe" placeholder="음식설명을 입력하세요">
 	                                 </div>
 	                              </div>
 	                           </div>
 	                        </div>
-	                        <input class="food_btn basic_btn" type="submit" value="완료">
+	                        <input class="food_btn basic_btn" id="menuAddBtn" type="button" value="완료">
 						</div>
 					</div>
 					<div class="menu_category_wrap">
