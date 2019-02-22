@@ -12,12 +12,12 @@ public class CeoAddMenuController implements Controller{
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		request.setCharacterEncoding("utf-8");
 		
-		/* multipart/form data¸¦ ¹Ş¾Æ¿À±â À§ÇÑ °´Ã¼*/
+		/* multipart/form dataì— í•„ìš”í•œ ê°ì²´*/
 		MultipartRequest multi=null;
-		/* ÀÌ¹ÌÁö°¡ ÀúÀåµÉ ¼­¹ö°æ·Î */
+		/* ì„œë²„ì— ì €ì¥í•  ê²½ë¡œ ì„¤ì • */
 		String uploadDir = request.getRealPath("/img/menuImg");
-		/* posted µÇ´Â µ¥ÀÌÅÍ Å©±â*/
-		int maxSize = 20*1024*1024;//ÆÄÀÏ ÃÖ´ëÅ©±â 20MB
+		/* posted ë˜ëŠ” ì‚¬ì´ì¦ˆ */
+		int maxSize = 20*1024*1024;//ìµœëŒ€ì‚¬ì´ì¦ˆ 20MB
 		System.out.println("request content type :"+request.getContentType());
 		multi=new MultipartRequest(request, uploadDir, maxSize,"utf-8");
 		
