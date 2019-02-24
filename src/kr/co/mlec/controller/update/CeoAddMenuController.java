@@ -55,7 +55,7 @@ public class CeoAddMenuController implements Controller{
 		CeoDAO cDAO = new CeoDAO();
 		cDAO.insertMenu(menu);
 		
-		return "redirect:/MOMOGO/mypage/ceoMypage.do";
+		return null;
 		
 	}
 }

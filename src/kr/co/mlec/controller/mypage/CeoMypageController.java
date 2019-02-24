@@ -1,5 +1,6 @@
 package kr.co.mlec.controller.mypage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,11 +33,17 @@ public class CeoMypageController implements Controller {
 		CeoDAO cDAO = new CeoDAO();
 		System.out.println("ceoNo:"+userVO.getCeoNo());
 		List<MenuVO> lists = cDAO.selectAllMenu(userVO.getCeoNo());
-		request.setAttribute("menuList", lists);
 		
+		/* lists의 menuVO에서 type에 따른 분류작업 */
+		List<String> menuNames=new ArrayList<>();
 		for(MenuVO m : lists) {
-			System.out.println("DB에서 가져온 메뉴 :"+m.toString());
+			if(!menuNames.contains(m.getType())) {
+				menuNames.add(m.getType());
+			}
 		}
+		/* ceoMypage.jsp에서 menuNames과 lists를 비교하여 분류할 것임*/
+		request.setAttribute("menuNames", menuNames);
+		request.setAttribute("menuList", lists);
 		
 		return "/jsp/mypage/ceoMypage.jsp";
 	}
