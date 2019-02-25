@@ -5,10 +5,82 @@
 <html>
 <head>
 <jsp:include page="/jsp/include/head.jsp" />
+
+<!-- ajax는 slimbuild js에는 포함되어 있지 않기 때문에 full js파일 가져옴 -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script>
 	$(document).ready(function(){
+		/* ceoMenu에서 가격입력시, **원으로 입력했을 때 순수 int로 처리하기 위한 글로벌 변수*/
+		window.ceoMenuPrice="";
 		
+		/* 카테고리 내용 서버로 보내기 */
+		$('#menuAddBtn').click(function(){
+/* 			console.log($('.category_select').val());
+			console.log($('#foodPicAdd').val());
+			console.log($('#food_name').val());
+			console.log($('#food_price').val());
+			console.log($('#food_describe').val()); */
+			
+			var files = document.getElementById("foodPicAdd").files;
+			
+			if(checkCeoMenu(files)){
+			
+				var menuData = new FormData();
+				menuData.append('foodPic',files[0]);
+				menuData.append('foodPicName',files[0].name);
+				menuData.append('cate',$('.category_select').val());
+				menuData.append('name',$('#food_name').val());
+				menuData.append('price',ceoMenuPrice);
+				menuData.append('describe',$('#food_describe').val());
+				
+				$.ajax({
+					url : '${pageContext.request.contextPath}/update/cateMenu.do',
+					data : menuData,
+					type : 'POST',
+					enctype : 'multipart/form-data',
+					contentType: false,
+					processData: false,
+					success : addMenuSuccess,
+					error : addMenuFail
+				})
+			}
+		});
 	})
+	
+	function addMenuSuccess(data){
+		alert("등록이 완료되었습니다");
+		location.href="${pageContext.request.contextPath}/mypage/ceoMypage.do";
+	}
+	
+	function addMenuFail(){
+		alert('무슨 일이야');
+	}
+	
+	function checkCeoMenu(files){
+		if(files[0]==undefined){
+			alert("사진을 추가해주세요");
+			return false;
+		}
+		
+		if($('#food_name').val() == "" && $('#food_price').val() == "" && $('#food_describe').val() == ""){
+			alert("정보를 정확히 입력해주세요");
+			return false;
+		}
+		
+		var wonIndex = $('#food_price').val().indexOf("원");
+		var commaIndex = $('#food_price').val().indexOf(",");
+		console.log(wonIndex);
+		/* 원 잘라냄  */
+		if(wonIndex != -1){
+			ceoMenuPrice = $('#food_price').val().substring(0,wonIndex);
+		}
+		if(commaIndex != -1){
+			/* comma 지우는 로직 */
+			ceoMenuPrice= ceoMenuPrice.replace(/,/g,"");
+		}
+		
+		return true;
+	}
 	
 	function updateCeoProfile(){
 		
@@ -145,7 +217,8 @@
 					<button type="button" class="add_category_btn">카테고리 추가</button>
 					<div class="item menu_add_item">
 						<select class="category_select">
-							<option selected>카테고리를 선택하세요</option>
+							<!-- <option selected>카테고리를 선택하세요</option> -->
+							<option selected>맛있는메뉴</option>
 						</select>
 						<div class="menu_add_wrap">
 							<div class="input_content food_info">
@@ -157,24 +230,25 @@
 	                              </label>
 	                              <div class="foodInput_wrap">
 	                                 <div class="input_box">
-	                                    <input type="text" placeholder="음식명을 입력하세요">
+	                                    <input type="text" id="food_name" placeholder="음식명을 입력하세요">
 	                                 </div>
 	                                 <div class="input_box">
-	                                    <input type="text" placeholder="음식가격을 입력하세요">
+	                                    <input type="text" id="food_price" placeholder="음식가격을 입력하세요">
 	                                 </div>
 	                                 <div class="input_box">
-	                                    <input type="text" placeholder="음식설명을 입력하세요">
+	                                    <input type="text" id="food_describe" placeholder="음식설명을 입력하세요">
 	                                 </div>
 	                              </div>
 	                           </div>
 	                        </div>
-	                        <input class="food_btn basic_btn" type="submit" value="완료">
+	                        <input class="food_btn basic_btn" id="menuAddBtn" type="button" value="완료">
 						</div>
 					</div>
 					<div class="menu_category_wrap">
 						<ul class="menu_category">
+						
 							<li class="category">
-								<p class="menu_tit popular">인기메뉴</p>
+								<!-- <p class="menu_tit popular">인기메뉴</p>
 								<div class="arrow_bg"></div>
 								<ul class="depth_wrap depth_wrap1 on popular1">
 									<li>
@@ -184,22 +258,29 @@
 											<p class="price">15,000원</p>
 										</div>
 										<div class="img">★</div>
-									</li>
-									<c:forEach items="${ requestScope.menuList }" var="pmenu">
-										<c:if test="${ 'P' eq pmenu.type }">
-											<li>
-												<div class="txt_wrap">
-													<p class="food_name">${ pmenu.menuName }</p>
-													<p class="detail">${ pmenu.detail }</p>
-													<p class="price">${ pmenu.price }</p>
-												</div>
-												<div class="img"></div>
-											</li>
-										</c:if>
+									</li> -->
+									<c:forEach items="${ menuNames }" var="menuName">
+										<p class="menu_tit popular">${ menuName }</p>
+										<div class="arrow_bg"></div>
+										<ul class="depth_wrap depth_wrap1 on popular1">
+											<c:forEach items="${ menuList }" var="pmenu">
+												<c:if test="${ pmenu.type eq menuName }">
+													<li>
+														<div class="txt_wrap">
+															<p class="food_name">${ pmenu.menuName }</p>
+															<p class="detail">${ pmenu.detail }</p>
+															<p class="price">${ pmenu.price }</p>
+														</div>
+														<div class="img"><img src="${pageContext.request.contextPath }/img/menuImg/${pmenu.menuImage}"></div>
+													</li>
+												</c:if>	
+											</c:forEach>
+										</ul>	
 									</c:forEach>
 								</ul>
-							</li>
-							<li class="category">
+							<!-- </li> -->
+							
+							<%-- <li class="category">
 								<div class="category_default on">
 									<p class="menu_tit">메뉴1</p>
 									<button type="button" class="name_change">이름변경</button>
@@ -211,7 +292,7 @@
 									<div class="arrow_bg"></div>
 								</div>
 								<ul class="depth_wrap depth_wrap1 on">
-									<c:forEach items="${ requestScope.menuList }" var="pmenu">
+									<c:forEach items="${ menuList }" var="menu">
 										<c:if test="${ 'P' eq pmenu.type }">
 											<li>
 												<div class="txt_wrap">
@@ -225,6 +306,7 @@
 									</c:forEach>
 								</ul>
 							</li>
+							
 							<li class="category">
 								<div class="category_default on">
 									<p class="menu_tit">메뉴2</p>
@@ -250,7 +332,8 @@
 										</c:if>
 									</c:forEach>
 								</ul>
-							</li>
+							</li> --%>
+							
 						</ul>
 					</div>
 				</div>

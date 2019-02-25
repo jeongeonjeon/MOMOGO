@@ -11,10 +11,26 @@ public class CeoSignUpVO {
 	private String type;
 	private String basicAddr;
 	private String detailAddr;
+	private int storeNo; 
 	
 	
 	public CeoSignUpVO() {
 		super();
+	}
+	
+	
+	public CeoSignUpVO(int ceoNo, String id, String password, String email, String name, String phone, String regDate,
+			String type, int storeNo) {
+		super();
+		this.ceoNo = ceoNo;
+		this.id = id;
+		this.password = password;
+		this.email = email;
+		this.name = name;
+		this.phone = phone;
+		this.regDate = regDate;
+		this.type = type;
+		this.storeNo = storeNo;
 	}
 	
 	public CeoSignUpVO(int ceoNo, String id, String password, String email, String name, String phone, String regDate,
@@ -30,11 +46,21 @@ public class CeoSignUpVO {
 		this.type = type;
 	}
 
+
+	public int getStoreNo() {
+		return storeNo;
+	}
+
+
+	public void setStoreNo(int storeNo) {
+		this.storeNo = storeNo;
+	}
+
 	public CeoSignUpVO(String id, String password) {
 		super();
 		this.id = id;
 		this.password = password;
-	}	
+	}
 	
 	public CeoSignUpVO(String id, String password, String type) {
 		super();
@@ -132,13 +158,15 @@ public class CeoSignUpVO {
 		this.detailAddr = detailAddr;
 	}
 
+
 	@Override
 	public String toString() {
 		return "CeoSignUpVO [ceoNo=" + ceoNo + ", id=" + id + ", password=" + password + ", email=" + email + ", name="
 				+ name + ", phone=" + phone + ", regDate=" + regDate + ", type=" + type + ", basicAddr=" + basicAddr
-				+ ", detailAddr=" + detailAddr + "]";
+				+ ", detailAddr=" + detailAddr + ", storeNo=" + storeNo + "]";
 	}
 
+	
 
 	
 	

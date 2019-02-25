@@ -63,6 +63,16 @@ public class DetailStoreController implements Controller {
 		}
 		
 		
+		if(type.equals("delete")) {
+			
+			String reviewNo = request.getParameter("reviewNo");
+			
+			dao.deleteReview(Integer.parseInt(reviewNo));
+			
+			return "/jsp/store/ajax.josn";
+			
+		}
+		
 		
 		String storeNo = request.getParameter("storeNo");
 		

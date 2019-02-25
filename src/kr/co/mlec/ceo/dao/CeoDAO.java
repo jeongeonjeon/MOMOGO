@@ -2,35 +2,37 @@ package kr.co.mlec.ceo.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import kr.co.mlec.join.vo.CeoSignUpVO;
+import kr.co.mlec.menu.vo.MenuVO;
 import kr.co.mlec.util.ConnectionFactory;
 
 public class CeoDAO {
 
 	
-	public void insertMenu(CeoSignUpVO ceoVO, CeoSignUpVO aa) {
+	public void insertMenu(MenuVO menu) {
 		
 		StringBuilder sql = new StringBuilder(); 
 		
-		sql.append(" insert m_menu (store_no, menu, price, image, type) ");
-		sql.append(" values (? ,?, ?, ?, ?) ");
+		sql.append(" insert into m_menu (store_no, menu, price, image, type, detail) ");
+		sql.append(" values (? ,?, ?, ?, ?, ?) ");
 		
 		
 		try(
 			Connection conn = new ConnectionFactory().getConnection(); 
 			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
 		){
-		
-//			String id = ceoVO.getId();
-//			
-//			pstmt.setString(1, id);
-//			pstmt.setString(2, aa );
-//			pstmt.setInt(3, aa);
-//			pstmt.setString(4, aa);
-//			pstmt.setString(5, aa);
-//			
-//			pstmt.executeUpdate();
+			pstmt.setInt(1, menu.getCeoNo());
+			pstmt.setString(2, menu.getMenuName() );
+			pstmt.setInt(3, menu.getPrice());
+			pstmt.setString(4, menu.getMenuImage());
+			pstmt.setString(5, menu.getType());
+			pstmt.setString(6, menu.getDetail());
+			
+			pstmt.executeUpdate();
 			
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -58,6 +60,38 @@ public class CeoDAO {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public List<MenuVO> selectAllMenu(int ceoNo) {
+		
+		List<MenuVO> lists= new ArrayList<>();
+		
+		StringBuilder sql= new StringBuilder();
+		sql.append(" select * from m_menu where store_no=? ");
+		
+		try(
+			Connection conn = new ConnectionFactory().getConnection(); 
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+			){
+			
+				pstmt.setInt(1, ceoNo);
+				ResultSet rs = pstmt.executeQuery();
+				while(rs.next()) {
+					MenuVO menu=new MenuVO();
+					menu.setCeoNo(ceoNo);
+					menu.setPrice(rs.getInt("price"));
+					menu.setDetail(rs.getString("detail"));
+					menu.setType(rs.getString("type"));
+					menu.setMenuName(rs.getString("menu"));
+					menu.setMenuImage(rs.getString("image"));
+					
+					lists.add(menu);
+				}
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		return lists;
 	}
 	
 	public int updateCeoProfile(CeoSignUpVO ceoVO) {

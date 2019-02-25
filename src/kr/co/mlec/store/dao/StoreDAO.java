@@ -80,39 +80,17 @@ public class StoreDAO {
 		
 		StringBuilder sql = new StringBuilder(); 
 		
-		sql.append("  select store_no, category, store_name,image  ");
-		sql.append("  from m_store s  ");
-		sql.append("  where category = ?  ");
-		sql.append("   and  (replace(s.delivery_area1,' ','') IN (  ");
-		sql.append("         select replace(a2.address,' ','')       ");
-		sql.append("         from m_address a1, m_address a2           ");
-		sql.append("         where replace(a1.address,' ','') = ?  ");
-		sql.append("         and a1.code = a2.code  ");
-		sql.append("         )  ");
-		sql.append("   or replace(s.delivery_area2,' ','') IN (  ");
-		sql.append("         select replace(a2.address,' ','')                    ");
-		sql.append("         from m_address a1, m_address a2           ");
-		sql.append("         where replace(a1.address,' ','') = ?  ");
-		sql.append("         and a1.code = a2.code  ");
-		sql.append("         )  ");
-		sql.append("   or replace(s.delivery_area3,' ','') IN (  ");
-		sql.append("         select replace(a2.address,' ','')                    ");
-		sql.append("         from m_address a1, m_address a2           ");
-		sql.append("         where replace(a1.address,' ','') = ?  ");
-		sql.append("         and a1.code = a2.code  ");
-		sql.append("         )  ");
-		sql.append("   or replace(s.delivery_area4,' ','') IN (  ");
-		sql.append("         select replace(a2.address,' ','')                    ");
-		sql.append("         from m_address a1, m_address a2           ");
-		sql.append("         where replace(a1.address,' ','') = ?  ");
-		sql.append("         and a1.code = a2.code  ");
-		sql.append("         )  ");
-		sql.append("   or replace(s.delivery_area5,' ','') IN (  ");
-		sql.append("         select replace(a2.address,' ','')                    ");
-		sql.append("         from m_address a1, m_address a2           ");
-		sql.append("         where replace(a1.address,' ','') = ?  ");
-		sql.append("         and a1.code = a2.code  ");
-		sql.append("         ))   ");
+		sql.append("select s.store_no, category, store_name, image ");
+		sql.append("  from m_store s, m_delivery_area d            ");
+		sql.append(" where category = ?                           ");
+		sql.append("   and  s.store_no = d.store_no               ");
+		sql.append("   and  (replace(d.delivery_area,' ','') IN ( ");
+		sql.append("       select replace(a2.address,' ','')     ");
+		sql.append("       from m_address a1, m_address a2       ");
+		sql.append("       where replace(a1.address,' ','') = ?  ");
+		sql.append("       and a1.code = a2.code                 ");
+		sql.append("       )                                     ");
+		sql.append(")                                            ");
 		
 		try (
 			Connection conn = new ConnectionFactory().getConnection();
@@ -122,10 +100,6 @@ public class StoreDAO {
 			int loc = 1;
 			
 			pstmt.setString(loc++, category);
-			pstmt.setString(loc++, address);
-			pstmt.setString(loc++, address);
-			pstmt.setString(loc++, address);
-			pstmt.setString(loc++, address);
 			pstmt.setString(loc++, address);
 			
 			ResultSet rs = pstmt.executeQuery();
@@ -203,6 +177,7 @@ public class StoreDAO {
 		
 		return list;
 	}
+	
 	public List<MenuVO> detailSelectMenu(String storeNo){
 		
 		List<MenuVO> list  = new ArrayList<>();
@@ -414,6 +389,25 @@ public class StoreDAO {
 		}
 		
 		
+	}
+	
+	public void deleteReview(int reviewNo) {
+		StringBuilder sql = new StringBuilder(); 
+		
+		sql.append("delete from m_review where review_no = ?");
+		
+		try (
+				Connection conn = new ConnectionFactory().getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+			){	
+				
+				pstmt.setInt(1, reviewNo);
+				
+				pstmt.executeUpdate();
+				
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 
