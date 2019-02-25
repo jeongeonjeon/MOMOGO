@@ -146,7 +146,7 @@ $(document).ready(function(){
 			$(this).addClass("active");
 			$(".tab_content").hide();
 			var activeTab = $(this).find("a").attr("href");
-			$(activeTab).fadeIn();
+			$(activeTab).show();
 		}
 	});
 })
