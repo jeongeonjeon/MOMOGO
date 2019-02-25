@@ -69,7 +69,6 @@ public class LoginFormProcessController implements Controller {
          ceoSignUpVO.setId(id);
          ceoSignUpVO.setPassword(password);
          
-         
          CeoSignUpDAO dao = new CeoSignUpDAO();
          CeoSignUpVO userVO = dao.login(ceoSignUpVO);
          

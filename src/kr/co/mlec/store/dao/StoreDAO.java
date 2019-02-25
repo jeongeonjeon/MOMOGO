@@ -203,6 +203,7 @@ public class StoreDAO {
 		
 		return list;
 	}
+	
 	public List<MenuVO> detailSelectMenu(String storeNo){
 		
 		List<MenuVO> list  = new ArrayList<>();
@@ -414,6 +415,25 @@ public class StoreDAO {
 		}
 		
 		
+	}
+	
+	public void deleteReview(int reviewNo) {
+		StringBuilder sql = new StringBuilder(); 
+		
+		sql.append("delete from m_review where review_no = ?");
+		
+		try (
+				Connection conn = new ConnectionFactory().getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+			){	
+				
+				pstmt.setInt(1, reviewNo);
+				
+				pstmt.executeUpdate();
+				
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 

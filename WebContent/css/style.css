@@ -2194,6 +2194,17 @@ footer .copy {
  	
  }
  
+.delete_reply {
+ 	font-size: 12px; 
+ 	background: transparent;
+ 	color:#777;
+}
+
+.update_reply {
+	font-size: 12px; 
+ 	background: transparent;
+ 	color:#777;
+} 
  
  
 .detailStore_page .tab_content .reply_textarea {
