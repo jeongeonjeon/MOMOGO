@@ -2426,6 +2426,7 @@ footer .copy {
 	text-align: center;
 }
 
+
 .detailStore_page .order_wrap .cart .content {
 	padding: 10px 15px;
     background-color: #fff;
@@ -2443,30 +2444,40 @@ footer .copy {
 }
 
 .detailStore_page .order_wrap .cart .price_wrap .delete {
-    background: url(../img/sprite-icon.png) no-repeat -228px -32px;
-    background-size: 281px;
-    width: 22px;
-    height: 21px;
-    border: none;
+    width: 25px;
+    height: 23px;
+    border: 1px solid #999;
     float: left;
+    background-color: #FFF;
+    color : #999; 
 }
 .order_contents cart p.food_name{
-	    font-size: 25px;
+	font-size: 25px;
     position: relative;
     top: 20px;
     font-weight: bolder;
     left: 15px;
 }
-
+.detailStore_page .order_wrap .cart .row {
+	float: right;
+    position: relative;
+    right: 25px;
+}
 .detailStore_page .order_wrap .cart .price_wrap .price {
     float: right;
     position: relative;
+    top: -5px;
     font-size: 20px;
     margin-left: 8px;
     font-weight: bold;
     display: block;
-    bottom: 20px;
-    right: 10px;
+}
+
+.detailStore_page .order_wrap .form-control.text-center{
+	background-color:#FFF;
+	width: 25px;
+	height: 23px;
+	padding:0;
 }
 
 .detailStore_page .order_wrap .cart .price_wrap .amount_wrap {
@@ -2479,14 +2490,16 @@ footer .copy {
 	margin: 0 4px;
 }
 
-.detailStore_page .order_wrap .cart .price_wrap .amount_wrap .box {
+.detailStore_page .order_wrap .cart .btn.btn-default {
+	position: relative;
+    top: -1px;
 	border: 1px solid #dc1400;
-	width: 22px;
-	height: 21px;
-	background-color: #fff;
-	color: #dc1400;
-	text-align: center;
-	outline: none;
+    border-radius: 0;
+    width: 25px;
+    height: 23px;
+    line-height: 20px;
+    color: #dc1400;
+    padding: 0 0 2px 0;
 }
 
 .detailStore_page .order_wrap .cart .price_wrap .amount_wrap .num {
