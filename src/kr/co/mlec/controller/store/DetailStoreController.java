@@ -55,22 +55,15 @@ public class DetailStoreController implements Controller {
 		}
 		
 		if(type.equals("order")) {
-			String storeNum = request.getParameter("storeNum");
-			String foodName = request.getParameter("foodName");
-			String price = request.getParameter("price");
-			
 			return "/jsp/store/ajax.json";
 		}
-		
 		
 		if(type.equals("delete")) {
 			
 			String reviewNo = request.getParameter("reviewNo");
 			
 			dao.deleteReview(Integer.parseInt(reviewNo));
-			
-			return "/jsp/store/ajax.josn";
-			
+			return "/jsp/store/ajax.json";
 		}
 		
 		
