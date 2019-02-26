@@ -1066,6 +1066,7 @@ footer .copy {
     background: url(/MOMOGO/img/down_arrow.png) no-repeat;
     background-position: 415px center;
     background-size: 22px;
+    line-height: 18px;
 }
 
 .myPage_page .item_wrap .left .add_category_btn {
@@ -1077,12 +1078,45 @@ footer .copy {
     border-radius: 3px;
 }
 
+.myPage_page .item_wrap .category_delete_wrap {
+	width: 100%;
+	margin-top: 16px;
+}
+
+.myPage_page .item_wrap .category_delete_wrap button {
+    width: 62px;
+    height: 30px;
+    font-size: 14px;
+    background-color: #41d5aa;
+    padding: 3px 15px;
+    color: #fff;
+    border-radius: 3px;
+    font-weight: normal;
+    outline: none;
+}
+
+.myPage_page .item_wrap .category_delete_wrap button:hover {
+    background-color: #fff;
+    color: #41d5aa;
+    border: 2px solid #41d5aa;
+}
+
+.myPage_page .item_wrap .category_delete_wrap select {
+   	width: 443px;
+    padding: 4px 0 4px 7px;
+    border-radius: 3px;
+    background: url(/MOMOGO/img/down_arrow.png) no-repeat;
+    background-color: #fff;
+    background-position: 413px center;
+    background-size: 20px;
+}
+
 .myPage_page .item_wrap .right {
 	float: right;
 }
 
 .myPage_page .item_wrap .item {
-   width: 450px;
+   width: 510px;
    height: 265.6px;
    margin: 16px 0 0;
    padding: 29px 29px 0;
@@ -1091,8 +1125,12 @@ footer .copy {
    border-radius: 2px;
 }
 
+.myPage_page .item_wrap .profile_item {
+   height: 310px;
+}
+
 .myPage_page .item_wrap .menu_add_item {
-	height: 224px;
+	height: 268px;
 	margin: 58px 0 0;
 }
 
@@ -1198,6 +1236,15 @@ footer .copy {
    line-height: 23px;
 }
 
+.myPage_page .item_wrap .item .info_wrap select {
+    width: 168px;
+    border: 1px solid #d9d8d8;
+    padding-left: 7px;
+    background: url(/MOMOGO/img/down_arrow.png) no-repeat; 
+    background-position: 144px center;
+    background-size: 16px;
+}
+
 .myPage_page .item_wrap .item .info_wrap .txt {
    float: left;
    margin-left: 7px;
@@ -1209,8 +1256,7 @@ footer .copy {
    border: 1px solid #dadada;
    background-color: #fff;
    box-sizing: border-box;
-   padding: 2px 7px;
-   font-size: 15px;
+   padding: 0 7px;
 }
 
 .myPage_page .item_wrap .item .modify_btn {
@@ -1278,10 +1324,19 @@ footer .copy {
    line-height: 33px;
    font-size: 12px;
    outline: none;
+   background-color: #41d5aa;
+   color: #fff;
+   border: none;
+}
+
+.myPage_page .item_wrap .modify_content .btn_wrap button:hover {
+	background-color: #fff;
+   	color: #41d5aa;
+  	border: 2px solid #41d5aa;
 }
 
 .myPage_page .item_wrap .order_item {
-	height: 890px;
+	height: 829px;
 	overflow-y : auto;
 }
 
@@ -1318,6 +1373,7 @@ footer .copy {
 	display: none;
     float: right;	
     height: 29px;
+    margin-top: -8px;
 }
 
 .myPage_page .item_wrap .order_item .content_header .status_view.on {
@@ -1325,11 +1381,12 @@ footer .copy {
 }
 
 .myPage_page .item_wrap .order_item .content_header .change_btn {
-    padding: 5px 14px;
+    padding: 2px 14px;
     margin-right: -10px;
     background-color: #41d5aa;
     color: #fff;
     border-radius: 3px;
+    font-size: 13px;
 }
 
 .myPage_page .item_wrap .order_item .content_header .status {
@@ -1340,7 +1397,6 @@ footer .copy {
 }
 
 .myPage_page .item_wrap .order_item .content_header .status_view .status {
-    
     margin: 3px 10px 0 0;
     float: left;
 }
@@ -1348,7 +1404,7 @@ footer .copy {
 .myPage_page .item_wrap .order_item .content_header .status_change {
 	float: right;
 	display: none;
-	height: 29px;
+	margin-top: -5px;
 }
 
 .myPage_page .item_wrap .order_item .content_header .status_change.on {
@@ -1356,10 +1412,11 @@ footer .copy {
 }
 
 .myPage_page .item_wrap .order_item .content_header .status_change select {
-    padding: 4px 30px 4px 7px;
+    padding: 1px 30px 1px 7px;
+    font-size: 13px;
     border-radius: 3px;
-    background: url(../img/down_arrow.png) no-repeat 164px center;
-    background-size: 18px;
+    background: url(../img/down_arrow.png) no-repeat 162px center;
+    background-size: 16px;
     outline: none;
 }
 .myPage_page .item_wrap .order_item .content_header .new {
@@ -1373,8 +1430,7 @@ footer .copy {
 }
 
 .myPage_page .item_wrap .order_item .new .date {
-	margin-top: 5px;
-	text-indent: 65px;
+	text-indent: 53px;
 }
 
 .myPage_page .item_wrap .order_item .content {
@@ -1539,12 +1595,21 @@ footer .copy {
 }
 
 .myPage_page .menu_add_wrap .food_info .food {
+	position: relative;
     width: 108px;
-    height: 108px;
+    height: 109px;
     border: 1px solid #ddd;
     float: left;
     cursor: pointer;
     overflow: hidden;
+}
+
+.myPage_page .menu_add_wrap .food_info .food #foodPic {
+    position: absolute;
+    left: 50%;
+    max-height: 100%;
+    max-width: none;
+    transform: translateX(-50%);
 }
 
 .myPage_page .menu_add_wrap .food_info .food .food_pic {
@@ -1610,11 +1675,12 @@ footer .copy {
 }
 
 .myPage_page .menu_add_wrap .foodInput_wrap .input_box input {
-	width: 100%;
+    width: 100%;
     height: 100%;
     border: 1px solid #d5d5d5;
     padding: 7px 5px;
-    margin-bottom: 7px;
+    margin-bottom: 4px;
+    font-size: 13px;
 }
 
 .myPage_page .item_wrap .store_item .content {
@@ -1664,6 +1730,7 @@ footer .copy {
     background-color: #41d5aa;
     color: #fff;
     border: none;
+    margin-top: 20px;
 }
 
 .myPage_page .menu_add_wrap .food_btn:hover {
@@ -1705,8 +1772,9 @@ footer .copy {
 .myPage_page .menu_category .category .category_modify input {
     border: none;
     width: calc( 100% - 175px);
-    padding: 10px;
-    margin: 5px 0 0 47px;
+    padding: 5px 10px;
+    margin: 10px 0 0 47px;
+    border-radius: 3px;
 }
 
 .myPage_page .menu_category .category .name_confirm {
@@ -1736,7 +1804,7 @@ footer .copy {
     background-color: #41d5aa;
     padding: 5px 15px;
     color: #fff;
-    top: 11px;
+    top: 9px;
     border-radius: 3px;
 }
 
@@ -1811,14 +1879,27 @@ footer .copy {
     background: url(../img/item01.jpg) no-repeat center center;
     background-size: cover;
     vertical-align: middle;
-    font-size: 23px;
-    line-height: 21px;
-    text-indent: 2px;
-    color: #fff;
-    text-shadow: 1px 1px 1px #7e7d7d;
 }
 
-.myPage_page .category .popular1 .img {
+.myPage_page .category .depth_wrap button {
+    color: #fff;
+    outline: none;
+    font-size: 23px;
+    line-height: 23px;
+    background-color: transparent;
+    text-shadow: 1px 1px 1px #7e7d7d;
+    margin-left: 3px;
+}
+
+.myPage_page .category .depth_wrap .menu_delete_btn {
+	color: #41d5aa;
+	float: right;
+    font-weight: bold;
+    margin: 0px 6px;
+    font-size: 26px;
+}
+
+.myPage_page .category .popular1 button {
 	color: #41d5aa;
 }
 

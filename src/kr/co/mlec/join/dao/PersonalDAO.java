@@ -86,7 +86,7 @@ public class PersonalDAO {
 		
 		StringBuilder sql = new StringBuilder();
 		sql.append("select id, password, type");
-		sql.append("  from m_personal, ");
+		sql.append("  from m_personal ");
 		sql.append(" where id = ? and password = ? ");
 		
 		try(
@@ -276,9 +276,11 @@ public class PersonalDAO {
 	 * 회원정보수정
 	 */
 	
-	public void updateInfo(PersonalVO updateInfo) {
+	public int updateInfo(PersonalVO updateInfo) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		
+		int updateResult = 0;
 		
 		try{
 			conn = new ConnectionFactory().getConnection();
@@ -297,14 +299,15 @@ public class PersonalDAO {
 			pstmt.setString(loc++, updateInfo.getEmail());
 			pstmt.setString(loc++, updateInfo.getId());
 			
-			
-			pstmt.executeUpdate();
+			updateResult = pstmt.executeUpdate();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			JDBCClose.close(pstmt, conn);
 		}
+		
+		return updateResult;
 	}
 	
 	/**

@@ -171,7 +171,6 @@
       
    }
    
-   
    function callback3(data){
       var replyAppend = '';
             
@@ -232,9 +231,6 @@
       
       return true;
    }
-   
-   
-
 </script>
 </head>
 <body>

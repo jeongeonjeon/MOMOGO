@@ -130,6 +130,24 @@
 		alert(msg);
 		what ="";
 	}
+	
+	/*음식사진 첨부*/
+	$('.menu_add_wrap .food').bind("click" , function () {
+	        $('.menu_add_wrap #foodPicAdd').click();
+	 });
+	 
+	  function readURL(input) {
+	            if (input.files && input.files[0]) {
+	                var reader = new FileReader();
+
+	                reader.onload = function (e) {
+	                    $('.menu_add_wrap #foodPic')
+	            .attr('src', e.target.result);
+	        };
+
+	        reader.readAsDataURL(input.files[0]);
+	    }
+	}
 </script>
 </head>
 <body>
@@ -244,11 +262,16 @@
 	                        <input class="food_btn basic_btn" id="menuAddBtn" type="button" value="완료">
 						</div>
 					</div>
+					<div class="category_delete_wrap">
+						<select>
+							<option selected>카테고리를 선택하세요</option>
+						</select>
+						<button type="button"  class="basic_btn" id="deleteCategoryBtn">삭제</button>
+					</div>
 					<div class="menu_category_wrap">
 						<ul class="menu_category">
-						
 							<li class="category">
-								<!-- <p class="menu_tit popular">인기메뉴</p>
+								<p class="menu_tit popular">인기메뉴</p>
 								<div class="arrow_bg"></div>
 								<ul class="depth_wrap depth_wrap1 on popular1">
 									<li>
@@ -257,12 +280,20 @@
 											<p class="detail">맛있는피자</p>
 											<p class="price">15,000원</p>
 										</div>
-										<div class="img">★</div>
-									</li> -->
+										<div class="img">
+											<button type="button" class="popular_btn">
+												★
+											</button>
+											<button type="button" class="menu_delete_btn">
+												x
+											</button>
+										</div>
+									</li>
+									<%-- 
 									<c:forEach items="${ menuNames }" var="menuName">
-										<p class="menu_tit popular">${ menuName }</p>
+										<p class="menu_tit">${ menuName }</p>
 										<div class="arrow_bg"></div>
-										<ul class="depth_wrap depth_wrap1 on popular1">
+										<ul class="depth_wrap depth_wrap1 on">
 											<c:forEach items="${ menuList }" var="pmenu">
 												<c:if test="${ pmenu.type eq menuName }">
 													<li>
@@ -277,21 +308,36 @@
 											</c:forEach>
 										</ul>	
 									</c:forEach>
+									 --%>
 								</ul>
-							<!-- </li> -->
-							
-							<%-- <li class="category">
+							</li>
+							<li class="category">
 								<div class="category_default on">
 									<p class="menu_tit">메뉴1</p>
-									<button type="button" class="name_change">이름변경</button>
+									<button type="button" class="name_change" id="nameChangeBtn">이름변경</button>
 									<div class="arrow_bg"></div>
 								</div>
 								<div class="category_modify">
-									<input type="text" placeholder="변경한 이름을 입력하세요.">
-									<button type="button" class="name_confirm">확인</button>
+									<input type="text" placeholder="변경할 이름을 입력하세요.">
+									<button type="button" class="name_confirm" id="nameConfirmBtn">확인</button>
 									<div class="arrow_bg"></div>
 								</div>
 								<ul class="depth_wrap depth_wrap1 on">
+									<li>
+										<div class="txt_wrap">
+											<p class="food_name">피자</p>
+											<p class="detail">맛있는피자</p>
+											<p class="price">15,000원</p>
+										</div>
+										<div class="img">
+											<button type="button" class="popular_btn">
+												★
+											</button>
+											<button type="button" class="menu_delete_btn">
+												x
+											</button>
+										</div>
+									</li>
 									<c:forEach items="${ menuList }" var="menu">
 										<c:if test="${ 'P' eq pmenu.type }">
 											<li>
@@ -307,38 +353,11 @@
 								</ul>
 							</li>
 							
-							<li class="category">
-								<div class="category_default on">
-									<p class="menu_tit">메뉴2</p>
-									<button type="button" class="name_change">이름변경</button>
-									<div class="arrow_bg"></div>
-								</div>
-								<div class="category_modify">
-									<input type="text" placeholder="변경한 이름을 입력하세요.">
-									<button type="button" class="name_confirm">확인</button>
-									<div class="arrow_bg"></div>
-								</div>
-								<ul class="depth_wrap depth_wrap1 on">
-									<c:forEach items="${ requestScope.menuList }" var="pmenu">
-										<c:if test="${ 'P' eq pmenu.type }">
-											<li>
-												<div class="txt_wrap">
-													<p class="food_name">${ pmenu.menuName }</p>
-													<p class="detail">${ pmenu.detail }</p>
-													<p class="price">${ pmenu.price }</p>
-												</div>
-												<div class="img"></div>
-											</li>
-										</c:if>
-									</c:forEach>
-								</ul>
-							</li> --%>
-							
 						</ul>
 					</div>
 				</div>
 				<div class="right">
-					<div class="item">
+					<div class="item profile_item">
 						<div class="item_header">
 							<h4 class="tit">프로필</h4>
 							<button type="button"></button>

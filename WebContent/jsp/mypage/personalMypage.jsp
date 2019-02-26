@@ -6,47 +6,46 @@
 <head>
 <jsp:include page="/jsp/include/head.jsp" />
 <script>
-$(document).ready(function() {
-	   
-	   $('.basic_btn').click(function() {
-	      var name = $('#name').val();
-	      var password = $("#password").val();
-	      var phone = $("#phone").val();
-	      var email = $("#email").val();
-	     
-	      $.ajax({
-	         url : "<%= request.getContextPath() %>/mypage/personalMypage.do",
-	         type : "post",
-	         dataType:"json",
-	         data : {
-        	 	"name" : name,
-	            "password" : password,
-	            "phone" : phone,
-	            "email" : email
-	         }, 
-	         success : callback
-	      });
-	   });
-	});
-	function callback(data) {
-		$('#name').text('${name}');
-		$('#password').text('${password}');
-		$('#phone').text('${phone}');
-		$('#email').text('${email}');
+	
+function updatePersonalProfile(){
 		
-		$("#completeBtn_profile").click(function(){   
-			$(this).parents().siblings(".basic_content").addClass("on");
-		    $(this).parents().siblings(".basic_content").children("button").show();
-		    $(this).parents(".modify_content").removeClass("on");
-		    $(this).parent().hide();
-	   })
-	   
-	   $("#completeBtn_contact").click(function(){   
-			$(this).parents().siblings(".basic_content").addClass("on");
-		    $(this).parents().siblings(".basic_content").children("button").show();
-		    $(this).parents(".modify_content").removeClass("on");
-		    $(this).parent().hide();
-	   })
+		var re = /^[a-zA-Z0-9]{4,12}$/;
+		var re2 =/^.*(?=.{8,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
+		var re3 = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+		var re5 = /^\d{2,3}\d{3,4}\d{4}$/;
+		
+		if($('input[name=name]').val()==""){
+			alert("이름을 입력해주세요");
+			$('input[name=name]').focus();
+			return false;
+		}
+		
+		if($('input[name=password]').val()==""){
+			alert('비밀번호를 확인해주세요');
+			$('input[name=password]').focus();
+			return false;
+		}else if(!check(re2,$('input[name=password]').val(),"비밀번호는 공백없이 4-20자")){
+			$('input[name=password]').focus();
+			return false;
+		}
+		
+		if($('input[name=phone]').val()==""){
+			alert("전화번호를 입력하세요!");
+			$('input[name=phone]').focus(); 
+			return false;
+		}else if(!check(re5,$('input[name=phone]').val(),"올바른 전화번호가 아닙니다")){
+			return false;
+		}
+		
+		if ($('input[name=email]').val() == "") {
+			alert("이메일을 입력하세요!");
+			$('input[name=email]').focus(); 
+			return false;
+		}else if(!check(re3,$('input[name=email]').val(),"올바른 이메일형식이 아닙니다")){
+			$('input[name=email]').focus(); 
+			return false;
+		}
+		return true;
 	}
 </script>
 </head>
@@ -175,7 +174,7 @@ $(document).ready(function() {
 						</div>
 					</div>
 				</div>
-				<div class="item">
+				<div class="item profile_item">
 					<div class="item_header">
 						<h4 class="tit">프로필</h4>
 						<button type="button"></button>
@@ -190,15 +189,23 @@ $(document).ready(function() {
 						<div class="info_wrap">
 							<div class="info">
 								<p class="tit">아이디</p>
-								<p class="txt">${ personal.id }</p>
+								<p class="txt">${ personalVO.id }</p>
 							</div>
 							<div class="info">
 								<p class="tit">이름</p>
-								<p class="txt">${ personal.name }</p>
+								<p class="txt">${ personalVO.name }</p>
 							</div>
 							<div class="info">
 								<p class="tit">비밀번호</p>
-								<p class="txt">${ personal.pass }</p>
+								<p class="txt">${ personalVO.pass }</p>
+							</div>
+							<div class="info">
+								<p class="tit">전화번호</p>
+								<p class="txt">${ personalVO.phone }</p>
+							</div>
+							<div class="info">
+								<p class="tit">이메일주소</p>
+								<p class="txt">${ personalVO.email }</p>
 							</div>
 						</div>
 						<button class="basic_btn modify_btn" type="button">수정</button>
@@ -208,65 +215,32 @@ $(document).ready(function() {
 							<img src="/MOMOGO/img/default.png" alt="">
 						</div>
 						<div class="info_wrap">
-							<form method="post" action="#">
-								<input type="hidden" name="id" value="${ personal.id }">
+							<form method="post" action="<%= request.getContextPath() %>/update/personalProfileUpdate.do" onsubmit="return updatePersonalProfile()">
+								<input type="hidden" name="id" value="${ personalVO.id }">
 								<div class="info">
 									<p class="tit">아이디</p>
-									<p class="txt">${ personal.id }</p>
+									<p class="txt">${ personalVO.id }</p>
 								</div>
 								<div class="info">
 									<p class="tit">이름</p>
-									<input type="text" id="name" name="name" value="${ personal.name }">
+									<input type="text" id="name" name="name" value="${ personalVO.name }">
 								</div>
 								<div class="info">
 									<p class="tit">비밀번호</p>
 									<input id="password" type="password" name="password"
-										value="${ personal.pass }">
+										value="${ personalVO.pass }">
 								</div>
-								<div class="btn_wrap">
-									<button type="reset" class="basic_btn cancel_btn">취소</button>
-									<button id="completeBtn_profile" type="submit" class="basic_btn complete_btn">완료</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="item m2_item">
-					<div class="item_header">
-						<h4 class="tit">연락처 설정</h4>
-						<button type="button"></button>
-					</div>
-					<p class="contxt">
-						<span>'나'의 연락처</span> 정보입니다.<br> 수정 화면에서 핸드폰번호와 이메일주소를 변경하세요.
-					</p>
-					<div class="item_content basic_content on">
-						<div class="info_wrap">
-							<div class="info">
-								<p class="tit">전화번호</p>
-								<p class="txt">${ personal.phone }</p>
-							</div>
-							<div class="info">
-								<p class="tit">이메일주소</p>
-								<p class="txt">${ personal.email }</p>
-							</div>
-						</div>
-						<button class="basic_btn modify_btn" type="button">수정</button>
-					</div>
-					<div class="item_content modify_content">
-						<div class="info_wrap">
-							<form method="post" action="#">
-								<input type="hidden" name="id" value="${ personal.id }">
 								<div class="info">
 									<p class="tit">전화번호</p>
-									<input type="text" id="phone" name="phone" value="${ personal.phone }">
+									<input type="text" id="phone" name="phone" value="${ personalVO.phone }">
 								</div>
 								<div class="info mail">
 									<p class="tit">이메일주소</p>
-									<input type="text" id="email" name="emailId" value="${ personal.email }">
+									<input type="text" id="email" name="emailId" value="${ personalVO.email }">
 								</div>
 								<div class="btn_wrap">
 									<button type="reset" class="basic_btn cancel_btn">취소</button>
-									<button id="completeBtn_contact" type="submit" class="basic_btn complete_btn">완료</button>
+									<button type="submit" class="basic_btn complete_btn">완료</button>
 								</div>
 							</form>
 						</div>
