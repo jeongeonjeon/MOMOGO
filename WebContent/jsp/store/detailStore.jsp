@@ -9,53 +9,69 @@
 <jsp:include page="/jsp/include/head.jsp" />
 <script>
    var totalPrice = 0;
+   var eachPrice = 0;
    var foodName='';
+   var orderFoodName = '';
    var price='';
+   var cnt = 1;
    var parentNo='';
    var reviewNo = ''; 
 
    $(document).ready(function(){ 
-      
-//       console.log(ceoVO)
-      
-      $('.depth_wrap li, .swiper-wrapper li').click(function(){
-         foodName = $(this).find('.food_name').text();
-         price = $(this).find('.price').text();
-         totalPrice += Number( price );
-         
-         var order = { "foodName" : foodName ,
-                      "price" : price ,
-                     "storeNum" : '${param.storeNo}',
-                     "type" :"order"
-                   };
-         
-         
-         $.ajax({
-            url : '<%=request.getContextPath()%>/store/detailStore.do',
-            dataType    :   "json",
-              type        :   "post",
-              async       :   false, //동기: false, 비동기: ture
-            data : order,
-            success : callback2
-         });
-      });
-
-
+            
+	   $('.depth_wrap li, .swiper-wrapper li').click(function(){
+		   
+			foodName = $(this).find('.food_name').text();
+			price = $(this).find('.price').text();
+			totalPrice += Number( price );
+			
+			
+			let length = $('.myOrder_wrap').find('.food_name').length;
+			for(var i=0;i<length;i++){
+				
+				orderFoodName = $('.myOrder_wrap').find('.food_name').eq(i).text();
+				if(orderFoodName == foodName)
+					break;
+				
+			}
+			
+			if( i == length){
+				var order = { "foodName" : foodName ,
+					          "price" : price ,
+						      "storeNum" : '${param.storeNo}',
+						      "type" :"order"
+						    };
+				$.ajax({
+					url : '<%=request.getContextPath()%>/store/detailStore.do',
+					dataType    :   "text",
+			        type        :   "post",
+			        async       :   false, //동기: false, 비동기: ture
+					data        :   order,
+					success     :   callback2,
+					error : function(request,status,error){
+						alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+					}
+				});
+			}else{
+				let cnt = $('.myOrder_wrap').find('.food_name').eq(i).parent().find('.text-center').val();
+				$('.myOrder_wrap').find('.food_name').eq(i).parent().find('.text-center').val(Number(cnt)+1);
+				$('.sum_box p').text('합계 : ' + numberWithCommas(totalPrice) + '원');
+			}
+		});
+   });
+   
+   $(document).ready(function(){ 
 // 	댓글달기
       
       $('#comment_btn').click(function(){
          
-//       var reviewNo = $(this).parent().parent().attr();
-//       alert(reviewNo);
-         
-<%--          if(${ empty userVO }){
+<%--          if('${ empty userVO }'){
             location.href="<%=request.getContextPath()%>/login/loginForm.do";
          } --%>
-
          
    	   	 if(confirm('댓글은 등록 후 수정이 불가능합니다. 신중하게 입력해주세요.')){
 	         
-	         console.log($('.input').val());
+// 	         console.log($('.input').val());
 	         
 	            
 	          var reply ={  "storeNo" : '${param.storeNo}', 
@@ -171,6 +187,41 @@
       
    }
    
+   function callback2(data){
+       
+       var orderAppend = '';
+       orderAppend +='  <div class="content">';
+       orderAppend +='     <p class="food_name">' + foodName + '</p>';
+       orderAppend +='     <div class="price_wrap">';
+       orderAppend +='        <button type="button" class="delete">X</button>';
+       orderAppend +='        <p class="price">'+numberWithCommas(price)+'</p>';
+       orderAppend +='  		<div class="row">';
+       orderAppend +='  			<div class="col-xs-3 col-xs-offset-3">';
+       orderAppend +='  				<div class="input-group number-spinner">';
+       orderAppend +='  					<span class="input-group-btn">';
+       orderAppend +='  						<button type="button" class="btn btn-default" data-dir="dwn"><span class="glyphicon glyphicon-minus">-</span></button>';
+       orderAppend +='  					</span>';
+       orderAppend +='  					<input type="text" class="form-control text-center" value="1" readonly>';
+       orderAppend +='  					<span class="input-group-btn">';
+       orderAppend +='  						<button  type="button" class="btn btn-default" data-dir="up"><span class="glyphicon glyphicon-plus">+</span></button>';
+       orderAppend +='  					</span>';
+       orderAppend +='  				</div>';
+       orderAppend +='  			</div>';
+       orderAppend +='  		</div>';
+       orderAppend +='     </div>';
+       orderAppend +='  </div>';
+
+       
+       $('.order_contents.cart_empty').css("display","none");
+       
+       $('.sum_box p').text('합계 : ' + numberWithCommas(totalPrice) + '원');
+
+       $('.myOrder_wrap').append(orderAppend);
+       $('.order_wrap').trigger('create');
+       $('.content').trigger('create');
+       $('.order_contents').trigger('create');
+    }
+   
    
    function callback3(data){
       var replyAppend = '';
@@ -189,30 +240,7 @@
       $('[parentNo="'+parentNo+'"]').parent().parent().append(replyAppend);
       $('.reply_textarea').removeClass("on");
    }
-    
-   function callback2(data){
-      
-      var orderAppend = '';
-      orderAppend +='   <div class="content">';
-      orderAppend +='      <p class="food_name">' + foodName + '</p>';
-      orderAppend +='      <div class="price_wrap">';
-      orderAppend +='         <button class="delete"></button>';
-      orderAppend +='         <p class="price">'+price+'원</p>';
-      orderAppend +='      </div>';
-      orderAppend +='   </div>';
-      orderAppend +='   <input type="hidden" name="food_name" value='+foodName+'>';
-      
-      $('.order_contents.cart_empty').css("display","none");
-      
-      $('.sum_box p').text('합계 : ' + numberWithCommas(totalPrice) + '원');
-
-      $('.myOrder_wrap').append(orderAppend);
-      $('.order_wrap').trigger('create');
-      $('.content').trigger('create');
-      $('.order_contents').trigger('create');
-   }
-   
-   
+  
    function numberWithCommas(x) {
        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
    }
@@ -233,7 +261,47 @@
       return true;
    }
    
+   $(document).on('click', '.number-spinner button', function () {    
+		price = $(this).parents('.price_wrap').children('.price').text();
+		price = price.replace(/[^0-9\.]+/g, "");
+		
+		var btn = $(this),
+			oldValue = btn.closest('.number-spinner').find('input').val().trim(),
+			newVal = 0;
+
+		if (btn.attr('data-dir') == 'up') {
+			newVal = parseInt(oldValue) + 1;
+			totalPrice += Number(price);
+		} else {
+			if (oldValue > 1) {
+				newVal = parseInt(oldValue) - 1;
+				totalPrice -= Number(price);
+			} else {
+				newVal = 1;
+				totalPrice -= 0;
+			}
+		}
+		
+		btn.closest('.number-spinner').find('input').val(newVal);
+		$('.sum_box p').text('합계 : ' + numberWithCommas(totalPrice) + '원');
+	});
    
+	$(document).on('click', '.delete', function () {
+		
+		let oriPrice = $(this).parent().find('.price').text();
+		oriPrice = oriPrice.replace(/[^0-9\.]+/g, "");
+		let oriCnt = $(this).parent().find('.text-center').val();
+		
+		totalPrice -= Number(oriPrice) * oriCnt;
+		$('.sum_box p').text('합계 : ' + numberWithCommas(totalPrice) + '원');
+		$(this).parents('.content').remove();
+		
+		if($('.myOrder_wrap').children().length == 0){
+			$('.cart_empty').attr('style','display:block');
+		}
+		
+	});
+
 
 </script>
 </head>
@@ -494,11 +562,6 @@
                   <input type="hidden" name="storeNo" value="${ param.storeNo }">
                   <aside class="order_wrap">
                      <div class="order_header">
-<!--                         <div class="amount_wrap">
-                           <button class="box">-</button>
-                           <p class="num">1</p>
-                           <button class="box">+</button>
-                        </div> -->
                         <p>주문표</p>
                         <button="clear"></button>
                      </div>
@@ -508,25 +571,8 @@
                      <div class="order_contents cart">
 
                         <div class="myOrder_wrap">
-<!--                            <div class="content">
-                              <p class="food_name">치킨</p>
-                              <div class="price_wrap">
-                                 <button class="delete"></button>
-                                 <p class="price">3000원</p>
-                              </div>
-                           </div> -->
-   <!--                      <div class="content">
-                           <p class="food_name">치킨</p>
-                           <div class="price_wrap">
-                              <button class="delete"></button>
-                              <p class="price">3000원</p>
-                              <div class="amount_wrap">
-                                 <button class="box">-</button>
-                                 <p class="num">1</p>
-                                 <button class="box">+</button>
-                              </div>
-                           </div>
--->
+                        	
+							<!-- 주문표 -->
                         </div>
                         <div class="sum_box">
                            <p>합계 : 0원</p>
@@ -537,59 +583,6 @@
                </form>
             </c:forEach>
          </div>
-         <form method="post" action="#">
-            <aside class="order_wrap">
-               <div class="order_header">
-                  <p>주문표</p>
-                  <button class="clear"></button>
-               </div>
-               <div class="order_contents cart_empty">
-                  <p>주문표에 담긴 메뉴가 없습니다</p>
-               </div>
-               <div class="order_contents cart">
-                  <div class="content">
-                     <p class="food_name">치킨</p>
-                     <div class="price_wrap">
-                        <button class="delete"></button>
-                        <p class="price">3000원</p>
-                        <div class="amount_wrap">
-                           <button class="box">-</button>
-                           <p class="num">1</p>
-                           <button class="box">+</button>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="content">
-                     <p class="food_name">치킨</p>
-                     <div class="price_wrap">
-                        <button class="delete"></button>
-                        <p class="price">3000원</p>
-                        <div class="amount_wrap">
-                           <button class="box">-</button>
-                           <p class="num">1</p>
-                           <button class="box">+</button>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="content">
-                     <p class="food_name">치킨</p>
-                     <div class="price_wrap">
-                        <button class="delete"></button>
-                        <p class="price">3000원</p>
-                        <div class="amount_wrap">
-                           <button class="box">-</button>
-                           <p class="num">1</p>
-                           <button class="box">+</button>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="sum_box">
-                     <p>합계 : 9,000원</p>
-                  </div>
-               </div>
-               <input class="basic_btn order_btn" type="submit" value="주문하기">
-            </aside>
-         </form>
       </div>
    </div>
    <footer>
