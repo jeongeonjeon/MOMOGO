@@ -15,7 +15,7 @@ $(document).ready(function() {
 			latitude = position.coords.latitude;
 			longitude = position.coords.longitude;
 			
-			console.log("currentFn : "+latitude+","+ longitude);
+//			console.log("currentFn : "+latitude+","+ longitude);
 
 			geocoder = new daum.maps.services.Geocoder();
 

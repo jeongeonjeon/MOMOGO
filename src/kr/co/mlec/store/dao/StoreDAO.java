@@ -236,6 +236,7 @@ public class StoreDAO {
 		sql.append("  from m_store s, m_review r ");
 		sql.append(" where s.store_no = r.store_no ");
 		sql.append("   and s.store_no = ? ");
+		sql.append(" order by write_date desc ");
 	
 		try (
 				Connection conn = new ConnectionFactory().getConnection();

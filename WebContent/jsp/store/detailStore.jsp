@@ -55,7 +55,7 @@
 			}else{
 				let cnt = $('.myOrder_wrap').find('.food_name').eq(i).parent().find('.text-center').val();
 				$('.myOrder_wrap').find('.food_name').eq(i).parent().find('.text-center').val(Number(cnt)+1);
-				$('.sum_box p').text('합계 : ' + numberWithCommas(totalPrice) + '원');
+				$('.sum_box .total').text(numberWithCommas(totalPrice) + '원');
 			}
 		});
    });
@@ -214,7 +214,7 @@
        
        $('.order_contents.cart_empty').css("display","none");
        
-       $('.sum_box p').text('합계 : ' + numberWithCommas(totalPrice) + '원');
+       $('.sum_box .total').text(numberWithCommas(totalPrice) + '원');
 
        $('.myOrder_wrap').append(orderAppend);
        $('.order_wrap').trigger('create');
@@ -283,7 +283,7 @@
 		}
 		
 		btn.closest('.number-spinner').find('input').val(newVal);
-		$('.sum_box p').text('합계 : ' + numberWithCommas(totalPrice) + '원');
+		$('.sum_box .total').text(numberWithCommas(totalPrice) + '원');
 	});
    
 	$(document).on('click', '.delete', function () {
@@ -293,7 +293,7 @@
 		let oriCnt = $(this).parent().find('.text-center').val();
 		
 		totalPrice -= Number(oriPrice) * oriCnt;
-		$('.sum_box p').text('합계 : ' + numberWithCommas(totalPrice) + '원');
+		$('.sum_box .total').text(numberWithCommas(totalPrice) + '원');
 		$(this).parents('.content').remove();
 		
 		if($('.myOrder_wrap').children().length == 0){
@@ -575,7 +575,8 @@
 							<!-- 주문표 -->
                         </div>
                         <div class="sum_box">
-                           <p>합계 : 0원</p>
+                           <p>합계 </p>
+                           <p class="total"> 0원</p>
                         </div>
                      </div>
                      <input class="basic_btn order_btn" type="submit" value="주문하기">
